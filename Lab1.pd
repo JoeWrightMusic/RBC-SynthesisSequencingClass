@@ -1,0 +1,51 @@
+#N canvas 227 25 742 604 10;
+#X obj 182 95 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 258 94 GUI Object (Graphical User Interface) BANG = Message
+that tells another object to do something else;
+#X obj 182 145 random 12;
+#X obj 182 222 + 60;
+#X text 258 221 Maths Object: In this case \, any number it adds 60
+;
+#X floatatom 182 270 5 0 0 0 - - -;
+#X obj 182 315 mtof;
+#X floatatom 182 375 5 0 0 0 - - -;
+#X obj 182 421 osc~;
+#X obj 182 538 dac~;
+#X obj 182 491 *~ 0.1;
+#X text 257 144 Generate random intergers between 0 11 (counting 12
+steps from 0);
+#X text 258 269 Number box: GUI object that allows us to see the result
+;
+#X text 258 314 Midi to Frequency Object: Allows us to treat the incoming
+numbers as MIDI note numbers and then convert them to the relative
+frequency in cycles per second (Hz);
+#X text 258 374 Number Box: Displays the output of the mtof object.
+;
+#X text 64 94 ctl-shift-B >;
+#X obj 18 166, f 5;
+#X text 100 269 ctl-3 >;
+#X text 258 420 Sine tone Oscillator: generate a sine tone at a frequency
+of the incoming message. Note that the tilde (~) character tells us
+this object runs at audio rate;
+#X text 259 491 Audio Rate Maths Object: multiplies incoming signals
+by 0.1;
+#X text 261 537 Digital Analog Converter: This allows us to send what
+ever we have made to our loud speakers.;
+#X obj 54 62 cnv 15 100 25 empty empty Shortcuts 20 12 0 14 -228856
+-66577 0;
+#X obj 254 62 cnv 15 140 25 empty empty Descriptions 20 12 0 14 -228856
+-66577 0;
+#X obj 54 13 cnv 15 400 40 empty empty Lab_1_-_Getting_Started_With_PD
+20 12 0 20 -233017 -66577 0;
+#X text 15 144 create a 'blank' object:;
+#X text 16 185 ctl-1;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 10 0 9 0;
+#X connect 10 0 9 1;
