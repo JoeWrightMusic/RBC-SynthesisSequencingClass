@@ -1,29 +1,31 @@
-#N canvas 177 76 1047 529 10;
-#N canvas 33 25 455 320 noise 0;
+#N canvas 332 37 970 549 10;
+#N canvas 33 25 475 338 noise 0;
 #X obj 15 70 noise~;
 #X obj 15 125 *~ 0.1;
-#X obj 15 288 dac~;
+#X obj 15 308 dac~;
 #X obj 30 188 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 15 220 *~;
-#X text 65 68 White Noise: random numbers at signal rate in the range
+#X text 95 68 White Noise: random numbers at signal rate in the range
 -1 to 1;
-#X text 65 121 Here we use *~ to multiply the audio signal \, this
+#X text 95 121 Here we use *~ to multiply the audio signal \, this
 acts as a volume control;
-#X text 65 184 Toggle UI element: a toggle switch that spits out a
+#X text 95 184 Toggle UI element: a toggle switch that spits out a
 1 (on) or a 0 (off);
-#X text 65 216 Here the *~ object is again used to control volume \,
+#X text 95 216 Here the *~ object is again used to control volume \,
 but with the toggle connected to the right inlet \, it now works as
 an off/on switch for the audio;
 #X obj 14 18 cnv 15 100 25 empty empty Noise 20 12 0 14 -233017 -66577
 0;
-#X text 65 288 Audio output (digital to analog converter);
+#X text 95 308 Audio output (digital to analog converter);
+#X obj 15 271 clip~ -1 1;
+#X text 95 272 Constrain signals in case of accidents!;
 #X connect 0 0 1 0;
 #X connect 1 0 4 0;
 #X connect 3 0 4 1;
-#X connect 4 0 2 0;
-#X connect 4 0 2 1;
-#X restore 492 129 pd noise;
+#X connect 4 0 11 0;
+#X connect 11 0 2 0;
+#X restore 492 105 pd noise;
 #N canvas 79 38 551 685 filt 0;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array lop 1000 float 0;
@@ -90,8 +92,8 @@ volume \, more than one increases volume;
 #X connect 30 0 6 0;
 #X connect 30 0 6 1;
 #X connect 31 0 30 1;
-#X restore 492 165 pd filt 1;
-#X text 563 164 Low Pass;
+#X restore 492 141 pd filt 1;
+#X text 563 140 Low Pass;
 #N canvas 239 84 559 673 filt 0;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array hip 1000 float 0;
@@ -152,8 +154,8 @@ to pass and reduces or eliminates frequencies below it.;
 #X connect 28 0 27 0;
 #X connect 28 0 27 1;
 #X connect 29 0 28 1;
-#X restore 492 201 pd filt 2;
-#X text 564 201 High Pass;
+#X restore 492 177 pd filt 2;
+#X text 564 177 High Pass;
 #N canvas 105 25 558 718 filt 0;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array bp 1000 float 0;
@@ -221,9 +223,9 @@ sound to pass. Generally this number is between 0-10.;
 #X connect 30 0 29 0;
 #X connect 30 0 29 1;
 #X connect 31 0 30 1;
-#X restore 492 237 pd filt 3;
-#X text 564 236 Band Pass;
-#N canvas 140 151 1147 553 filter 0;
+#X restore 492 213 pd filt 3;
+#X text 564 212 Band Pass;
+#N canvas 140 151 1142 627 filter 0;
 #X obj 68 92 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
 -1;
 #X text 8 40 Just as an example of how filters might be used \, here
@@ -231,155 +233,196 @@ is a random distribution of band-pass filters:;
 #X obj 9 13 cnv 15 200 25 empty empty Filter_Example 20 12 0 14 -233017
 -66577 0;
 #X obj 10 206 noise~;
-#X floatatom 68 272 5 0 0 0 - - -;
 #X obj 68 206 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
 -1;
-#X obj 10 483 dac~;
-#X obj 10 455 *~;
-#X obj 25 433 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 10 553 dac~;
+#X obj 10 495 *~;
+#X obj 25 473 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text 57 433 Turn audio on/off;
-#X text 58 404 Reduce volume;
-#X text 58 484 Output;
+#X text 57 473 Turn audio on/off;
+#X text 58 444 Reduce volume;
+#X text 58 554 Output;
 #X text 86 91 This bang triggers a change in sonic 'colour' when clicked
 ;
 #X obj 68 229 random 9950;
-#X obj 68 250 + 50;
+#X obj 68 248 + 50;
+#X obj 10 444 *~ 0.05;
+#X obj 550 396 cnv 15 580 220 empty empty There_are_8_identical_filters_contributing_to_the_sound
+20 12 0 14 -208240 -66577 0;
+#X text 728 436 The bang UI object triggers a random frequency value
+;
+#X text 728 481 +50 shifts the range of possible frequencies up to
+a minimum of 50 hz;
+#X text 728 582 Refer to the previous [pd filt 3] examlple if you need
+help understanding this further;
+#X obj 10 331 bp~ 0 50;
+#X obj 10 522 clip~ -1 1;
+#X text 78 522 Clip signals;
+#X obj 68 287 line;
+#X floatatom 68 306 5 0 0 0 - - -;
+#X obj 572 437 noise~;
+#X obj 630 437 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 630 460 random 9950;
+#X obj 630 479 + 50;
+#X obj 572 584 bp~ 0 50;
+#X obj 630 540 line;
+#X floatatom 630 559 5 0 0 0 - - -;
+#X msg 68 267 \$1 1000;
+#X msg 630 520 \$1 1000;
+#X text 728 514 The [line] object creates a smooth transition to the
+new frequency;
 #X obj 150 206 noise~;
-#X floatatom 208 272 5 0 0 0 - - -;
 #X obj 208 206 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
 -1;
 #X obj 208 229 random 9950;
-#X obj 208 250 + 50;
+#X obj 208 248 + 50;
+#X obj 150 331 bp~ 0 50;
+#X obj 208 287 line;
+#X floatatom 208 306 5 0 0 0 - - -;
+#X msg 208 267 \$1 1000;
 #X obj 290 206 noise~;
-#X floatatom 348 272 5 0 0 0 - - -;
 #X obj 348 206 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
 -1;
 #X obj 348 229 random 9950;
-#X obj 348 250 + 50;
+#X obj 348 248 + 50;
+#X obj 290 331 bp~ 0 50;
+#X obj 348 287 line;
+#X floatatom 348 306 5 0 0 0 - - -;
+#X msg 348 267 \$1 1000;
 #X obj 430 206 noise~;
-#X floatatom 488 272 5 0 0 0 - - -;
 #X obj 488 206 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
 -1;
 #X obj 488 229 random 9950;
-#X obj 488 250 + 50;
+#X obj 488 248 + 50;
+#X obj 430 331 bp~ 0 50;
+#X obj 488 287 line;
+#X floatatom 488 306 5 0 0 0 - - -;
+#X msg 488 267 \$1 1000;
 #X obj 570 206 noise~;
-#X floatatom 628 272 5 0 0 0 - - -;
 #X obj 628 206 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
 -1;
 #X obj 628 229 random 9950;
-#X obj 628 250 + 50;
+#X obj 628 248 + 50;
+#X obj 570 331 bp~ 0 50;
+#X obj 628 287 line;
+#X floatatom 628 306 5 0 0 0 - - -;
+#X msg 628 267 \$1 1000;
 #X obj 710 206 noise~;
-#X floatatom 768 272 5 0 0 0 - - -;
 #X obj 768 206 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
 -1;
 #X obj 768 229 random 9950;
-#X obj 768 250 + 50;
+#X obj 768 248 + 50;
+#X obj 710 331 bp~ 0 50;
+#X obj 768 287 line;
+#X floatatom 768 306 5 0 0 0 - - -;
+#X msg 768 267 \$1 1000;
 #X obj 850 206 noise~;
-#X floatatom 908 272 5 0 0 0 - - -;
 #X obj 908 206 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
 -1;
 #X obj 908 229 random 9950;
-#X obj 908 250 + 50;
+#X obj 908 248 + 50;
+#X obj 850 331 bp~ 0 50;
+#X obj 908 287 line;
+#X floatatom 908 306 5 0 0 0 - - -;
+#X msg 908 267 \$1 1000;
 #X obj 990 206 noise~;
-#X floatatom 1048 272 5 0 0 0 - - -;
 #X obj 1048 206 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144
 -1 -1;
 #X obj 1048 229 random 9950;
-#X obj 1048 250 + 50;
-#X obj 10 404 *~ 0.05;
-#X obj 550 356 cnv 15 580 180 empty empty There_are_8_identical_filters_contributing_to_the_sound
-20 12 0 14 -208240 -66577 0;
-#X obj 571 409 noise~;
-#X floatatom 629 475 5 0 0 0 - - -;
-#X obj 629 409 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
--1;
-#X obj 571 494 bp~ 0 80;
-#X obj 629 432 random 9950;
-#X obj 629 453 + 50;
-#X text 728 404 The bang UI object triggers a random frequency value
-;
-#X text 728 454 +50 shifts the range of possible frequencies up to
-a minimum of 50 hz;
-#X text 728 492 Refer to the previous [pd filt 3] examlple if you need
-help understanding this further;
-#X obj 10 291 bp~ 0 50;
-#X obj 150 291 bp~ 0 50;
-#X obj 290 291 bp~ 0 50;
-#X obj 430 291 bp~ 0 50;
-#X obj 570 291 bp~ 0 50;
-#X obj 710 291 bp~ 0 50;
-#X obj 850 291 bp~ 0 50;
-#X obj 990 291 bp~ 0 50;
-#X connect 0 0 5 0;
-#X connect 0 0 17 0;
-#X connect 0 0 22 0;
-#X connect 0 0 27 0;
-#X connect 0 0 32 0;
-#X connect 0 0 37 0;
-#X connect 0 0 42 0;
-#X connect 0 0 47 0;
-#X connect 3 0 61 0;
-#X connect 4 0 61 1;
-#X connect 5 0 13 0;
-#X connect 7 0 6 0;
+#X obj 1048 248 + 50;
+#X obj 990 331 bp~ 0 50;
+#X obj 1048 287 line;
+#X floatatom 1048 306 5 0 0 0 - - -;
+#X msg 1048 267 \$1 1000;
+#X connect 0 0 4 0;
+#X connect 0 0 35 0;
+#X connect 0 0 43 0;
+#X connect 0 0 51 0;
+#X connect 0 0 59 0;
+#X connect 0 0 67 0;
+#X connect 0 0 75 0;
+#X connect 0 0 83 0;
+#X connect 3 0 19 0;
+#X connect 4 0 12 0;
+#X connect 6 0 20 0;
 #X connect 7 0 6 1;
-#X connect 8 0 7 1;
-#X connect 13 0 14 0;
-#X connect 14 0 4 0;
-#X connect 15 0 62 0;
-#X connect 16 0 62 1;
-#X connect 17 0 18 0;
-#X connect 18 0 19 0;
-#X connect 19 0 16 0;
-#X connect 20 0 63 0;
-#X connect 21 0 63 1;
+#X connect 12 0 13 0;
+#X connect 13 0 31 0;
+#X connect 14 0 6 0;
+#X connect 19 0 14 0;
+#X connect 20 0 5 1;
+#X connect 20 0 5 0;
 #X connect 22 0 23 0;
-#X connect 23 0 24 0;
-#X connect 24 0 21 0;
-#X connect 25 0 64 0;
-#X connect 26 0 64 1;
-#X connect 27 0 28 0;
-#X connect 28 0 29 0;
-#X connect 29 0 26 0;
-#X connect 30 0 65 0;
-#X connect 31 0 65 1;
-#X connect 32 0 33 0;
-#X connect 33 0 34 0;
-#X connect 34 0 31 0;
-#X connect 35 0 66 0;
-#X connect 36 0 66 1;
-#X connect 37 0 38 0;
-#X connect 38 0 39 0;
-#X connect 39 0 36 0;
-#X connect 40 0 67 0;
-#X connect 41 0 67 1;
-#X connect 42 0 43 0;
+#X connect 23 0 19 1;
+#X connect 24 0 28 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 27 0 32 0;
+#X connect 29 0 30 0;
+#X connect 30 0 28 1;
+#X connect 31 0 22 0;
+#X connect 32 0 29 0;
+#X connect 34 0 38 0;
+#X connect 35 0 36 0;
+#X connect 36 0 37 0;
+#X connect 37 0 41 0;
+#X connect 38 0 14 0;
+#X connect 39 0 40 0;
+#X connect 40 0 38 1;
+#X connect 41 0 39 0;
+#X connect 42 0 46 0;
 #X connect 43 0 44 0;
-#X connect 44 0 41 0;
-#X connect 45 0 68 0;
-#X connect 46 0 68 1;
+#X connect 44 0 45 0;
+#X connect 45 0 49 0;
+#X connect 46 0 14 0;
 #X connect 47 0 48 0;
-#X connect 48 0 49 0;
-#X connect 49 0 46 0;
-#X connect 50 0 7 0;
-#X connect 52 0 55 0;
-#X connect 53 0 55 1;
-#X connect 54 0 56 0;
-#X connect 56 0 57 0;
-#X connect 57 0 53 0;
-#X connect 61 0 50 0;
-#X connect 62 0 50 0;
-#X connect 63 0 50 0;
-#X connect 64 0 50 0;
-#X connect 65 0 50 0;
-#X connect 66 0 50 0;
-#X connect 67 0 50 0;
-#X connect 68 0 50 0;
-#X restore 492 273 pd filter colours;
-#X text 607 267 An example of how filters might be used \, here is
+#X connect 48 0 46 1;
+#X connect 49 0 47 0;
+#X connect 50 0 54 0;
+#X connect 51 0 52 0;
+#X connect 52 0 53 0;
+#X connect 53 0 57 0;
+#X connect 54 0 14 0;
+#X connect 55 0 56 0;
+#X connect 56 0 54 1;
+#X connect 57 0 55 0;
+#X connect 58 0 62 0;
+#X connect 59 0 60 0;
+#X connect 60 0 61 0;
+#X connect 61 0 65 0;
+#X connect 62 0 14 0;
+#X connect 63 0 64 0;
+#X connect 64 0 62 1;
+#X connect 65 0 63 0;
+#X connect 66 0 70 0;
+#X connect 67 0 68 0;
+#X connect 68 0 69 0;
+#X connect 69 0 73 0;
+#X connect 70 0 14 0;
+#X connect 71 0 72 0;
+#X connect 72 0 70 1;
+#X connect 73 0 71 0;
+#X connect 74 0 78 0;
+#X connect 75 0 76 0;
+#X connect 76 0 77 0;
+#X connect 77 0 81 0;
+#X connect 78 0 14 0;
+#X connect 79 0 80 0;
+#X connect 80 0 78 1;
+#X connect 81 0 79 0;
+#X connect 82 0 86 0;
+#X connect 83 0 84 0;
+#X connect 84 0 85 0;
+#X connect 85 0 89 0;
+#X connect 86 0 14 0;
+#X connect 87 0 88 0;
+#X connect 88 0 86 1;
+#X connect 89 0 87 0;
+#X restore 492 249 pd filter colours;
+#X text 607 243 An example of how filters might be used \, here is
 a random distribution of band-pass filters:;
-#N canvas 104 92 1411 936 line 0;
+#N canvas 653 127 702 584 line 0;
 #X obj 56 79 osc~ 440;
 #X obj 54 361 dac~;
 #X msg 446 79 \; pd dsp 1;
@@ -474,10 +517,10 @@ a "0" argument-- this tells Pd to expect a signal here.;
 #X connect 34 0 33 0;
 #X connect 35 0 34 0;
 #X connect 37 0 7 0;
-#X restore 492 345 pd line;
-#X text 547 344 Envelope using line;
-#X text 580 380 More ways of using line;
-#N canvas 25 23 1164 794 more_line 0;
+#X restore 8 491 pd line;
+#X text 151 490 Envelope using line;
+#X text 151 517 More ways of using line;
+#N canvas 32 25 1164 794 more_line 0;
 #X obj 91 123 line;
 #X msg 92 99 1 \, 0 1000;
 #X floatatom 91 148 5 0 0 0 - - -;
@@ -551,7 +594,7 @@ in 1000ms;
 #X msg 656 378 bang;
 #X obj 703 543 f;
 #X obj 740 540 nbx 4 14 10 10000 1 1 empty empty decay 0 -8 0 10 -262144
--1 -1 2000 256;
+-1 -1 105.605 256;
 #X text 787 539 ms;
 #X text 537 313 We want the decay to trigger directly after the attack
 is finished \, so we set the time for the [delay] object to equal the
@@ -613,7 +656,7 @@ attack time:;
 #X connect 66 0 64 0;
 #X connect 66 1 65 0;
 #X connect 70 0 29 1;
-#X restore 492 381 pd more_line;
+#X restore 8 518 pd more_line;
 #N canvas 227 24 1439 1004 percussive_sounds 0;
 #X obj 429 295 noise~;
 #X obj 441 368 *~;
@@ -692,19 +735,19 @@ its output \, replacing any previous setting.;
 #X connect 27 0 22 0;
 #X connect 33 0 36 0;
 #X connect 36 0 8 0;
-#X restore 492 417 pd percussive_sounds;
-#X text 626 416 Using Subtractive synthesis to make percussive sounds
+#X restore 492 409 pd percussive_sounds;
+#X text 626 408 Using Subtractive synthesis to make percussive sounds
 ;
-#X obj 39 165 line~;
-#X obj 39 201 del;
-#X obj 39 266 hip~;
-#X obj 39 338 bp~;
-#X obj 39 302 lop~;
-#X text 86 164 generate audio ramps;
-#X text 86 264 High Pass Filter;
-#X text 85 301 Low Pass Filter;
-#X text 85 338 Band Pass Filter;
-#X obj 39 129 noise~;
+#X obj 9 141 line~;
+#X obj 9 177 del;
+#X obj 9 242 hip~;
+#X obj 9 314 bp~;
+#X obj 9 278 lop~;
+#X text 56 140 generate audio ramps;
+#X text 56 240 High Pass Filter;
+#X text 55 277 Low Pass Filter;
+#X text 55 314 Band Pass Filter;
+#X obj 9 105 noise~;
 #N canvas 112 278 1025 735 more 0;
 #N canvas 159 39 603 551 crash 0;
 #X obj 61 227 line~;
@@ -957,391 +1000,185 @@ its output \, replacing any previous setting.;
 #X connect 10 0 11 0;
 #X connect 11 0 4 0;
 #X restore 40 263 pd snare;
-#X restore 492 453 pd more percussive sounds;
-#X text 658 454 kick \, snare \, hat etc;
-#N canvas 172 58 961 774 basic 0;
-#X msg 122 163 10;
-#X msg 190 161 5;
-#X obj 164 228 +;
-#X text 201 212 COLD INLET;
-#X text 77 215 HOT INLET;
-#X text 107 44 BASIC MATH & BANG ORDER;
-#X obj 135 106 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X floatatom 159 303 5 0 0 0 - - -;
-#X text 109 70 Pure data will send out bangs according to the order
-that you connect objects to a bang;
-#X msg 126 438 10;
-#X msg 194 436 5;
-#X obj 168 503 +;
-#X text 205 491 COLD INLET;
-#X text 81 490 HOT INLET;
-#X obj 164 367 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X floatatom 163 578 5 0 0 0 - - -;
-#X text 109 346 PD works bangs right to left;
-#X text 194 390 If you read right to left it is logical to join things
-in that way \, but that always produce the right result in PD. To solve
-this we can use an object called trigger.;
-#X text 283 203 As a general rule \, only the inlet on the furthest
-to the LEFT is a 'hot' inlet. any other inlets are 'cold' if you send
-a value to a cold inlet \, it will be stored inside the object \, but
-no will be carried out until the hot inlet receives a value \, or a
-bang.;
-#X obj 146 406 t b b;
-#X connect 0 0 2 0;
-#X connect 1 0 2 1;
-#X connect 2 0 7 0;
-#X connect 6 0 0 0;
-#X connect 6 0 1 0;
-#X connect 9 0 11 0;
-#X connect 10 0 11 1;
-#X connect 11 0 15 0;
-#X connect 14 0 19 0;
-#X connect 19 0 9 0;
-#X connect 19 1 10 0;
-#X restore 492 309 pd basic math order;
-#X text 626 308 Order in PD (SUPER IMPORTANT);
-#N canvas 301 23 1199 856 sequencer 0;
-#X obj 44 30 noise~;
-#X text 96 30 <- white noise generator;
-#X text 108 84 <- low pass filter;
-#X obj 44 82 lop~ 100;
-#X floatatom 98 53 5 0 0 0 - - -;
-#X text 139 62 <- cutoff frequency Hz;
-#X obj 52 130 hip~ 5000;
-#X floatatom 105 112 5 0 0 0 - - -;
-#X text 126 128 <- high pass filter;
-#X text 148 111 <- cutoff frequency Hz;
-#X floatatom 93 161 5 0 0 0 - - -;
-#X floatatom 131 181 5 0 0 0 - - -;
-#X text 139 159 <- centre frequency Hz;
-#X text 176 179 <- 'Q' ratio;
-#X obj 1020 610 *~;
-#X obj 1089 587 line~;
-#X msg 1131 565 1 5;
-#X obj 1027 454 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 1089 587 line~;
-#X obj 1090 523 t b b;
-#X obj 1020 508 line~, f 6;
-#X obj 774 670 dac~;
-#X obj 1020 540 phasor~;
-#X msg 1090 564 0 200;
-#X obj 778 452 rev3~ 100 90 3000 20;
-#X text 773 426 reverb;
-#X text 50 445 reverb;
-#X obj 58 204 bp~ 440 100;
-#X obj 396 24 noise~;
-#X obj 440 302 *~;
-#X obj 400 363 dac~;
-#X floatatom 459 35 5 0 0 0 - - -;
-#X obj 652 275 line~;
-#X msg 803 168 1 5;
-#X obj 644 97 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 654 127 t b b b;
-#X msg 712 194 0.3 50;
-#X obj 646 164 del 120;
-#X obj 405 302 *~;
-#X obj 499 243 line~;
-#X msg 567 164 1 5;
-#X obj 499 98 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 500 190 del 5;
-#X msg 499 216 0 50;
-#X obj 500 126 t b b;
-#X text 644 80 hh-open;
-#X text 497 79 hh-closed;
-#X obj 396 59 bp~ 10000 15;
-#X text 302 24 white noise >;
-#X text 301 58 bp filter >;
-#X text 599 163 attack;
-#X text 539 188 sustain;
-#X text 540 215 release;
-#X text 758 194 decay;
-#X text 836 167 attack;
-#X text 684 216 release;
-#X obj 706 166 del 30;
-#X msg 646 215 0 300;
-#X obj 906 278 line~;
-#X msg 1057 171 1 5;
-#X obj 898 100 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 908 130 t b b b;
-#X obj 900 167 del 120;
-#X text 1012 197 decay;
-#X text 1090 170 attack;
-#X text 938 219 release;
-#X obj 960 169 del 30;
-#X text 898 83 hh-open reverb;
-#X msg 900 218 0 200;
-#X obj 474 302 *~;
-#X msg 966 197 0.3 90;
-#X obj 1128 125 osc~;
-#X obj 1128 242 *~;
-#X obj 1198 210 line~;
-#X obj 1135 42 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 1198 110 t b b;
-#X obj 1128 95 line~, f 6;
-#X obj 1124 273 dac~;
-#X msg 1211 68 StartFrequency \, EndFrequency rampTime;
-#X text 1339 136 attack;
-#X text 1242 132 sustain;
-#X text 1240 155 release;
-#X obj 1198 132 del 5;
-#X msg 1198 156 0 300;
-#X text 1128 15 kick;
-#X obj 402 431 noise~;
-#X obj 421 631 *~;
-#X obj 524 604 line~;
-#X msg 566 582 1 5;
-#X obj 523 513 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 524 604 line~;
-#X obj 524 561 del 5;
-#X obj 525 540 t b b;
-#X msg 525 581 0 200;
-#X obj 419 707 dac~;
-#X obj 478 511 *~ 7;
-#X obj 402 467 hip~ 3000;
-#X text 401 409 snare;
-#X obj 402 509 *~ 0.1;
-#X obj 565 468 bp~ 320 20;
-#X obj 650 468 bp~ 800 20;
-#X obj 480 468 bp~ 400 20;
-#X msg 1311 136 1 4;
-#X msg 1122 69 200 \, 45 40;
-#X obj 1020 557 *~ 0.2;
-#X msg 1020 480 800 \, 1800 300;
-#X text 1024 433 fx;
-#X text 50 422 step sequencer;
-#X text 50 359 subtractive envelope filters;
-#X text 51 379 adsr envelopes;
-#X text 51 401 pitch ramp waveforms;
-#X text 50 337 week 2;
-#X obj 1089 544 del 50;
-#X obj 1191 328 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
-#X obj 1195 408 f;
-#X obj 1277 413 + 1;
-#X floatatom 1195 482 5 0 0 0 - - -;
-#X msg 1216 382 0;
-#X floatatom 1237 435 5 0 0 0 - - -;
-#X obj 1195 458 mod 16;
-#X obj 1194 543 sel 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15;
-#X obj 1193 363 metro 432;
-#X text 1261 363 tempo select (ms);
-#X floatatom 1250 334 5 0 0 0 - - -;
-#X text 1288 335 custom tempo;
-#X text 1251 384 reset to zero;
-#X text 1315 412 float stores number Outputs an event which is then
-+1. This is fed back into the f store thus counting upwards forever.
-;
-#X text 1247 458 acts as the counter value;
-#X obj 1194 508 hradio 15 1 0 16 empty empty empty 0 -8 0 10 -262144
--1 -1 10;
-#X floatatom 1231 668 5 0 0 0 - - -;
-#X obj 1320 630 mtof;
-#X obj 1323 821 dac~;
-#X text 1564 589 A minor Scale MIDI Notes;
-#X msg 1227 603 0;
-#X obj 1417 728 line~;
-#X obj 1417 637 t b b;
-#X text 1578 664 attack;
-#X text 1461 659 sustain;
-#X text 1459 682 release;
-#X obj 1322 670 line~;
-#X obj 1322 727 *~;
-#X obj 1321 700 phasor~;
-#X msg 1417 683 0 500;
-#X msg 1322 590 45;
-#X msg 1356 590 47;
-#X msg 1392 590 48;
-#X msg 1425 590 50;
-#X msg 1459 590 52;
-#X msg 1493 590 53;
-#X msg 1524 590 55;
-#X obj 1417 659 del 120;
-#X msg 1530 663 1 100;
-#X obj 1322 760 hip~ 40;
-#X floatatom 1361 740 5 0 0 0 - - -;
-#X obj 529 646 *~ 0.5;
-#X obj 1322 791 *~ 0.3;
-#X text 1193 307 sequencer on/off;
-#X connect 4 0 3 1;
-#X connect 7 0 6 1;
-#X connect 10 0 27 1;
-#X connect 11 0 27 2;
-#X connect 14 0 21 0;
-#X connect 14 0 21 1;
-#X connect 14 0 24 0;
-#X connect 15 0 14 1;
-#X connect 16 0 15 0;
-#X connect 17 0 19 0;
-#X connect 17 0 105 0;
-#X connect 19 0 112 0;
-#X connect 19 1 16 0;
-#X connect 20 0 22 0;
-#X connect 22 0 104 0;
-#X connect 23 0 15 0;
-#X connect 24 0 21 0;
-#X connect 24 1 21 1;
-#X connect 28 0 47 0;
-#X connect 29 0 30 0;
-#X connect 29 0 30 1;
-#X connect 31 0 47 1;
-#X connect 32 0 29 1;
-#X connect 33 0 32 0;
-#X connect 34 0 35 0;
-#X connect 35 0 37 0;
-#X connect 35 1 56 0;
-#X connect 35 2 33 0;
-#X connect 36 0 32 0;
-#X connect 37 0 57 0;
-#X connect 38 0 30 0;
-#X connect 38 0 30 1;
-#X connect 39 0 38 1;
-#X connect 40 0 39 0;
-#X connect 41 0 44 0;
-#X connect 42 0 43 0;
-#X connect 43 0 39 0;
-#X connect 44 0 42 0;
-#X connect 44 1 40 0;
-#X connect 47 0 29 0;
-#X connect 47 0 38 0;
-#X connect 47 0 69 0;
-#X connect 56 0 36 0;
-#X connect 57 0 32 0;
-#X connect 58 0 69 1;
-#X connect 59 0 58 0;
-#X connect 60 0 61 0;
-#X connect 61 0 62 0;
-#X connect 61 1 66 0;
-#X connect 61 2 59 0;
-#X connect 62 0 68 0;
-#X connect 66 0 70 0;
-#X connect 68 0 58 0;
-#X connect 69 0 30 0;
-#X connect 69 0 30 1;
-#X connect 69 0 24 0;
-#X connect 70 0 58 0;
-#X connect 71 0 72 0;
-#X connect 72 0 77 0;
-#X connect 72 0 77 1;
-#X connect 73 0 72 1;
-#X connect 74 0 75 0;
-#X connect 74 0 103 0;
-#X connect 75 0 82 0;
-#X connect 75 1 102 0;
-#X connect 76 0 71 0;
-#X connect 82 0 83 0;
-#X connect 83 0 73 0;
-#X connect 85 0 96 0;
-#X connect 85 0 99 0;
-#X connect 85 0 100 0;
-#X connect 85 0 101 0;
-#X connect 86 0 94 0;
-#X connect 86 0 94 1;
-#X connect 86 0 154 0;
-#X connect 87 0 86 1;
-#X connect 88 0 87 0;
-#X connect 89 0 92 0;
-#X connect 91 0 93 0;
-#X connect 92 0 91 0;
-#X connect 92 1 88 0;
-#X connect 93 0 87 0;
-#X connect 95 0 86 0;
-#X connect 96 0 98 0;
-#X connect 98 0 86 0;
-#X connect 99 0 95 0;
-#X connect 100 0 95 0;
-#X connect 101 0 95 0;
-#X connect 102 0 73 0;
-#X connect 103 0 76 0;
-#X connect 104 0 14 0;
-#X connect 105 0 20 0;
-#X connect 112 0 23 0;
-#X connect 113 0 117 0;
-#X connect 113 0 121 0;
-#X connect 114 0 115 0;
-#X connect 114 0 118 0;
-#X connect 114 0 119 0;
-#X connect 115 0 114 1;
-#X connect 116 0 128 0;
-#X connect 117 0 114 1;
-#X connect 119 0 116 0;
-#X connect 120 0 143 0;
-#X connect 120 0 74 0;
-#X connect 120 0 34 0;
-#X connect 120 2 145 0;
-#X connect 120 2 89 0;
-#X connect 120 2 41 0;
-#X connect 120 3 144 0;
-#X connect 120 3 41 0;
-#X connect 120 4 145 0;
-#X connect 120 4 41 0;
-#X connect 120 5 143 0;
-#X connect 120 5 74 0;
-#X connect 120 5 41 0;
-#X connect 120 6 89 0;
-#X connect 120 6 41 0;
-#X connect 120 7 145 0;
-#X connect 120 7 41 0;
-#X connect 120 7 34 0;
-#X connect 120 8 146 0;
-#X connect 120 8 74 0;
-#X connect 120 8 41 0;
-#X connect 120 10 89 0;
-#X connect 120 10 41 0;
-#X connect 120 11 148 0;
-#X connect 120 11 60 0;
-#X connect 120 12 147 0;
-#X connect 120 12 41 0;
-#X connect 120 13 149 0;
-#X connect 120 13 74 0;
-#X connect 120 14 145 0;
-#X connect 120 14 89 0;
-#X connect 120 15 17 0;
-#X connect 120 15 41 0;
-#X connect 121 0 114 0;
-#X connect 123 0 121 1;
-#X connect 128 0 120 0;
-#X connect 130 0 129 0;
-#X connect 130 0 139 0;
-#X connect 130 0 135 0;
-#X connect 133 0 141 0;
-#X connect 134 0 140 1;
-#X connect 135 0 150 0;
-#X connect 135 1 151 0;
-#X connect 139 0 141 0;
-#X connect 140 0 152 0;
-#X connect 141 0 140 0;
-#X connect 142 0 134 0;
-#X connect 143 0 130 0;
-#X connect 144 0 130 0;
-#X connect 145 0 130 0;
-#X connect 146 0 130 0;
-#X connect 147 0 130 0;
-#X connect 148 0 130 0;
-#X connect 149 0 130 0;
-#X connect 150 0 142 0;
-#X connect 151 0 134 0;
-#X connect 152 0 155 0;
-#X connect 153 0 152 1;
-#X connect 154 0 24 0;
-#X connect 155 0 131 0;
-#X connect 155 0 131 1;
-#X restore 492 489 pd sequencer;
-#X obj 39 13 cnv 15 700 40 empty empty Lab_2_-_Subtractive_Synthesis_Filters_Percussive_Sounds
+#X restore 492 445 pd more percussive sounds;
+#X text 658 446 kick \, snare \, hat etc;
+#X obj 9 13 cnv 15 700 40 empty empty Lab2-Amplitude_Control/Filters/Percussive_Sounds
 20 12 0 20 -233017 -66577 0;
-#X obj 39 84 cnv 15 200 25 empty empty Key_Ingredients 20 12 0 14 -228856
--66577 0;
-#X obj 490 84 cnv 15 550 25 empty empty Examples_(double_click_a_[pd]_object_to_open_the_enclosed_patch)
-20 12 0 14 -228856 -66577 0;
-#X text 86 128 uniformly distributed white noise;
-#X text 86 198 The delay object sends a bang to its outlet after a
+#X obj 9 60 cnv 15 200 25 empty empty 1:_Key_Ingredients 20 12 0 14
+-228856 -66577 0;
+#X text 56 104 uniformly distributed white noise;
+#X text 56 174 The delay object sends a bang to its outlet after a
 delay in milliseconds specified by its right inlet or its creation
 argument. Right click and choose 'help' to see more details and examples
 ;
+#X obj 9 364 cnv 15 200 25 empty empty 2:_Key_Pd_Knowledge 20 12 0
+14 -228856 -66577 0;
+#X obj 490 60 cnv 15 200 25 empty empty 3:_Filter_Examples 20 12 0
+14 -228856 -66577 0;
+#X obj 490 364 cnv 15 400 25 empty empty 4:_Percussive_Sounds_Combining_Line_and_Filters
+20 12 0 14 -228856 -66577 0;
+#N canvas 32 25 992 346 bang 0;
+#X obj 12 9 cnv 15 270 25 empty empty Bang_Order 20 12 0 14 -233017
+-66577 0;
+#X text 11 36 The rules outlined in this patch aren't immediately obvious
+\, but understanding them can make the difference between a working
+patch and a broken one!;
+#X obj 12 90 cnv 15 130 25 empty empty Bang_Order 20 12 0 14 -233017
+-66577 0;
+#X obj 13 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 13 285 print;
+#X text 36 185 Bang: sends 'bang' message when clicked;
+#X text 53 307 (Press cmd-R to see the PD window);
+#X obj 13 153 cnv 15 40 25 empty empty 1 20 12 0 10 -233017 -66577
+0;
+#X text 12 118 PD will send out bangs in the order that you connect
+objects to a bang. Lets start with this example;
+#X obj 323 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 323 283 print;
+#X obj 323 153 cnv 15 40 25 empty empty 2 20 12 0 10 -233017 -66577
+0;
+#X msg 323 206 1;
+#X msg 341 232 2;
+#X text 57 152 Print a bang;
+#X text 367 150 Now we add some messages for;
+#X text 360 165 the bang object to trigger:;
+#X text 363 283 The messages are printed in the;
+#X text 364 295 order they're conncected;
+#X obj 623 153 cnv 15 40 25 empty empty 3 20 12 0 10 -233017 -66577
+0;
+#X msg 378 258 third;
+#X text 420 258 connected third;
+#X text 372 231 connected second;
+#X text 354 206 connected first;
+#X obj 623 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 623 283 print;
+#X msg 738 256 1;
+#X msg 676 232 2;
+#X msg 623 208 third;
+#X text 665 208 connected third;
+#X text 707 231 connected second;
+#X text 769 256 connected first;
+#X text 667 150 These objects are conncted in the;
+#X text 667 164 same order \, but arranged differently;
+#X text 663 283 This shows that the messages above do indeed;
+#X text 663 296 arrive in the order that the objects are connected
+\,;
+#X text 663 309 and not according to their position on-screen.;
+#X text 53 279 [print]: prints incoming messages;
+#X text 48 293 to PD window;
+#X connect 3 0 4 0;
+#X connect 9 0 12 0;
+#X connect 9 0 13 0;
+#X connect 9 0 20 0;
+#X connect 12 0 10 0;
+#X connect 13 0 10 0;
+#X connect 20 0 10 0;
+#X connect 24 0 26 0;
+#X connect 24 0 27 0;
+#X connect 24 0 28 0;
+#X connect 26 0 25 0;
+#X connect 27 0 25 0;
+#X connect 28 0 25 0;
+#X restore 9 399 pd bang order;
+#X text 150 399 SUPER IMPORTANT: quirks about message ordering in PD
+;
+#N canvas 41 55 1158 389 order 0;
+#X obj 13 14 cnv 15 420 25 empty empty Bang_order_consequences:_why_should_we_care?
+20 12 0 14 -233017 -66577 0;
+#X obj 81 152 +;
+#X text 13 146 hot inlet >;
+#X text 102 146 < cold inlet;
+#X text 12 174 Messages to the hot inlet trigger a math operation \,
+and gives us a result from the outlet of [+ ];
+#X text 12 78 If we don't know the exact order that messages arrive
+at an object \, we can end up with some odd behaviour. Lets take a
+simple example \, starting with a closer look at the [+ ] operator.
+;
+#X text 12 204 Messages to the cold inlet are stored until the hot
+inlet reveives a new value. They won't trigger an output on their own:
+;
+#X obj 137 260 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 137 284 1;
+#X obj 185 260 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 185 284 2;
+#X obj 159 322 +;
+#X text 87 316 hot inlet >;
+#X text 183 316 < cold inlet;
+#X obj 159 347 print;
+#X text 11 259 Triggers an output >;
+#X text 201 259 < Doesn't trigger an output;
+#X obj 14 49 cnv 15 170 25 empty empty 1:_Hot_and_Cold_Inlets 20 12
+0 10 -233017 -66577 0;
+#X text 10 130 [+ ] has two inlets: one 'hot' and one 'cold':;
+#X obj 403 49 cnv 15 200 25 empty empty 2:_Confusing_Bang_Order_Errors
+20 12 0 10 -233017 -66577 0;
+#X text 402 79 Now lets imagine that we want to first set the values
+sent to [+ ] \, and then add together some new numbers at a later point:
+;
+#X obj 439 181 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 562 181 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 405 213 5;
+#X msg 606 211 10;
+#X msg 562 211 105;
+#X obj 529 258 +;
+#X text 400 132 first calculation:;
+#X text 469 288 RESULT;
+#X floatatom 528 288 5 0 0 0 - - -;
+#X text 560 132 second calculation:;
+#X text 560 148 should give 115;
+#X text 399 147 should give 0;
+#X msg 465 213 -5;
+#X text 398 328 If you're used to reading from left to right \, you
+might assume from looking at this patch that when we click on the seccond
+bang object \, we get the result of 115 But we get 5 instead \, why?!
+;
+#X obj 793 49 cnv 15 200 25 empty empty 3:_These_can_be_tricky_to_spot
+20 12 0 10 -233017 -66577 0;
+#X text 792 78 The problem with example two was in the order that the
+second bang was connected to the two messages.;
+#X text 792 110 The bang was first connected to [10( \, then it was
+connected to [105(.;
+#X text 661 211 <<-----------------;
+#X obj 796 174 cnv 15 80 60 empty empty empty 20 12 0 14 -208240 -66577
+0;
+#X obj 801 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 845 210 10;
+#X msg 801 210 105;
+#X text 792 140 This means that the number 10 is sent to the hot inlet
+of [+ ] before 105 reaches the cold inlet.;
+#X text 792 241 So \, the calculation runs in [+ ] with the old value
+of -5 \, and we get the result of 5 If you click the second bang again
+\, you will then get the correct result \, using the stored value of
+105 that was missed beforehand.;
+#X text 791 298 This is a trivial \, and not very realistic example.
+In a larger patch \, this kind of thing can be hard to spot when things
+go wrong.;
+#X connect 7 0 8 0;
+#X connect 8 0 11 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 1;
+#X connect 11 0 14 0;
+#X connect 21 0 33 0;
+#X connect 21 0 23 0;
+#X connect 22 0 24 0;
+#X connect 22 0 25 0;
+#X connect 23 0 26 0;
+#X connect 24 0 26 0;
+#X connect 25 0 26 1;
+#X connect 26 0 29 0;
+#X connect 33 0 26 1;
+#X connect 40 0 41 0;
+#X connect 40 0 42 0;
+#X restore 8 431 pd order consequences;
+#X text 150 430 why should we care about bang order?;
+#N canvas 32 25 450 300 order 0;
+#X restore 8 462 pd order solutions;
+#X text 150 462 best practices to avoid confusing errors;
