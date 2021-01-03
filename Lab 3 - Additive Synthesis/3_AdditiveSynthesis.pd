@@ -585,7 +585,7 @@ below...;
 #X restore 10 233 pd send_receive_throw_catch;
 #X text 196 233 How to connect in PD wirelessly;
 #X text 500 92 BRINGING IT ALL TOGETHER;
-#N canvas 73 138 999 734 more_fun 0;
+#N canvas 736 25 704 847 more_fun 0;
 #X text 66 196 amplitude factor for each harmonic = 1/n *A0;
 #X floatatom 68 269 5 0 0 0 - - -;
 #X obj 68 360 osc~;
@@ -634,51 +634,12 @@ below...;
 #X msg 484 165 100;
 #X msg 67 227 \$1 10;
 #X msg 457 407 1 0;
-#X floatatom 578 202 5 0 0 0 - - -;
-#X obj 580 306 osc~;
-#X obj 641 248 *;
-#X floatatom 641 267 5 0 0 0 - - -;
-#X obj 641 284 osc~;
-#X obj 641 308 *~;
-#X obj 656 122 vsl 15 100 1 10 0 0 empty empty freq 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 656 230 5 0 0 0 - - -;
-#X obj 697 122 vsl 15 100 0 1 0 0 empty empty amp 0 -9 0 10 -262144
--1 -1 0 1;
-#X msg 698 247 \$1 10;
-#X obj 698 266 line~;
-#X floatatom 697 228 5 0 0 0 - - -;
-#X obj 588 517 dac~;
-#X obj 751 257 *;
-#X floatatom 751 275 5 0 0 0 - - -;
-#X obj 751 293 osc~;
-#X obj 751 316 *~;
-#X obj 766 130 vsl 15 100 1 10 0 0 empty empty freq 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 766 239 5 0 0 0 - - -;
-#X obj 808 131 vsl 15 100 0 1 0 0 empty empty amp 0 -9 0 10 -262144
--1 -1 0 1;
-#X msg 808 256 \$1 10;
-#X obj 808 274 line~;
-#X floatatom 808 236 5 0 0 0 - - -;
-#X obj 862 266 *;
-#X floatatom 862 284 5 0 0 0 - - -;
-#X obj 862 302 osc~;
-#X obj 862 325 *~;
-#X obj 877 139 vsl 15 100 1 10 0 0 empty empty freq 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 877 248 5 0 0 0 - - -;
-#X obj 918 140 vsl 15 100 0 1 0 0 empty empty amp 0 -9 0 10 -262144
--1 -1 0 1;
-#X msg 919 265 \$1 10;
-#X obj 919 283 line~;
-#X floatatom 918 245 5 0 0 0 - - -;
 #X msg 410 406 0 500;
 #X obj 120 299 * 3;
 #X obj 180 299 * 5;
 #X obj 240 299 * 7;
 #X obj 305 299 * 9;
-#X obj 124 4 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 124 4 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X obj 126 78 f;
 #X obj 162 78 + 1;
@@ -692,13 +653,12 @@ below...;
 send a message to the message box;
 #X text 122 246 <- creates smooth ramps between values and outputs
 them as numbers (not signal like line~);
-#X obj 588 385 *~ 0.5;
+#X obj 60 539;
 #X connect 1 0 2 0;
-#X connect 1 0 73 0;
-#X connect 1 0 74 0;
-#X connect 1 0 75 0;
-#X connect 1 0 76 0;
-#X connect 1 0 39 0;
+#X connect 1 0 40 0;
+#X connect 1 0 41 0;
+#X connect 1 0 42 0;
+#X connect 1 0 43 0;
 #X connect 2 0 3 0;
 #X connect 3 0 18 0;
 #X connect 4 0 7 0;
@@ -721,7 +681,7 @@ them as numbers (not signal like line~);
 #X connect 18 0 23 0;
 #X connect 18 0 23 1;
 #X connect 19 0 18 1;
-#X connect 20 0 72 0;
+#X connect 20 0 39 0;
 #X connect 21 0 22 0;
 #X connect 22 0 20 0;
 #X connect 22 1 38 0;
@@ -747,57 +707,21 @@ them as numbers (not signal like line~);
 #X connect 36 0 21 0;
 #X connect 37 0 24 0;
 #X connect 38 0 19 0;
-#X connect 39 0 40 0;
-#X connect 39 0 41 0;
-#X connect 39 0 52 0;
-#X connect 39 0 62 0;
-#X connect 40 0 88 0;
-#X connect 41 0 42 0;
-#X connect 42 0 43 0;
-#X connect 43 0 44 0;
-#X connect 44 0 88 0;
+#X connect 39 0 19 0;
+#X connect 40 0 6 0;
+#X connect 41 0 9 0;
+#X connect 42 0 11 0;
+#X connect 43 0 16 0;
+#X connect 44 0 48 0;
+#X connect 44 0 50 0;
 #X connect 45 0 46 0;
-#X connect 46 0 41 1;
-#X connect 47 0 50 0;
-#X connect 48 0 49 0;
-#X connect 49 0 44 1;
-#X connect 50 0 48 0;
-#X connect 52 0 53 0;
-#X connect 53 0 54 0;
-#X connect 54 0 55 0;
-#X connect 55 0 88 0;
-#X connect 56 0 57 0;
-#X connect 57 0 52 1;
-#X connect 58 0 61 0;
-#X connect 59 0 60 0;
-#X connect 60 0 55 1;
-#X connect 61 0 59 0;
-#X connect 62 0 63 0;
-#X connect 63 0 64 0;
-#X connect 64 0 65 0;
-#X connect 65 0 88 0;
-#X connect 66 0 67 0;
-#X connect 67 0 62 1;
-#X connect 68 0 71 0;
-#X connect 69 0 70 0;
-#X connect 70 0 65 1;
-#X connect 71 0 69 0;
-#X connect 72 0 19 0;
-#X connect 73 0 6 0;
-#X connect 74 0 9 0;
-#X connect 75 0 11 0;
-#X connect 76 0 16 0;
-#X connect 77 0 81 0;
-#X connect 77 0 83 0;
-#X connect 78 0 79 0;
-#X connect 78 0 82 0;
-#X connect 79 0 78 1;
-#X connect 80 0 84 0;
-#X connect 81 0 78 1;
-#X connect 82 0 80 0;
-#X connect 83 0 78 0;
-#X connect 85 0 25 0;
-#X connect 88 0 18 0;
+#X connect 45 0 49 0;
+#X connect 46 0 45 1;
+#X connect 47 0 51 0;
+#X connect 48 0 45 1;
+#X connect 49 0 47 0;
+#X connect 50 0 45 0;
+#X connect 52 0 25 0;
 #X restore 760 174 pd more_fun;
 #N canvas 253 104 1009 490 switch 0;
 #X obj 68 16 hradio 20 1 0 3 empty empty empty 0 -8 0 10 -262144 -1
@@ -1486,3 +1410,259 @@ on the timbre. Can you figure out how everything works?;
 #X connect 133 0 130 0;
 #X connect 133 0 131 0;
 #X restore 502 117 pd Example1-SoundExplorer;
+#N canvas 82 69 817 668 Example2-BasicStepSequencer 1;
+#X obj 10 10 cnv 15 320 25 empty empty Example_2:_BasicStepSequencer
+20 12 0 14 -228856 -66577 0;
+#X obj 10 48 cnv 15 120 25 empty empty Create_Pulse 20 12 0 12 -233017
+-66577 0;
+#X obj 12 85 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 12 145 metro 150;
+#X obj 12 166 f;
+#X obj 12 200 mod 8;
+#X floatatom 12 227 5 0 0 0 - - -;
+#X obj 54 166 + 1;
+#X obj 12 104 t b b;
+#X msg 27 125 0;
+#X text 30 84 <--- START/STOP BEAT;
+#X text 81 166 <--- add 1 and save;
+#X text 110 177 for next step;
+#X text 46 199 <--- gives the remainder;
+#X text 76 213 of n/8 \, meaning we;
+#X text 75 227 can loop from 0-7;
+#X text 51 125 <--- always start from 0;
+#X obj 230 48 cnv 15 120 25 empty empty Create_Loop 20 12 0 12 -233017
+-66577 0;
+#X obj 231 123 sel 0 1 2 3 4 5 6 7;
+#X floatatom 231 103 5 0 0 0 - - -;
+#X obj 231 144 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 231 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 -262130
+-1 -1 20 256;
+#X obj 231 228 t b f;
+#X obj 231 210 mtof;
+#X obj 231 304 s ex2trigger;
+#X obj 12 250 s ex2pulse;
+#X obj 231 82 r ex2pulse;
+#X obj 231 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 309 304 s ex2freq;
+#X obj 231 179 route 0;
+#X obj 281 144 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 281 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 -262130
+-1 -1 0 256;
+#X obj 281 228 t b f;
+#X obj 281 210 mtof;
+#X obj 281 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 281 179 route 0;
+#X obj 331 144 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 331 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 -262130
+-1 -1 0 256;
+#X obj 331 228 t b f;
+#X obj 331 210 mtof;
+#X obj 331 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 331 179 route 0;
+#X obj 381 144 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 381 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 -262130
+-1 -1 31 256;
+#X obj 381 228 t b f;
+#X obj 381 210 mtof;
+#X obj 381 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 381 179 route 0;
+#X obj 431 144 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 431 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 -262130
+-1 -1 0 256;
+#X obj 431 228 t b f;
+#X obj 431 210 mtof;
+#X obj 431 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 431 179 route 0;
+#X obj 481 144 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 481 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 -262130
+-1 -1 28 256;
+#X obj 481 228 t b f;
+#X obj 481 210 mtof;
+#X obj 481 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 481 179 route 0;
+#X obj 531 144 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 531 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 -262130
+-1 -1 26 256;
+#X obj 531 228 t b f;
+#X obj 531 210 mtof;
+#X obj 531 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 531 179 route 0;
+#X obj 581 144 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 581 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 -262130
+-1 -1 0 256;
+#X obj 581 228 t b f;
+#X obj 581 210 mtof;
+#X obj 581 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 581 179 route 0;
+#X obj 10 338 cnv 15 120 25 empty empty Envelope 20 12 0 12 -233017
+-66577 0;
+#X obj 10 375 r ex2trigger;
+#X text 353 122 <--- bang when a number matches the input;
+#X text 621 162 <--- set midi note;
+#X text 629 179 <--- 0 is a rest;
+#X text 657 193 [route] filters out;
+#X text 658 206 all 0's;
+#X obj 10 484 line~;
+#X obj 10 443 del 10;
+#X obj 10 404 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234 -1
+-1;
+#X obj 10 423 t b b;
+#X msg 57 464 1 0;
+#X msg 10 463 0 500;
+#X obj 10 507 s~ ex2Env;
+#X obj 139 338 cnv 15 200 25 empty empty Triangle_Wave_Synth 20 12
+0 12 -233017 -66577 0;
+#X floatatom 139 435 5 0 0 0 - - -;
+#X obj 139 415 line;
+#X obj 139 375 r ex2freq;
+#X msg 139 395 \$1 50;
+#X obj 139 481 osc~;
+#X obj 139 501 *~ 1;
+#X obj 179 481 osc~;
+#X obj 139 461 * 1;
+#X obj 179 461 * 3;
+#X obj 240 481 osc~;
+#X obj 240 461 * 5;
+#X obj 300 481 osc~;
+#X obj 300 461 * 7;
+#X obj 179 501 *~ 0.333;
+#X obj 240 501 *~ 0.2;
+#X obj 300 501 *~ 0.143;
+#X obj 139 524 *~ 0.1;
+#X obj 139 543 s~ ex2Tri;
+#X obj 389 338 cnv 15 200 25 empty empty Sound_Output 20 12 0 12 -233017
+-66577 0;
+#X obj 389 377 r~ ex2Tri;
+#X obj 389 421 *~;
+#X obj 404 401 r~ ex2Env;
+#X obj 389 463 *~;
+#X obj 465 429 hsl 120 30 0 1 0 1 empty empty AMPLITUDE 5 15 0 16 -204786
+-1 -1 9000 1;
+#X obj 389 515 dac~;
+#X obj 389 489 clip~ -1 1;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 25 0;
+#X connect 7 0 4 1;
+#X connect 8 0 3 0;
+#X connect 8 1 9 0;
+#X connect 9 0 4 1;
+#X connect 18 0 20 0;
+#X connect 18 1 30 0;
+#X connect 18 2 36 0;
+#X connect 18 3 42 0;
+#X connect 18 4 48 0;
+#X connect 18 5 54 0;
+#X connect 18 6 60 0;
+#X connect 18 7 66 0;
+#X connect 19 0 18 0;
+#X connect 20 0 21 0;
+#X connect 21 0 29 0;
+#X connect 22 0 24 0;
+#X connect 22 0 27 0;
+#X connect 22 1 28 0;
+#X connect 23 0 22 0;
+#X connect 26 0 19 0;
+#X connect 29 1 23 0;
+#X connect 30 0 31 0;
+#X connect 31 0 35 0;
+#X connect 32 0 34 0;
+#X connect 32 0 24 0;
+#X connect 32 1 28 0;
+#X connect 33 0 32 0;
+#X connect 35 1 33 0;
+#X connect 36 0 37 0;
+#X connect 37 0 41 0;
+#X connect 38 0 40 0;
+#X connect 38 0 24 0;
+#X connect 38 1 28 0;
+#X connect 39 0 38 0;
+#X connect 41 1 39 0;
+#X connect 42 0 43 0;
+#X connect 43 0 47 0;
+#X connect 44 0 46 0;
+#X connect 44 0 24 0;
+#X connect 44 1 28 0;
+#X connect 45 0 44 0;
+#X connect 47 1 45 0;
+#X connect 48 0 49 0;
+#X connect 49 0 53 0;
+#X connect 50 0 52 0;
+#X connect 50 0 24 0;
+#X connect 50 1 28 0;
+#X connect 51 0 50 0;
+#X connect 53 1 51 0;
+#X connect 54 0 55 0;
+#X connect 55 0 59 0;
+#X connect 56 0 58 0;
+#X connect 56 0 24 0;
+#X connect 56 1 28 0;
+#X connect 57 0 56 0;
+#X connect 59 1 57 0;
+#X connect 60 0 61 0;
+#X connect 61 0 65 0;
+#X connect 62 0 64 0;
+#X connect 62 0 24 0;
+#X connect 62 1 28 0;
+#X connect 63 0 62 0;
+#X connect 65 1 63 0;
+#X connect 66 0 67 0;
+#X connect 67 0 71 0;
+#X connect 68 0 70 0;
+#X connect 68 0 24 0;
+#X connect 68 1 28 0;
+#X connect 69 0 68 0;
+#X connect 71 1 69 0;
+#X connect 73 0 81 0;
+#X connect 79 0 85 0;
+#X connect 80 0 84 0;
+#X connect 81 0 82 0;
+#X connect 82 0 80 0;
+#X connect 82 1 83 0;
+#X connect 83 0 79 0;
+#X connect 84 0 79 0;
+#X connect 87 0 94 0;
+#X connect 87 0 95 0;
+#X connect 87 0 97 0;
+#X connect 87 0 99 0;
+#X connect 88 0 87 0;
+#X connect 89 0 90 0;
+#X connect 90 0 88 0;
+#X connect 91 0 92 0;
+#X connect 92 0 103 0;
+#X connect 93 0 100 0;
+#X connect 94 0 91 0;
+#X connect 95 0 93 0;
+#X connect 96 0 101 0;
+#X connect 97 0 96 0;
+#X connect 98 0 102 0;
+#X connect 99 0 98 0;
+#X connect 103 0 104 0;
+#X connect 106 0 107 0;
+#X connect 107 0 109 0;
+#X connect 108 0 107 1;
+#X connect 109 0 112 0;
+#X connect 110 0 109 1;
+#X connect 112 0 111 0;
+#X connect 112 0 111 1;
+#X restore 502 143 pd Example2-BasicStepSequencer;
