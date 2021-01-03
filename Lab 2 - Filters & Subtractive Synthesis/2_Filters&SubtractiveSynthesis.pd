@@ -1,4 +1,4 @@
-#N canvas 165 126 1003 431 10;
+#N canvas 33 101 1003 431 10;
 #N canvas 33 25 475 319 noise 0;
 #X obj 15 51 noise~;
 #X obj 15 106 *~ 0.1;
@@ -26,7 +26,7 @@ an off/on switch for the audio;
 #X connect 4 0 11 0;
 #X connect 11 0 2 0;
 #X connect 11 0 2 1;
-#X restore 492 95 pd noise;
+#X restore 492 91 pd noise;
 #N canvas 79 38 551 685 filt 0;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array lop 1000 float 0;
@@ -93,8 +93,8 @@ volume \, more than one increases volume;
 #X connect 30 0 6 0;
 #X connect 30 0 6 1;
 #X connect 31 0 30 1;
-#X restore 492 121 pd filt 1;
-#X text 563 120 Low Pass;
+#X restore 492 117 pd filt 1;
+#X text 563 116 Low Pass;
 #N canvas 239 84 559 673 filt 0;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array hip 1000 float 0;
@@ -155,8 +155,8 @@ to pass and reduces or eliminates frequencies below it.;
 #X connect 28 0 27 0;
 #X connect 28 0 27 1;
 #X connect 29 0 28 1;
-#X restore 492 147 pd filt 2;
-#X text 564 147 High Pass;
+#X restore 492 143 pd filt 2;
+#X text 564 143 High Pass;
 #N canvas 105 25 558 718 filt 0;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array bp 1000 float 0;
@@ -224,8 +224,8 @@ sound to pass. Generally this number is between 0-10.;
 #X connect 30 0 29 0;
 #X connect 30 0 29 1;
 #X connect 31 0 30 1;
-#X restore 492 173 pd filt 3;
-#X text 564 172 Band Pass;
+#X restore 492 169 pd filt 3;
+#X text 564 168 Band Pass;
 #N canvas 140 151 1142 627 filter 0;
 #X obj 68 92 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
 -1;
@@ -420,23 +420,23 @@ new frequency;
 #X connect 87 0 88 0;
 #X connect 88 0 86 1;
 #X connect 89 0 87 0;
-#X restore 492 199 pd filter colours;
-#X text 607 198 An example of how filters might be used \, here is
+#X restore 492 195 pd filter colours;
+#X text 607 194 An example of how filters might be used \, here is
 a random distribution of band-pass filters:;
-#X text 152 376 Envelope using line;
-#X text 152 406 More ways of using line;
-#X text 674 347 Using Subtractive synthesis to make percussive sounds
+#X text 152 372 Envelope using line;
+#X text 152 402 More ways of using line;
+#X text 674 343 Using Subtractive synthesis to make percussive sounds
 ;
-#X obj 9 122 line~;
-#X obj 9 148 del;
-#X obj 9 202 hip~;
-#X obj 9 254 bp~;
-#X obj 9 228 lop~;
-#X text 56 121 generate audio ramps;
-#X text 56 200 High Pass Filter;
-#X text 55 227 Low Pass Filter;
-#X text 55 254 Band Pass Filter;
-#X obj 9 95 noise~;
+#X obj 9 118 line~;
+#X obj 9 144 del;
+#X obj 9 198 hip~;
+#X obj 9 250 bp~;
+#X obj 9 224 lop~;
+#X text 56 117 generate audio ramps;
+#X text 56 196 High Pass Filter;
+#X text 55 223 Low Pass Filter;
+#X text 55 250 Band Pass Filter;
+#X obj 9 91 noise~;
 #N canvas 360 239 320 118 more 0;
 #N canvas 102 116 1159 545 crash 0;
 #X obj 520 76 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -857,22 +857,22 @@ sources and two AR envelopes;
 #X restore 131 92 pd snare;
 #X obj 9 9 cnv 15 300 25 empty empty More_percussive_sound_recipies...
 20 12 0 14 -233017 -66577 0;
-#X restore 490 377 pd more percussive sounds;
-#X text 673 378 kick \, snare \, hat etc;
-#X obj 9 13 cnv 15 700 40 empty empty Lab2-Amplitude_Control/Filters/Percussive_Sounds
+#X restore 490 373 pd more percussive sounds;
+#X text 673 374 kick \, snare \, hat etc;
+#X obj 9 9 cnv 15 700 40 empty empty Lab2-Filters_&_Subtractive_Synthesis
 20 12 0 20 -233017 -66577 0;
-#X obj 9 60 cnv 15 200 25 empty empty 1:_Key_Ingredients 20 12 0 14
+#X obj 9 56 cnv 15 200 25 empty empty 1:_Key_Ingredients 20 12 0 14
 -228856 -66577 0;
-#X text 56 94 uniformly distributed white noise;
-#X text 56 145 The delay object sends a bang to its outlet after a
+#X text 56 90 uniformly distributed white noise;
+#X text 56 141 The delay object sends a bang to its outlet after a
 delay in milliseconds specified by its right inlet or its creation
 argument. Right click and choose 'help' to see more details and examples
 ;
-#X obj 9 314 cnv 15 250 25 empty empty 2:_Basic_Envelopes_with_Line
+#X obj 9 310 cnv 15 250 25 empty empty 2:_Basic_Envelopes_with_Line
 20 12 0 14 -228856 -66577 0;
-#X obj 490 60 cnv 15 200 25 empty empty 3:_Filter_Examples 20 12 0
+#X obj 490 56 cnv 15 200 25 empty empty 3:_Filter_Examples 20 12 0
 14 -228856 -66577 0;
-#X obj 490 314 cnv 15 400 25 empty empty 4:_Percussive_Sounds_Combining_Line_and_Filters
+#X obj 490 310 cnv 15 400 25 empty empty 4:_Percussive_Sounds_Combining_Line_and_Filters
 20 12 0 14 -228856 -66577 0;
 #N canvas -199 -975 636 576 line_envelope 0;
 #X obj 11 87 osc~ 440;
@@ -967,7 +967,7 @@ a "0" argument-- this tells Pd to expect a signal here.;
 #X connect 36 0 24 0;
 #X connect 36 0 1 0;
 #X connect 36 0 1 1;
-#X restore 9 377 pd line_envelope;
+#X restore 9 373 pd line_envelope;
 #N canvas 339 -973 661 725 line_ramp_generator 0;
 #X obj 92 250 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -1092,8 +1092,8 @@ inlets (there are some exceptions). In this case \, "0 50" becomes
 #X connect 43 0 44 0;
 #X connect 44 0 38 0;
 #X connect 44 0 35 0;
-#X restore 9 347 pd line_ramp_generator;
-#X text 151 347 using [line]/[line~] as a ramp generator;
+#X restore 9 343 pd line_ramp_generator;
+#X text 151 343 using [line]/[line~] as a ramp generator;
 #N canvas 140 37 1197 822 more_envelopes 0;
 #X obj 12 143 line;
 #X msg 13 119 1 \, 0 1000;
@@ -1265,7 +1265,7 @@ object;
 #X connect 82 1 39 0;
 #X connect 91 0 27 0;
 #X connect 91 0 27 1;
-#X restore 9 407 pd more_envelopes;
+#X restore 9 403 pd more_envelopes;
 #N canvas 76 76 986 507 making_a_percussive_sound 0;
 #X obj 9 9 cnv 15 450 25 empty empty Putting_things_together:_Making_a_percussive_sound
 20 12 0 14 -233017 -66577 0;
@@ -1336,4 +1336,4 @@ percussive sounds using subtractive synthesis.;
 #X connect 31 0 32 0;
 #X connect 31 0 32 1;
 #X connect 33 0 31 0;
-#X restore 490 348 pd making_a_percussive_sound;
+#X restore 490 344 pd making_a_percussive_sound;
