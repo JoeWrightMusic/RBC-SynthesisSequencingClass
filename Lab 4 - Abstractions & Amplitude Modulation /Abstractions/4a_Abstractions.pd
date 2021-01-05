@@ -1,0 +1,95 @@
+#N canvas 571 38 479 797 12;
+#X obj 9 9 cnv 15 460 40 empty empty Lab4a-Abstractions 20 12 0 20
+-233017 -66577 0;
+#X text 8 113 First \, lets look at a subpatch that lets us control
+the volume of an audio signal:;
+#N canvas 435 349 757 391 volumeControl 0;
+#X obj 330 277 *~;
+#X obj 366 129 hsl 120 30 0 1 0 1 empty empty AMPLITUDE 5 15 0 16 -204786
+-1 -1 0 1;
+#X obj 273 332 clip~ -1 1;
+#X obj 330 129 tgl 30 0 empty empty MUTE 3 14 0 10 -204786 -1 -1 0
+1;
+#X msg 376 227 \$1 10;
+#X obj 376 250 line~;
+#X msg 330 227 \$1 10;
+#X obj 330 251 line~;
+#X obj 330 163 t b f;
+#X obj 330 205 -;
+#X msg 330 184 1;
+#X obj 272 49 inlet~;
+#X obj 273 308 *~;
+#X obj 7 10 cnv 15 320 25 empty empty Volume_Control_Subpatch 20 12
+0 14 -228856 -66577 0;
+#X obj 273 364 outlet~;
+#X obj 330 48 inlet;
+#X obj 371 48 inlet;
+#X text 242 50 -->;
+#X text 242 365 -->;
+#X text 4 50 For subpatches and abstractions \,;
+#X text 5 65 we can use [inlet~]/[outlet~] to;
+#X text 4 80 let audio signals in/out \, and;
+#X text 4 94 [inlet]/[outlet] for control data;
+#X text 444 60 from left-right that they appear here will;
+#X text 444 74 be the same as the order of inlets/outlets;
+#X text 444 87 the object has in its parent patch.;
+#X text 416 47 <-- with multiple inlets or outlets \, the order;
+#X connect 0 0 12 1;
+#X connect 1 0 4 0;
+#X connect 2 0 14 0;
+#X connect 3 0 8 0;
+#X connect 4 0 5 0;
+#X connect 5 0 0 1;
+#X connect 6 0 7 0;
+#X connect 7 0 0 0;
+#X connect 8 0 10 0;
+#X connect 8 1 9 1;
+#X connect 9 0 6 0;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 12 0 2 0;
+#X connect 15 0 3 0;
+#X connect 16 0 1 0;
+#X restore 10 160 pd volumeControl;
+#X text 127 159 <--- click(performance mode) or ctl-click to open;
+#X text 8 197 Notice that the inlets/outlets of the object as it appears
+here is the same as the number of inlet/outlet objects in the subpatch.
+;
+#X text 9 258 But using subpatches like this can become cumbersome
+if we want to use the same functions again and again (as might be the
+case with a simple volume control).;
+#X text 9 318 Pd has a powerful time-saving feature that lets us create
+our own custom objects \, or "abstractions". Lets open the "vol-ctl.pd"
+file within this project folder:;
+#X obj 12 416 pdcontrol;
+#X msg 12 393 dir;
+#X obj 12 369 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 30 367 <-- CLICK HERE;
+#X msg 12 438 \; pd open vol-ctl.pd \$1;
+#X obj 9 611 vol-ctl;
+#X obj 9 648 dac~;
+#X text 10 482 Now that this is saved in a file \, we can use it by
+its filename the same way we do with other objects. In this case \,
+we can use [vol-ctl] to bring up an instance of the patch above and
+use it as part of our main patch.;
+#X obj 9 568 phasor~ 220;
+#X obj 9 589 *~ 0.1;
+#X text 8 676 IMPORTANT: this only works if the .pd file for your abstraction
+is 'visible' to Pd. This means it either has to be in a folder defined
+in your 'Path' preferences \, or it has to be in the same folder as
+the parent patch (as is the case here). If I had an abstraction called
+myAbstraction.pd \, that was saved somewhere else \, this happens:
+;
+#X obj 10 768 myAbstraction;
+#X text 108 768 <--- doesn't work!;
+#X text 8 56 By now \, you will have seen many [pd ...] objects in
+Pd that let us have patches within patches. We can use these as custom
+Pd objects too by saving them as abstractions.;
+#X connect 7 0 11 0;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X connect 12 0 13 0;
+#X connect 12 0 13 1;
+#X connect 15 0 16 0;
+#X connect 16 0 12 0;
