@@ -1,11 +1,11 @@
-#N canvas 343 85 718 216 12;
+#N canvas -32 -984 718 216 12;
 #X obj 9 13 cnv 15 700 40 empty empty Lab1c-Bang_Order_&_Basic_Math_in_Pd
 20 12 0 20 -233017 -66577 0;
 #X text 172 119 SUPER IMPORTANT: quirks about message ordering in PD
 ;
 #X text 172 150 why should we care about bang order?;
 #X text 172 182 best practices to avoid confusing errors;
-#N canvas -220 -944 992 346 bang_order 0;
+#N canvas 176 -859 1049 361 bang_order 0;
 #X obj 12 9 cnv 15 270 25 empty empty Bang_Order 20 12 0 14 -233017
 -66577 0;
 #X text 11 36 The rules outlined in this patch aren't immediately obvious
@@ -71,12 +71,12 @@ objects to a bang. Lets start with this example;
 #X connect 27 0 25 0;
 #X connect 28 0 25 0;
 #X restore 11 119 pd bang_order;
-#N canvas -123 -967 1170 406 order_consequences 0;
+#N canvas 71 -926 1293 406 order_consequences 1;
 #X obj 13 14 cnv 15 420 25 empty empty Bang_order_consequences:_why_should_we_care?
 20 12 0 14 -233017 -66577 0;
-#X obj 81 152 +;
+#X obj 95 152 +;
 #X text 13 146 hot inlet >;
-#X text 102 146 < cold inlet;
+#X text 119 146 < cold inlet;
 #X text 12 174 Messages to the hot inlet trigger a math operation \,
 and gives us a result from the outlet of [+ ];
 #X text 12 78 If we don't know the exact order that messages arrive
@@ -101,56 +101,56 @@ inlet reveives a new value. They won't trigger an output on their own:
 #X obj 14 49 cnv 15 170 25 empty empty 1:_Ordered_Editing_Habits 20
 12 0 10 -233017 -66577 0;
 #X text 10 130 [+ ] has two inlets: one 'hot' and one 'cold':;
-#X obj 403 49 cnv 15 200 25 empty empty 2:_Confusing_Bang_Order_Errors
+#X obj 463 49 cnv 15 200 25 empty empty 2:_Confusing_Bang_Order_Errors
 20 12 0 10 -233017 -66577 0;
-#X text 402 79 Now lets imagine that we want to first set the values
+#X text 462 79 Now lets imagine that we want to first set the values
 sent to [+ ] \, and then add together some new numbers at a later point:
 ;
-#X obj 439 181 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 499 181 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 562 181 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 622 181 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 405 213 5;
-#X msg 606 211 10;
-#X msg 562 211 105;
-#X obj 529 258 +;
-#X text 400 132 first calculation:;
-#X text 469 288 RESULT;
-#X floatatom 528 288 5 0 0 0 - - -;
-#X text 560 132 second calculation:;
-#X text 560 148 should give 115;
-#X text 399 147 should give 0;
-#X msg 465 213 -5;
-#X text 398 328 If you're used to reading from left to right \, you
+#X msg 465 213 5;
+#X msg 666 211 10;
+#X msg 622 211 105;
+#X obj 589 258 +;
+#X text 460 132 first calculation:;
+#X text 529 288 RESULT;
+#X floatatom 588 288 5 0 0 0 - - -;
+#X text 620 132 second calculation:;
+#X text 620 148 should give 115;
+#X text 459 147 should give 0;
+#X msg 525 213 -5;
+#X text 458 328 If you're used to reading from left to right \, you
 might assume from looking at this patch that when we click on the seccond
 bang object \, we get the result of 115 But we get 5 instead \, why?!
 ;
-#X obj 793 49 cnv 15 200 25 empty empty 3:_These_can_be_tricky_to_spot
+#X obj 903 49 cnv 15 200 25 empty empty 3:_These_can_be_tricky_to_spot
 20 12 0 10 -233017 -66577 0;
-#X text 792 78 The problem with example two was in the order that the
+#X text 902 78 The problem with example two was in the order that the
 second bang was connected to the two messages.;
-#X text 792 110 The bang was first connected to [10( \, then it was
+#X text 902 110 The bang was first connected to [10( \, then it was
 connected to [105(.;
-#X text 661 211 <<-----------------;
-#X obj 796 174 cnv 15 80 90 empty empty empty 20 12 0 14 -208240 -66577
+#X text 721 211 <<-----------------;
+#X obj 906 174 cnv 15 80 90 empty empty empty 20 12 0 14 -208240 -66577
 0;
-#X obj 801 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 911 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 845 210 10;
-#X msg 801 240 105;
-#X text 792 140 This means that the number 10 is sent to the hot inlet
+#X msg 985 210 10;
+#X msg 911 240 105;
+#X text 902 140 This means that the number 10 is sent to the hot inlet
 of [+ ] before 105 reaches the cold inlet.;
-#X text 792 281 So \, the calculation runs in [+ ] with the old value
+#X text 902 281 So \, the calculation runs in [+ ] with the old value
 of -5 \, and we get the result of 5 If you click the second bang again
 \, you will then get the correct result \, using the stored value of
 105 that was missed beforehand.;
-#X text 791 338 This is a trivial \, and not very realistic example.
+#X text 901 338 This is a trivial \, and not very realistic example.
 In a larger patch \, this kind of thing can be hard to spot when things
 go wrong.;
 #X text 14 373 As a general rule \, the left inlets of Pd objects are
 'hot' \, and the others are cold.;
-#X text 879 209 < connected first;
-#X text 879 240 < connected second;
+#X text 1019 209 < connected first;
+#X text 1019 240 < connected second;
 #X connect 7 0 8 0;
 #X connect 8 0 11 0;
 #X connect 9 0 10 0;

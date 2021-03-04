@@ -1,5 +1,5 @@
-#N canvas 33 101 1003 431 10;
-#N canvas 33 25 475 319 noise 0;
+#N canvas 270 330 1003 428 10;
+#N canvas 254 -950 475 319 noise 0;
 #X obj 15 51 noise~;
 #X obj 15 106 *~ 0.1;
 #X obj 15 289 dac~;
@@ -27,7 +27,7 @@ an off/on switch for the audio;
 #X connect 11 0 2 0;
 #X connect 11 0 2 1;
 #X restore 492 91 pd noise;
-#N canvas 79 38 551 685 filt 0;
+#N canvas 586 -1029 551 685 filt 0;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array lop 1000 float 0;
 #X coords 0 1 999 -1 200 100 1 0 0;
@@ -44,12 +44,11 @@ an off/on switch for the audio;
 #X obj 22 371 lop~;
 #X obj 43 321 mtof;
 #X obj 46 270 hsl 128 15 0 127 0 1 empty empty empty -2 -6 0 8 -262144
--1 -1 0 1;
+-1 -1 10700 1;
 #X text 180 270 Slider sends MIDI note values (0-127).;
 #X text 180 241 Generate white noise.;
 #X text 179 369 [lop~] allows frequencies below the cutoff frequency
 to pass and reduces or eliminates frequencies above it.;
-#X obj 22 557 *~ 0.1;
 #X obj 10 42 cnv 15 380 180 empty empty Graphical_Depiction_of_a_Low_Pass_Filter
 20 12 0 14 -208240 -66577 0;
 #N canvas 0 22 450 300 (subpatch) 0;
@@ -80,22 +79,23 @@ volume \, more than one increases volume;
 #X text 179 654 Output;
 #X floatatom 54 288 5 0 0 0 - - -;
 #X floatatom 54 340 5 0 0 0 - - -;
+#X obj 22 557 *~ 0.01;
 #X connect 1 0 5 0;
 #X connect 5 0 7 0;
 #X connect 8 0 9 0;
 #X connect 9 0 7 0;
-#X connect 9 0 15 0;
+#X connect 9 0 36 0;
 #X connect 10 0 9 1;
-#X connect 10 0 36 0;
-#X connect 11 0 35 0;
+#X connect 10 0 35 0;
+#X connect 11 0 34 0;
 #X connect 11 0 10 0;
-#X connect 15 0 30 0;
-#X connect 30 0 6 0;
-#X connect 30 0 6 1;
-#X connect 31 0 30 1;
+#X connect 29 0 6 0;
+#X connect 29 0 6 1;
+#X connect 30 0 29 1;
+#X connect 36 0 29 0;
 #X restore 492 117 pd filt 1;
 #X text 563 116 Low Pass;
-#N canvas 239 84 559 673 filt 0;
+#N canvas 539 -976 559 673 filt 0;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array hip 1000 float 0;
 #X coords 0 1 999 -1 200 100 1;
@@ -110,7 +110,7 @@ volume \, more than one increases volume;
 #X obj 23 241 noise~;
 #X obj 44 304 mtof;
 #X obj 47 281 hsl 128 15 0 127 0 1 empty empty empty -2 -6 0 8 -262144
--1 -1 12700 1;
+-1 -1 1500 1;
 #X text 184 304 [mtof] converts MIDI notes to frequency in Hertz.;
 #X text 185 280 Slider sends MIDI note values (0-127).;
 #X text 184 241 Generate white noise.;
@@ -157,7 +157,7 @@ to pass and reduces or eliminates frequencies below it.;
 #X connect 29 0 28 1;
 #X restore 492 143 pd filt 2;
 #X text 564 143 High Pass;
-#N canvas 105 25 558 718 filt 0;
+#N canvas 391 124 558 718 filt 0;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array bp 1000 float 0;
 #X coords 0 1 999 -1 200 100 1;
@@ -172,7 +172,7 @@ to pass and reduces or eliminates frequencies below it.;
 #X obj 22 237 noise~;
 #X obj 47 285 mtof;
 #X obj 50 267 hsl 128 15 0 127 0 1 empty empty empty -2 -6 0 8 -262144
--1 -1 7700 1;
+-1 -1 10000 1;
 #X text 187 285 [mtof] converts MIDI notes to frequency in Hertz.;
 #X text 189 237 Generate white noise.;
 #X obj 189 534 tabwrite~ bp;
@@ -202,7 +202,6 @@ reduces or eliminates frequencies above and below it.;
 #X text 189 333 The third inlet of [bp] controls the Resonance \, i.e.
 how far above or below the center frequency the filter still allows
 sound to pass. Generally this number is between 0-10.;
-#X obj 22 614 *~ 0.1;
 #X obj 22 693 dac~;
 #X obj 22 665 *~;
 #X obj 92 643 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -212,18 +211,19 @@ sound to pass. Generally this number is between 0-10.;
 #X text 182 693 Output;
 #X text 211 487 on/ff;
 #X text 304 466 Output of Band Pass Filter;
+#X obj 22 614 *~ 0.01;
 #X connect 1 0 6 0;
 #X connect 6 0 12 0;
 #X connect 7 0 13 0;
 #X connect 8 0 13 1;
 #X connect 9 0 8 0;
 #X connect 13 0 12 0;
-#X connect 13 0 28 0;
+#X connect 13 0 36 0;
 #X connect 15 0 13 2;
-#X connect 28 0 30 0;
-#X connect 30 0 29 0;
+#X connect 29 0 28 0;
+#X connect 29 0 28 1;
 #X connect 30 0 29 1;
-#X connect 31 0 30 1;
+#X connect 36 0 29 0;
 #X restore 492 169 pd filt 3;
 #X text 564 168 Band Pass;
 #N canvas 140 151 1142 627 filter 0;
@@ -437,7 +437,7 @@ a random distribution of band-pass filters:;
 #X text 55 223 Low Pass Filter;
 #X text 55 250 Band Pass Filter;
 #X obj 9 91 noise~;
-#N canvas 360 239 320 118 more 0;
+#N canvas 354 -594 320 118 more 1;
 #N canvas 102 116 1159 545 crash 0;
 #X obj 520 76 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -629,7 +629,7 @@ envelope and an amplitude envelope.;
 #X connect 18 0 4 1;
 #X connect 20 0 7 0;
 #X restore 131 52 pd kick;
-#N canvas -189 -690 892 467 woosh 0;
+#N canvas 248 -864 892 467 woosh 0;
 #X obj 241 87 noise~;
 #X obj 348 86 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -753,7 +753,7 @@ filters \, each with their own amplitude envelope.;
 #X connect 52 0 45 0;
 #X connect 53 0 33 0;
 #X restore 250 92 pd woosh;
-#N canvas 42 93 381 371 hat 0;
+#N canvas 804 25 381 371 hat 0;
 #X obj 29 280 *~;
 #X obj 137 97 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -874,7 +874,7 @@ argument. Right click and choose 'help' to see more details and examples
 14 -228856 -66577 0;
 #X obj 490 310 cnv 15 400 25 empty empty 4:_Percussive_Sounds_Combining_Line_and_Filters
 20 12 0 14 -228856 -66577 0;
-#N canvas -199 -975 636 576 line_envelope 0;
+#N canvas 389 -903 636 576 line_envelope 0;
 #X obj 11 87 osc~ 440;
 #X obj 11 552 dac~;
 #X msg 422 104 \; pd dsp 1;
@@ -964,42 +964,42 @@ a "0" argument-- this tells Pd to expect a signal here.;
 #X connect 26 0 25 0;
 #X connect 28 0 30 0;
 #X connect 30 0 6 1;
-#X connect 36 0 24 0;
+#X connect 30 0 24 0;
 #X connect 36 0 1 0;
 #X connect 36 0 1 1;
 #X restore 9 373 pd line_envelope;
-#N canvas 339 -973 661 725 line_ramp_generator 0;
+#N canvas 354 85 661 725 line_ramp_generator 0;
 #X obj 92 250 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array ramp 882 float 3;
-#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0;
+#A 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1;
 #X coords 0 1 882 -1 200 140 1 0 0;
 #X restore 13 344 graph;
 #X obj 13 95 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -1068,6 +1068,7 @@ for the example above. This is because most Pd objects with more than
 one inlet will automatically distribute lists of numbers across their
 inlets (there are some exceptions). In this case \, "0 50" becomes
 \, "50 at right and 0 at left.";
+#X msg 145 191 0.5;
 #X connect 0 0 15 0;
 #X connect 2 0 3 0;
 #X connect 3 0 7 0;
@@ -1092,9 +1093,10 @@ inlets (there are some exceptions). In this case \, "0 50" becomes
 #X connect 43 0 44 0;
 #X connect 44 0 38 0;
 #X connect 44 0 35 0;
+#X connect 49 0 14 0;
 #X restore 9 343 pd line_ramp_generator;
 #X text 151 343 using [line]/[line~] as a ramp generator;
-#N canvas 140 37 1197 822 more_envelopes 0;
+#N canvas 320 425 1197 822 more_envelopes 0;
 #X obj 12 143 line;
 #X msg 13 119 1 \, 0 1000;
 #X floatatom 12 168 5 0 0 0 - - -;
@@ -1266,7 +1268,7 @@ object;
 #X connect 91 0 27 0;
 #X connect 91 0 27 1;
 #X restore 9 403 pd more_envelopes;
-#N canvas 76 76 986 507 making_a_percussive_sound 0;
+#N canvas -662 -1053 1306 994 making_a_percussive_sound 1;
 #X obj 9 9 cnv 15 450 25 empty empty Putting_things_together:_Making_a_percussive_sound
 20 12 0 14 -233017 -66577 0;
 #X text 10 41 We can put the elements from this lab together to make
