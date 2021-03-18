@@ -1,0 +1,21 @@
+#N canvas -257 -901 810 497 12;
+#X obj 3 5 cnv 15 800 60 empty empty saw~ 20 12 0 30 -233017 -66577
+0;
+#X obj 24 131 inlet~;
+#X text 21 106 freq;
+#X obj 74 81 loadbang;
+#X obj 74 105 f \$1;
+#X obj 74 129 sig~;
+#X obj 24 299 *~ 0.2;
+#X obj 24 333 outlet~;
+#X obj 24 198 phasor~;
+#X obj 24 222 *~ 2;
+#X obj 24 246 -~ 1;
+#X connect 1 0 8 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 6 0;

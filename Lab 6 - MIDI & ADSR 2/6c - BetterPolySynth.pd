@@ -1,4 +1,4 @@
-#N canvas 801 25 562 777 12;
+#N canvas 488 29 562 777 12;
 #X obj 3 3 cnv 15 555 60 empty empty A_BETTER_POLYPHONIC_SYNTH 20 12
 0 20 -233017 -66577 0;
 #X text 21 34 An update to the synth patch from the previous lab \,

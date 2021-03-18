@@ -437,7 +437,7 @@ a random distribution of band-pass filters:;
 #X text 55 223 Low Pass Filter;
 #X text 55 250 Band Pass Filter;
 #X obj 9 91 noise~;
-#N canvas 354 -594 320 118 more 1;
+#N canvas 354 -594 320 118 more 0;
 #N canvas 102 116 1159 545 crash 0;
 #X obj 520 76 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -1268,7 +1268,7 @@ object;
 #X connect 91 0 27 0;
 #X connect 91 0 27 1;
 #X restore 9 403 pd more_envelopes;
-#N canvas -662 -1053 1306 994 making_a_percussive_sound 1;
+#N canvas -304 -1053 1306 994 making_a_percussive_sound 0;
 #X obj 9 9 cnv 15 450 25 empty empty Putting_things_together:_Making_a_percussive_sound
 20 12 0 14 -233017 -66577 0;
 #X text 10 41 We can put the elements from this lab together to make
