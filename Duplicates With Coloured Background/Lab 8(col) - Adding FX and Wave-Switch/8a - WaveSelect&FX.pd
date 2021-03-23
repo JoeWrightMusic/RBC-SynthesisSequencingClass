@@ -1,0 +1,19 @@
+#N canvas 332 38 555 691 12;
+#X obj -1 0 cnv 15 550 670 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 3 3 cnv 15 555 30 empty empty 8a_-_WaveSelect_&_FX 20 12 0 20
+-233017 -66577 0;
+#X obj 97 79 waveSelect~;
+#X text 3 34 Before we add to last weeks lab patch \, lets look at
+some new abstractions. As ever you can look at their contents by right
+clicking and choosing "open"., f 78;
+#X text 247 113 <-- Wave Select;
+#X obj 97 209 xFade~;
+#X text 247 206 <-- Equal Power Crossfader;
+#X obj 99 279 simpleDelay~;
+#X text 247 276 <-- Delay;
+#X text 247 346 <-- Reverb;
+#X obj 99 349 simpleVerb~;
+#X obj 99 389 simpleFX~;
+#X text 317 396 <-- Visual Wrapper for [simpleDelay~] and [simpleVerb~]
+, f 26;

@@ -1,0 +1,45 @@
+#N canvas 355 48 564 444 12;
+#X obj -6 -8 cnv 15 1000 1000 empty empty empty 20 12 0 14 -203904
+-66577 0;
+#X obj 3 3 cnv 15 460 40 empty empty Simple_FM 20 12 0 20 -233017 -66577
+0;
+#X text 6 41 This has the same code we saw in the lab 5a Patch \, only
+we've swapped out the User Interface (UI) elements for inlets \, which
+allow data to be passed into our abstraction;
+#X obj 188 211 osc~;
+#X text 222 211 <-- Generate modulating signal;
+#X obj 118 319 *~;
+#X text 154 319 <-- Scale modulating signal (depth);
+#X obj 8 356 +~;
+#X text 36 356 <-- Add the modulator signal to the carrier Frequency
+;
+#X obj 8 380 osc~;
+#X text 44 380 <-- Generate the frequency-modulated carrier Signal
+;
+#X obj 8 404 outlet~;
+#X text 64 403 <-- Send sound out;
+#X msg 8 154 \$1 10;
+#X obj 8 176 line~;
+#X obj 8 131 inlet;
+#X msg 188 154 \$1 10;
+#X obj 188 176 line~;
+#X obj 188 131 inlet;
+#X msg 468 214 \$1 10;
+#X obj 468 236 line~;
+#X obj 468 191 inlet;
+#X text 6 107 Carrier frequency (hz);
+#X text 186 107 Modulator frequency (hz);
+#X text 466 167 Depth;
+#X connect 3 0 5 0;
+#X connect 5 0 7 1;
+#X connect 7 0 9 0;
+#X connect 9 0 11 0;
+#X connect 13 0 14 0;
+#X connect 14 0 7 0;
+#X connect 15 0 13 0;
+#X connect 16 0 17 0;
+#X connect 17 0 3 0;
+#X connect 18 0 16 0;
+#X connect 19 0 20 0;
+#X connect 20 0 5 1;
+#X connect 21 0 19 0;

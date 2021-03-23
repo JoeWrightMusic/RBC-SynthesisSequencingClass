@@ -1,0 +1,170 @@
+#N canvas 114 25 1105 824 12;
+#X obj -6 -8 cnv 15 1500 1500 empty empty empty 20 12 0 14 -203904
+-66577 0;
+#X obj 22 89 - 1;
+#X obj 224 225 hsl 185 30 0.01 200 1 1 \$0-modMul \$0-setModMul MODULATOR_MULT
+-2 16 0 15 -262130 -1 -1 18400 1;
+#X obj 224 255 hsl 185 30 0.1 10 0 1 \$0-depthMul \$0-setDepthMul DEPTH_MULT
+-2 16 0 15 -232576 -1 -1 18400 1;
+#X msg 41 155 all \$1;
+#X msg 60 196 all \$1;
+#X obj 22 113 pack f f f;
+#X obj 224 307 hsl 185 30 2 5000 1 1 \$0-A \$0-setA ATTACK -2 16 0
+15 -261682 -1 -1 0 1;
+#X msg 80 238 all \$1;
+#X msg 99 280 all \$1;
+#X obj 224 337 hsl 185 30 2 5000 1 1 \$0-D \$0-setD DECAY -2 16 0 15
+-261682 -1 -1 18400 1;
+#X obj 224 367 hsl 185 30 0.001 1 1 1 \$0-S \$0-setS SUSTAIN -2 16
+0 15 -204786 -1 -1 18400 1;
+#X obj 224 397 hsl 185 30 2 5000 1 1 \$0-R \$0-setR RELEASE -2 16 0
+15 -261682 -1 -1 0 1;
+#X msg 118 321 all \$1;
+#X msg 138 363 all \$1;
+#X obj 221 449 vol-ctl~;
+#X obj 221 203 cnv 15 190 20 empty empty FM-SYNTH~ 20 12 0 20 -233017
+-66577 0;
+#X obj 221 286 cnv 15 190 20 empty empty ADSR 20 12 0 20 -233017 -66577
+0;
+#X obj 221 428 cnv 15 190 20 empty empty OUTPUT 20 12 0 20 -233017
+-66577 0;
+#X obj 3 3 cnv 15 555 30 empty empty FM_SYNTH 20 12 0 20 -233017 -66577
+0;
+#X obj 22 386 clone FM-ADSR~ 16;
+#X obj 22 67 poly 16 1;
+#X obj 22 45 inlet;
+#X text 175 44 <-- Note \, Velocity;
+#X obj 82 45 inlet;
+#X obj 24 473 outlet~;
+#X obj 41 136 r \$0-modMul;
+#X obj 60 177 r \$0-depthMul;
+#X obj 80 219 r \$0-A;
+#X obj 99 261 r \$0-D;
+#X obj 118 302 r \$0-S;
+#X obj 138 344 r \$0-R;
+#X obj 457 783 s \$0-setModMul;
+#X obj 481 763 s \$0-setDepthMul;
+#X obj 506 743 s \$0-setA;
+#X obj 530 723 s \$0-setD;
+#X obj 555 703 s \$0-setS;
+#X obj 580 683 s \$0-setR;
+#X obj 521 77 r \$0-modMul;
+#X obj 551 98 r \$0-depthMul;
+#X obj 581 119 r \$0-A;
+#X obj 611 140 r \$0-D;
+#X obj 641 161 r \$0-S;
+#X obj 671 183 r \$0-R;
+#X obj 503 231 pack f f f f f f;
+#X msg 503 255 set \$1 \$2 \$3 \$4 \$5 \$6;
+#X msg 460 508 0.106784 5.05 71.1645 129.063 0.0975282 1282.4;
+#X text 790 508 Comedy Alien;
+#X text 820 538 Snub Bass;
+#X msg 520 568 2.69784 6.44891 2 993.623 1 1282.4;
+#X text 770 568 Bell;
+#X msg 490 538 0.508612 1.01467 2 343.198 0.00175616 3.33146;
+#X msg 550 598 6.04845 10 2047.21 2 1 5000;
+#X text 750 598 Ominous;
+#X msg 581 628 200 10 2 5000 1 2;
+#X text 884 628 User;
+#X obj 453 139 r \$0-save;
+#X obj 221 486 cnv 15 190 130 empty empty PRESETS 20 12 0 20 -233017
+-66577 0;
+#X text 246 512 Comedy Alien;
+#X text 246 533 Snub Bass;
+#X text 246 554 Bell;
+#X text 246 574 Ominous;
+#X text 246 594 User;
+#X text 350 522 SAVE USER PRESET, f 7;
+#X obj 351 569 bng 40 250 50 0 \$0-save empty empty 17 7 0 10 -191407
+-258113 -261234;
+#X obj 457 655 unpack f f f f f f;
+#X obj 503 279 s \$0-setUserPreset;
+#X obj 938 604 r \$0-setUserPreset;
+#X obj 459 474 sel 0 1 2 3 4;
+#X text 558 473 Bang when one of the preset numbers is received;
+#X obj 459 450 r \$0-presets;
+#X text 559 451 Receive presets from vradio GUI object (0-4);
+#X obj 452 41 cnv 15 400 30 empty empty Receive_Values_&_Save_Preset
+20 12 0 14 -233017 -66577 0;
+#X obj 452 411 cnv 15 400 30 empty empty Load_Presets 20 12 0 14 -233017
+-66577 0;
+#X obj 224 512 vradio 20 1 0 5 \$0-presets empty empty 0 -8 0 10 -162280
+-1 -1 4;
+#X obj 503 206 f;
+#X obj 533 206 f;
+#X obj 563 206 f;
+#X obj 593 206 f;
+#X obj 623 206 f;
+#X obj 653 206 f;
+#X text 733 74 We can grab the states of each slider and pack them
+into a list. This list is a numeric version of the synth's state \,
+which we can save and reuse as a preset., f 47;
+#X text 733 144 In this part of the patch \, the values from each slider
+is stored in a [f] object \, and then we can send these through a [pack]
+object. The set message then takes this list and sends it on to the
+message box below \, which we can use to alter the state of the fifth
+preset message., f 47;
+#X text 937 524 This is where the user preset is sent through to the
+5th preset message box, f 18;
+#X text 686 682 <-- preset messages are unpacked here and sent back
+to their corresponding GUI objects, f 45;
+#X connect 1 0 6 0;
+#X connect 4 0 20 1;
+#X connect 5 0 20 2;
+#X connect 6 0 20 0;
+#X connect 8 0 20 3;
+#X connect 9 0 20 4;
+#X connect 13 0 20 5;
+#X connect 14 0 20 6;
+#X connect 15 0 25 0;
+#X connect 20 0 15 0;
+#X connect 21 0 1 0;
+#X connect 21 1 6 1;
+#X connect 21 2 6 2;
+#X connect 22 0 21 0;
+#X connect 24 0 21 1;
+#X connect 26 0 4 0;
+#X connect 27 0 5 0;
+#X connect 28 0 8 0;
+#X connect 29 0 9 0;
+#X connect 30 0 13 0;
+#X connect 31 0 14 0;
+#X connect 38 0 75 1;
+#X connect 39 0 76 1;
+#X connect 40 0 77 1;
+#X connect 41 0 78 1;
+#X connect 42 0 79 1;
+#X connect 43 0 80 1;
+#X connect 44 0 45 0;
+#X connect 45 0 66 0;
+#X connect 46 0 65 0;
+#X connect 49 0 65 0;
+#X connect 51 0 65 0;
+#X connect 52 0 65 0;
+#X connect 54 0 65 0;
+#X connect 56 0 75 0;
+#X connect 56 0 76 0;
+#X connect 56 0 77 0;
+#X connect 56 0 78 0;
+#X connect 56 0 79 0;
+#X connect 56 0 80 0;
+#X connect 65 0 32 0;
+#X connect 65 1 33 0;
+#X connect 65 2 34 0;
+#X connect 65 3 35 0;
+#X connect 65 4 36 0;
+#X connect 65 5 37 0;
+#X connect 67 0 54 0;
+#X connect 68 0 46 0;
+#X connect 68 1 51 0;
+#X connect 68 2 49 0;
+#X connect 68 3 52 0;
+#X connect 68 4 54 0;
+#X connect 70 0 68 0;
+#X connect 75 0 44 0;
+#X connect 76 0 44 1;
+#X connect 77 0 44 2;
+#X connect 78 0 44 3;
+#X connect 79 0 44 4;
+#X connect 80 0 44 5;
+#X coords 0 -1 1 1 194 418 2 219 200;
