@@ -1,0 +1,7 @@
+#N canvas 32 25 450 300 12;
+#N canvas 32 25 450 300 MarkovChains 0;
+#X restore 604 95 pd MarkovChains;
+#N canvas 32 25 450 300 EuclideanRhythms 0;
+#X restore 606 151 pd EuclideanRhythms;
+#N canvas 32 25 450 300 Chance 0;
+#X restore 645 225 pd Chance;

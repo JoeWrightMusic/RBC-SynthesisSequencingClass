@@ -1,0 +1,47 @@
+#N canvas 638 94 700 649 12;
+#X obj 1 -1 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 6 5 hsl 150 30 100 3000 0 0 \$0-tempo empty TIME_INTERVAL 5
+16 0 15 -204800 -1 -1 0 1;
+#X obj 6 38 hsl 150 30 0 116 0 0 \$0-pitch empty STARTING_PITCH 5 16
+0 15 -204800 -1 -1 0 1;
+#X obj 244 134 r \$0-tempo;
+#X obj 108 341 r \$0-pitch;
+#X obj 161 4 tgl 65 0 \$0-start empty empty 17 7 0 10 -204800 -1 -1
+0 1;
+#X obj 165 134 r \$0-start;
+#X obj 108 366 i;
+#X obj 166 182 metro;
+#X obj 262 179 * 0.9;
+#X obj 245 217 del;
+#X obj 45 301 random 12;
+#X obj 45 325 i;
+#X obj 45 404 +;
+#X obj 195 326 i;
+#X obj 195 302 random 127;
+#X obj 195 350 + 1;
+#X obj 348 466 i;
+#X obj 46 486 pack i i;
+#X msg 348 490 \$1 0;
+#X obj 46 556 outlet;
+#X connect 3 0 8 1;
+#X connect 3 0 9 0;
+#X connect 4 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 13 1;
+#X connect 8 0 10 0;
+#X connect 8 0 11 0;
+#X connect 8 0 15 0;
+#X connect 9 0 10 1;
+#X connect 10 0 17 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 18 0;
+#X connect 13 0 17 1;
+#X connect 14 0 16 0;
+#X connect 15 0 14 0;
+#X connect 16 0 18 1;
+#X connect 17 0 19 0;
+#X connect 18 0 20 0;
+#X connect 19 0 20 0;
+#X coords 0 -1 1 1 230 75 2 0 0;
