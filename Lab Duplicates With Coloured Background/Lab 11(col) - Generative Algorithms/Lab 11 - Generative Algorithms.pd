@@ -1,5 +1,9 @@
-#N canvas 283 126 459 447 12;
-#N canvas 91 -850 811 605 MarkovChains 0;
+#N canvas 283 126 474 469 12;
+#X obj 1 2 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#N canvas 91 25 828 634 MarkovChains 0;
+#X obj 0 -1 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
 #X obj 4 140 cnv 15 800 250 empty empty empty 20 12 0 14 -228856 -66577
 0;
 #X obj 3 3 cnv 15 800 30 empty empty Markov_Chain 20 12 0 20 -233017
@@ -109,41 +113,41 @@ to see how these probabilities influence the behaviour of the system.
 #X text 574 414 <- This is just some stuff that lets you see/hear the
 system behaviour more clearly., f 31;
 #X obj 20 104 metro 250;
-#X connect 3 0 42 0;
-#X connect 5 0 29 0;
+#X connect 4 0 43 0;
 #X connect 6 0 30 0;
-#X connect 7 0 8 1;
-#X connect 8 0 9 0;
+#X connect 7 0 31 0;
+#X connect 8 0 9 1;
 #X connect 9 0 10 0;
-#X connect 9 1 15 0;
-#X connect 10 0 23 0;
-#X connect 11 0 12 0;
-#X connect 11 0 25 0;
-#X connect 12 0 20 0;
-#X connect 13 0 14 0;
-#X connect 13 0 26 0;
-#X connect 14 0 20 0;
-#X connect 15 0 24 0;
-#X connect 16 0 17 0;
-#X connect 16 0 27 0;
-#X connect 17 0 21 0;
-#X connect 18 0 19 0;
+#X connect 10 0 11 0;
+#X connect 10 1 16 0;
+#X connect 11 0 24 0;
+#X connect 12 0 13 0;
+#X connect 12 0 26 0;
+#X connect 13 0 21 0;
+#X connect 14 0 15 0;
+#X connect 14 0 27 0;
+#X connect 15 0 21 0;
+#X connect 16 0 25 0;
+#X connect 17 0 18 0;
+#X connect 17 0 28 0;
 #X connect 18 0 22 0;
-#X connect 19 0 21 0;
-#X connect 22 0 28 0;
-#X connect 23 0 11 0;
-#X connect 23 1 13 0;
-#X connect 24 0 16 0;
-#X connect 24 1 18 0;
-#X connect 25 0 28 0;
-#X connect 26 0 28 0;
-#X connect 27 0 28 0;
-#X connect 28 0 4 0;
-#X connect 29 0 32 0;
+#X connect 19 0 20 0;
+#X connect 19 0 23 0;
+#X connect 20 0 22 0;
+#X connect 23 0 29 0;
+#X connect 24 0 12 0;
+#X connect 24 1 14 0;
+#X connect 25 0 17 0;
+#X connect 25 1 19 0;
+#X connect 26 0 29 0;
+#X connect 27 0 29 0;
+#X connect 28 0 29 0;
+#X connect 29 0 5 0;
 #X connect 30 0 33 0;
-#X connect 32 0 31 0;
-#X connect 33 0 31 1;
-#X connect 42 0 8 0;
+#X connect 31 0 34 0;
+#X connect 33 0 32 0;
+#X connect 34 0 32 1;
+#X connect 43 0 9 0;
 #X restore 24 306 pd MarkovChains;
 #N canvas 33 25 1321 835 EuclideanRhythms 0;
 #X obj 3 3 cnv 15 1200 30 empty empty Euclidian_Rhythms 20 12 0 20
@@ -420,7 +424,9 @@ case \, we can now set 3 independent loops of varying length., f 111
 #X connect 41 0 42 0;
 #X connect 41 0 42 1;
 #X restore 24 246 pd EuclideanRhythms;
-#N canvas 559 149 458 521 Chance 0;
+#N canvas 559 149 474 548 Chance 0;
+#X obj 0 1 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
 #X obj 3 3 cnv 15 450 30 empty empty Chance 20 12 0 20 -233017 -66577
 0;
 #X text 22 40 In this example \, we either take action A or B \, depending
@@ -452,17 +458,14 @@ or greater than a threshold, f 31;
 -1;
 #X obj 150 493 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X connect 2 0 9 0;
-#X connect 2 1 11 0;
-#X connect 3 0 2 0;
+#X connect 3 0 10 0;
+#X connect 3 1 12 0;
 #X connect 4 0 3 0;
-#X connect 6 0 2 1;
-#X connect 9 0 7 0;
-#X connect 11 0 10 0;
-#X connect 15 0 17 0;
-#X connect 16 0 15 0;
-#X connect 17 0 18 0;
-#X connect 17 1 19 0;
+#X connect 5 0 4 0;
+#X connect 7 0 3 1;
+#X connect 10 0 8 0;
+#X connect 12 0 11 0;
+#X connect 17 0 16 0;
 #X restore 24 276 pd Chance;
 #X obj 3 3 cnv 15 450 60 empty empty Generative_Algorithms 20 12 0
 30 -233017 -66577 0;
@@ -473,9 +476,13 @@ the idea of making music based on rules.;
 #X text 170 127 <- We'll also use this [beatclock 120] abstraction
 to give us subdivisions and multiples of a tempo, f 22;
 #N canvas 78 25 909 601 PuttingItTogether 0;
+#X obj 0 0 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
 #X obj 6 535 vol-ctl~;
 #X obj 6 575 dac~;
 #N canvas 32 25 1246 788 GenerativeDrumSequencer 0;
+#X obj -1 0 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
 #X obj 1130 81 loadbang;
 #X msg 1130 105 120;
 #X obj 72 332 simpleHat~;
@@ -495,29 +502,24 @@ to give us subdivisions and multiples of a tempo, f 22;
 #X obj 74 470 simpleSnare~;
 #X obj 77 625 FMKick~ 80 250;
 #X obj 154 720 outlet~;
-#X connect 0 0 1 0;
-#X connect 1 0 5 1;
-#X connect 1 0 7 0;
-#X connect 1 0 11 1;
-#X connect 1 0 12 1;
-#X connect 2 0 4 0;
-#X connect 4 0 17 0;
-#X connect 5 0 2 0;
-#X connect 5 1 4 1;
-#X connect 9 0 5 1;
-#X connect 9 0 11 1;
-#X connect 9 0 12 1;
-#X connect 10 0 5 0;
-#X connect 10 0 11 0;
-#X connect 10 0 12 0;
-#X connect 11 0 15 0;
-#X connect 11 1 13 1;
+#X connect 1 0 2 0;
+#X connect 2 0 8 0;
+#X connect 2 0 12 1;
+#X connect 2 0 13 1;
+#X connect 3 0 5 0;
+#X connect 5 0 18 0;
+#X connect 10 0 12 1;
+#X connect 10 0 13 1;
+#X connect 11 0 12 0;
+#X connect 11 0 13 0;
 #X connect 12 0 16 0;
 #X connect 12 1 14 1;
 #X connect 13 0 17 0;
-#X connect 14 0 17 0;
-#X connect 15 0 13 0;
+#X connect 13 1 15 1;
+#X connect 14 0 18 0;
+#X connect 15 0 18 0;
 #X connect 16 0 14 0;
+#X connect 17 0 15 0;
 #X coords 0 -1 1 1 880 450 2 180 140;
 #X restore 6 79 pd GenerativeDrumSequencer;
 #X obj 3 3 cnv 15 900 30 empty empty Putting_It_All_Together 20 12
@@ -526,9 +528,8 @@ to give us subdivisions and multiples of a tempo, f 22;
 the elements from the other examples given in this weeks lab \, have
 a play around with it \, and look what's under the hood if you're curious!
 , f 125;
-#X connect 0 0 1 0;
-#X connect 0 0 1 1;
-#X connect 2 0 0 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
 #X restore 24 336 pd PuttingItTogether;
 #X text 21 367 Bear in mind that this is just a tiny introduction to
 rule based (algorithmic) music generation \, there are a huge range
