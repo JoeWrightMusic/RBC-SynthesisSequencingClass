@@ -1,4 +1,4 @@
-#N canvas 32 25 695 847 12;
+#N canvas 32 25 668 847 12;
 #X obj 3 3 cnv 15 460 40 empty empty Lab5a_-_FM_Synthesis 20 12 0 20
 -233017 -66577 0;
 #X text 6 41 With FM synthesis \, we can add signals together which
@@ -27,15 +27,15 @@ Remember \, we can grab this signal by using [r~ carrierFreq] \, where
 together., f 42;
 #X obj 431 110 cnv 15 225 25 empty empty Set_Modulator_Frequency 20
 12 0 14 -228856 -66577 0;
-#X msg 431 245 \$1 10;
-#X obj 431 268 line~;
-#X floatatom 431 223 5 0 0 0 - - -;
+#X msg 431 265 \$1 10;
+#X obj 431 288 line~;
+#X floatatom 431 243 5 0 0 0 - - -;
 #X obj 431 141 loadbang;
 #X msg 431 163 1;
 #X obj 434 188 hsl 128 30 0.5 10000 1 1 empty empty MODULATOR_FREQ
 2 15 0 15 -262130 -1 -1 889 1;
-#X text 471 222 <--- modulator frequency;
-#X obj 431 296 s~ modulatorFreq;
+#X text 471 242 <--- modulator frequency;
+#X obj 431 316 s~ modulatorFreq;
 #X obj 9 481 cnv 15 400 25 empty empty Frequency_Modulation 20 12 0
 14 -228856 -66577 0;
 #X obj 399 512 loadbang;
@@ -56,7 +56,7 @@ together., f 42;
 #X obj 9 728 osc~;
 #X text 45 728 <-- Generate the frequency-modulated carrier Signal
 ;
-#X text 567 186 <-- Set modulator frequency, f 17;
+#X text 567 186 <-- Set modulator frequency, f 12;
 #X obj 9 751 *~ 0.1;
 #X obj 9 775 *~;
 #X obj 81 758 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0

@@ -1,4 +1,4 @@
-#N canvas 283 126 474 469 12;
+#N canvas 2142 84 474 469 12;
 #X obj 1 2 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
 0;
 #N canvas 91 25 828 634 MarkovChains 0;
@@ -149,7 +149,7 @@ system behaviour more clearly., f 31;
 #X connect 34 0 32 1;
 #X connect 43 0 9 0;
 #X restore 24 306 pd MarkovChains;
-#N canvas 33 25 1321 835 EuclideanRhythms 0;
+#N canvas 1440 25 1920 1027 EuclideanRhythms 1;
 #X obj 3 3 cnv 15 1200 30 empty empty Euclidian_Rhythms 20 12 0 20
 -233017 -66577 0;
 #X obj 4 47 beatclock 120;

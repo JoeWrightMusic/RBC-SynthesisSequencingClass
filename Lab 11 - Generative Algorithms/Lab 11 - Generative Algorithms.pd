@@ -1,4 +1,4 @@
-#N canvas 283 126 459 447 12;
+#N canvas 32 25 498 448 12;
 #N canvas 91 -850 811 605 MarkovChains 0;
 #X obj 4 140 cnv 15 800 250 empty empty empty 20 12 0 14 -228856 -66577
 0;
@@ -145,7 +145,7 @@ system behaviour more clearly., f 31;
 #X connect 33 0 31 1;
 #X connect 42 0 8 0;
 #X restore 24 306 pd MarkovChains;
-#N canvas 33 25 1321 835 EuclideanRhythms 0;
+#N canvas 119 37 1321 835 EuclideanRhythms 0;
 #X obj 3 3 cnv 15 1200 30 empty empty Euclidian_Rhythms 20 12 0 20
 -233017 -66577 0;
 #X obj 4 47 beatclock 120;
@@ -171,7 +171,7 @@ system behaviour more clearly., f 31;
 #X obj 236 456 vol-ctl~;
 #X obj 236 496 dac~;
 #X obj 236 404 sel 1;
-#X obj 236 430 simpleSnare~;
+#X obj 236 428 simpleSnare~;
 #X text 175 78 pass or block bangs->, f 7;
 #X text 299 72 <- play/stop rhythm;
 #X text 319 107 <- reset when stopped/started;
@@ -179,10 +179,10 @@ system behaviour more clearly., f 31;
 #X obj 236 195 nbx 4 20 -1e+37 1e+37 0 0 ERloopCount empty empty 0
 -8 0 12 -262144 -1 -1 0 256;
 #X obj 285 276 nbx 4 20 -1e+37 1e+37 0 1 ERnotes empty empty 0 -8 0
-12 -204800 -1 -1 7 256;
+12 -204800 -1 -1 8 256;
 #N canvas 120 25 1221 640 visualiseLoop 0;
 #X obj 4 17 hradio 15 1 0 16 empty ERloopCount empty 0 -8 0 10 -191407
--261682 -261682 14;
+-261682 -261682 6;
 #X obj 4 33 tgl 15 0 empty ER1 empty 17 7 0 10 -33289 -33289 -33289
 0 1;
 #X obj 19 33 tgl 15 0 empty ER2 empty 17 7 0 10 -33289 -33289 -33289
