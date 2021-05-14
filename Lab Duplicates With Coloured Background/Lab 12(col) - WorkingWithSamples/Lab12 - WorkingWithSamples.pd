@@ -1,5 +1,9 @@
-#N canvas 392 121 458 566 12;
-#N canvas 137 53 459 687 loadASoundFileToABuffer 0;
+#N canvas 164 163 474 581 12;
+#X obj 1 1 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#N canvas 137 53 474 706 loadASoundFileToABuffer 0;
+#X obj 1 1 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
 #N canvas 32 25 450 278 (subpatch) 0;
 #X array soundFile 205120 float 2;
 #X coords 0 1 205120 -1 200 140 1 0 0;
@@ -24,10 +28,10 @@ to make sure that the name of the array is either unique (using \$0)
 \, or that it uses a name from a creation argument (using \$1 \, \$2
 \, \$3 etc);
 #X obj 19 487 buffer soundFileAbstraction;
-#X connect 1 0 2 0;
-#X connect 2 0 5 0;
-#X connect 3 0 4 0;
-#X connect 5 0 3 0;
+#X connect 2 0 3 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 6 0 4 0;
 #X restore 23 169 pd loadASoundFileToABuffer;
 #X obj 3 3 cnv 15 450 60 empty empty Working_With_Samples 20 12 0 30
 -233017 -66577 0;
@@ -220,7 +224,9 @@ clicks, f 15;
 #X restore 23 226 pd oneShotSampler;
 #X text 22 264 With a few alterations \, we can loop the sample-segments
 ;
-#N canvas 284 72 809 491 sampleLooper 0;
+#N canvas 284 72 824 500 sampleLooper 0;
+#X obj 1 2 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
 #X obj 25 68 buffer;
 #X obj 385 424 vol-ctl~;
 #X obj 385 463 dac~;
@@ -259,26 +265,26 @@ instead of a bang \, so that a segment can be stopped when the loop
 is turned off. For now \, we're not using the last inlet \, which chooses
 between two different types of window: the fade in and fade out that's
 applied to the segment., f 23;
-#X connect 0 1 12 0;
-#X connect 1 0 2 0;
-#X connect 1 0 2 1;
-#X connect 3 0 11 1;
-#X connect 4 0 11 2;
-#X connect 5 0 11 3;
-#X connect 11 0 1 0;
-#X connect 11 1 14 0;
-#X connect 13 0 11 4;
-#X connect 15 0 18 0;
-#X connect 16 0 26 0;
-#X connect 18 0 19 0;
-#X connect 19 0 11 0;
-#X connect 21 0 23 0;
-#X connect 23 0 25 0;
-#X connect 23 1 24 0;
-#X connect 24 0 16 0;
-#X connect 25 0 11 0;
-#X connect 26 0 18 0;
-#X connect 26 1 18 1;
+#X connect 1 1 13 0;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 4 0 12 1;
+#X connect 5 0 12 2;
+#X connect 6 0 12 3;
+#X connect 12 0 2 0;
+#X connect 12 1 15 0;
+#X connect 14 0 12 4;
+#X connect 16 0 19 0;
+#X connect 17 0 27 0;
+#X connect 19 0 20 0;
+#X connect 20 0 12 0;
+#X connect 22 0 24 0;
+#X connect 24 0 26 0;
+#X connect 24 1 25 0;
+#X connect 25 0 17 0;
+#X connect 26 0 12 0;
+#X connect 27 0 19 0;
+#X connect 27 1 19 1;
 #X restore 23 284 pd sampleLooper;
 #X text 22 324 Assuming we have a sample that contains a perfect (in-time)
 loop \, we can create a beat-chopper;
@@ -407,7 +413,9 @@ playback, f 68;
 one-shot example) into a [clone] \, we can use it for granular synthesis
 - producing new sounds from clouds of small segments of a source sample!
 ;
-#N canvas 177 56 958 765 granularSynth 0;
+#N canvas 242 49 958 765 granularSynth 0;
+#X obj 2 2 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
 #X obj 25 68 buffer;
 #X obj 25 694 vol-ctl~;
 #X obj 25 733 dac~;
@@ -434,9 +442,9 @@ playback, f 68;
 #N canvas 32 25 1125 702 controls 0;
 #N canvas 32 25 450 347 phasor 0;
 #X obj 225 102 hsl 150 30 0.001 10 1 0 \$0-freq empty Phasor 20 16
-0 15 -261682 -1 -1 0 1;
+0 15 -261682 -1 -1 5400 1;
 #X obj 225 136 hsl 150 10 0 1 0 0 empty \$0-output output 20 5 0 8
--232576 -1 -1 0 1;
+-232576 -1 -1 5750 1;
 #X obj 68 180 phasor~;
 #X obj 156 180 loadbang;
 #X msg 156 204 1;
@@ -444,7 +452,7 @@ playback, f 68;
 #X obj 156 228 metro 1;
 #X obj 156 311 outlet;
 #X obj 380 102 tgl 45 0 empty empty On/Off 4 23 0 10 -261682 -1 -1
-0 1;
+1 1;
 #X obj 156 289 spigot;
 #X connect 0 0 2 0;
 #X connect 2 0 5 0;
@@ -494,11 +502,11 @@ playback, f 68;
 1;
 #X obj 191 102 metro 100;
 #X obj 7 5 hsl 150 20 1 5000 1 0 empty empty Trig_Interval 5 11 0 10
--261682 -1 -1 0 1;
+-261682 -1 -1 1200 1;
 #X obj 7 25 hsl 150 20 0.1 5000 1 0 empty empty Randomness 5 11 0 10
--261682 -1 -1 0 1;
+-261682 -1 -1 11200 1;
 #X obj 7 45 hsl 150 10 1 5000 1 0 empty empty Output_Interval 5 6 0
-5 -232576 -1 -1 0 1;
+5 -232576 -1 -1 9251 1;
 #X obj 272 104 +;
 #X obj 191 158 random;
 #X obj 211 5 bng 50 50 10 0 empty empty empty 17 7 0 10 -212212 -228856
@@ -545,9 +553,9 @@ playback, f 68;
 #X restore 487 34 pd phasor;
 #N canvas 32 25 450 374 phasor 0;
 #X obj 225 102 hsl 150 30 1 5000 1 0 \$0-freq empty Random 20 16 0
-15 -261682 -1 -1 0 1;
+15 -261682 -1 -1 13100 1;
 #X obj 225 136 hsl 150 10 0 1 0 0 empty \$0-output output 20 5 0 8
--232576 -1 -1 0 1;
+-232576 -1 -1 8794 1;
 #X obj 51 32 loadbang;
 #X msg 51 56 1;
 #X obj 51 80 metro 1;
@@ -559,7 +567,7 @@ playback, f 68;
 #X obj 51 200 line;
 #X obj 51 221 spigot;
 #X obj 380 102 tgl 45 0 empty empty On/Off 4 23 0 10 -261682 -1 -1
-0 1;
+1 1;
 #X connect 0 0 4 1;
 #X connect 0 0 9 1;
 #X connect 2 0 3 0;
@@ -577,11 +585,11 @@ playback, f 68;
 #X restore 488 90 pd phasor;
 #N canvas 32 25 450 374 phasor 0;
 #X obj 225 102 hsl 150 30 1 10000 1 0 \$0-freq empty Length 20 16 0
-15 -261682 -1 -1 0 1;
+15 -261682 -1 -1 14000 1;
 #X obj 225 136 hsl 150 10 1 10000 1 0 empty \$0-output output 20 5
-0 8 -232576 -1 -1 0 1;
+0 8 -232576 -1 -1 13256 1;
 #X obj 134 276 outlet;
-#X obj 380 102 tgl 45 0 empty empty Mod 15 23 0 10 -261682 -1 -1 0
+#X obj 380 102 tgl 45 0 empty empty Mod 15 23 0 10 -261682 -1 -1 1
 1;
 #X obj 45 62 inlet;
 #X obj 83 144 == 1;
@@ -610,7 +618,7 @@ playback, f 68;
 #X restore 488 146 pd phasor;
 #N canvas 32 25 450 374 phasor 0;
 #X obj 225 103 hsl 200 30 -4 4 0 0 \$0-freq empty Pitch 20 16 0 15
--261682 -1 -1 0 1;
+-261682 -1 -1 9706 1;
 #X obj 166 259 outlet;
 #X obj 134 236 sel 0;
 #X msg 223 66 1;
@@ -674,25 +682,25 @@ of a cloud of sample segments \, or grains. This is just the tip of
 the iceberg when it comes to granular synthesis \, but even with this
 simple patch \, you can find a lot of sounds/textures!, f 88;
 #X msg 22 512 1;
-#X connect 0 1 16 0;
-#X connect 1 0 2 0;
-#X connect 1 0 2 1;
-#X connect 3 0 9 0;
+#X connect 1 1 17 0;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
 #X connect 4 0 10 0;
 #X connect 5 0 11 0;
-#X connect 9 0 19 1;
-#X connect 10 0 19 2;
-#X connect 11 0 19 3;
-#X connect 12 0 19 4;
-#X connect 13 0 12 0;
-#X connect 15 0 19 0;
-#X connect 16 0 14 0;
-#X connect 17 0 18 0;
-#X connect 18 0 19 5;
-#X connect 19 0 1 0;
-#X connect 20 0 22 0;
-#X connect 20 1 3 0;
-#X connect 20 2 4 0;
-#X connect 20 3 5 0;
-#X connect 22 0 15 0;
+#X connect 6 0 12 0;
+#X connect 10 0 20 1;
+#X connect 11 0 20 2;
+#X connect 12 0 20 3;
+#X connect 13 0 20 4;
+#X connect 14 0 13 0;
+#X connect 16 0 20 0;
+#X connect 17 0 15 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 5;
+#X connect 20 0 2 0;
+#X connect 21 0 23 0;
+#X connect 21 1 4 0;
+#X connect 21 2 5 0;
+#X connect 21 3 6 0;
+#X connect 23 0 16 0;
 #X restore 23 468 pd granularSynth;
