@@ -1,0 +1,70 @@
+#N canvas 36 25 610 842 12;
+#X obj 7 6 cnv 25 596 35 empty empty LAB\ 1.1\ -\ Orientation 20 12
+0 25 #e0e0e0 #404040 0;
+#X text 10 154 Everything in this module can be reproduced with the
+most basic "Vanilla" version of Pd \, but we'll be using a fancier
+version - Purr Data- as it offers some better functionality. In particular
+\, there are some better display options under 'Edit>Preferences' that
+let you set the default colours of the Pd editor., f 82;
+#X obj 18 130 delay;
+#X floatatom 73 130 5 0 0 0 - - -, f 5;
+#X symbolatom 126 130 10 0 0 0 - - -, f 10;
+#X obj 214 130 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 245 130 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 276 130 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X text 10 87 This is a Pure Data (Pd) canvas \, a space where you
+can put together your patches (programs) using visual blocks \, called
+objects. Here are a few:, f 82;
+#X obj 7 45 cnv 15 346 34 empty empty Pure\ Data\ and\ Purr\ Data 20
+12 0 14 #e0e0e0 #404040 0;
+#X obj 7 238 cnv 15 346 34 empty empty Editing\ Pd\ Patches 20 12 0
+14 #e0e0e0 #404040 0;
+#X obj 7 358 cnv 15 346 34 empty empty Creating\ Objects 20 12 0 14
+#e0e0e0 #404040 0;
+#X text 10 395 The easiest way to create objects in Pd \, is through
+the "Put" menu \, where you can see options for creating different
+kinds of objects., f 82;
+#X text 10 440 A quicker way to create objects is with shortcuts \,
+you can pick these up as you go along in the labs \, or by checking
+them in the "Put" menu. Here's a few you'll use a lot..., f 82;
+#X obj 11 527;
+#X text 10 501 Cmd/Ctl-1: blank object., f 82;
+#X text 40 527 once created \, you can type the name of the Pd object
+you need in the box., f 78;
+#X msg 9 605;
+#X floatatom 109 605 5 0 0 0 - - -, f 5;
+#X text 210 603 comment;
+#X text 107 561 Cmd/Ctl-3: Number, f 11;
+#X text 10 561 Cmd/Ctl-2: Message, f 11;
+#X text 209 561 Cmd/Ctl-5: Comment, f 11;
+#X text 309 561 Cmd/Ctl-Shift-B: Bang, f 16;
+#X obj 310 606 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 440 561 Cmd/Ctl-Shift-T: Toggle, f 16;
+#X obj 441 605 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X text 10 626 We'll explore how these objects work together through
+the labs and examples., f 83;
+#X obj 7 658 cnv 15 346 34 empty empty Patching 20 12 0 14 #e0e0e0
+#404040 0;
+#X text 10 698 Finally \, Pd works by 'patching' together objects \,
+carrying data from object to object similar to the way that modular
+synths pass signals through patch cables. You can see patch inlets/outlets
+as small tabs it the top/bottom of objects \, and patch them together
+by clicking and dragging from outlets to inlets., f 84;
+#X floatatom 10 770 5 0 127 0 - - -, f 5;
+#X obj 10 818 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X text 49 770 <- number;
+#X text 149 816 <- number is sent to a horizontal slider;
+#X text 20 793 <- patch cable: carries the number on to the next object
+;
+#X text 10 278 B default \, the Pd window will be locked \, you can
+enter edit mode with the shortcut: Cmd-E / Ctl E. One Way to see the
+difference is the change of cursor \; in Edit Mode \, Pd's cursor
+will be a hand icon \, and a pointer when locked. The patch can be
+locked again with the same shortcut., f 82;
+#X connect 30 0 31 0;

@@ -1,0 +1,39 @@
+#N canvas 112 25 628 672 12;
+#X obj 6 7 cnv 15 615 40 empty empty LAB\ 1.2\ -\ Beep! 20 12 0 25
+#e0e0e0 #404040 0;
+#X obj 158 252 *~ 0.1;
+#X obj 158 468 dac~;
+#X obj 158 369 *~;
+#X obj 231 318 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 158 98 osc~ 440;
+#X text 165 187 We can click and drag from an output (a tab at the
+bottom of an object) to an input (a tab on the top of an object) to
+create a connection \, which we can think of as a patch cable., f
+62;
+#X text 251 313 Some elements can be interacted with \, like this toggle
+box. In this case \, it's used to turn the beep on/off, f 50;
+#X text 8 51 This is a very simple starter patch: it allows us to turn
+a pure tone on and off. For now \, lets just look at how the patch
+is constructed..., f 87;
+#X text 134 317 GUI Object >;
+#X text 231 96 As shown in the 1.1 patch \, we can construct audio
+programs with objects in Pd \, which mostly appear in boxes like this.
+The tabs at the top and bottom show us where we can connect inputs
+and outputs for each object., f 53;
+#X text 66 97 Oscilator ->;
+#X text 12 252 Multiplier Object ->;
+#X text 12 369 Multiplier Object ->;
+#X text 44 468 Sound Output ->;
+#X text 8 505 No sound? We need to turn on the audio engine to synthesise
+sound in Pd. We can do this either by pressing Cmd/Ctl-R or by using
+the message below, f 86;
+#X msg 9 552 \; pd dsp 1;
+#X text 76 561 Turn on DSP (Digital Signal Processing);
+#X msg 9 608 \; pd dsp 0;
+#X text 76 617 Turn off DSP (Digital Signal Processing);
+#X connect 1 0 3 0;
+#X connect 3 0 2 0;
+#X connect 3 0 2 1;
+#X connect 4 0 3 1;
+#X connect 5 0 1 0;
