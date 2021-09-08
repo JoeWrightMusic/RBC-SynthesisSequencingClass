@@ -7,5 +7,4 @@
 
 These patches are a collection of supporting materials for the Pure Data lab sessions as part of the Synthesis & Sequencing module at Royal Birmingham Conservatoire. 
 
-Two versions of these patches are included in the repo, one with Pd's default colour scheme, and one that uses canvas objects to create a pale coloured background. This background colour can be changed by clicking the canvas in the top left of each patch, and selecting a colour from the popup menu. 
-
+These partches are being revamped in the run up to December 2021 for use with Purr Data.
