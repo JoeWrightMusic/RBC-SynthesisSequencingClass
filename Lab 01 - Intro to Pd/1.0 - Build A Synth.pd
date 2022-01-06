@@ -1,0 +1,33 @@
+#N canvas 111 25 1251 755 12;
+#X text 1209 68 [adsrUI];
+#X obj 2 2 cnv 15 550 40 empty empty LAB\ 1.0\ -\ Build\ a\ Synth!\ 
+20 12 0 20 #e0e0e0 #404040 0;
+#X obj 472 57 examples1.0noteMaker;
+#X obj 10 55 cnv 15 100 25 empty empty 1 20 12 0 14 #dcdcdc #404040
+0;
+#X obj 10 144 cnv 15 100 25 empty empty 2 20 12 0 14 #dcdcdc #404040
+0;
+#X obj 10 235 cnv 15 100 25 empty empty 3 20 12 0 14 #dcdcdc #404040
+0;
+#X text 10 85 Set up abstractions folder: this will give you access
+to a library of pre-written code that we'll use thoughout the module.
+;
+#X text 10 174 Add four 'abstractions' - pre-made and reusable bits
+of code - into the patch. The first is done for you \, add the rest
+by creating a new object and typing in the name displayed>>;
+#X text 470 213 [waveSelect~];
+#X text 470 173 Create the following by pressing CMD-1 (mac) or CTL-1
+(win) and typing...;
+#X text 570 213 [adsrUI~];
+#X text 643 213 [output~];
+#X text 10 265 String them together to make a basic synth: note player
+> waveSelect > adsrUI > output.;
+#X obj 9 314 cnv 15 100 25 empty empty 4 20 12 0 14 #dcdcdc #404040
+0;
+#X text 9 344 We have more code hidden inside each of these abstractions.
+Have a look inside by right clicking one one and selecting \, "open".
+;
+#X obj 9 409 cnv 15 100 25 empty empty 5 20 12 0 14 #dcdcdc #404040
+0;
+#X text 9 439 Can you figure out how to change the duration of notes
+created by [Note player]? Use the hints inside the abstraction.;

@@ -1,0 +1,40 @@
+#N canvas 708 25 558 474 12;
+#X obj 319 212 r \$0-att;
+#X obj 254 212 r \$0-rel;
+#X obj 181 212 r \$0-trig;
+#X obj 124 113 cnv 15 35 37 empty empty AR 5 16 0 20 #e0e0e0 #404040
+0;
+#X obj 160 113 hsl 151 36 2 5000 1 0 \$0-att \$0-setAtt ATTACK 7 16
+0 15 #ffffff #000000 #000000 0 1;
+#X obj 160 150 hsl 151 34 2 5000 1 0 \$0-rel \$0-setRel RELEASE 7 16
+0 15 #ffffff #000000 #000000 0 1;
+#X obj 124 150 bng 34 250 50 0 \$0-trig \$0-trigIn empty 17 7 0 10
+#000000 #ffffff #ffffff;
+#X obj 120 33 inlet;
+#X obj 181 349 outlet~;
+#X obj 203 33 inlet;
+#X obj 303 33 inlet;
+#X text 120 10 Bang in;
+#X text 201 10 attack;
+#X text 297 10 release;
+#X obj 203 63 s \$0-setAtt;
+#X obj 303 63 s \$0-setRel;
+#X obj 120 63 s \$0-trigIn;
+#X obj 181 255 ar~;
+#X obj 42 33 inlet~;
+#X text 20 10 signal in;
+#X text 181 370 envelope out;
+#X obj 42 349 outlet~;
+#X text 42 370 sig * envelope out;
+#X obj 42 288 *~;
+#X connect 0 0 17 2;
+#X connect 1 0 17 1;
+#X connect 2 0 17 0;
+#X connect 7 0 16 0;
+#X connect 9 0 14 0;
+#X connect 10 0 15 0;
+#X connect 17 0 8 0;
+#X connect 17 0 23 1;
+#X connect 18 0 23 0;
+#X connect 23 0 21 0;
+#X coords 0 -1 1 1 202 81 2 119 108;

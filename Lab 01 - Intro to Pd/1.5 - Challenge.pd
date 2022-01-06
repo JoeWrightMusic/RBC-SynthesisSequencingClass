@@ -1,18 +1,21 @@
-#N canvas 110 25 1178 785 12;
-#X obj 8 13 cnv 15 550 40 empty empty LAB\ 1\ Challenge 20 12 0 20
-#e0e0e0 #404040 0;
-#X text 9 95 Can you recreate the 1.3 beeo example? Don't worry \,
-you're allowed to look at the file!;
+#N canvas 164 37 1178 785 12;
+#X obj 8 13 cnv 15 550 40 empty empty LAB\ 1.5\ -\ Challenge 20 12
+0 20 #e0e0e0 #404040 0;
 #X obj 11 65 cnv 15 100 25 empty empty 1 20 12 0 14 #dcdcdc #404040
 0;
-#X obj 11 146 cnv 15 100 25 empty empty 2 20 12 0 14 #dcdcdc #404040
+#X obj 11 184 cnv 15 100 25 empty empty 2 20 12 0 14 #dcdcdc #404040
 0;
-#X text 9 176 Can you make a 2-voice version of the patch with 2 random
+#X text 9 214 Can you make a 2-voice version of the patch with 2 random
 note generators and 2 oscilators? Can you make both voices trigger
 from one bang object?;
-#X obj 10 247 cnv 15 100 25 empty empty 3 20 12 0 14 #dcdcdc #404040
+#X obj 10 285 cnv 15 100 25 empty empty 3 20 12 0 14 #dcdcdc #404040
 0;
-#X text 8 277 The original example adds 60 to set a base pitch from
+#X text 8 315 The original example adds 60 to set a base pitch from
 which to add the random numbers \, and the random numbers are constrained
 to 12 semitones. Can you add two GUI objects that let you set the base
 pitch and random-range?;
+#X obj 1020 21 cheatSheet;
+#X text 9 95 Can you recreate the 1.3 beep example? Don't worry \,
+you're allowed to look at the file! The [cheatSheet] abstraction is
+there if you need it too \, just press the esc key to view common hotkeys
+& objects;

@@ -1,0 +1,109 @@
+#N canvas 468 232 282 154 12;
+#X obj 16 52 key;
+#X obj 16 83 sel 27;
+#N canvas 33 25 676 796 cheatSheet 0;
+#X obj 6 263 cnv 15 664 38 empty empty Basic\ Objects 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj 9 304;
+#X text 350 277 MAC;
+#X text 506 277 WINDWOS;
+#X obj 6 5 cnv 25 663 39 empty empty Pd\ CHEATSHEET 20 12 0 25 #e0e0e0
+#404040 0;
+#X text 350 305 CMD-1;
+#X text 506 305 CTL-1;
+#X msg 9 330;
+#X floatatom 9 356 5 0 0 0 - - -, f 5;
+#X text 350 330 CMD-2;
+#X text 350 355 CMD-3;
+#X text 506 330 CTL-2;
+#X text 506 355 CTL-3;
+#X symbolatom 9 381 10 0 0 0 - - -, f 10;
+#X text 118 330 create an empty message;
+#X text 118 305 create an empty object;
+#X text 9 405 comment;
+#X text 118 355 create a number;
+#X text 118 380 create a symbol;
+#X text 119 405 create a new comment;
+#X text 350 380 CMD-4;
+#X text 506 380 CTL-4;
+#X text 350 405 CMD-5;
+#X text 506 405 CTL-5;
+#X obj 6 49 cnv 15 663 34 empty empty Editing 20 12 0 14 #e0e0e0 #404040
+0;
+#X text 350 59 MAC;
+#X text 506 59 WINDWOS;
+#X text 350 87 CMD-E;
+#X text 506 87 CTL-E;
+#X text 5 112 interact with ui objects while in edit mode;
+#X text 5 87 toggle between edit / run mode;
+#X text 350 112 Hold option;
+#X text 506 112 Hold alt;
+#X text 350 162 CMD-SHIFT E;
+#X text 506 162 CMD-SHIFT-E;
+#X text 5 137 align selected objects;
+#X text 350 137 CMD-Y;
+#X text 506 137 CMD-Y;
+#X text 5 187 encapsulate code as a subpatch;
+#X text 350 187 CMD-SHIFT E;
+#X text 506 187 CMD-SHIFT-E;
+#X text 5 162 view 'Pd Window' (for error checking / debug);
+#X obj 6 437 cnv 15 664 38 empty empty User\ Interface\ (UI)\ Objects
+20 12 0 14 #e0e0e0 #404040 0;
+#X text 350 450 MAC;
+#X text 506 450 WINDWOS;
+#X obj 25 481 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 25 505 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 25 531 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256 0;
+#X obj 25 550 vsl 14 31 0 127 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X obj 25 591 hsl 62 15 0 127 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X obj 25 611 vradio 15 0 0 3 empty empty empty 0 -8 0 10 #fcfcfc #000000
+#000000 0;
+#X obj 25 662 hradio 15 0 0 3 empty empty empty 0 -8 0 10 #fcfcfc #000000
+#000000 0;
+#X text 118 478 bang;
+#X text 118 502 toggle;
+#X text 350 478 CMD-SHIFT-B;
+#X text 350 502 CMD-SHIFT-T;
+#X text 506 478 CTL-SHIFT-B;
+#X text 506 502 CTL-SHIFT-T;
+#X text 118 526 number2;
+#X text 350 526 CMD-SHIFT-N;
+#X text 506 526 CTL-SHIFT-N;
+#X text 118 559 vertical slider;
+#X text 350 559 CMD-SHIFT-V;
+#X text 506 559 CTL-SHIFT-V;
+#X text 118 589 horizontal slider;
+#X text 350 589 CMD-SHIFT-H;
+#X text 506 589 CTL-SHIFT-H;
+#X text 118 624 vertical radio;
+#X text 350 624 CMD-SHIFT-D;
+#X text 506 624 CTL-SHIFT-D;
+#X text 351 660 CMD-SHIFT-I;
+#X text 507 660 CTL-SHIFT-I;
+#X obj 25 688 cnv 15 64 38 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X text 119 660 horizontal radio;
+#X text 119 695 canvas object;
+#X text 351 695 CMD-SHIFT-C;
+#X text 507 695 CTL-SHIFT-C;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array array1 100 float 3 black black;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 78 58 1;
+#X restore 25 733 graph;
+#X text 119 750 visual array object;
+#X text 351 750 Create through the "Put" menu in top bar;
+#X restore 178 52 pd cheatSheet;
+#X msg 16 110 \; pd-cheatSheet vis 1;
+#X obj 0 0 cnv 25 282 43 empty empty Pd\ CHEATSHEET 20 12 0 25 #e0e0e0
+#404040 0;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
