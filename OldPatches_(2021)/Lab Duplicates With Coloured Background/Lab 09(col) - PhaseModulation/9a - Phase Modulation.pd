@@ -1,0 +1,68 @@
+#N canvas 331 25 770 847 12;
+#X obj 1 0 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 3 3 cnv 15 750 60 empty empty 9a_Phase_Modulation 20 12 0 20
+-233017 -66577 0;
+#X text 21 67 There's another form of modulation we can easily use
+in Pure Data that we haven't yet looked at: Phase Modulation.;
+#X text 21 109 Using this technique \, we can easily create an operator
+module similar to those found in the Yamaha DX7 \, or in Ableton's
+'Operator' synth.;
+#X floatatom 30 313 5 0 0 0 - - -;
+#X text 21 166 First \, lets look at how we can get phase modulation
+to work on a basic sine tone. Unlike previous examples \, we're not
+going to use Pd's built in [osc~] object \, but rather \, we'll use
+[phasor~] and [cos~] instead...;
+#X obj 22 237 cnv 15 200 30 empty empty Sine_Tone_with_osc~ 20 12 0
+14 -233017 -66577 0;
+#X obj 312 237 cnv 15 300 30 empty empty Sine_Tone_with_phasor~_and_cos~
+20 12 0 14 -233017 -66577 0;
+#X text 30 292 freq;
+#X obj 30 352 osc~;
+#X obj 30 470 vol-ctl~;
+#X obj 219 531 dac~;
+#X text 65 353 < This is a simple way to do it;
+#X floatatom 330 313 5 0 0 0 - - -;
+#X text 330 292 freq;
+#X obj 330 339 phasor~;
+#X obj 330 361 cos~;
+#X obj 330 470 vol-ctl~;
+#X text 390 336 <-- ramps from 0 to 1;
+#X obj 22 568 cnv 15 200 30 empty empty Simple_Phase_Modulation 20
+12 0 14 -233017 -66577 0;
+#X floatatom 30 641 5 0 0 0 - - -;
+#X obj 30 667 phasor~;
+#X obj 30 751 cos~;
+#X obj 30 784 vol-ctl~;
+#X obj 30 724 +~;
+#X text 390 362 <-- takes a phase input \, which sets what part of
+the cos waveform is output. You get 1 cycle of the cosine waveform
+for every whole number. Here \, [cos~] is driven by phasor~ \, giving
+us a regular sine tone., f 31;
+#X text 30 616 Carrier;
+#X floatatom 170 641 5 0 0 0 - - -;
+#X obj 170 667 phasor~;
+#X obj 170 694 cos~;
+#X text 170 616 Modulator;
+#X obj 31 821 dac~;
+#X text 67 723 <- we can add another signal to the phase before sending
+it to [cos~] \, and voila \, Phase Modulation! The sound is very similar
+to FM \, but it's easier to make modular code this way.;
+#X connect 4 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 10 0 11 1;
+#X connect 13 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 11 0;
+#X connect 17 0 11 1;
+#X connect 20 0 21 0;
+#X connect 21 0 24 0;
+#X connect 22 0 23 0;
+#X connect 23 0 31 0;
+#X connect 23 0 31 1;
+#X connect 24 0 22 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;
+#X connect 29 0 24 1;

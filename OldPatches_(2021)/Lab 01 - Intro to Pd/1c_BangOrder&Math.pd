@@ -1,0 +1,240 @@
+#N canvas -32 -984 718 216 12;
+#X obj 9 13 cnv 15 700 40 empty empty Lab1c-Bang_Order_&_Basic_Math_in_Pd
+20 12 0 20 -233017 -66577 0;
+#X text 172 119 SUPER IMPORTANT: quirks about message ordering in PD
+;
+#X text 172 150 why should we care about bang order?;
+#X text 172 182 best practices to avoid confusing errors;
+#N canvas 176 -859 1049 361 bang_order 0;
+#X obj 12 9 cnv 15 270 25 empty empty Bang_Order 20 12 0 14 -233017
+-66577 0;
+#X text 11 36 The rules outlined in this patch aren't immediately obvious
+\, but understanding them can make the difference between a working
+patch and a broken one!;
+#X obj 12 90 cnv 15 130 25 empty empty Bang_Order 20 12 0 14 -233017
+-66577 0;
+#X obj 13 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 13 285 print;
+#X text 36 185 Bang: sends 'bang' message when clicked;
+#X text 53 307 (Press cmd-R to see the PD window);
+#X obj 13 153 cnv 15 40 25 empty empty 1 20 12 0 10 -233017 -66577
+0;
+#X text 12 118 PD will send out bangs in the order that you connect
+objects to a bang. Lets start with this example;
+#X obj 323 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 323 283 print;
+#X obj 323 153 cnv 15 40 25 empty empty 2 20 12 0 10 -233017 -66577
+0;
+#X msg 323 206 1;
+#X msg 341 232 2;
+#X text 57 152 Print a bang;
+#X text 367 150 Now we add some messages for;
+#X text 367 165 the bang object to trigger:;
+#X text 363 283 The messages are printed in the;
+#X text 364 295 order they're conncected;
+#X obj 623 153 cnv 15 40 25 empty empty 3 20 12 0 10 -233017 -66577
+0;
+#X msg 378 258 third;
+#X text 420 258 connected third;
+#X text 372 231 connected second;
+#X text 354 206 connected first;
+#X obj 623 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 623 283 print;
+#X msg 738 256 1;
+#X msg 676 232 2;
+#X msg 623 208 third;
+#X text 665 208 connected third;
+#X text 707 231 connected second;
+#X text 769 256 connected first;
+#X text 667 150 These objects are conncted in the;
+#X text 667 164 same order \, but arranged differently;
+#X text 663 283 This shows that the messages above do indeed;
+#X text 663 296 arrive in the order that the objects are connected
+\,;
+#X text 663 309 and not according to their position on-screen.;
+#X text 53 279 [print]: prints incoming messages;
+#X text 48 293 to PD window;
+#X connect 3 0 4 0;
+#X connect 9 0 12 0;
+#X connect 9 0 13 0;
+#X connect 9 0 20 0;
+#X connect 12 0 10 0;
+#X connect 13 0 10 0;
+#X connect 20 0 10 0;
+#X connect 24 0 26 0;
+#X connect 24 0 27 0;
+#X connect 24 0 28 0;
+#X connect 26 0 25 0;
+#X connect 27 0 25 0;
+#X connect 28 0 25 0;
+#X restore 11 119 pd bang_order;
+#N canvas 71 -926 1293 406 order_consequences 1;
+#X obj 13 14 cnv 15 420 25 empty empty Bang_order_consequences:_why_should_we_care?
+20 12 0 14 -233017 -66577 0;
+#X obj 95 152 +;
+#X text 13 146 hot inlet >;
+#X text 119 146 < cold inlet;
+#X text 12 174 Messages to the hot inlet trigger a math operation \,
+and gives us a result from the outlet of [+ ];
+#X text 12 78 If we don't know the exact order that messages arrive
+at an object \, we can end up with some odd behaviour. Lets take a
+simple example \, starting with a closer look at the [+ ] operator.
+;
+#X text 12 204 Messages to the cold inlet are stored until the hot
+inlet reveives a new value. They won't trigger an output on their own:
+;
+#X obj 137 260 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 137 284 1;
+#X obj 185 260 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 185 284 2;
+#X obj 159 322 +;
+#X text 87 316 hot inlet >;
+#X text 183 316 < cold inlet;
+#X obj 159 347 print;
+#X text 11 259 Triggers an output >;
+#X text 201 259 < Doesn't trigger an output;
+#X obj 14 49 cnv 15 170 25 empty empty 1:_Ordered_Editing_Habits 20
+12 0 10 -233017 -66577 0;
+#X text 10 130 [+ ] has two inlets: one 'hot' and one 'cold':;
+#X obj 463 49 cnv 15 200 25 empty empty 2:_Confusing_Bang_Order_Errors
+20 12 0 10 -233017 -66577 0;
+#X text 462 79 Now lets imagine that we want to first set the values
+sent to [+ ] \, and then add together some new numbers at a later point:
+;
+#X obj 499 181 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 622 181 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 465 213 5;
+#X msg 666 211 10;
+#X msg 622 211 105;
+#X obj 589 258 +;
+#X text 460 132 first calculation:;
+#X text 529 288 RESULT;
+#X floatatom 588 288 5 0 0 0 - - -;
+#X text 620 132 second calculation:;
+#X text 620 148 should give 115;
+#X text 459 147 should give 0;
+#X msg 525 213 -5;
+#X text 458 328 If you're used to reading from left to right \, you
+might assume from looking at this patch that when we click on the seccond
+bang object \, we get the result of 115 But we get 5 instead \, why?!
+;
+#X obj 903 49 cnv 15 200 25 empty empty 3:_These_can_be_tricky_to_spot
+20 12 0 10 -233017 -66577 0;
+#X text 902 78 The problem with example two was in the order that the
+second bang was connected to the two messages.;
+#X text 902 110 The bang was first connected to [10( \, then it was
+connected to [105(.;
+#X text 721 211 <<-----------------;
+#X obj 906 174 cnv 15 80 90 empty empty empty 20 12 0 14 -208240 -66577
+0;
+#X obj 911 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 985 210 10;
+#X msg 911 240 105;
+#X text 902 140 This means that the number 10 is sent to the hot inlet
+of [+ ] before 105 reaches the cold inlet.;
+#X text 902 281 So \, the calculation runs in [+ ] with the old value
+of -5 \, and we get the result of 5 If you click the second bang again
+\, you will then get the correct result \, using the stored value of
+105 that was missed beforehand.;
+#X text 901 338 This is a trivial \, and not very realistic example.
+In a larger patch \, this kind of thing can be hard to spot when things
+go wrong.;
+#X text 14 373 As a general rule \, the left inlets of Pd objects are
+'hot' \, and the others are cold.;
+#X text 1019 209 < connected first;
+#X text 1019 240 < connected second;
+#X connect 7 0 8 0;
+#X connect 8 0 11 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 1;
+#X connect 11 0 14 0;
+#X connect 21 0 33 0;
+#X connect 21 0 23 0;
+#X connect 22 0 24 0;
+#X connect 22 0 25 0;
+#X connect 23 0 26 0;
+#X connect 24 0 26 0;
+#X connect 25 0 26 1;
+#X connect 26 0 29 0;
+#X connect 33 0 26 1;
+#X connect 40 0 41 0;
+#X connect 40 0 42 0;
+#X restore 10 151 pd order_consequences;
+#N canvas 349 -980 826 435 order_solutions 0;
+#X obj 13 14 cnv 15 450 25 empty empty Bang_order_solutions:_suggestions_for_good_practice
+20 12 0 14 -233017 -66577 0;
+#X obj 14 49 cnv 15 250 25 empty empty 1:_Ordered_Editing_Habits_(not_ideal!)
+20 12 0 10 -233017 -66577 0;
+#X text 18 89 As mentioned in the previous subpatch \, it may be intuitive
+to order elements in the way you are used to reading text \, or perhaps
+with reading preferences of collaborators in mind as well.;
+#X text 18 155 With this in mind \, one way to avoid these kind of
+issues is to get into the habit of connecting objects in a logical
+reading order. So if the previous example is recreated \, with connections
+made in order from left to right...;
+#X obj 62 229 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 259 229 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 240 259 105;
+#X msg 290 259 10;
+#X obj 167 337 +;
+#X msg 51 259 -5;
+#X msg 96 259 5;
+#X floatatom 167 378 5 0 0 0 - - -;
+#X text 21 401 we now get the results we would expect \, and the messages
+are sent in the order we see them from left to right.;
+#X obj 454 49 cnv 15 200 25 empty empty 2:_Using_Trigger_(reccomended)
+20 12 0 10 -233017 -66577 0;
+#X text 455 86 The trouble is \, this approach still leaves room for
+error \, and for misinterpretation when others come to read your patches.
+Luckily \, Pd has a foolproof method for ordering messages \, with
+the trigger - [t ] - object.;
+#X obj 457 229 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 457 259 t b b;
+#X obj 617 231 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 457 291 5;
+#X msg 511 291 -5;
+#X obj 557 337 +;
+#X floatatom 557 382 5 0 0 0 - - -;
+#X obj 617 259 t b b;
+#X msg 617 291 10;
+#X msg 656 291 105;
+#X text 454 152 This object will send bangs or other messages in order
+from right to left \, and allows us to order the flow of data in a
+patch without any ambiguity. We can rewrite the example once more using
+trigger like this:;
+#X connect 4 0 9 0;
+#X connect 4 0 10 0;
+#X connect 5 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 1;
+#X connect 7 0 8 0;
+#X connect 8 0 11 0;
+#X connect 9 0 8 1;
+#X connect 10 0 8 0;
+#X connect 15 0 16 0;
+#X connect 16 0 18 0;
+#X connect 16 1 19 0;
+#X connect 17 0 22 0;
+#X connect 18 0 20 0;
+#X connect 19 0 20 1;
+#X connect 20 0 21 0;
+#X connect 22 0 23 0;
+#X connect 22 1 24 0;
+#X connect 23 0 20 0;
+#X connect 24 0 20 1;
+#X restore 10 182 pd order_solutions;
+#X text 10 57 The three objects below contain other patches \, click
+on them to see what's inside. In edit mode \, you can do this by pressing
+ctl-click;

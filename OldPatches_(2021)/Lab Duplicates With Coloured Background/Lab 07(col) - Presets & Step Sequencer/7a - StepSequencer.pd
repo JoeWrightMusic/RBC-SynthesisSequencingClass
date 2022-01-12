@@ -1,0 +1,323 @@
+#N canvas 312 140 658 732 12;
+#X obj -4 -6 cnv 15 1000 1000 empty empty empty 20 12 0 14 -203904
+-66577 0;
+#X obj 3 3 cnv 15 650 40 empty empty Lab_7a_-_Step_Sequencer 20 12
+0 20 -233017 -66577 0;
+#X text 13 48 Before we get into the gorey details of step sequencing
+in Pd \, let's have a look at our 3-piece kit...;
+#X obj 14 121 simpleHat~;
+#X obj 98 121 simpleSnare~;
+#X obj 14 96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 98 96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 198 96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 98 159 *~ 0.1;
+#X obj 98 183 dac~;
+#X obj 198 121 FMkick~ 65 250;
+#X text 303 123 <-- notice that this takes two arguments \, in the
+same way that we can give objects like [osc~ ] or [*~] arguments? Double
+click on the abstraction to find out how that works, f 49;
+#X text 16 232 Here's a simple sequencer example...;
+#X obj 20 474 metro;
+#X obj 20 359 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 74 358 5 0 0 0 - - -;
+#X obj 20 525 f 0;
+#X obj 20 556 + 1;
+#X obj 89 537 % 8;
+#X text 18 325 START/STOP, f 6;
+#X obj 74 379 t b f;
+#X obj 88 425 /;
+#X obj 88 446 * 1000;
+#X msg 74 401 60;
+#X text 76 324 BPM;
+#X text 31 502 Counter loop;
+#X text 119 535 <-- after every addition \, get the whole-number remainder
+when dividing by 8, f 19;
+#X text 140 381 <-- divide 60 by BPM for beat time in s, f 12;
+#X text 141 447 <-- s to ms;
+#X obj 20 633 s count;
+#X obj 14 293 cnv 15 250 30 empty empty STEPPER 20 12 0 14 -233017
+-66577 0;
+#X obj 344 293 cnv 15 250 30 empty empty SEQUENCER 20 12 0 14 -233017
+-66577 0;
+#N canvas 32 25 884 215 trigger_HiHat 0;
+#X obj 5 83 f;
+#X obj 72 83 f;
+#X obj 139 83 f;
+#X obj 206 82 f;
+#X obj 273 82 f;
+#X obj 340 82 f;
+#X obj 407 82 f;
+#X obj 474 82 f;
+#X obj 23 61 r hh1;
+#X obj 90 61 r hh2;
+#X obj 157 61 r hh3;
+#X obj 224 60 r hh4;
+#X obj 291 60 r hh5;
+#X obj 358 60 r hh6;
+#X obj 425 60 r hh7;
+#X obj 492 60 r hh8;
+#X obj 5 31 sel 1 2 3 4 5 6 7 8, f 77;
+#X obj 5 9 r count;
+#X text 59 9 <-- Here we get the count from our stepper;
+#X text 551 30 <-- outputs a bang for each step (range 1-8);
+#X text 551 60 <-- receive on/off messages from toggle boxes;
+#X text 551 80 <-- send state of toggle for each beat;
+#X obj 245 157 simpleHat~;
+#X obj 245 134 sel 1;
+#X obj 245 181 outlet~;
+#X connect 0 0 23 0;
+#X connect 1 0 23 0;
+#X connect 2 0 23 0;
+#X connect 3 0 23 0;
+#X connect 4 0 23 0;
+#X connect 5 0 23 0;
+#X connect 6 0 23 0;
+#X connect 7 0 23 0;
+#X connect 8 0 0 1;
+#X connect 9 0 1 1;
+#X connect 10 0 2 1;
+#X connect 11 0 3 1;
+#X connect 12 0 4 1;
+#X connect 13 0 5 1;
+#X connect 14 0 6 1;
+#X connect 15 0 7 1;
+#X connect 16 0 0 0;
+#X connect 16 1 1 0;
+#X connect 16 2 2 0;
+#X connect 16 3 3 0;
+#X connect 16 4 4 0;
+#X connect 16 5 5 0;
+#X connect 16 6 6 0;
+#X connect 16 7 7 0;
+#X connect 17 0 16 0;
+#X connect 22 0 24 0;
+#X connect 23 0 22 0;
+#X restore 346 490 pd trigger_HiHat;
+#N canvas 32 25 884 215 trigger_Snare 0;
+#X obj 5 83 f;
+#X obj 72 83 f;
+#X obj 139 83 f;
+#X obj 206 82 f;
+#X obj 273 82 f;
+#X obj 340 82 f;
+#X obj 407 82 f;
+#X obj 474 82 f;
+#X obj 5 31 sel 1 2 3 4 5 6 7 8, f 77;
+#X obj 5 9 r count;
+#X text 59 9 <-- Here we get the count from our stepper;
+#X text 551 30 <-- outputs a bang for each step (range 1-8);
+#X text 551 60 <-- receive on/off messages from toggle boxes;
+#X text 551 80 <-- send state of toggle for each beat;
+#X obj 245 134 sel 1;
+#X obj 245 181 outlet~;
+#X obj 23 61 r sn1;
+#X obj 90 61 r sn2;
+#X obj 157 61 r sn3;
+#X obj 224 60 r sn4;
+#X obj 291 60 r sn5;
+#X obj 358 60 r sn6;
+#X obj 425 60 r sn7;
+#X obj 492 60 r sn8;
+#X obj 245 157 simpleSnare~;
+#X connect 0 0 14 0;
+#X connect 1 0 14 0;
+#X connect 2 0 14 0;
+#X connect 3 0 14 0;
+#X connect 4 0 14 0;
+#X connect 5 0 14 0;
+#X connect 6 0 14 0;
+#X connect 7 0 14 0;
+#X connect 8 0 0 0;
+#X connect 8 1 1 0;
+#X connect 8 2 2 0;
+#X connect 8 3 3 0;
+#X connect 8 4 4 0;
+#X connect 8 5 5 0;
+#X connect 8 6 6 0;
+#X connect 8 7 7 0;
+#X connect 9 0 8 0;
+#X connect 14 0 24 0;
+#X connect 16 0 0 1;
+#X connect 17 0 1 1;
+#X connect 18 0 2 1;
+#X connect 19 0 3 1;
+#X connect 20 0 4 1;
+#X connect 21 0 5 1;
+#X connect 22 0 6 1;
+#X connect 23 0 7 1;
+#X connect 24 0 15 0;
+#X restore 366 510 pd trigger_Snare;
+#X obj 397 329 r count;
+#X obj 397 352 sel 1 2 3 4 5 6 7 8, f 24;
+#X obj 398 376 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 418 376 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 438 376 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 458 376 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 478 376 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 498 376 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 518 376 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 538 376 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 32 25 884 215 trigger_Kick 0;
+#X obj 5 83 f;
+#X obj 72 83 f;
+#X obj 139 83 f;
+#X obj 206 82 f;
+#X obj 273 82 f;
+#X obj 340 82 f;
+#X obj 407 82 f;
+#X obj 474 82 f;
+#X obj 5 31 sel 1 2 3 4 5 6 7 8, f 77;
+#X obj 5 9 r count;
+#X text 59 9 <-- Here we get the count from our stepper;
+#X text 551 30 <-- outputs a bang for each step (range 1-8);
+#X text 551 60 <-- receive on/off messages from toggle boxes;
+#X text 551 80 <-- send state of toggle for each beat;
+#X obj 245 134 sel 1;
+#X obj 245 181 outlet~;
+#X obj 23 61 r kik1;
+#X obj 90 61 r kik2;
+#X obj 157 61 r kik3;
+#X obj 224 60 r kik4;
+#X obj 291 60 r kik5;
+#X obj 358 60 r kik6;
+#X obj 425 60 r kik7;
+#X obj 492 60 r kik8;
+#X obj 245 157 FMkick~ 75 400;
+#X connect 0 0 14 0;
+#X connect 1 0 14 0;
+#X connect 2 0 14 0;
+#X connect 3 0 14 0;
+#X connect 4 0 14 0;
+#X connect 5 0 14 0;
+#X connect 6 0 14 0;
+#X connect 7 0 14 0;
+#X connect 8 0 0 0;
+#X connect 8 1 1 0;
+#X connect 8 2 2 0;
+#X connect 8 3 3 0;
+#X connect 8 4 4 0;
+#X connect 8 5 5 0;
+#X connect 8 6 6 0;
+#X connect 8 7 7 0;
+#X connect 9 0 8 0;
+#X connect 14 0 24 0;
+#X connect 16 0 0 1;
+#X connect 17 0 1 1;
+#X connect 18 0 2 1;
+#X connect 19 0 3 1;
+#X connect 20 0 4 1;
+#X connect 21 0 5 1;
+#X connect 22 0 6 1;
+#X connect 23 0 7 1;
+#X connect 24 0 15 0;
+#X restore 389 529 pd trigger_Kick;
+#X obj 346 606 dac~;
+#X obj 346 556 *~ 0.1;
+#X obj 346 577 clip~ -1 1;
+#X obj 398 396 tgl 15 0 hh1 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 418 396 tgl 15 0 hh2 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 438 396 tgl 15 0 hh3 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 458 396 tgl 15 0 hh4 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 478 396 tgl 15 0 hh5 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 498 396 tgl 15 0 hh6 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 518 396 tgl 15 0 hh7 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 538 396 tgl 15 0 hh8 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 398 416 tgl 15 0 sn1 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 418 416 tgl 15 0 sn2 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 438 416 tgl 15 0 sn3 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 458 416 tgl 15 0 sn4 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 478 416 tgl 15 0 sn5 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 498 416 tgl 15 0 sn6 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 518 416 tgl 15 0 sn7 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 538 416 tgl 15 0 sn8 empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 398 436 tgl 15 0 kik1 empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 418 436 tgl 15 0 kik2 empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 438 436 tgl 15 0 kik3 empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 458 436 tgl 15 0 kik4 empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 478 436 tgl 15 0 kik5 empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 498 436 tgl 15 0 kik6 empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 518 436 tgl 15 0 kik7 empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 538 436 tgl 15 0 kik8 empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 345 395 HI HAT>;
+#X text 345 415 SNARE >;
+#X text 345 435 KICK >;
+#X text 20 662 The patch is shown in full here \, but of course \,
+this would be a lot easier if we were to break this down into reusable
+abstractions!;
+#X text 507 489 <-- open subpatches to see how we trigger each synth
+, f 10;
+#X obj 147 324 loadbang;
+#X msg 147 344 360;
+#X connect 3 0 8 0;
+#X connect 4 0 8 0;
+#X connect 5 0 3 0;
+#X connect 6 0 4 0;
+#X connect 7 0 10 0;
+#X connect 8 0 9 0;
+#X connect 8 0 9 1;
+#X connect 10 0 8 0;
+#X connect 13 0 16 0;
+#X connect 14 0 13 0;
+#X connect 15 0 20 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 17 0 29 0;
+#X connect 18 0 16 1;
+#X connect 20 0 23 0;
+#X connect 20 1 21 1;
+#X connect 21 0 22 0;
+#X connect 22 0 13 1;
+#X connect 23 0 21 0;
+#X connect 32 0 46 0;
+#X connect 33 0 46 0;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 35 1 37 0;
+#X connect 35 2 38 0;
+#X connect 35 3 39 0;
+#X connect 35 4 40 0;
+#X connect 35 5 41 0;
+#X connect 35 6 42 0;
+#X connect 35 7 43 0;
+#X connect 44 0 46 0;
+#X connect 46 0 47 0;
+#X connect 47 0 45 0;
+#X connect 47 0 45 1;
+#X connect 77 0 78 0;
+#X connect 78 0 15 0;

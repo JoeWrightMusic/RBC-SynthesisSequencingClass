@@ -1,0 +1,82 @@
+#N canvas 488 29 562 777 12;
+#X obj -7 -5 cnv 15 1000 1000 empty empty empty 20 12 0 14 -203904
+-66577 0;
+#X obj 3 3 cnv 15 555 60 empty empty A_BETTER_POLYPHONIC_SYNTH 20 12
+0 20 -233017 -66577 0;
+#X text 21 34 An update to the synth patch from the previous lab \,
+now with ADSR envelopes, f 82;
+#X obj 24 128 FM-ADSR~;
+#X text 22 72 First things first \, let's take a look at our new abstraction
+\, [FM-ADSR~]. It's an updated version of the FMvoice patch used in
+the LAB 5 examples.;
+#X text 86 128 <-- double click or right-click>"open";
+#X text 22 172 Lets see that in use \, the patch looks similar to the
+previous example in LAB 5 \, but with some alterations...;
+#X obj 24 212 notein;
+#X text 114 235 <-- incoming MIDI note & velocity messages;
+#X obj 24 257 poly 4 1;
+#X obj 24 298 - 1;
+#X obj 224 439 hsl 185 30 0.01 200 1 1 \$0-modFreq empty MODULATOR_MULT
+-2 16 0 15 -262130 -1 -1 10600 1;
+#X obj 224 472 hsl 185 30 0.1 10 0 1 \$0-depth empty DEPTH_MULT -2
+16 0 15 -232576 -1 -1 6500 1;
+#X msg 42 530 all \$1;
+#X msg 60 549 all \$1;
+#X obj 24 646 clone FM-ADSR~ 4;
+#X obj 24 362 pack f f f;
+#X text 97 255 <-- [poly] adds a voice number to incoming MIDI note/velocity
+pairs., f 48;
+#X text 97 295 <-- [poly] counts voice numbers from 1 \, but [clone]
+wants them to start from 0 We just have to subtract 1 from the voice
+number to fix this, f 47;
+#X text 104 359 <-- pack a list of: voice \, note \, velocity, f 47
+;
+#X obj 224 526 hsl 185 30 2 5000 1 1 \$0-depth empty ATTACK -2 16 0
+15 -261682 -1 -1 2400 1;
+#X msg 78 568 all \$1;
+#X msg 96 587 all \$1;
+#X obj 224 559 hsl 185 30 2 5000 1 1 \$0-depth empty DECAY -2 16 0
+15 -261682 -1 -1 12500 1;
+#X obj 224 592 hsl 185 30 0.001 1 1 1 \$0-depth empty SUSTAIN -2 16
+0 15 -204786 -1 -1 14600 1;
+#X obj 224 625 hsl 185 30 2 5000 1 1 \$0-depth empty RELEASE -2 16
+0 15 -261682 -1 -1 9100 1;
+#X msg 114 606 all \$1;
+#X msg 134 625 all \$1;
+#X obj 221 678 vol-ctl~;
+#X obj 213 729 dac~;
+#X obj 221 417 cnv 15 190 20 empty empty FM 20 12 0 20 -233017 -66577
+0;
+#X obj 221 504 cnv 15 190 20 empty empty ADSR 20 12 0 20 -233017 -66577
+0;
+#X obj 221 657 cnv 15 190 20 empty empty empty 20 12 0 20 -233017 -66577
+0;
+#X obj 155 420 loadbang;
+#X connect 7 0 9 0;
+#X connect 7 1 9 1;
+#X connect 9 0 10 0;
+#X connect 9 1 16 1;
+#X connect 9 2 16 2;
+#X connect 10 0 16 0;
+#X connect 11 0 13 0;
+#X connect 12 0 14 0;
+#X connect 13 0 15 1;
+#X connect 14 0 15 2;
+#X connect 15 0 28 0;
+#X connect 16 0 15 0;
+#X connect 20 0 21 0;
+#X connect 21 0 15 3;
+#X connect 22 0 15 4;
+#X connect 23 0 22 0;
+#X connect 24 0 26 0;
+#X connect 25 0 27 0;
+#X connect 26 0 15 5;
+#X connect 27 0 15 6;
+#X connect 28 0 29 0;
+#X connect 28 0 29 1;
+#X connect 33 0 11 0;
+#X connect 33 0 12 0;
+#X connect 33 0 20 0;
+#X connect 33 0 23 0;
+#X connect 33 0 24 0;
+#X connect 33 0 25 0;

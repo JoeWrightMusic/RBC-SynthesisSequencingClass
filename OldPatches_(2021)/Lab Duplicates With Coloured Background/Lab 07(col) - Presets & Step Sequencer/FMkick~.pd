@@ -1,0 +1,70 @@
+#N canvas 126 83 715 706 12;
+#X obj 1 2 cnv 15 710 700 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 8 389 osc~;
+#X obj 8 419 *~;
+#X obj 94 371 line~;
+#X obj 318 476 sig~ 55;
+#X obj 8 367 line~;
+#X obj 318 558 +~;
+#X obj 318 615 *~;
+#X obj 490 504 line~;
+#X obj 488 333 t b b;
+#X obj 318 581 osc~;
+#X msg 490 452 0 100;
+#X obj 3 7 cnv 15 700 40 empty empty FM_KICK 20 12 0 20 -233017 -66577
+0;
+#X obj 9 239 inlet;
+#X text 7 218 TRIGGER (bang);
+#X obj 583 397 inlet;
+#X obj 490 424 f \$2;
+#X obj 9 263 t b;
+#X obj 318 418 inlet;
+#X obj 318 455 f \$1;
+#X obj 359 418 loadbang;
+#X text 316 397 CARRIER FREQUENCY;
+#X text 78 392 <-- Generate Modulator Signal;
+#X msg 551 452 0.4 5;
+#X obj 490 396 del 5;
+#X text 584 374 DECAY TIME (ms);
+#X text 3 50 Simple FM kick with two arguments \, frequency and decay
+time.;
+#X text 3 70 In this patch these arguments can be set through inlets
+\, or they can be set when the abstraction is created \, eg:;
+#X text 3 110 [FMkick~ 65 200];
+#X text 5 132 If we created this abstraction as shown above \, the
+first number - 65 - would be sent to any \$1 symbols in the patch (in
+this case to set the carrier frequency) \; and the second number -
+200 - would be sent to any \$2 symbol in the patch (decay for this
+patch).;
+#X obj 318 640 outlet~;
+#X msg 9 333 500 \, 0.1 40, f 7;
+#X msg 94 347 250 \, 0.1 40;
+#X obj 143 239 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 1 0 2 0;
+#X connect 2 0 6 1;
+#X connect 3 0 2 1;
+#X connect 4 0 6 0;
+#X connect 5 0 1 0;
+#X connect 6 0 10 0;
+#X connect 7 0 30 0;
+#X connect 8 0 7 1;
+#X connect 9 0 24 0;
+#X connect 9 1 23 0;
+#X connect 10 0 7 0;
+#X connect 11 0 8 0;
+#X connect 13 0 17 0;
+#X connect 15 0 16 1;
+#X connect 16 0 11 0;
+#X connect 17 0 31 0;
+#X connect 17 0 32 0;
+#X connect 17 0 9 0;
+#X connect 18 0 19 0;
+#X connect 19 0 4 0;
+#X connect 20 0 19 0;
+#X connect 23 0 8 0;
+#X connect 24 0 16 0;
+#X connect 31 0 5 0;
+#X connect 32 0 3 0;
+#X connect 33 0 17 0;

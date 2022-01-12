@@ -1,0 +1,41 @@
+#N canvas 563 25 702 703 12;
+#X obj 1 1 cnv 15 700 700 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 12 7 cnv 15 550 40 empty empty Lab_1a:_Beep! 20 12 0 20 -233017
+-66577 0;
+#X obj 135 276 *~ 0.1;
+#X obj 135 492 dac~;
+#X obj 135 393 *~;
+#X obj 208 342 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 208 120 We can construct audio programs with objects in Pd
+\, which mostly appear in boxes like this. The thick black tabs at
+the top and bottom show us where we can connect inputs and outputs
+for each object.;
+#X obj 135 122 osc~ 440;
+#X text 142 204 We can click and drag from an output (a tab at the
+bottom of an object) to an input (a tab on the top of an object) to
+create a connection \, which we can think of as a patch cable.;
+#X text 228 337 Some elements can be interacted with \, like this toggle
+box. In this case \, it's used to turn the beep on/off;
+#X text 10 48 This is a very simple starter patch: it allows us to
+turn a pure tone on and off. For now \, lets just look at how the patch
+is constructed...;
+#X text 50 122 Oscilator >;
+#X text 37 277 Math Object >;
+#X text 36 394 Math Object >;
+#X text 111 341 GUI Object >;
+#X text 28 493 Sound Output >;
+#X text 25 538 There are two modes in this canvas view: an 'Edit Mode'
+and a 'Run Mode'. Switch between them with cmd-E \, and you will see
+the cursor change.;
+#X text 25 594 In edit mode \, the cursor will look like a hand. This
+is the mode that lets you create and edit objects in your patch;
+#X text 25 637 In run mode \, the patch is locked (you can't edit it)
+\, and your cursor will change to an ordinary pointer. This lets you
+interact with GUI (Graphical User Interface) objects more easily.;
+#X connect 2 0 4 0;
+#X connect 4 0 3 0;
+#X connect 4 0 3 1;
+#X connect 5 0 4 1;
+#X connect 7 0 2 0;

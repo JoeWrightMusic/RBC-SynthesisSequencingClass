@@ -1,0 +1,40 @@
+#N canvas 565 -635 629 413 12;
+#X obj 115 202 moses, f 6;
+#X text 195 159 <- Generate a number from 0<100;
+#X text 195 199 <- Split output depending on whether input is smaller
+or greater than a threshold, f 31;
+#X text 52 317 ACTION A;
+#X text 162 317 ACTION B;
+#X obj 53 275 t b;
+#X obj 168 275 t b;
+#X obj 53 299 outlet;
+#X obj 168 299 outlet;
+#X obj 45 114 inlet;
+#X obj 155 61 r \$0-chance;
+#X obj 155 85 t b f;
+#X msg 155 107 100;
+#X obj 155 130 -;
+#X text 187 109 Reverse probability \, so output will match the slider
+position, f 31;
+#X obj 6 3 hsl 101 30 0 100 0 0 \$0-chance \$0-init CHANCE 24 16 0
+15 -262144 -1 -1 6500 1;
+#X text 3 9 A];
+#X text 90 9 [B;
+#X obj 486 5 loadbang;
+#X msg 486 26 50;
+#X obj 486 50 s \$0-init;
+#X obj 45 163 random 99;
+#X connect 0 0 5 0;
+#X connect 0 1 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 9 0 21 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 1 13 1;
+#X connect 12 0 13 0;
+#X connect 13 0 0 1;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 21 0 0 0;
+#X coords 0 -1 1 1 112 35 2 0 0;

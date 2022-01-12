@@ -1,0 +1,52 @@
+#N canvas 32 25 661 395 12;
+#X obj 1 1 cnv 15 1000 1000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 7 10 cnv 15 320 25 empty empty Volume_Control_ABSTRACTION 20
+12 0 14 -228856 -66577 0;
+#X obj 65 271 *~;
+#X obj 98 123 hsl 120 30 0 1 0 1 empty empty AMPLITUDE 5 15 0 16 -204786
+-1 -1 0 1;
+#X obj 8 326 clip~ -1 1;
+#X obj 64 123 tgl 30 0 empty empty MUTE 3 14 0 10 -191407 -1 -1 0 1
+;
+#X msg 111 221 \$1 10;
+#X obj 111 244 line~;
+#X msg 65 221 \$1 10;
+#X obj 65 245 line~;
+#X obj 65 157 t b f;
+#X obj 65 199 -;
+#X msg 65 178 1;
+#X obj 7 43 inlet~;
+#X obj 8 302 *~;
+#X obj 8 368 outlet~;
+#X obj 65 42 inlet;
+#X obj 106 42 inlet;
+#X text 230 42 This patch is the same as the volime control subpatch
+we saw before \, only now we can call it by name as we would with regular
+objects.;
+#X obj 34 74 loadbang;
+#X msg 34 97 0;
+#X text 232 130 <-- by right clicking on the white canvas and choosing
+'properties' \, we can set the option "Graph-On-Parent" and set the
+dimensions of the red box. This will set the display area for the abstraction
+in our parent patch. This is the perfect place to put any UI elements
+that you want to be visible in the parent patch.;
+#X connect 2 0 14 1;
+#X connect 3 0 6 0;
+#X connect 4 0 15 0;
+#X connect 5 0 10 0;
+#X connect 6 0 7 0;
+#X connect 7 0 2 1;
+#X connect 8 0 9 0;
+#X connect 9 0 2 0;
+#X connect 10 0 12 0;
+#X connect 10 1 11 1;
+#X connect 11 0 8 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 14 0 4 0;
+#X connect 16 0 5 0;
+#X connect 17 0 3 0;
+#X connect 19 0 20 0;
+#X connect 20 0 5 0;
+#X coords 0 -1 1 1 158 32 1 63 122;

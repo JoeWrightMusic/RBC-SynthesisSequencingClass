@@ -1,0 +1,173 @@
+#N canvas 1576 92 1400 847 12;
+#X obj 22 89 - 1;
+#X obj 324 225 hsl 185 30 0.01 200 1 1 \$0-modMul \$0-setModMul MODULATOR_MULT
+-2 16 0 15 -262130 -1 -1 7300 1;
+#X obj 324 255 hsl 185 30 0.1 10 0 1 \$0-depthMul \$0-setDepthMul DEPTH_MULT
+-2 16 0 15 -232576 -1 -1 5900 1;
+#X msg 41 155 all \$1;
+#X msg 60 196 all \$1;
+#X obj 22 113 pack f f f;
+#X obj 324 307 hsl 185 30 2 5000 1 1 \$0-A \$0-setA ATTACK -2 16 0
+15 -261682 -1 -1 0 1;
+#X msg 80 238 all \$1;
+#X msg 99 280 all \$1;
+#X obj 324 337 hsl 185 30 2 5000 1 1 \$0-D \$0-setD DECAY -2 16 0 15
+-261682 -1 -1 12100 1;
+#X obj 324 367 hsl 185 30 0.001 1 1 1 \$0-S \$0-setS SUSTAIN -2 16
+0 15 -204786 -1 -1 1500 1;
+#X obj 324 397 hsl 185 30 2 5000 1 1 \$0-R \$0-setR RELEASE -2 16 0
+15 -261682 -1 -1 1200 1;
+#X msg 118 321 all \$1;
+#X msg 138 363 all \$1;
+#X obj 321 449 vol-ctl~;
+#X obj 321 203 cnv 15 190 20 empty empty FM-SYNTH~ 20 12 0 20 -233017
+-66577 0;
+#X obj 321 286 cnv 15 190 20 empty empty ADSR 20 12 0 20 -233017 -66577
+0;
+#X obj 321 428 cnv 15 190 20 empty empty OUTPUT 20 12 0 20 -233017
+-66577 0;
+#X obj 3 3 cnv 15 555 30 empty empty FM_SYNTH 20 12 0 20 -233017 -66577
+0;
+#X obj 22 406 clone FM-ADSR~ 16;
+#X obj 22 67 poly 16 1;
+#X obj 22 45 inlet;
+#X text 175 44 <-- Note \, Velocity;
+#X obj 82 45 inlet;
+#X obj 24 473 outlet~;
+#X obj 41 136 r \$0-modMul;
+#X obj 60 177 r \$0-depthMul;
+#X obj 80 219 r \$0-A;
+#X obj 99 261 r \$0-D;
+#X obj 118 302 r \$0-S;
+#X obj 138 344 r \$0-R;
+#X obj 897 783 s \$0-setModMul;
+#X obj 921 763 s \$0-setDepthMul;
+#X obj 946 743 s \$0-setA;
+#X obj 970 723 s \$0-setD;
+#X obj 995 703 s \$0-setS;
+#X obj 1020 683 s \$0-setR;
+#X obj 961 77 r \$0-modMul;
+#X obj 991 98 r \$0-depthMul;
+#X obj 1021 119 r \$0-A;
+#X obj 1051 140 r \$0-D;
+#X obj 1081 161 r \$0-S;
+#X obj 1111 183 r \$0-R;
+#X obj 943 231 pack f f f f f f;
+#X msg 943 255 set \$1 \$2 \$3 \$4 \$5 \$6;
+#X msg 900 508 0.106784 5.05 71.1645 129.063 0.0975282 1282.4;
+#X text 1230 508 Comedy Alien;
+#X text 1260 538 Snub Bass;
+#X msg 960 568 2.69784 6.44891 2 993.623 1 1282.4;
+#X text 1210 568 Bell;
+#X msg 930 538 0.508612 1.01467 2 343.198 0.00175616 3.33146;
+#X msg 990 598 6.04845 10 2047.21 2 1 5000;
+#X text 1190 598 Ominous;
+#X msg 1021 628 200 10 2 5000 1 2;
+#X obj 893 139 r \$0-save;
+#X obj 511 353 cnv 15 190 132 empty empty PRESETS 20 12 0 20 -233017
+-66577 0;
+#X text 555 379 Comedy Alien;
+#X text 555 400 Snub Bass;
+#X text 555 421 Bell;
+#X text 555 441 Ominous;
+#X text 555 461 User;
+#X text 650 389 SAVE USER PRESET, f 7;
+#X obj 651 436 bng 40 250 50 0 \$0-save empty empty 17 7 0 10 -191407
+-258113 -261234;
+#X obj 897 655 unpack f f f f f f;
+#X obj 943 279 s \$0-setUserPreset;
+#X obj 1258 604 r \$0-setUserPreset;
+#X obj 899 474 sel 0 1 2 3 4;
+#X obj 899 450 r \$0-presets;
+#X obj 892 41 cnv 15 400 30 empty empty Receive_Values_&_Save_Preset
+20 12 0 14 -233017 -66577 0;
+#X obj 892 411 cnv 15 400 30 empty empty Load_Presets 20 12 0 14 -233017
+-66577 0;
+#X obj 533 379 vradio 20 1 0 5 \$0-presets empty empty 0 -8 0 10 -162280
+-1 -1 1;
+#X obj 943 206 f;
+#X obj 973 206 f;
+#X obj 1003 206 f;
+#X obj 1033 206 f;
+#X obj 1063 206 f;
+#X obj 1093 206 f;
+#X obj 512 202 cnv 15 190 150 empty empty WAVE_SEL 20 12 0 20 -233017
+-66577 0;
+#X obj 536 247 vradio 25 1 0 4 \$0-modWave empty empty 0 -8 0 10 -191407
+-1 -1 0;
+#X text 596 249 SINE;
+#X text 596 301 TRIANGLE;
+#X text 596 275 SQUARE;
+#X text 596 327 SAW;
+#X obj 566 247 vradio 25 1 0 4 \$0-carWave empty empty 0 -8 0 10 -191407
+-1 -1 1;
+#X text 532 226 M;
+#X text 562 226 C;
+#X msg 209 356 all \$1;
+#X msg 219 396 all \$1;
+#X obj 209 337 r \$0-modWave;
+#X obj 219 377 r \$0-carWave;
+#X connect 0 0 5 0;
+#X connect 3 0 19 1;
+#X connect 4 0 19 2;
+#X connect 5 0 19 0;
+#X connect 7 0 19 3;
+#X connect 8 0 19 4;
+#X connect 12 0 19 5;
+#X connect 13 0 19 6;
+#X connect 14 0 24 0;
+#X connect 19 0 14 0;
+#X connect 20 0 0 0;
+#X connect 20 1 5 1;
+#X connect 20 2 5 2;
+#X connect 21 0 20 0;
+#X connect 23 0 20 1;
+#X connect 25 0 3 0;
+#X connect 26 0 4 0;
+#X connect 27 0 7 0;
+#X connect 28 0 8 0;
+#X connect 29 0 12 0;
+#X connect 30 0 13 0;
+#X connect 37 0 71 1;
+#X connect 38 0 72 1;
+#X connect 39 0 73 1;
+#X connect 40 0 74 1;
+#X connect 41 0 75 1;
+#X connect 42 0 76 1;
+#X connect 43 0 44 0;
+#X connect 44 0 64 0;
+#X connect 45 0 63 0;
+#X connect 48 0 63 0;
+#X connect 50 0 63 0;
+#X connect 51 0 63 0;
+#X connect 53 0 63 0;
+#X connect 54 0 71 0;
+#X connect 54 0 72 0;
+#X connect 54 0 73 0;
+#X connect 54 0 74 0;
+#X connect 54 0 75 0;
+#X connect 54 0 76 0;
+#X connect 63 0 31 0;
+#X connect 63 1 32 0;
+#X connect 63 2 33 0;
+#X connect 63 3 34 0;
+#X connect 63 4 35 0;
+#X connect 63 5 36 0;
+#X connect 65 0 53 0;
+#X connect 66 0 45 0;
+#X connect 66 1 50 0;
+#X connect 66 2 48 0;
+#X connect 66 3 51 0;
+#X connect 66 4 53 0;
+#X connect 67 0 66 0;
+#X connect 71 0 43 0;
+#X connect 72 0 43 1;
+#X connect 73 0 43 2;
+#X connect 74 0 43 3;
+#X connect 75 0 43 4;
+#X connect 76 0 43 5;
+#X connect 86 0 19 7;
+#X connect 87 0 19 8;
+#X connect 88 0 86 0;
+#X connect 89 0 87 0;
+#X coords 0 -1 1 1 385 285 2 319 200;

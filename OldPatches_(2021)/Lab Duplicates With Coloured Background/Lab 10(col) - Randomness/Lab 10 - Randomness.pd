@@ -1,0 +1,1156 @@
+#N canvas 474 258 773 225 12;
+#X obj 0 0 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#N canvas 32 25 792 558 RandomWalk 0;
+#X obj 1 1 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 16 157 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 16 177 metro 250;
+#X obj 16 326 f 0;
+#X obj 16 349 +;
+#X obj 99 268 random 3;
+#X obj 99 289 - 1;
+#X text 15 117 Start random walk;
+#X obj 16 210 t b b b b, f 36;
+#X obj 182 314 f 0;
+#X obj 182 338 +;
+#X obj 265 264 random 3;
+#X obj 265 285 - 1;
+#X text 71 137 set speed;
+#X text 371 136 Choose seed velocity;
+#X text 151 136 Choose seed note;
+#X obj 3 3 cnv 15 770 30 empty empty Random_Walk 20 12 0 20 -233017
+-66577 0;
+#X text 20 35 Similar to the 'drunk' object in Max/MSP \, this patch
+will generate a random walk \, where a step-wise sequence of pitches
+is generated. Each new note is either a repeat or one step away from
+the previous one.;
+#X text 404 176 <-- Metro sets the speed at which new values are generaed
+, f 46;
+#X text 327 264 <- generate a random value between 0 & 2 (3 possible
+values);
+#X text 298 286 <- subtract so output is in range of -1 -> 1;
+#X text 244 314 <- Move by the random value \, and then save this value
+for the next calculation;
+#X text 183 407 <- These values have been sent to a basic polyphonic
+synth with a sinewave oscilator and AR envelope;
+#X obj 76 158 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 68 256;
+#X obj 156 158 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 59 256;
+#X obj 376 158 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 64 256;
+#X obj 16 472 vol-ctl~;
+#X obj 16 512 dac~;
+#X obj 16 402 64sineAR~;
+#X obj 16 373 clip 0 127;
+#X obj 182 373 clip 0 127;
+#X text 259 371 <- stop the random walk moving outside the range 0-127
+;
+#X connect 1 0 2 0;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
+#X connect 4 0 29 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 1;
+#X connect 8 0 3 0;
+#X connect 8 1 5 0;
+#X connect 8 2 9 0;
+#X connect 8 3 11 0;
+#X connect 9 0 10 0;
+#X connect 10 0 30 0;
+#X connect 11 0 12 0;
+#X connect 12 0 10 1;
+#X connect 23 0 2 1;
+#X connect 24 0 3 1;
+#X connect 25 0 9 1;
+#X connect 26 0 27 0;
+#X connect 26 0 27 1;
+#X connect 28 0 26 0;
+#X connect 29 0 3 1;
+#X connect 29 0 28 0;
+#X connect 30 0 9 1;
+#X connect 30 0 28 1;
+#X restore 10 155 pd RandomWalk;
+#N canvas 388 63 775 592 RandomMelodies 0;
+#X obj 1 0 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 24 109 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 24 137 metro 250;
+#X text 79 87 set speed;
+#X obj 3 3 cnv 15 770 30 empty empty Random_Melodies 20 12 0 20 -233017
+-66577 0;
+#X text 191 367 <- These values have been sent to a basic polyphonic
+synth with a sinewave oscilator and AR envelope;
+#X text 23 67 Start random notes;
+#X obj 209 291 random;
+#X text 191 69 Pitch Minimum;
+#X text 291 69 Pitch Maximum;
+#X text 391 69 Velocity Minimum;
+#X text 511 69 Velocity Maximum;
+#X obj 248 236 -;
+#X obj 247 201 t b f;
+#X obj 84 109 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 1372 256;
+#X obj 199 109 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 16 256;
+#X obj 279 109 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 76 256;
+#X obj 248 258 + 1;
+#X obj 181 326 +;
+#X obj 24 159 t b b, f 54;
+#X obj 399 291 random;
+#X obj 438 236 -;
+#X obj 437 201 t b f;
+#X obj 389 109 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 25 256;
+#X obj 469 109 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 127 256;
+#X obj 438 258 + 1;
+#X obj 371 326 +;
+#X text 479 234 <- get the range between min & max;
+#X text 479 259 <- add 1 to the range so random will include the maximum
+value, f 34;
+#X text 479 293 <- generate a value between 0 and the value of 'range'
+, f 34;
+#X text 480 326 <- add the minimum value to the random number, f 34
+;
+#X obj 9 435 vol-ctl~;
+#X obj 10 488 dac~;
+#X text 20 35 Outputs a random melody within a given range.;
+#X obj 9 346 64sineAR~;
+#X connect 1 0 2 0;
+#X connect 2 0 19 0;
+#X connect 7 0 18 0;
+#X connect 12 0 17 0;
+#X connect 13 0 12 0;
+#X connect 13 1 12 1;
+#X connect 14 0 2 1;
+#X connect 15 0 13 0;
+#X connect 15 0 18 1;
+#X connect 16 0 12 0;
+#X connect 17 0 7 1;
+#X connect 18 0 34 0;
+#X connect 19 0 7 0;
+#X connect 19 1 20 0;
+#X connect 20 0 26 0;
+#X connect 21 0 25 0;
+#X connect 22 0 21 0;
+#X connect 22 1 21 1;
+#X connect 23 0 22 0;
+#X connect 23 0 26 1;
+#X connect 24 0 21 0;
+#X connect 25 0 20 1;
+#X connect 26 0 34 1;
+#X connect 31 0 32 0;
+#X connect 31 0 32 1;
+#X connect 34 0 31 0;
+#X restore 10 121 pd RandomMelodies;
+#X obj 3 3 cnv 15 750 60 empty empty Randomness 20 12 0 20 -233017
+-66577 0;
+#N canvas 32 25 1322 847 RepresentingScales 0;
+#X obj 1 2 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 3 3 cnv 15 1300 60 empty empty Representing_Scales 20 12 0 20
+-233017 -66577 0;
+#X obj 4 445 cnv 15 1300 60 empty empty Scales_as_lists_(arrays) 20
+12 0 14 -233017 -66577 0;
+#X text 20 75 There are lots of ways you could represent different
+scales and modes in Pd. Here are some possible options \, but its up
+to you to decide what works best for your own work:;
+#X obj 4 168 cnv 15 1300 60 empty empty Hard-coded_numbers 20 12 0
+14 -233017 -66577 0;
+#X obj 487 101 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 32 25 298 406 stepper 0;
+#X obj 51 184 metro;
+#X floatatom 105 68 5 0 0 0 - - -;
+#X obj 51 235 f 0;
+#X obj 51 266 + 1;
+#X obj 105 89 t b f;
+#X obj 119 135 /;
+#X obj 119 156 * 1000;
+#X msg 105 111 60;
+#X text 107 34 BPM;
+#X text 62 212 Counter loop;
+#X text 150 245 <-- after every addition \, get the whole-number remainder
+when dividing by 8, f 19;
+#X text 171 91 <-- divide 60 by BPM for beat time in s, f 12;
+#X text 172 157 <-- s to ms;
+#X obj 178 34 loadbang;
+#X msg 178 54 360;
+#X obj 34 56 inlet;
+#X obj 32 380 outlet;
+#X obj 120 247 % 7;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 16 0;
+#X connect 3 0 17 0;
+#X connect 4 0 7 0;
+#X connect 4 1 5 1;
+#X connect 5 0 6 0;
+#X connect 6 0 0 1;
+#X connect 7 0 5 0;
+#X connect 13 0 14 0;
+#X connect 14 0 1 0;
+#X connect 15 0 0 0;
+#X connect 17 0 2 1;
+#X restore 487 123 pd stepper;
+#X text 485 67 START/STOP, f 6;
+#X obj 6 328 f 60;
+#X obj 46 328 f 62;
+#X obj 86 328 f 64;
+#X obj 126 328 f 65;
+#X obj 166 328 f 67;
+#X obj 206 328 f 69;
+#X obj 246 328 f 71;
+#X floatatom 6 384 5 0 0 0 - - -;
+#X obj 779 297 64sineAR~;
+#X obj 779 367 vol-ctl~;
+#X obj 779 407 dac~;
+#X obj 779 254 t f b;
+#X msg 937 275 64;
+#N canvas 280 195 818 489 NoteLists 0;
+#X obj 1 1 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X text 7 67 You can represent a scale as an array of notes like this:
+;
+#X obj 18 95 array define -yrange 0 127 c-major-60 7;
+#X msg 18 266 \; c-major-60 0 60 62 64 65 67 69 71;
+#X text 3 120 -'array' creates and array object \, you can see its
+contents by opening it the way you'd open a subpatch;
+#X text 55 153 -'define' lets us set the parameters of the array;
+#X text 105 171 - '-yrange' 'min' 'max' sets the vertical display range
+of the array subpatch.;
+#X obj 18 241 loadbang;
+#X text 285 263 <- this message writes our scale to the array called
+c-major-60;
+#X text 265 225 - '7' is the size (number of data points) of the array
+;
+#X text 188 207 - 'c-major-60' is the name of this array;
+#X text 110 303 The first 0 after the name sets where in the array
+we're setting values from. 0 is the start;
+#X text 130 343 The following numbers are the values of our scale;
+#X obj 1 1 cnv 15 800 60 empty empty Note_Lists 20 12 0 25 -233017
+-66577 0;
+#X text 24 393 The upside of this approach is that there's less coding
+to do afterwards \, and it may be a more intuitive way to represent
+notes \, but if you want to change keys \, or octaves \, its not the
+most adaptable way to do it.;
+#X connect 7 0 3 0;
+#X restore 6 518 pd NoteLists;
+#N canvas 634 310 806 325 IntervalLists 0;
+#X obj 1 0 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 18 151 loadbang;
+#X obj 1 1 cnv 15 800 60 empty empty Interval_Lists 20 12 0 25 -233017
+-66577 0;
+#X text 17 67 We can instead represent our scale as a set of intervals
+like this:;
+#X obj 20 106 array define -yrange 0 12 major 7;
+#X msg 18 176 \; major 0 0 2 4 5 7 9 11;
+#X text 19 228 The advantage of this is we can transpose keys and registers
+more easily. But there's a bit more coding work to do to make this
+happen.;
+#X connect 1 0 5 0;
+#X restore 6 548 pd IntervalLists;
+#X obj 6 662 loadbang;
+#X obj 6 635 array define -yrange 0 12 lydian 7;
+#X msg 6 687 \; lydian 0 0 2 4 6 7 9 11;
+#X obj 419 566 tabread lydian;
+#X floatatom 419 590 5 0 0 0 - - -;
+#X obj 6 409 s \$0-HardCodedScale;
+#X obj 778 233 r \$0-HardCodedScale;
+#X obj 420 511 r \$0-scaleRepCount;
+#X obj 486 145 s \$0-scaleRepCount;
+#X obj 5 257 sel 1 2 3 4 5 6 7;
+#X obj 419 533 - 1;
+#X msg 568 538 set major;
+#X msg 649 538 set lydian;
+#X msg 491 667 64;
+#X obj 419 651 t f b;
+#X obj 419 693 64sineAR~;
+#X obj 419 763 vol-ctl~;
+#X obj 419 803 dac~;
+#X text 567 503 Choose Scale:;
+#X obj 569 519 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 649 519 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 419 616 +;
+#X text 569 565 key;
+#X text 638 566 8ve;
+#X obj 642 612 * 12;
+#X obj 622 669 +;
+#X obj 5 233 r \$0-scaleRepCount;
+#X obj 572 583 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 3 256;
+#X obj 642 583 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 5 256;
+#X obj 642 635 t b f;
+#X text 290 329 <-- Here \, the scale degrees are hard-coded into the
+patch. This involves the least amount of work \, but also the least
+flexibility.;
+#X text 104 519 <- Scales from note lists;
+#X text 132 548 <- Scales from interval lists;
+#X text 4 600 This example uses interval lists to recreate the scale
+example above \, only with a different scale type:;
+#X text 729 538 <- choose a scale by sending "set 'scaleName'" to tabread
+;
+#X text 715 581 <- Because our scale is set in intervals \, we can
+change key and octave easily;
+#X text 717 618 <- Multiples of 12 are added for each octave;
+#X text 717 668 <- and then the root note is set from the [>key] number
+box;
+#X floatatom 376 561 5 0 0 0 - - -;
+#X connect 5 0 6 0;
+#X connect 6 0 31 0;
+#X connect 8 0 15 0;
+#X connect 9 0 15 0;
+#X connect 10 0 15 0;
+#X connect 11 0 15 0;
+#X connect 12 0 15 0;
+#X connect 13 0 15 0;
+#X connect 14 0 15 0;
+#X connect 15 0 28 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 17 0 18 1;
+#X connect 19 0 16 0;
+#X connect 19 1 20 0;
+#X connect 20 0 16 1;
+#X connect 23 0 25 0;
+#X connect 26 0 27 0;
+#X connect 27 0 44 0;
+#X connect 29 0 19 0;
+#X connect 30 0 33 0;
+#X connect 32 0 8 0;
+#X connect 32 1 9 0;
+#X connect 32 2 10 0;
+#X connect 32 3 11 0;
+#X connect 32 4 12 0;
+#X connect 32 5 13 0;
+#X connect 32 6 14 0;
+#X connect 33 0 26 0;
+#X connect 33 0 61 0;
+#X connect 34 0 26 0;
+#X connect 35 0 26 0;
+#X connect 36 0 38 1;
+#X connect 37 0 38 0;
+#X connect 37 1 36 0;
+#X connect 38 0 39 0;
+#X connect 39 0 40 0;
+#X connect 39 0 40 1;
+#X connect 42 0 34 0;
+#X connect 43 0 35 0;
+#X connect 44 0 37 0;
+#X connect 47 0 52 0;
+#X connect 48 0 44 1;
+#X connect 49 0 32 0;
+#X connect 50 0 48 0;
+#X connect 51 0 47 0;
+#X connect 52 0 48 0;
+#X connect 52 1 48 1;
+#X restore 297 121 pd RepresentingScales;
+#N canvas 32 25 795 626 RandomWalk2 0;
+#X obj -1 1 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 21 127 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 21 147 metro 250;
+#X obj 141 336 f 0;
+#X obj 141 359 +;
+#X obj 189 297 random 3;
+#X obj 189 318 - 1;
+#X text 20 87 Start random walk;
+#X obj 21 180 t b b b b, f 65;
+#X obj 363 335 f 0;
+#X obj 363 359 +;
+#X text 76 107 set speed;
+#X text 376 106 Choose seed velocity;
+#X text 156 106 Choose seed note;
+#X obj 3 3 cnv 15 770 30 empty empty Random_Walk_2_-_Adjustable_Movement_Range
+20 12 0 20 -233017 -66577 0;
+#X obj 81 128 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 250 256;
+#X obj 161 128 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 60 256;
+#X obj 381 128 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 50 256;
+#X obj 141 522 vol-ctl~;
+#X obj 129 571 dac~;
+#X obj 141 452 64sineAR~;
+#X text 20 35 This example expands the previous version \, by adding
+the ability to set the range of possible movements during each step.
+;
+#X obj 279 128 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 4 256;
+#X text 274 106 Step Range;
+#X obj 529 128 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 15 256;
+#X text 524 106 Step Range;
+#X obj 242 241 * 2;
+#X obj 241 267 + 1;
+#X obj 210 218 t f f;
+#X obj 473 297 random 3;
+#X obj 473 328 - 1;
+#X obj 526 241 * 2;
+#X obj 525 267 + 1;
+#X obj 494 218 t f f;
+#X obj 363 382 clip 0 127;
+#X obj 141 382 clip 0 127;
+#X obj 366 405 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 144 405 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 557 255 Get range from -/+ step range;
+#X text 507 326 Subtract step range to generate random numbers from
+-step range to +step range, f 36;
+#X text 540 297 Random from 0 -> step range * 2;
+#X connect 1 0 2 0;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
+#X connect 4 0 35 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 1;
+#X connect 8 0 3 0;
+#X connect 8 1 5 0;
+#X connect 8 2 9 0;
+#X connect 8 3 29 0;
+#X connect 9 0 10 0;
+#X connect 10 0 34 0;
+#X connect 15 0 2 1;
+#X connect 16 0 3 1;
+#X connect 17 0 9 1;
+#X connect 18 0 19 0;
+#X connect 18 0 19 1;
+#X connect 20 0 18 0;
+#X connect 22 0 28 0;
+#X connect 24 0 33 0;
+#X connect 26 0 27 0;
+#X connect 27 0 5 1;
+#X connect 28 0 6 1;
+#X connect 28 1 26 0;
+#X connect 29 0 30 0;
+#X connect 30 0 10 1;
+#X connect 31 0 32 0;
+#X connect 32 0 29 1;
+#X connect 33 0 30 1;
+#X connect 33 1 31 0;
+#X connect 34 0 9 1;
+#X connect 34 0 36 0;
+#X connect 35 0 3 1;
+#X connect 35 0 37 0;
+#X connect 36 0 20 1;
+#X connect 37 0 20 0;
+#X restore 160 121 pd RandomWalk2;
+#N canvas 518 186 793 572 RandomRhythms 0;
+#X obj 1 1 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X text 156 69 Start/Stop;
+#X obj 158 98 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 158 146 t b f;
+#X obj 214 193 spigot;
+#X obj 214 126 r \$0-RandRhythmFdbk;
+#X obj 214 148 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 214 472 vol-ctl~;
+#X obj 214 512 dac~;
+#X obj 293 350 del;
+#X obj 381 266 random;
+#X obj 420 211 -;
+#X obj 419 176 t b f;
+#X obj 371 94 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 5 256;
+#X obj 451 94 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 2000 256;
+#X obj 420 233 + 1;
+#X obj 353 301 +;
+#X text 316 69 Duration: Min Max;
+#X obj 293 230 t b b;
+#X obj 293 372 s \$0-RandRhythmFdbk;
+#X obj 3 3 cnv 15 770 30 empty empty Random_Rhythms 20 12 0 20 -233017
+-66577 0;
+#X text 20 35 Outputs random rhythms given a range of possible rhythmic
+durations.;
+#X text 455 226 <- generate a time interval between min & max in ms.
+, f 27;
+#X text 10 179 spigot gates the returning bang messages ->, f 27;
+#X text 452 368 <- delay each bang by the random time interval \, then
+send it back to retrigger the process., f 27;
+#X text 451 124 <- bangs get fed back here;
+#X obj 214 450 simpleSnare~;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 4 1;
+#X connect 4 0 18 0;
+#X connect 4 0 26 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 7 0 8 1;
+#X connect 9 0 19 0;
+#X connect 10 0 16 0;
+#X connect 11 0 15 0;
+#X connect 12 0 11 0;
+#X connect 12 1 11 1;
+#X connect 13 0 12 0;
+#X connect 13 0 16 1;
+#X connect 14 0 11 0;
+#X connect 15 0 10 1;
+#X connect 16 0 9 1;
+#X connect 18 0 9 0;
+#X connect 18 1 10 0;
+#X connect 26 0 7 0;
+#X restore 160 155 pd RandomRhythms;
+#N canvas 332 25 779 847 RandomWalkInScale 0;
+#X obj 2 1 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 16 157 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 16 177 metro 250;
+#X obj 16 386 f 0;
+#X obj 16 408 +;
+#X text 15 117 Start random walk;
+#X obj 16 210 t b b b b, f 53;
+#X obj 631 304 f 0;
+#X obj 631 328 +;
+#X text 71 137 set speed;
+#X text 535 136 Choose seed velocity;
+#X obj 3 3 cnv 15 770 30 empty empty Random_Walk_In_Scale 20 12 0 20
+-233017 -66577 0;
+#X obj 76 158 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 1500 256;
+#X obj 540 158 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 51 256;
+#X obj 16 771 vol-ctl~;
+#X obj 16 811 dac~;
+#X obj 16 701 64sineAR~;
+#X obj 16 680 clip 0 127;
+#X obj 631 353 clip 0 127;
+#X obj 138 319 random 3;
+#X obj 138 340 - 1;
+#X obj 153 158 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 6 256;
+#X text 148 138 Step Range;
+#X obj 191 263 * 2;
+#X obj 190 289 + 1;
+#X obj 159 240 t f f;
+#X obj 669 276 random 3;
+#X obj 669 297 - 1;
+#X obj 723 223 * 2;
+#X obj 722 249 + 1;
+#X obj 690 197 t f f;
+#X obj 692 157 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 5 256;
+#X text 687 137 Step Range;
+#X text 20 35 We'll now reuse the structure of the "random walk" and
+"representing scale" examples to create a random melody that conforms
+to a key.;
+#X obj 529 45 array define -yrange 0 12 aolean 7;
+#X obj 529 73 loadbang;
+#X msg 529 96 \; aolean 0 0 2 3 5 7 8 10;
+#X obj 233 158 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 2 256;
+#X text 228 138 Starting degree;
+#X obj 343 158 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 5 256;
+#X text 338 138 Starting 8ve;
+#X obj 343 272 * 7;
+#X text 379 269 With a diatonic scale \, we go up an octave every 7
+steps, f 21;
+#X obj 329 294 t b f;
+#X obj 233 349 +;
+#X text 263 348 <- add the starting scale degree;
+#X text 48 479 get the degree;
+#X obj 16 479 % 7;
+#X obj 159 480 / 7;
+#X obj 159 501 i;
+#X floatatom 159 524 5 0 0 0 - - -;
+#X floatatom 16 514 5 0 0 0 - - -;
+#X text 187 479 get the 8ve;
+#X obj 16 561 tabread aolean;
+#X floatatom 16 584 5 0 0 0 - - -;
+#X text 154 589 Tabread converts degree into an interval from the root
+, f 23;
+#X obj 16 637 +;
+#X text 47 637 Add 8ve back in;
+#X floatatom 16 660 5 0 0 0 - - -;
+#X obj 159 544 * 12;
+#X obj 16 431 clip 0 74;
+#X text 89 430 stop radom walk going too high or low;
+#X floatatom 16 451 5 0 0 0 - - -;
+#X obj 60 533 r setScale;
+#X text 464 556 Set Scale;
+#X obj 415 611 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 491 611 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 577 611 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 491 700 s setScale;
+#X msg 415 649 set major;
+#X msg 491 649 set aolean;
+#X msg 577 649 set lydian;
+#X connect 1 0 2 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 60 0;
+#X connect 6 0 3 0;
+#X connect 6 1 19 0;
+#X connect 6 2 7 0;
+#X connect 6 3 26 0;
+#X connect 7 0 8 0;
+#X connect 8 0 18 0;
+#X connect 12 0 2 1;
+#X connect 13 0 7 1;
+#X connect 14 0 15 0;
+#X connect 14 0 15 1;
+#X connect 16 0 14 0;
+#X connect 17 0 16 0;
+#X connect 18 0 7 1;
+#X connect 18 0 16 1;
+#X connect 19 0 20 0;
+#X connect 20 0 4 1;
+#X connect 21 0 25 0;
+#X connect 23 0 24 0;
+#X connect 24 0 19 1;
+#X connect 25 0 20 1;
+#X connect 25 1 23 0;
+#X connect 26 0 27 0;
+#X connect 27 0 8 1;
+#X connect 28 0 29 0;
+#X connect 29 0 26 1;
+#X connect 30 0 27 1;
+#X connect 30 1 28 0;
+#X connect 31 0 30 0;
+#X connect 35 0 36 0;
+#X connect 37 0 44 0;
+#X connect 39 0 41 0;
+#X connect 41 0 43 0;
+#X connect 43 0 44 0;
+#X connect 43 1 44 1;
+#X connect 44 0 3 1;
+#X connect 47 0 51 0;
+#X connect 48 0 49 0;
+#X connect 49 0 50 0;
+#X connect 50 0 59 0;
+#X connect 51 0 53 0;
+#X connect 53 0 54 0;
+#X connect 54 0 56 0;
+#X connect 56 0 58 0;
+#X connect 58 0 17 0;
+#X connect 59 0 56 1;
+#X connect 60 0 3 1;
+#X connect 60 0 62 0;
+#X connect 62 0 47 0;
+#X connect 62 0 48 0;
+#X connect 63 0 53 0;
+#X connect 65 0 69 0;
+#X connect 66 0 70 0;
+#X connect 67 0 71 0;
+#X connect 69 0 68 0;
+#X connect 70 0 68 0;
+#X connect 71 0 68 0;
+#X restore 297 155 pd RandomWalkInScale;
+#N canvas 32 25 793 599 RandomRhythmicDivisions 0;
+#X obj 1 2 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 3 3 cnv 15 770 30 empty empty Random_Rhythmic_Divisions 20 12
+0 20 -233017 -66577 0;
+#X obj 25 520 vol-ctl~;
+#X obj 25 560 dac~;
+#X text 20 35 This time \, we'll use a similar random rhythm mechanism
+\, but well sync them to a metro (which could be used to drive step
+sequencers or other time-based elements in your patches).;
+#X obj 23 247 metro;
+#X obj 23 132 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 77 131 5 0 0 0 - - -;
+#X text 21 98 START/STOP, f 6;
+#X obj 77 152 t b f;
+#X obj 91 198 /;
+#X obj 91 219 * 1000;
+#X msg 77 174 60;
+#X text 79 97 BPM;
+#X text 143 154 <-- divide 60 by BPM for beat time in s, f 12;
+#X text 144 220 <-- s to ms;
+#X floatatom 113 246 5 0 0 0 - - -;
+#X obj 40 275 s pulse;
+#X text 273 176 <-- this is the BPM/metro example from the wk7 labs
+;
+#X obj 23 276 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#N canvas 1988 158 849 633 quantiseRandomDurations 0;
+#X text 168 100 Start/Stop;
+#X obj 170 129 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 170 177 t b f;
+#X obj 226 224 spigot;
+#X obj 226 179 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 305 381 del;
+#X obj 393 297 random;
+#X obj 432 242 -;
+#X obj 431 207 t b f;
+#X obj 383 125 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 5 256;
+#X obj 463 125 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 1500 256;
+#X obj 432 264 + 1;
+#X obj 365 332 +;
+#X text 328 100 Duration: Min Max;
+#X obj 305 261 t b b;
+#X text 467 257 <- generate a time interval between min & max in ms.
+, f 27;
+#X text 22 210 spigot gates the returning bang messages ->, f 27;
+#X text 464 509 <- delay each bang by the random time interval \, then
+send it back to retrigger the process., f 27;
+#X text 463 155 <- bangs get fed back here;
+#X obj 3 3 cnv 15 770 30 empty empty Quantise_Random_Durations 20 12
+0 20 -233017 -66577 0;
+#X obj 212 350 r pulse;
+#X obj 212 374 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 22 35 This patch will use the pulse sent from [metro] as a
+minimum unit of time from which to quantise the random durations in
+our 'random rhythms' example;
+#X obj 266 440 spigot;
+#X msg 305 411 1;
+#X obj 266 477 t b 0, f 11;
+#X obj 266 509 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 266 552 outlet;
+#X obj 96 99 loadbang;
+#X msg 96 123 1;
+#X obj 226 157 r \$0-QuantRhythmFdbk;
+#X obj 305 513 s \$0-QuantRhythmFdbk;
+#X text 344 410 <-- here \, the randomly delayed triggers open the
+spigot (gate) to let one bang through from [r pulse]. In other words
+\, we let the next beat through after our random delay is finished
+;
+#X obj 277 415 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 1 3 1;
+#X connect 3 0 14 0;
+#X connect 4 0 3 0;
+#X connect 5 0 24 0;
+#X connect 6 0 12 0;
+#X connect 7 0 11 0;
+#X connect 8 0 7 0;
+#X connect 8 1 7 1;
+#X connect 9 0 8 0;
+#X connect 9 0 12 1;
+#X connect 10 0 7 0;
+#X connect 11 0 6 1;
+#X connect 12 0 5 1;
+#X connect 14 0 5 0;
+#X connect 14 1 6 0;
+#X connect 20 0 21 0;
+#X connect 21 0 23 0;
+#X connect 23 0 25 0;
+#X connect 24 0 23 1;
+#X connect 24 0 33 0;
+#X connect 25 0 26 0;
+#X connect 25 0 31 0;
+#X connect 25 1 23 1;
+#X connect 25 1 33 0;
+#X connect 26 0 27 0;
+#X connect 28 0 29 0;
+#X connect 29 0 1 0;
+#X connect 30 0 4 0;
+#X restore 109 317 pd quantiseRandomDurations;
+#X obj 25 347 r pulse;
+#X obj 25 376 simpleHat~;
+#X obj 25 455 *~;
+#X obj 109 455 *~;
+#X obj 43 429 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 126 429 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 25 400 *~ 0.3;
+#X obj 309 455 *~;
+#X obj 326 429 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 113 267 s beatLen;
+#X obj 109 377 FMkick~ 70 250;
+#X obj 309 375 simpleSnare~;
+#N canvas 2478 52 778 723 RandomSubdivisionsAndMultiples 0;
+#X text 98 100 Start/Stop;
+#X obj 100 129 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 100 320 t b f;
+#X obj 3 3 cnv 15 770 30 empty empty Random_Subdivisions_and_Multiples
+20 12 0 20 -233017 -66577 0;
+#X text 22 35 This patch will use the pulse sent from [metro] as a
+minimum unit of time from which to quantise the random durations in
+our 'random rhythms' example;
+#X obj 92 608 outlet;
+#X obj 26 99 loadbang;
+#X msg 46 122 1;
+#X obj 189 128 r beatLen;
+#X text 265 129 Get the length of one beat from the patch above;
+#X floatatom 189 151 5 0 0 0 - - -;
+#X obj 189 182 * 0.25;
+#X obj 239 182 * 0.5;
+#X obj 282 182 * 1;
+#X obj 312 182 * 2;
+#X obj 189 98 array define -yrange 0 12 rhythmDurations 4;
+#X text 501 98 Create an empty array;
+#X text 369 182 Create values or various subdivisions/multiples of
+beat;
+#X obj 189 206 pack f f f f;
+#X msg 189 228 \; rhythmDurations 0 \$1 \$2 \$3 \$4;
+#X obj 93 476 spigot;
+#X obj 143 424 r \$0-randSubMult;
+#X obj 93 455 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 142 608 s \$0-randSubMult;
+#X obj 93 501 t b b, f 10;
+#X obj 142 584 del;
+#X obj 160 559 tabread rhythmDurations;
+#X obj 44 345 r pulse;
+#X obj 61 372 spigot;
+#X msg 100 345 1;
+#X obj 160 527 random 4;
+#X obj 61 397 t b 0, f 9;
+#X text 150 346 <- when we turn this on \, the spigot opens to let
+just one beat through from pulse. This means we start on time;
+#X text 264 423 <- Delayed bangs feed back;
+#X text 144 475 <- This spigot stops the feedback when we turn the
+subpatch off, f 63;
+#X text 224 526 <- Here we use random to choose a rhythmic duration
+from the array generated above, f 63;
+#X text 326 558 <- fetch the rhythmic duration;
+#X text 326 578 <- delay the bang by this duration and feed it backs
+;
+#X text 94 654 WARNING: this mechanism isn't perfect \, it can drift
+and become inaccurate \, especially at higher tempos;
+#X obj 26 149 del 25;
+#X connect 1 0 2 0;
+#X connect 2 0 29 0;
+#X connect 2 1 20 1;
+#X connect 6 0 7 0;
+#X connect 6 0 39 0;
+#X connect 7 0 1 0;
+#X connect 8 0 10 0;
+#X connect 10 0 11 0;
+#X connect 10 0 12 0;
+#X connect 10 0 13 0;
+#X connect 10 0 14 0;
+#X connect 11 0 18 0;
+#X connect 12 0 18 1;
+#X connect 13 0 18 2;
+#X connect 14 0 18 3;
+#X connect 18 0 19 0;
+#X connect 20 0 24 0;
+#X connect 21 0 22 0;
+#X connect 22 0 20 0;
+#X connect 24 0 25 0;
+#X connect 24 0 5 0;
+#X connect 24 1 30 0;
+#X connect 25 0 23 0;
+#X connect 26 0 25 1;
+#X connect 27 0 28 0;
+#X connect 28 0 31 0;
+#X connect 29 0 28 1;
+#X connect 30 0 26 0;
+#X connect 31 0 22 0;
+#X connect 31 1 28 1;
+#X connect 39 0 10 0;
+#X restore 309 317 pd RandomSubdivisionsAndMultiples;
+#X text 348 427 <- mute/unmute each voice;
+#X msg 150 129 120;
+#X text 551 316 <- open these;
+#X obj 150 108 loadbang;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 5 0 17 0;
+#X connect 5 0 19 0;
+#X connect 6 0 5 0;
+#X connect 7 0 9 0;
+#X connect 9 0 12 0;
+#X connect 9 1 10 1;
+#X connect 10 0 11 0;
+#X connect 11 0 5 1;
+#X connect 11 0 16 0;
+#X connect 12 0 10 0;
+#X connect 16 0 30 0;
+#X connect 20 0 31 0;
+#X connect 21 0 22 0;
+#X connect 22 0 27 0;
+#X connect 23 0 2 0;
+#X connect 24 0 2 0;
+#X connect 25 0 23 1;
+#X connect 26 0 24 1;
+#X connect 27 0 23 0;
+#X connect 28 0 2 0;
+#X connect 29 0 28 1;
+#X connect 31 0 24 0;
+#X connect 32 0 28 0;
+#X connect 33 0 32 0;
+#X connect 35 0 7 0;
+#X connect 37 0 35 0;
+#X restore 467 121 pd RandomRhythmicDivisions;
+#N canvas 411 37 829 833 HumaniseHiHat 0;
+#X obj 1 1 cnv 15 2000 2000 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 3 3 cnv 15 770 30 empty empty Humanise_HiHat 20 12 0 20 -233017
+-66577 0;
+#X obj 34 750 vol-ctl~;
+#X obj 34 790 dac~;
+#X obj 23 247 metro;
+#X obj 23 132 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 77 131 5 0 0 0 - - -;
+#X text 21 98 START/STOP, f 6;
+#X obj 77 152 t b f;
+#X obj 91 198 /;
+#X obj 91 219 * 1000;
+#X msg 77 174 60;
+#X text 79 97 BPM;
+#X text 143 154 <-- divide 60 by BPM for beat time in s, f 12;
+#X text 144 220 <-- s to ms;
+#X obj 150 97 loadbang;
+#X obj 23 276 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 20 35 Here's a more 'real-world' example. We'll use some of
+the random techniques to humanise a sequenced HiHat sound.;
+#X msg 150 117 360;
+#X obj 40 275 s HHpulse;
+#X obj 309 208 sel 1 2 3 4 5 6 7 8, f 24;
+#X obj 310 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 330 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 350 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 370 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 390 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 410 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 430 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 450 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 310 252 tgl 15 0 hh1 empty empty 17 7 0 10 -261682 -1 -1 0 1
+;
+#X obj 330 252 tgl 15 0 hh2 empty empty 17 7 0 10 -261682 -1 -1 0 1
+;
+#X obj 350 252 tgl 15 0 hh3 empty empty 17 7 0 10 -261682 -1 -1 0 1
+;
+#X obj 370 252 tgl 15 0 hh4 empty empty 17 7 0 10 -261682 -1 -1 0 1
+;
+#X obj 390 252 tgl 15 0 hh5 empty empty 17 7 0 10 -261682 -1 -1 0 1
+;
+#X obj 410 252 tgl 15 0 hh6 empty empty 17 7 0 10 -261682 -1 -1 0 1
+;
+#X obj 430 252 tgl 15 0 hh7 empty empty 17 7 0 10 -261682 -1 -1 0 1
+;
+#X obj 450 252 tgl 15 0 hh8 empty empty 17 7 0 10 -261682 -1 -1 0 1
+;
+#X text 257 251 HI HAT>;
+#X text 485 237 <-- More bits of the wk7 labs;
+#N canvas 271 459 884 215 trigger_HiHat 0;
+#X obj 5 83 f;
+#X obj 72 83 f;
+#X obj 139 83 f;
+#X obj 206 82 f;
+#X obj 273 82 f;
+#X obj 340 82 f;
+#X obj 407 82 f;
+#X obj 474 82 f;
+#X obj 23 61 r hh1;
+#X obj 90 61 r hh2;
+#X obj 157 61 r hh3;
+#X obj 224 60 r hh4;
+#X obj 291 60 r hh5;
+#X obj 358 60 r hh6;
+#X obj 425 60 r hh7;
+#X obj 492 60 r hh8;
+#X obj 5 31 sel 1 2 3 4 5 6 7 8, f 77;
+#X obj 5 9 r count;
+#X text 59 9 <-- Here we get the count from our stepper;
+#X text 551 30 <-- outputs a bang for each step (range 1-8);
+#X text 551 60 <-- receive on/off messages from toggle boxes;
+#X text 551 80 <-- send state of toggle for each beat;
+#X obj 245 134 sel 1;
+#X obj 245 181 outlet;
+#X connect 0 0 22 0;
+#X connect 1 0 22 0;
+#X connect 2 0 22 0;
+#X connect 3 0 22 0;
+#X connect 4 0 22 0;
+#X connect 5 0 22 0;
+#X connect 6 0 22 0;
+#X connect 7 0 22 0;
+#X connect 8 0 0 1;
+#X connect 9 0 1 1;
+#X connect 10 0 2 1;
+#X connect 11 0 3 1;
+#X connect 12 0 4 1;
+#X connect 13 0 5 1;
+#X connect 14 0 6 1;
+#X connect 15 0 7 1;
+#X connect 16 0 0 0;
+#X connect 16 1 1 0;
+#X connect 16 2 2 0;
+#X connect 16 3 3 0;
+#X connect 16 4 4 0;
+#X connect 16 5 5 0;
+#X connect 16 6 6 0;
+#X connect 16 7 7 0;
+#X connect 17 0 16 0;
+#X connect 22 0 23 0;
+#X restore 311 270 pd trigger_HiHat;
+#X text 438 272 <-- This has been adapted to just send a bang;
+#X obj 309 125 f 0;
+#X obj 309 156 + 1;
+#X obj 378 137 % 8;
+#X text 407 135 Counter loop;
+#X obj 309 99 r HHpulse;
+#X obj 311 294 s hhTrig;
+#X obj 321 475 random;
+#X obj 360 430 -;
+#X obj 359 395 t b f;
+#X obj 311 373 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 1 256;
+#X obj 391 373 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 63 256;
+#X obj 360 452 + 1;
+#X obj 293 510 +;
+#X obj 291 571 del;
+#X text 306 349 Inaccuracy: Min Max;
+#X obj 471 475 random;
+#X obj 510 430 -;
+#X obj 509 395 t b f;
+#X obj 461 373 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 1158 256;
+#X obj 541 373 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 9338 256;
+#X obj 510 452 + 1;
+#X obj 443 510 +;
+#X obj 615 475 random;
+#X obj 654 430 -;
+#X obj 653 395 t b f;
+#X obj 605 373 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 5 256;
+#X obj 685 373 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 127 256;
+#X obj 654 452 + 1;
+#X obj 587 510 +;
+#X text 456 349 BP: Min Max;
+#X obj 296 453 r hhTrig;
+#X obj 446 453 r hhTrig;
+#X obj 590 453 r hhTrig;
+#X floatatom 293 534 5 0 0 0 - - -;
+#X floatatom 443 534 5 0 0 0 - - -;
+#X obj 320 185 s count;
+#X obj 219 534 r hhTrig;
+#X obj 291 593 simpleHat~;
+#X obj 310 622 bp~ 1000 1;
+#X obj 417 622 line~;
+#X msg 587 578 \$1 10;
+#X text 600 349 Vel: Min Max;
+#X obj 587 532 / 127;
+#X floatatom 587 556 5 0 0 0 - - -;
+#X obj 291 654 *~;
+#X obj 91 593 simpleHat~;
+#X obj 91 704 *~;
+#X obj 291 704 *~;
+#X obj 110 622 bp~ 3000 1;
+#X obj 109 685 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 126 684 ROBOT HAT;
+#X obj 309 685 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 326 684 SLIGHTLY LESS ROBOT HAT;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 4 0 16 0;
+#X connect 4 0 19 0;
+#X connect 5 0 4 0;
+#X connect 6 0 8 0;
+#X connect 8 0 11 0;
+#X connect 8 1 9 1;
+#X connect 9 0 10 0;
+#X connect 10 0 4 1;
+#X connect 11 0 9 0;
+#X connect 15 0 18 0;
+#X connect 18 0 6 0;
+#X connect 20 0 21 0;
+#X connect 20 1 22 0;
+#X connect 20 2 23 0;
+#X connect 20 3 24 0;
+#X connect 20 4 25 0;
+#X connect 20 5 26 0;
+#X connect 20 6 27 0;
+#X connect 20 7 28 0;
+#X connect 39 0 46 0;
+#X connect 41 0 42 0;
+#X connect 42 0 43 0;
+#X connect 42 0 20 0;
+#X connect 42 0 76 0;
+#X connect 43 0 41 1;
+#X connect 45 0 41 0;
+#X connect 47 0 53 0;
+#X connect 48 0 52 0;
+#X connect 49 0 48 0;
+#X connect 49 1 48 1;
+#X connect 50 0 49 0;
+#X connect 50 0 53 1;
+#X connect 51 0 48 0;
+#X connect 52 0 47 1;
+#X connect 53 0 74 0;
+#X connect 54 0 78 0;
+#X connect 56 0 62 0;
+#X connect 57 0 61 0;
+#X connect 58 0 57 0;
+#X connect 58 1 57 1;
+#X connect 59 0 58 0;
+#X connect 59 0 62 1;
+#X connect 60 0 57 0;
+#X connect 61 0 56 1;
+#X connect 62 0 75 0;
+#X connect 63 0 69 0;
+#X connect 64 0 68 0;
+#X connect 65 0 64 0;
+#X connect 65 1 64 1;
+#X connect 66 0 65 0;
+#X connect 66 0 69 1;
+#X connect 67 0 64 0;
+#X connect 68 0 63 1;
+#X connect 69 0 83 0;
+#X connect 71 0 47 0;
+#X connect 72 0 56 0;
+#X connect 73 0 63 0;
+#X connect 74 0 54 1;
+#X connect 75 0 79 1;
+#X connect 77 0 54 0;
+#X connect 77 0 86 0;
+#X connect 78 0 79 0;
+#X connect 78 0 85 0;
+#X connect 79 0 85 0;
+#X connect 80 0 85 1;
+#X connect 81 0 80 0;
+#X connect 83 0 84 0;
+#X connect 84 0 81 0;
+#X connect 85 0 88 0;
+#X connect 86 0 87 0;
+#X connect 86 0 89 0;
+#X connect 87 0 2 0;
+#X connect 88 0 2 0;
+#X connect 89 0 87 0;
+#X connect 90 0 87 1;
+#X connect 92 0 88 1;
+#X restore 467 155 pd HumaniseHiHat;
+#X text 9 73 This is a (far from complete) selection of ways that you
+can apply randomness to synthesis/sequencing in Pd...;

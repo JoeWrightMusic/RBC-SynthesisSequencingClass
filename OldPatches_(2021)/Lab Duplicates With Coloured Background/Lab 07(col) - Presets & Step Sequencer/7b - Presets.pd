@@ -1,0 +1,18 @@
+#N canvas 488 29 583 632 12;
+#X obj -7 -7 cnv 15 1000 1000 empty empty empty 20 12 0 14 -203904
+-66577 0;
+#X obj 3 3 cnv 15 555 60 empty empty PRESETS 20 12 0 20 -233017 -66577
+0;
+#X obj 24 119 notein, f 18;
+#X text 21 34 An update to the synth patch from the previous lab \,
+now with presets!, f 74;
+#X text 21 64 The synth from the previous lab is now packed in to an
+abstraction with a GUI. Take a look inside to see how presets were
+added to the patch \, but feel free to play around with it first!,
+f 74;
+#X obj 24 147 FM-Synth~;
+#X obj 24 576 dac~;
+#X connect 2 0 5 0;
+#X connect 2 1 5 1;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;
