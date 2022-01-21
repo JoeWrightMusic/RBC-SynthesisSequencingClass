@@ -1,4 +1,4 @@
-#N canvas 148 -808 896 262 12;
+#N canvas -3 -854 896 262 12;
 #X obj 4 2 cnv 15 888 40 empty empty Lab\ 4\ -Amplitude\ Modulation
 20 12 0 20 #e0e0e0 #404040 0;
 #X obj 4 47 cnv 15 308 25 empty empty 4.1:\ Task\ -\ multiply\ two\ waves...
@@ -23,7 +23,7 @@ tones \, what do you hear?, f 51;
 #X restore 22 78 pd multiply-waves;
 #X obj 4 121 cnv 15 325 25 empty empty 4.2:\ Amplitude\ Modulation\ Examples
 20 12 0 14 #dcdcdc #404040 0;
-#N canvas 514 -1055 685 847 basicAM 0;
+#N canvas -16 -1011 685 847 basicAM 1;
 #X obj 4 4 cnv 15 308 25 empty empty Basic\ Amplitude\ Modulation 20
 12 0 14 #dcdcdc #404040 0;
 #X obj 4 34 cnv 15 308 25 empty empty Carrier\ Wave 20 12 0 14 #dcdcdc
@@ -95,13 +95,13 @@ style of AM is called Ring Modulation., f 33;
 14 #dcdcdc #404040 0;
 #X obj 39 423 waveSelect~;
 #X obj 39 311 hsl 128 15 0 127 0 0 empty empty car -2 -8 0 10 #fcfcfc
-#000000 #000000 6200 1;
+#000000 #000000 0 1;
 #X obj 39 335 mtof;
 #X msg 39 364 \$1 10;
 #X obj 39 393 line~;
 #X obj 176 423 waveSelect~;
 #X obj 176 311 hsl 128 15 0 127 0 0 empty empty mod -2 -8 0 10 #fcfcfc
-#000000 #000000 3150 1;
+#000000 #000000 0 1;
 #X obj 176 335 mtof;
 #X msg 176 364 \$1 10;
 #X obj 176 393 line~;
@@ -136,7 +136,7 @@ f 43;
 #X restore 20 227 pd RingModAbstraction;
 #X obj 497 47 cnv 15 325 25 empty empty 4.4:\ Another\ AM\ example\ 
 20 12 0 14 #dcdcdc #404040 0;
-#N canvas 266 -1045 1154 832 fancyAM 0;
+#N canvas 266 22 1154 832 fancyAM 0;
 #X obj 3 5 cnv 15 1096 24 empty empty Fancy\ Amplitude\ Modulation
 20 12 0 14 #dcdcdc #404040 0;
 #X obj 3 97 cnv 15 308 25 empty empty Carrier\ Wave 20 12 0 14 #dcdcdc
@@ -278,18 +278,18 @@ f 43;
 14 #dcdcdc #404040 0;
 #X obj 367 163 waveSelect~;
 #X obj 367 51 hsl 128 15 0 127 0 0 empty empty car -2 -8 0 10 #fcfcfc
-#000000 #000000 7600 1;
+#000000 #000000 0 1;
 #X obj 367 75 mtof;
 #X msg 367 104 \$1 10;
 #X obj 367 133 line~;
 #X obj 504 163 waveSelect~;
 #X obj 504 51 hsl 128 15 0 127 0 0 empty empty mod -2 -8 0 10 #fcfcfc
-#000000 #000000 300 1;
+#000000 #000000 0 1;
 #X obj 504 75 mtof;
 #X msg 504 104 \$1 10;
 #X obj 504 133 line~;
 #X obj 656 51 hsl 128 15 0 1 0 0 empty empty mod\ depth -2 -8 0 10
-#fcfcfc #000000 #000000 1850 1;
+#fcfcfc #000000 #000000 0 1;
 #X obj 368 716 output~;
 #X text 7 160 3 - Right click on the new [pd ...] object and save as
 a new abstraction., f 43;
