@@ -1,4 +1,4 @@
-#N canvas 62 68 699 184 12;
+#N canvas 62 68 699 253 12;
 #X obj 4 4 cnv 15 689 40 empty empty Lab\ 5\ -FM\ &\ MIDI 20 12 0 20
 #e0e0e0 #404040 0;
 #X obj 4 50 cnv 15 308 25 empty empty 5.1:\ MIDI\ input 20 12 0 14
@@ -103,7 +103,7 @@ frequency \, like a vibrato, f 28;
 #X connect 34 0 22 0;
 #X connect 35 0 33 0;
 #X restore 24 152 pd FM Synthesis;
-#X obj 384 50 cnv 15 308 25 empty empty 5.3:\ Simple\ FM\ abstraction
+#X obj 4 190 cnv 15 308 25 empty empty 5.3:\ Simple\ FM\ abstraction
 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 104 47 892 544 FM 0;
 #X obj 2 7 cnv 15 886 25 empty empty Make\ a\ basic\ FM\ synth\ Abstraction
@@ -145,10 +145,10 @@ example, f 112;
 #X connect 12 0 14 1;
 #X connect 14 0 16 0;
 #X connect 16 0 17 0;
-#X restore 404 80 pd FM Synthesis;
-#X obj 383 120 cnv 15 308 25 empty empty 5.4:\ A\ MIDI\ FM\ Synth 20
+#X restore 24 220 pd FM Synthesis;
+#X obj 383 50 cnv 15 308 25 empty empty 5.4:\ A\ MIDI\ FM\ Synth 20
 12 0 14 #dcdcdc #404040 0;
-#N canvas 156 -931 1186 773 Monophonic 0;
+#N canvas 156 22 1186 773 Monophonic 0;
 #X obj 2 7 cnv 15 1113 25 empty empty Monophonic\ FM\ Synth 20 12 0
 14 #dcdcdc #404040 0;
 #X obj 542 127 hsl 107 37 0.01 100 1 1 empty empty Modulator\ Ratio
@@ -179,4 +179,14 @@ signal by the volume and envelope, f 46;
 #X text 21 96 1 - convert MIDI to freq / vol;
 #X connect 6 0 7 0;
 #X connect 6 1 7 1;
-#X restore 403 150 pd Monophonic FM Synth;
+#X restore 403 80 pd Monophonic FM Synth;
+#X obj 383 121 cnv 15 308 25 empty empty 5.5:\ FMvoiceAR~ 20 12 0 14
+#dcdcdc #404040 0;
+#N canvas 495 25 317 137 Another 0;
+#X obj 5 112 FMvoiceAR~;
+#X obj 4 5 cnv 15 308 25 empty empty Another\ Abstraction! 20 12 0
+14 #dcdcdc #404040 0;
+#X text 5 39 Let's talk through how what we just did becomes the abstraction
+below. In the next lab \, we'll use this to get beyond single-voice
+synths., f 43;
+#X restore 403 152 pd Another Abstraction!;
