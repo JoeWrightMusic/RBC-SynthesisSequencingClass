@@ -4,7 +4,7 @@
 #X text 29 34 oscilator with a selection of waveforms;
 #X obj 166 308 osc~;
 #X obj 45 118 vradio 25 0 0 4 \$0-waveSel \$0-setWave empty 0 -8 0
-10 #ffffff #000000 #000000 0;
+10 #ffffff #000000 #000000 2;
 #X text 85 120 SINE;
 #X text 85 172 TRIANGLE;
 #X text 85 146 SQUARE;
