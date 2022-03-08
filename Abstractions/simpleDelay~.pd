@@ -1,4 +1,4 @@
-#N canvas 567 25 708 700 12;
+#N canvas 122 60 708 700 12;
 #X obj 3 4 cnv 15 700 60 empty empty simpleDelay~ 20 12 0 30 #e0e0e0
 #404040 0;
 #X text 24 37 A simple delay example using delwrite~ and delread~;
@@ -34,7 +34,7 @@ feedback \, make sure you have a clip in place before your dac~;
 #X obj 107 511 s~ \$0-delFdbk;
 #X obj 10 647 clip~ -1 1;
 #X text 212 512 <-- send feedback back to top of signal chain;
-#X text 75 670 Combined Wet/Dry sig out~;
+#X text 70 671 Combined Wet/Dry sig out~;
 #X connect 2 0 3 0;
 #X connect 2 0 16 0;
 #X connect 4 0 3 0;

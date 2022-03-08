@@ -1,4 +1,4 @@
-#N canvas 111 25 1251 755 12;
+#N canvas 140 49 1251 755 12;
 #X text 1209 68 [adsrUI];
 #X obj 2 2 cnv 15 550 40 empty empty LAB\ 1.0\ -\ Build\ a\ Synth!\ 
 20 12 0 20 #e0e0e0 #404040 0;

@@ -33,6 +33,7 @@
 #X text 365 3 attack;
 #X text 444 3 release;
 #X obj 33 56 unpack 0 0;
+#X text 89 467 FM signal out~;
 #X connect 0 0 2 0;
 #X connect 0 0 3 0;
 #X connect 1 0 8 0;

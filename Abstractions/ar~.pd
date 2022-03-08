@@ -7,7 +7,7 @@
 #X obj 13 26 inlet;
 #X obj 261 25 inlet;
 #X obj 382 25 inlet;
-#X obj 13 345 outlet~;
+#X obj 13 315 outlet~;
 #X obj 261 83 s \$0-att;
 #X obj 382 83 s \$0-rel;
 #X obj 113 98 r \$0-att;
@@ -17,8 +17,17 @@
 #X obj 261 54 f \$1;
 #X obj 382 54 f \$2;
 #X obj 471 26 loadbang;
+#X obj 171 268 line;
+#X obj 171 315 outlet;
+#X text 11 3 Trigger Envelope;
+#X text 261 1 Attack;
+#X text 381 1 Release;
+#X text 13 338 Envelope Out~;
+#X text 169 338 envelope out (control rate);
 #X connect 0 0 4 0;
+#X connect 0 0 18 0;
 #X connect 1 0 4 0;
+#X connect 1 0 18 0;
 #X connect 2 0 14 0;
 #X connect 3 0 2 0;
 #X connect 3 1 13 0;
@@ -35,3 +44,4 @@
 #X connect 16 0 10 0;
 #X connect 17 0 16 0;
 #X connect 17 0 15 0;
+#X connect 18 0 19 0;

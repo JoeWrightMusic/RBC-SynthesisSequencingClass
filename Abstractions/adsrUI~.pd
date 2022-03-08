@@ -36,6 +36,8 @@
 #X text 203 12 signal in;
 #X obj 205 322 *~;
 #X obj 311 349 outlet~;
+#X text 106 373 Enveloped Signal Out~;
+#X text 312 372 Envelope Only~;
 #X connect 0 0 29 1;
 #X connect 0 0 30 0;
 #X connect 5 0 14 0;

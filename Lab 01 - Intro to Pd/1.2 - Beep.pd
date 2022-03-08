@@ -1,4 +1,4 @@
-#N canvas 112 25 628 672 12;
+#N canvas 33 25 628 672 12;
 #X obj 6 7 cnv 15 615 40 empty empty LAB\ 1.2\ -\ Beep! 20 12 0 25
 #e0e0e0 #404040 0;
 #X obj 158 252 *~ 0.1;

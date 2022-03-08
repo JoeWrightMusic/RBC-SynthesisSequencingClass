@@ -10,6 +10,7 @@
 #X text 297 5 Dry/Wet mix;
 #X obj 297 69 f \$1;
 #X obj 338 31 loadbang;
+#X text 62 191 Ringmod Output~;
 #X connect 0 0 1 1;
 #X connect 1 0 5 0;
 #X connect 2 0 1 0;

@@ -1,0 +1,71 @@
+#N canvas 495 25 734 506 12;
+#X obj 278 14 tgl 41 0 \$0-t1 empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 321 14 tgl 41 0 \$0-t2 empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 364 14 tgl 41 0 \$0-t3 empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 407 14 tgl 41 0 \$0-t4 empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 450 14 tgl 41 0 \$0-t5 empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 493 14 tgl 41 0 \$0-t6 empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 536 14 tgl 41 0 \$0-t7 empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 579 14 tgl 41 0 \$0-t8 empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 10 152 sel 1 2 3 4 5 6 7 8, f 91;
+#X obj 10 120 - \$1;
+#X obj 28 238 r \$0-t1;
+#X obj 10 271 f;
+#X obj 10 351 sel 1;
+#X obj 89 271 f;
+#X obj 168 271 f;
+#X obj 247 271 f;
+#X obj 327 271 f;
+#X obj 406 271 f;
+#X obj 485 271 f;
+#X obj 564 271 f;
+#X obj 107 238 r \$0-t2;
+#X obj 186 238 r \$0-t3;
+#X obj 265 238 r \$0-t4;
+#X obj 345 238 r \$0-t5;
+#X obj 424 238 r \$0-t6;
+#X obj 503 238 r \$0-t7;
+#X obj 582 238 r \$0-t8;
+#X obj 10 46 inlet;
+#X obj 73 46 inlet;
+#X obj 10 423 outlet;
+#X text 11 13 count;
+#X text 72 14 start no.;
+#X text 61 424 Bangs on selected beats;
+#X connect 8 0 11 0;
+#X connect 8 1 13 0;
+#X connect 8 2 14 0;
+#X connect 8 3 15 0;
+#X connect 8 4 16 0;
+#X connect 8 5 17 0;
+#X connect 8 6 18 0;
+#X connect 8 7 19 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 1;
+#X connect 11 0 12 0;
+#X connect 12 0 29 0;
+#X connect 13 0 12 0;
+#X connect 14 0 12 0;
+#X connect 15 0 12 0;
+#X connect 16 0 12 0;
+#X connect 17 0 12 0;
+#X connect 18 0 12 0;
+#X connect 19 0 12 0;
+#X connect 20 0 13 1;
+#X connect 21 0 14 1;
+#X connect 22 0 15 1;
+#X connect 23 0 16 1;
+#X connect 24 0 17 1;
+#X connect 25 0 18 1;
+#X connect 26 0 19 1;
+#X connect 27 0 9 0;
+#X connect 28 0 9 1;
+#X coords 0 -1 1 1 348 47 2 275 11;

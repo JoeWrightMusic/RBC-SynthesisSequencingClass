@@ -19,6 +19,7 @@ carrier and modifier together.;
 #X text 13 4 carrier~;
 #X text 254 4 modulator~;
 #X text 397 3 depth;
+#X text 71 377 AM output~;
 #X connect 0 0 5 0;
 #X connect 1 0 2 0;
 #X connect 2 0 4 0;
