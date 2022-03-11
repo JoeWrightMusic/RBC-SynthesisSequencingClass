@@ -50,6 +50,7 @@
 #X obj 240 266 r \$0-wC;
 #X obj 297 266 r \$0-wM;
 #X text 77 492 FM Signal Out~;
+#X floatatom 72 406 5 0 0 0 - - -, f 5;
 #X connect 0 0 2 0;
 #X connect 0 0 43 0;
 #X connect 1 0 37 0;
@@ -75,6 +76,7 @@
 #X connect 33 0 18 3;
 #X connect 34 0 18 4;
 #X connect 35 0 40 1;
+#X connect 35 0 51 0;
 #X connect 37 1 38 0;
 #X connect 39 0 18 0;
 #X connect 40 0 4 0;

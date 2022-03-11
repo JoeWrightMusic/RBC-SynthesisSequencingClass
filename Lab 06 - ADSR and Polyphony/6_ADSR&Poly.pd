@@ -1,4 +1,4 @@
-#N canvas 77 88 776 229 12;
+#N canvas -53 -857 776 229 12;
 #X obj 4 3 cnv 15 767 40 empty empty Lab\ 6\ -\ ADSR\ and\ Poly 20
 12 0 20 #e0e0e0 #404040 0;
 #N canvas 114 110 865 487 MIDI 0;
@@ -58,7 +58,7 @@ many options for getting data in and out of Pd...;
 #X restore 24 144 pd MIDI objects;
 #X obj 4 50 cnv 15 348 25 empty empty 6.1:\ Polyphony\ with\ [poly]\ and\ [clone]
 20 12 0 14 #dcdcdc #404040 0;
-#N canvas 156 25 1186 773 Polyphonic 0;
+#N canvas 307 -929 1186 773 Polyphonic 0;
 #X obj 2 7 cnv 15 1113 25 empty empty Polyphonic\ FM\ Synth 20 12 0
 14 #dcdcdc #404040 0;
 #X obj 542 77 hsl 107 37 0.01 100 1 1 empty empty Modulator\ Ratio
@@ -90,9 +90,6 @@ first output of poly \, and then pack the three values together with
 by using an [all \$1( message. Lets use it to connect our sliders,
 f 52;
 #X text 22 382 5 - test!;
-#X text 22 411 6 - for convinience \, lets make a MIDIpoly abstraction
-that saves us from having to correct voices all the time. We'll use
-arguments to set the number of voices and voice stealing., f 52;
 #X connect 6 0 11 0;
 #X connect 6 1 11 1;
 #X restore 24 80 pd Polyphonic FM Synth;
@@ -100,7 +97,7 @@ arguments to set the number of voices and voice stealing., f 52;
 20 12 0 14 #dcdcdc #404040 0;
 #X obj 4 177 cnv 15 348 25 empty empty 6.3:\ Remake\ [adsr~] 20 12
 0 14 #dcdcdc #404040 0;
-#N canvas 89 26 1255 754 remake 0;
+#N canvas 92 59 1255 754 remake 1;
 #X obj 11 6 cnv 15 1100 40 empty empty ADSR_ABSTRACTION 20 12 0 20
 #e0e0e0 #404040 0;
 #X text 30 54 We'll talk through the abstraction in the Lab \, but
@@ -122,29 +119,25 @@ you can also alt-click to open it here:;
 #X restore 22 207 pd remake the [adsr~] abstraction;
 #X obj 419 50 cnv 15 348 25 empty empty 6.4:\ Change\ FMvoiceAR~\ to\ FMvoiceADSR~
 20 12 0 14 #dcdcdc #404040 0;
-#N canvas 89 26 452 129 new 0;
+#N canvas 647 -951 452 129 new 0;
 #X obj 11 6 cnv 15 430 40 empty empty ADSR_ABSTRACTION 20 12 0 20 #e0e0e0
 #404040 0;
 #X text 30 54 Here's an encapsulated version of FMvoiceAR~. Lets convert
 it to take [adsr~] as its envelope instead;
-#N canvas 292 87 515 500 FMvoiceAR~ 0;
+#N canvas 636 -761 731 500 FMvoiceAR~ 0;
 #X obj 26 94 mtof;
-#X obj 86 93 / 127;
+#X obj 155 125 / 127;
 #X obj 26 282 simpleFM~;
 #X obj 56 246 *, f 5;
 #X obj 66 208 t b f;
-#X obj 146 390 ar~;
 #X obj 26 346 *~;
 #X obj 26 439 *~;
-#X obj 86 117 t b f;
 #X obj 179 30 inlet;
 #X obj 276 30 inlet;
 #X obj 26 30 inlet;
 #X obj 362 30 inlet;
 #X obj 442 30 inlet;
 #X obj 26 471 outlet~;
-#X obj 86 149 s \$0-bang;
-#X obj 90 357 r \$0-bang;
 #X obj 155 149 s \$0-amp;
 #X obj 66 181 r \$0-ratio;
 #X obj 179 60 s \$0-ratio;
@@ -152,46 +145,62 @@ it to take [adsr~] as its envelope instead;
 #X obj 104 246 r \$0-depth;
 #X obj 44 317 r \$0-amp;
 #X obj 362 59 s \$0-att;
-#X obj 442 59 s \$0-rel;
 #X obj 160 357 r \$0-att;
-#X obj 223 357 r \$0-rel;
+#X obj 362 357 r \$0-rel;
 #X text 12 7 midi note;
 #X text 84 7 velocity;
 #X text 170 7 mod ratio;
 #X text 267 7 mod depth;
 #X text 358 7 attack;
-#X text 437 7 release;
 #X obj 26 60 unpack 0 0;
+#X obj 128 392 adsr~, f 19;
+#X obj 516 30 inlet;
+#X obj 593 30 inlet;
+#X obj 593 59 s \$0-rel;
+#X text 588 7 release;
+#X text 437 7 decay;
+#X text 511 7 sustain;
+#X obj 442 59 s \$0-dec;
+#X obj 516 59 s \$0-sus;
+#X obj 226 356 r \$0-dec;
+#X obj 295 356 r \$0-sus;
+#X obj 123 101 sel 0;
+#X obj 90 357 r \$0-trig;
+#X obj 85 150 s \$0-trig;
 #X connect 0 0 2 0;
 #X connect 0 0 3 0;
-#X connect 1 0 8 0;
-#X connect 2 0 6 0;
+#X connect 1 0 13 0;
+#X connect 2 0 5 0;
 #X connect 3 0 2 1;
 #X connect 4 0 3 0;
 #X connect 4 1 3 1;
-#X connect 5 0 7 1;
-#X connect 6 0 7 0;
-#X connect 7 0 14 0;
-#X connect 8 0 15 0;
-#X connect 8 1 17 0;
-#X connect 9 0 19 0;
-#X connect 10 0 20 0;
-#X connect 11 0 33 0;
-#X connect 12 0 23 0;
-#X connect 13 0 24 0;
-#X connect 16 0 5 0;
-#X connect 18 0 4 0;
-#X connect 21 0 2 2;
-#X connect 22 0 6 1;
-#X connect 25 0 5 1;
-#X connect 26 0 5 2;
-#X connect 33 0 0 0;
-#X connect 33 1 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 7 0 15 0;
+#X connect 8 0 16 0;
+#X connect 9 0 27 0;
+#X connect 10 0 19 0;
+#X connect 11 0 35 0;
+#X connect 14 0 4 0;
+#X connect 17 0 2 2;
+#X connect 18 0 5 1;
+#X connect 20 0 28 1;
+#X connect 21 0 28 4;
+#X connect 27 0 0 0;
+#X connect 27 1 39 0;
+#X connect 27 1 41 0;
+#X connect 28 0 6 1;
+#X connect 29 0 36 0;
+#X connect 30 0 31 0;
+#X connect 37 0 28 2;
+#X connect 38 0 28 3;
+#X connect 39 1 1 0;
+#X connect 40 0 28 0;
 #X restore 30 99 pd FMvoiceAR~;
 #X restore 437 80 pd new FMvoice;
 #X obj 419 113 cnv 15 348 25 empty empty 6.1:\ Polyphony\ with\ ADSR
 20 12 0 14 #dcdcdc #404040 0;
-#N canvas 156 25 1186 773 Polyphonic 0;
+#N canvas 335 -964 1186 773 Polyphonic 0;
 #X obj 2 7 cnv 15 1113 25 empty empty Polyphonic\ FM\ Synth 20 12 0
 14 #dcdcdc #404040 0;
 #X obj 542 77 hsl 107 37 0.01 100 1 1 empty empty Modulator\ Ratio
@@ -204,7 +213,6 @@ it to take [adsr~] as its envelope instead;
 #X obj 946 77 hsl 103 37 0.001 10000 1 1 empty empty Release -2 -8
 0 10 #fcfcfc #000000 #000000 5600 1;
 #X obj 447 65 notein;
-#X obj 447 94 stripnote;
 #X text 21 36 Let's work from the same starting point as the beginning
 of the Lab \, and this time use the ADSR version of our synth, f 123
 ;
@@ -214,6 +222,4 @@ the range of sustain to the range 0-1, f 53;
 #X text 21 168 4 - test;
 #X text 21 110 2 - remove stripnote and add in a MIDIpoly abstraction
 ;
-#X connect 6 0 7 0;
-#X connect 6 1 7 1;
 #X restore 439 143 pd Polyphonic FM Synth;
