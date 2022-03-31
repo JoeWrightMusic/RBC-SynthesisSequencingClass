@@ -35,7 +35,7 @@
 #X obj 206 357 r \$0-d;
 #X obj 256 357 r \$0-s;
 #X obj 306 357 r \$0-r;
-#X obj 146 150 s \$0-vol;
+#X obj 178 150 s \$0-vol;
 #X obj 47 331 r \$0-vol;
 #X obj 20 362 *~;
 #X obj 84 357 r \$0-trig;
@@ -70,4 +70,4 @@
 #X connect 37 0 38 1;
 #X connect 38 0 5 0;
 #X connect 39 0 19 0;
-#X connect 41 0 36 0;
+#X connect 41 1 36 0;

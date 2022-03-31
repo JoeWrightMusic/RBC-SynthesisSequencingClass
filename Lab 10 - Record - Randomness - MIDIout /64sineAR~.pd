@@ -1,0 +1,31 @@
+#N canvas 369 133 591 392 12;
+#X obj 217 48 inlet;
+#X obj 267 48 inlet;
+#X text 215 26 note;
+#X text 279 26 vel;
+#X obj 3 2 hsl 150 30 2 5000 1 0 \$0-a empty ATTACK 7 16 0 15 #ffffff
+#000000 #000000 0 1;
+#X obj 3 33 hsl 150 30 2 5000 1 0 \$0-r empty RELEASE 7 16 0 15 #ffffff
+#000000 #000000 0 1;
+#X obj 274 198 r \$0-a;
+#X obj 334 198 r \$0-r;
+#X msg 274 219 all \$1;
+#X msg 334 219 all \$1;
+#X obj 220 119 - 1;
+#X obj 220 143 pack f f f;
+#X obj 220 279 outlet~;
+#X obj 220 95 poly 64 1;
+#X obj 220 251 clone sineAR~ 64;
+#X connect 0 0 13 0;
+#X connect 1 0 13 1;
+#X connect 6 0 8 0;
+#X connect 7 0 9 0;
+#X connect 8 0 14 1;
+#X connect 9 0 14 2;
+#X connect 10 0 11 0;
+#X connect 11 0 14 0;
+#X connect 13 0 10 0;
+#X connect 13 1 11 1;
+#X connect 13 2 11 2;
+#X connect 14 0 12 0;
+#X coords 0 -1 1 1 161 65 2 0 0;

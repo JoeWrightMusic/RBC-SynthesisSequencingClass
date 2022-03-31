@@ -4,14 +4,14 @@
 #X obj 237 333 *~;
 #X obj 237 374 *~;
 #X obj 237 423 clip~ -1 1;
-#X obj 36 2 hsl 150 30 0.01 1.01 1 0 \$0-volume \$0-setVolume VOLUME
-5 16 0 15 -204786 -1 -1 0 1;
+#X obj 36 2 hsl 146 30 0.01 1.01 1 0 \$0-volume \$0-setVolume VOLUME
+5 16 0 15 #c4fcc4 #000000 #000000 0 1;
 #X obj 291 253 r \$0-volume;
 #X obj 291 275 - 0.01;
 #X msg 291 297 \$1 10;
 #X obj 291 318 line~;
-#X obj 2 2 tgl 30 0 \$0-mute \$0-setMute MUTE 3 16 0 10 -261234 -1
--1 0 1;
+#X obj 2 2 tgl 30 0 \$0-mute \$0-setMute MUTE 3 16 0 10 #fcc4c4 #000000
+#000000 1 1;
 #X msg 424 337 \$1 10;
 #X obj 424 358 line~;
 #X obj 417 239 r \$0-mute;
