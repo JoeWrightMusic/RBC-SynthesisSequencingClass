@@ -439,17 +439,17 @@ playback, f 68;
 #N canvas 32 25 1125 702 controls 0;
 #N canvas 32 25 450 347 phasor 0;
 #X obj 225 102 hsl 150 30 0.001 10 1 0 \$0-freq empty Phasor 20 16
-0 15 #fce0c4 #000000 #000000 0 1;
+0 15 #ffffff #000000 #000000 7600 1;
 #X obj 225 136 hsl 150 10 0 1 0 0 empty \$0-output output 20 5 0 8
-#e0c4fc #000000 #000000 0 1;
+#ffffff #000000 #000000 6942 1;
 #X obj 68 180 phasor~;
 #X obj 156 180 loadbang;
 #X msg 156 204 1;
 #X obj 156 265 snapshot~;
 #X obj 156 228 metro 1;
 #X obj 156 311 outlet;
-#X obj 380 102 tgl 45 0 empty empty On/Off 4 23 0 10 #fce0c4 #000000
-#000000 0 1;
+#X obj 380 102 tgl 45 0 empty empty On/Off 4 23 0 10 #ffffff #000000
+#000000 1 1;
 #X obj 156 289 spigot;
 #X connect 0 0 2 0;
 #X connect 2 0 5 0;
@@ -464,9 +464,9 @@ playback, f 68;
 #X restore 276 34 pd phasor;
 #N canvas 32 25 450 374 phasor 0;
 #X obj 225 102 hsl 150 30 1 5000 1 0 \$0-freq empty Random 20 16 0
-15 #fce0c4 #000000 #000000 0 1;
+15 #ffffff #000000 #000000 0 1;
 #X obj 225 136 hsl 150 10 0 1 0 0 empty \$0-output output 20 5 0 8
-#e0c4fc #000000 #000000 0 1;
+#ffffff #000000 #000000 9082 1;
 #X obj 51 32 loadbang;
 #X msg 51 56 1;
 #X obj 51 80 metro 1;
@@ -477,7 +477,7 @@ playback, f 68;
 #X obj 51 152 pack f f;
 #X obj 51 200 line;
 #X obj 51 221 spigot;
-#X obj 380 102 tgl 45 0 empty empty On/Off 4 23 0 10 #fce0c4 #000000
+#X obj 380 102 tgl 45 0 empty empty On/Off 4 23 0 10 #ffffff #000000
 #000000 0 1;
 #X connect 0 0 4 1;
 #X connect 0 0 9 1;
@@ -495,19 +495,19 @@ playback, f 68;
 #X coords 0 -1 1 1 210 50 1 220 100;
 #X restore 276 86 pd phasor;
 #N canvas 32 25 891 568 triggers 0;
-#X obj 161 5 tgl 50 0 empty empty On/Off 6 26 0 10 #fce0c4 #000000
-#000000 0 1;
+#X obj 161 5 tgl 50 0 empty empty On/Off 6 26 0 10 #ffffff #000000
+#000000 1 1;
 #X obj 191 102 metro 100;
 #X obj 7 5 hsl 150 20 1 5000 1 0 empty empty Trig_Interval 5 11 0 10
-#fce0c4 #000000 #000000 0 1;
+#ffffff #000000 #000000 8400 1;
 #X obj 7 25 hsl 150 20 0.1 5000 1 0 empty empty Randomness 5 11 0 10
-#fce0c4 #000000 #000000 0 1;
+#ffffff #000000 #000000 0 1;
 #X obj 7 45 hsl 150 10 1 5000 1 0 empty empty Output_Interval 5 6 0
-5 #e0c4fc #000000 #000000 0 1;
+5 #ffffff #000000 #000000 8400 1;
 #X obj 272 104 +;
 #X obj 191 158 random;
-#X obj 211 5 bng 50 50 10 0 empty empty empty 17 7 0 10 #cccccc #dcdcdc
-#000000;
+#X obj 211 5 bng 50 50 10 0 empty empty empty 17 7 0 10 #ebebeb #a9a9a9
+#a9a9a9;
 #X obj 272 81 t b f;
 #X obj 142 158 outlet;
 #X connect 0 0 1 0;
@@ -525,17 +525,17 @@ playback, f 68;
 #X restore 7 33 pd triggers;
 #N canvas 32 25 450 347 phasor 0;
 #X obj 225 102 hsl 150 30 0.001 10 1 0 \$0-freq empty Phasor 20 16
-0 15 #fce0c4 #000000 #000000 0 1;
+0 15 #ffffff #000000 #000000 9300 1;
 #X obj 225 136 hsl 150 10 0 1 0 0 empty \$0-output output 20 5 0 8
-#e0c4fc #000000 #000000 0 1;
+#ffffff #000000 #000000 13077 1;
 #X obj 68 180 phasor~;
 #X obj 156 180 loadbang;
 #X msg 156 204 1;
 #X obj 156 265 snapshot~;
 #X obj 156 228 metro 1;
 #X obj 156 311 outlet;
-#X obj 380 102 tgl 45 0 empty empty On/Off 4 23 0 10 #fce0c4 #000000
-#000000 0 1;
+#X obj 380 102 tgl 45 0 empty empty On/Off 4 23 0 10 #ffffff #000000
+#000000 1 1;
 #X obj 156 289 spigot;
 #X connect 0 0 2 0;
 #X connect 2 0 5 0;
@@ -550,9 +550,9 @@ playback, f 68;
 #X restore 487 34 pd phasor;
 #N canvas 32 25 450 374 phasor 0;
 #X obj 225 102 hsl 150 30 1 5000 1 0 \$0-freq empty Random 20 16 0
-15 #fce0c4 #000000 #000000 0 1;
+15 #ffffff #000000 #000000 450 1;
 #X obj 225 136 hsl 150 10 0 1 0 0 empty \$0-output output 20 5 0 8
-#e0c4fc #000000 #000000 0 1;
+#ffffff #000000 #000000 8359 1;
 #X obj 51 32 loadbang;
 #X msg 51 56 1;
 #X obj 51 80 metro 1;
@@ -563,7 +563,7 @@ playback, f 68;
 #X obj 51 152 pack f f;
 #X obj 51 200 line;
 #X obj 51 221 spigot;
-#X obj 380 102 tgl 45 0 empty empty On/Off 4 23 0 10 #fce0c4 #000000
+#X obj 380 102 tgl 45 0 empty empty On/Off 4 23 0 10 #ffffff #000000
 #000000 0 1;
 #X connect 0 0 4 1;
 #X connect 0 0 9 1;
@@ -582,12 +582,12 @@ playback, f 68;
 #X restore 488 90 pd phasor;
 #N canvas 32 25 450 374 phasor 0;
 #X obj 225 102 hsl 150 30 1 10000 1 0 \$0-freq empty Length 20 16 0
-15 #fce0c4 #000000 #000000 0 1;
+15 #ffffff #000000 #000000 6200 1;
 #X obj 225 136 hsl 150 10 1 10000 1 0 empty \$0-output output 20 5
-0 8 #e0c4fc #000000 #000000 0 1;
+0 8 #ffffff #000000 #000000 6011 1;
 #X obj 134 276 outlet;
-#X obj 380 102 tgl 45 0 empty empty Mod 15 23 0 10 #fce0c4 #000000
-#000000 0 1;
+#X obj 380 102 tgl 45 0 empty empty Mod 15 23 0 10 #ffffff #000000
+#000000 1 1;
 #X obj 45 62 inlet;
 #X obj 83 144 == 1;
 #X obj 44 167 spigot;
@@ -615,7 +615,7 @@ playback, f 68;
 #X restore 488 146 pd phasor;
 #N canvas 32 25 450 374 phasor 0;
 #X obj 225 103 hsl 200 30 -4 4 0 0 \$0-freq empty Pitch 20 16 0 15
-#fce0c4 #000000 #000000 0 1;
+#ffffff #000000 #000000 12437 1;
 #X obj 166 259 outlet;
 #X obj 134 236 sel 0;
 #X msg 223 66 1;
@@ -624,8 +624,8 @@ playback, f 68;
 #X msg 154 66 -0.5;
 #X msg 123 66 -1;
 #X msg 92 66 -2;
-#X obj 238 138 hradio 30 1 0 6 empty empty empty 0 -8 0 10 #fce0c4
-#000000 #000000 0;
+#X obj 238 138 hradio 30 0 0 6 empty empty empty 0 -8 0 10 #ffffff
+#000000 #000000 4;
 #X obj 90 25 sel 0 1 2 3 4 5;
 #X text 242 172 -2;
 #X text 272 172 -1;

@@ -1,0 +1,31 @@
+#N canvas -25 43 588 767 12;
+#X obj 40 81 bng 35 250 50 0 trigger empty empty 17 7 0 10 #ff2600
+#000000 #000000;
+#X floatatom 49 355 5 0 0 0 - - -, f 5;
+#X obj 49 400 mtof;
+#X floatatom 49 460 5 0 0 0 - - -, f 5;
+#X obj 49 506 osc~;
+#X obj 49 576 *~ 0.1;
+#X obj 49 615 clip~ -1 1;
+#X obj 49 307 + 60;
+#X obj 49 230 random 12;
+#X obj 82 80 hsl 128 15 0 127 0 0 range empty Rand\ Note\ Range 24
+6 0 10 #fffb00 #000000 #000000 0 1;
+#X obj 82 100 hsl 128 15 0 127 0 0 startnote empty starting\ note 36
+5 0 10 #8efa00 #000000 #000000 0 1;
+#X obj 50 193 r trigger;
+#X obj 149 212 r range;
+#X obj 135 299 r startnote;
+#X obj 13 688 outlet~;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 14 0;
+#X connect 7 0 1 0;
+#X connect 8 0 7 0;
+#X connect 11 0 8 0;
+#X connect 12 0 8 1;
+#X connect 13 0 7 1;
+#X coords 0 -1 1 1 187 44 1 35 76;

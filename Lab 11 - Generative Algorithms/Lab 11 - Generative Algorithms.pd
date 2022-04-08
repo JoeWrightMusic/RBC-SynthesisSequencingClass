@@ -11,7 +11,7 @@ using the kind of chance-based mechanism we saw in the previous example:
 #X obj 20 86 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000
 0 1;
 #X obj 22 464 hsl 280 30 -20 120 0 0 empty empty empty -2 -8 0 10 #fcfcfc
-#000000 #000000 3986 1;
+#000000 #000000 0 1;
 #X obj 55 498 bng 15 250 50 0 empty MC1 empty 17 7 0 10 #fcfcfc #000000
 #000000;
 #X obj 255 498 bng 15 250 50 0 empty MC2 empty 17 7 0 10 #fcfcfc #000000
@@ -175,43 +175,43 @@ system behaviour more clearly., f 31;
 #X text 319 107 <- reset when stopped/started;
 #X text 275 171 <- make a 16 beat loop;
 #X obj 236 195 nbx 4 20 -1e+37 1e+37 0 0 ERloopCount empty empty 0
--8 0 12 #fcfcfc #000000 #000000 2 256 0;
+-8 0 12 #fcfcfc #000000 #000000 0 256 0;
 #X obj 285 276 nbx 4 20 -1e+37 1e+37 0 1 ERnotes empty empty 0 -8 0
 12 #ffffff #000000 #000000 6 256 0;
 #N canvas 120 25 1221 640 visualiseLoop 0;
 #X obj 4 17 hradio 15 0 0 16 empty ERloopCount empty 0 -8 0 10 #b8b8b8
-#ffffff #ffffff 2;
-#X obj 4 33 tgl 15 0 empty ER1 empty 17 7 0 10 #fcfcfc #202020 #202020
-1 1;
-#X obj 19 33 tgl 15 0 empty ER2 empty 17 7 0 10 #bcbcbc #fcfcfc #fcfcfc
+#ffffff #ffffff 0;
+#X obj 4 33 tgl 15 0 empty ER1 empty 17 7 0 10 #202020 #202020 #202020
 0 1;
-#X obj 34 33 tgl 15 0 empty ER3 empty 17 7 0 10 #bcbcbc #fcfcfc #fcfcfc
+#X obj 19 33 tgl 15 0 empty ER2 empty 17 7 0 10 #202020 #202020 #202020
 0 1;
-#X obj 49 33 tgl 15 0 empty ER4 empty 17 7 0 10 #fcfcfc #202020 #202020
-1 1;
-#X obj 64 33 tgl 15 0 empty ER5 empty 17 7 0 10 #bcbcbc #fcfcfc #fcfcfc
+#X obj 34 33 tgl 15 0 empty ER3 empty 17 7 0 10 #202020 #202020 #202020
 0 1;
-#X obj 79 33 tgl 15 0 empty ER6 empty 17 7 0 10 #bcbcbc #fcfcfc #fcfcfc
+#X obj 49 33 tgl 15 0 empty ER4 empty 17 7 0 10 #202020 #202020 #202020
 0 1;
-#X obj 94 33 tgl 15 0 empty ER7 empty 17 7 0 10 #fcfcfc #202020 #202020
-1 1;
-#X obj 109 33 tgl 15 0 empty ER8 empty 17 7 0 10 #bcbcbc #fcfcfc #fcfcfc
+#X obj 64 33 tgl 15 0 empty ER5 empty 17 7 0 10 #202020 #202020 #202020
 0 1;
-#X obj 124 33 tgl 15 0 empty ER9 empty 17 7 0 10 #fcfcfc #202020 #202020
-1 1;
-#X obj 139 33 tgl 15 0 empty ER10 empty 17 7 0 10 #bcbcbc #fcfcfc #fcfcfc
+#X obj 79 33 tgl 15 0 empty ER6 empty 17 7 0 10 #202020 #202020 #202020
 0 1;
-#X obj 154 33 tgl 15 0 empty ER11 empty 17 7 0 10 #bcbcbc #fcfcfc #fcfcfc
+#X obj 94 33 tgl 15 0 empty ER7 empty 17 7 0 10 #202020 #202020 #202020
 0 1;
-#X obj 169 33 tgl 15 0 empty ER12 empty 17 7 0 10 #fcfcfc #202020 #202020
-1 1;
-#X obj 184 33 tgl 15 0 empty ER13 empty 17 7 0 10 #bcbcbc #fcfcfc #fcfcfc
+#X obj 109 33 tgl 15 0 empty ER8 empty 17 7 0 10 #202020 #202020 #202020
 0 1;
-#X obj 199 33 tgl 15 0 empty ER14 empty 17 7 0 10 #bcbcbc #fcfcfc #fcfcfc
+#X obj 124 33 tgl 15 0 empty ER9 empty 17 7 0 10 #202020 #202020 #202020
 0 1;
-#X obj 214 33 tgl 15 0 empty ER15 empty 17 7 0 10 #fcfcfc #202020 #202020
-1 1;
-#X obj 229 33 tgl 15 0 empty ER16 empty 17 7 0 10 #bcbcbc #fcfcfc #fcfcfc
+#X obj 139 33 tgl 15 0 empty ER10 empty 17 7 0 10 #202020 #202020 #202020
+0 1;
+#X obj 154 33 tgl 15 0 empty ER11 empty 17 7 0 10 #202020 #202020 #202020
+0 1;
+#X obj 169 33 tgl 15 0 empty ER12 empty 17 7 0 10 #202020 #202020 #202020
+0 1;
+#X obj 184 33 tgl 15 0 empty ER13 empty 17 7 0 10 #202020 #202020 #202020
+0 1;
+#X obj 199 33 tgl 15 0 empty ER14 empty 17 7 0 10 #202020 #202020 #202020
+0 1;
+#X obj 214 33 tgl 15 0 empty ER15 empty 17 7 0 10 #202020 #202020 #202020
+0 1;
+#X obj 229 33 tgl 15 0 empty ER16 empty 17 7 0 10 #202020 #202020 #202020
 0 1;
 #X text 31 -1 Euclidian Algorithm Output;
 #X obj 137 81 r ERcurState;
@@ -440,7 +440,7 @@ or greater than a threshold, f 31;
 \, wich will bias the output in the direction of the slider:;
 #X obj 45 429 metro 200;
 #X obj 45 401 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 1 1;
+#000000 0 1;
 #X obj 45 453 ABprob;
 #X obj 45 493 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000;
@@ -472,7 +472,7 @@ to give us subdivisions and multiples of a tempo, f 22;
 #X msg 1130 105 120;
 #X obj 72 332 simpleHat~;
 #X obj 191 149 tgl 15 0 allSTART empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#000000 1 1;
 #X obj 73 356 *~;
 #X obj 191 172 GenerativeStrip;
 #X text 207 147 START EVERYTHING!;
