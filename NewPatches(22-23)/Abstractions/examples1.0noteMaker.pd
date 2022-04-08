@@ -1,6 +1,8 @@
-#N canvas 155 307 760 446 12;
+#N canvas 155 307 760 446.125 12;
+#X obj 101 82 cnv 15 156 22 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
 #X obj 101 47 hsl 151 33 0 127 0 0 empty empty empty -2 -8 0 10 #fcfcfc
-#000000 #000000 11300 1;
+#000000 #000000 0 1;
 #X obj 101 129 mtof;
 #X obj 223 120 change;
 #X obj 223 148 t b b;
@@ -12,7 +14,7 @@
 #X text 395 177 <- a number in here will set the note length, f 20
 ;
 #X obj 243 326 outlet;
-#X obj 101 16 cnv 15 157 30 empty empty Note\ Player 14 13 0 12 #e0e0e0
+#X obj 101 16 cnv 15 157 30 empty empty Note\ Player 41 13 0 12 #e0e0e0
 #404040 0;
 #X text 101 83 freq (hz);
 #X text 225 83 gate;
@@ -20,17 +22,17 @@
 #X obj 101 330 outlet~;
 #X text 398 15 use the "put" menu in the top menu to find out how to
 create a number object, f 44;
-#X connect 0 0 1 0;
-#X connect 0 0 2 0;
-#X connect 1 0 14 0;
-#X connect 2 0 3 0;
+#X connect 1 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 15 0;
 #X connect 3 0 4 0;
-#X connect 3 1 5 0;
-#X connect 4 0 10 0;
-#X connect 5 0 6 0;
-#X connect 5 0 7 0;
-#X connect 6 0 10 0;
-#X connect 7 0 8 0;
-#X connect 8 0 10 0;
-#X connect 14 0 15 0;
-#X coords 0 -1 1 1 164 94 2 97 12;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 5 0 11 0;
+#X connect 6 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 11 0;
+#X connect 8 0 9 0;
+#X connect 9 0 11 0;
+#X connect 15 0 16 0;
+#X coords 0 -1 1 1 162 94 2 98 13;

@@ -1,4 +1,4 @@
-#N canvas 826 -874 444 316 12;
+#N canvas 43 25 374 247 12;
 #X obj 5 71 inlet~;
 #X obj 61 55 loadbang;
 #X msg 61 79 1;
@@ -17,15 +17,17 @@ duplicate our arrays/tables, f 31;
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
-#X coords 0 1 255 -1 192 135 1;
-#X restore 151 116 graph;
-#X obj 151 93 nbx 5 20 21 1000 0 1 empty empty Refresh_Rate 77 9 0
-10 #ffffff #000000 #000000 1000 256 0;
+#X coords 0 1 255 -1 198 126 1;
+#X restore 148 105 graph;
+#X obj 320 92 nbx 4 8 21 1000 0 1 empty empty Refresh\ Rate -52 3 0
+7 #e0e0e0 #000000 #000000 1000 256 0;
 #X obj 5 159 outlet~;
+#X obj 148 92 cnv 10 199 11 empty empty signal\ in~ 0 2 0 8 #e0e0e0
+#404040 0;
 #X connect 0 0 5 0;
 #X connect 0 0 8 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
 #X connect 3 0 5 0;
 #X connect 7 0 3 0;
-#X coords 0 -1 1 1 204 168 2 145 89;
+#X coords 0 -1 1 1 204 145 2 145 89;

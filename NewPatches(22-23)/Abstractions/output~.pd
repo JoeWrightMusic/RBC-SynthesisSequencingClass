@@ -1,54 +1,66 @@
-#N canvas 424 177 725 541 12;
-#X obj 156 193 inlet~;
-#X obj 177 333 *~;
-#X obj 177 374 *~;
-#X obj 177 423 clip~ -1 1;
-#X obj 83 4 hsl 148 31 0.01 1.01 1 0 \$0-volume \$0-setVolume VOLUME
+#N canvas 49 25 725 541 12;
+#X obj 176 233 inlet~;
+#X obj 197 373 *~;
+#X obj 197 414 *~;
+#X obj 197 463 clip~ -1 1;
+#X obj 103 44 hsl 148 31 0.01 1.01 1 0 \$0-volume \$0-setVolume VOLUME
 48 13 0 15 #ffffff #000000 #000000 0 1;
-#X obj 315 212 r \$0-volume;
-#X obj 315 234 - 0.01;
-#X msg 315 256 \$1 10;
-#X obj 315 277 line~;
-#X obj 50 4 tgl 31 0 \$0-mute \$0-setMute MUTE 3 13 0 10 #ffffff #000000
+#X obj 335 252 r \$0-volume;
+#X obj 335 274 - 0.01;
+#X msg 335 296 \$1 10;
+#X obj 335 317 line~;
+#X obj 70 44 tgl 31 0 \$0-mute \$0-setMute MUTE 3 13 0 10 #ffffff #000000
 #000000 0 1;
-#X msg 434 310 \$1 10;
-#X obj 434 331 line~;
-#X obj 427 212 r \$0-mute;
-#X obj 434 244 t b f;
-#X obj 434 287 -;
-#X msg 434 266 1;
-#X obj 499 186 loadbang;
-#X msg 499 210 0;
-#X text 154 170 signal in;
-#X text 234 500 signal out;
-#X obj 307 45 inlet;
-#X obj 438 40 inlet;
-#X text 306 16 volume 0-1;
-#X text 435 16 mute 0/1 mute==1;
-#X obj 307 68 s \$0-setVolume;
-#X obj 438 142 s \$0-setMute;
-#X obj 438 62 sel 0;
-#X msg 438 86 0;
-#X obj 470 85 t b;
-#X msg 470 106 1;
-#X obj 18 87 r pd;
-#X obj 18 111 route dsp;
-#X obj 17 4 tgl 31 0 \$0-fromDspTog \$0-toDspTog DSP 7 13 0 10 #000000
+#X msg 454 350 \$1 10;
+#X obj 454 371 line~;
+#X obj 447 252 r \$0-mute;
+#X obj 454 284 t b f;
+#X obj 454 327 -;
+#X msg 454 306 1;
+#X obj 519 226 loadbang;
+#X msg 519 250 0;
+#X text 174 210 signal in;
+#X text 254 540 signal out;
+#X obj 327 85 inlet;
+#X obj 458 80 inlet;
+#X text 326 56 volume 0-1;
+#X text 455 56 mute 0/1 mute==1;
+#X obj 327 108 s \$0-setVolume;
+#X obj 458 182 s \$0-setMute;
+#X obj 458 102 sel 0;
+#X msg 458 126 0;
+#X obj 490 125 t b;
+#X msg 490 146 1;
+#X obj 38 127 r pd;
+#X obj 38 151 route dsp;
+#X obj 37 44 tgl 31 0 \$0-fromDspTog \$0-toDspTog DSP 7 13 0 10 #000000
 #ffffff #ffffff 0 1;
-#X obj 18 212 change;
-#X obj 18 257 s pd;
-#X msg 18 235 dsp \$1;
-#X obj 18 189 r \$0-fromDspTog;
-#X obj 18 135 s \$0-toDspTog;
-#X text 18 62 Turn DSP on/off;
-#X obj 237 478 dac~;
-#X obj 297 332 *~;
-#X obj 297 373 *~;
-#X obj 297 422 clip~ -1 1;
-#X obj 225 193 inlet~;
-#X text 223 170 signal in;
-#X obj 296 477 outlet~;
-#X obj 356 477 outlet~;
+#X obj 38 252 change;
+#X obj 38 297 s pd;
+#X msg 38 275 dsp \$1;
+#X obj 38 229 r \$0-fromDspTog;
+#X obj 38 175 s \$0-toDspTog;
+#X text 38 102 Turn DSP on/off;
+#X obj 257 518 dac~;
+#X obj 317 372 *~;
+#X obj 317 413 *~;
+#X obj 317 462 clip~ -1 1;
+#X obj 245 233 inlet~;
+#X text 243 210 signal in;
+#X obj 316 517 outlet~;
+#X obj 376 517 outlet~;
+#X obj 37 76 cnv 10 174 11 empty empty left\ ch.~ 0 5 0 8 #e0e0e0 #404040
+0;
+#X obj 37 32 cnv 10 219 11 empty empty left\ ch.~ 0 2 0 8 #e0e0e0 #404040
+0;
+#X obj 90 32 cnv 10 62 11 empty empty right\ ch.~ 0 2 0 8 #e0e0e0 #404040
+0;
+#X obj 168 32 cnv 10 62 11 empty empty volume 0 2 0 8 #e0e0e0 #404040
+0;
+#X obj 221 32 cnv 10 35 11 empty empty mute 15 2 0 8 #e0e0e0 #404040
+0;
+#X obj 207 76 cnv 10 49 11 empty empty right\ ch.~ -2 5 0 8 #e0e0e0
+#404040 0;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
@@ -86,4 +98,4 @@
 #X connect 42 0 39 1;
 #X connect 42 0 46 0;
 #X connect 43 0 40 0;
-#X coords 0 -1 1 1 227 39 2 13 0;
+#X coords 0 -1 1 1 225 61 2 34 29;
