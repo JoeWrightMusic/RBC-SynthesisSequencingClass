@@ -1,4 +1,4 @@
-#N canvas 569 25 596 502 12;
+#N canvas 569 25 546 368 12;
 #X msg 13 230 0 \$1;
 #X msg 95 229 1 \$1;
 #X obj 13 133 del;
@@ -19,11 +19,11 @@
 #X obj 471 26 loadbang;
 #X obj 171 268 line;
 #X obj 171 315 outlet;
-#X text 11 3 Trigger Envelope;
-#X text 261 1 Attack;
-#X text 381 1 Release;
-#X text 13 338 Envelope Out~;
-#X text 169 338 envelope out (control rate);
+#X text 11 3 TRIGGER ENVELOPE (bang);
+#X text 261 1 ATTACK;
+#X text 381 1 RELEASE;
+#X text 13 338 ENVELOPE OUT (SIG~);
+#X text 169 338 ENVELOPE OUT (CONTROL RATE);
 #X connect 0 0 4 0;
 #X connect 0 0 18 0;
 #X connect 1 0 4 0;

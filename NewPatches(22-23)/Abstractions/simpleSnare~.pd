@@ -23,7 +23,7 @@
 #X obj 45 74 inlet;
 #X obj 45 96 t b;
 #X obj 46 367 outlet~;
-#X text 102 366 audio out~;
+#X text 102 366 AUDIO OUT~;
 #X connect 0 0 14 0;
 #X connect 1 0 11 0;
 #X connect 1 1 10 0;

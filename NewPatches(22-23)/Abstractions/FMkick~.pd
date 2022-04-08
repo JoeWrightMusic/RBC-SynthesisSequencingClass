@@ -2,7 +2,7 @@
 #X obj 8 385 osc~;
 #X obj 8 415 *~;
 #X obj 94 367 line~;
-#X obj 318 472 sig~ 55;
+#X obj 318 282 sig~ 55;
 #X obj 8 363 line~;
 #X obj 318 554 +~;
 #X obj 318 611 *~;
@@ -14,17 +14,17 @@
 0;
 #X obj 9 235 inlet;
 #X text 7 214 TRIGGER (bang);
-#X obj 583 393 inlet;
+#X obj 583 240 inlet;
 #X obj 490 420 f \$2;
 #X obj 9 259 t b;
-#X obj 318 414 inlet;
-#X obj 318 451 f \$1;
-#X obj 359 414 loadbang;
-#X text 316 393 CARRIER FREQUENCY;
+#X obj 318 235 inlet;
+#X obj 318 261 f \$1;
+#X obj 359 235 loadbang;
+#X text 316 214 CARRIER FREQUENCY;
 #X text 78 388 <-- Generate Modulator Signal;
 #X msg 551 448 0.4 5;
 #X obj 490 392 del 5;
-#X text 584 370 DECAY TIME (ms);
+#X text 584 217 DECAY TIME (ms);
 #X text 3 46 Simple FM kick with two arguments \, frequency and decay
 time.;
 #X text 3 66 In this patch these arguments can be set through inlets
