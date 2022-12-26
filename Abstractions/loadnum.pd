@@ -1,0 +1,9 @@
+#N canvas 416 -549 450 100 12;
+#X obj 11 8 loadbang;
+#X obj 11 33 f \$1;
+#X obj 11 59 outlet;
+#X text 81 7 ARGUMENTS: 1 - the number to be output at load time;
+#X text 81 48 This abstraction will grab its argument on load \,;
+#X text 81 69 and send it out of the first outlet.;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;

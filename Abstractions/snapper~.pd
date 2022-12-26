@@ -1,0 +1,18 @@
+#N canvas 495 25 585 300 12;
+#X obj 57 108 metro \$1;
+#X obj 57 80 loadnum 1;
+#X obj 40 136 snapshot~;
+#X obj 40 27 inlet~;
+#X obj 40 218 outlet;
+#X text 135 27 ARGUMENTS: 1 - snapshot rate in ms;
+#X text 145 107 Incoming signal is sampled by the [metro;
+#X text 145 132 & [snapshot~] objects and sent out as a;
+#X text 145 157 control signal.;
+#X text 134 218 OUTLET: control-rate samples from signal;
+#X obj 131 79 inlet;
+#X text 137 8 INLETS: 1 - Signal to be sampled \, 2 - snapshot rate in ms;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 10 0 0 1;

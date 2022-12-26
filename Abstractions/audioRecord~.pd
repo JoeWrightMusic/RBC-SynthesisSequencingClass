@@ -1,22 +1,20 @@
-#N canvas 114 45 686 372 12;
-#X obj 148 107 tgl 15 0 \$0-recordTog empty empty 17 7 0 10 #fcfcfc
-#000000 #000000 0 1;
-#X text 167 104 toggle record;
-#X obj 149 64 bng 15 250 50 0 \$0-openFile empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
-#X obj 146 313 writesf~ 2;
-#X text 301 207 create 24-bit soundfile;
-#X msg 166 229 start;
-#X msg 216 229 stop;
-#X obj 166 203 sel 1 0;
-#X obj 165 172 r \$0-recordTog;
-#X msg 261 229 open -bytes 3 pdRecording.wav;
-#X obj 271 172 r \$0-openFile;
-#X text 165 62 open soundfile (do this first), f 15;
-#X obj 143 28 cnv 15 142 32 empty empty Audio\ Record 20 12 0 14 #e0e0e0
-#404040 0;
-#X obj 93 287 inlet~;
-#X obj 213 287 inlet~;
+#N canvas 425 153 601 282 12;
+#X obj 20 72 tgl 15 0 \$0-recordTog empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X text 39 69 toggle record;
+#X obj 21 36 bng 15 250 50 0 \$0-openFile empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 66 253 writesf~ 2;
+#X text 201 147 create 24-bit soundfile;
+#X msg 66 169 start;
+#X msg 116 169 stop;
+#X obj 66 143 sel 1 0;
+#X obj 65 112 r \$0-recordTog;
+#X msg 161 169 open -bytes 3 pdRecording.wav;
+#X obj 171 112 r \$0-openFile;
+#X text 37 34 open soundfile (do this first), f 15;
+#X obj 13 227 inlet~;
+#X obj 133 227 inlet~;
+#X text 428 237 Joe Wright Music;
+#X text 428 253 2022 \, CC0 Public Domain;
 #X connect 5 0 3 0;
 #X connect 6 0 3 0;
 #X connect 7 0 5 0;
@@ -24,6 +22,6 @@
 #X connect 8 0 7 0;
 #X connect 9 0 3 0;
 #X connect 10 0 9 0;
-#X connect 13 0 3 0;
-#X connect 14 0 3 1;
-#X coords 0 -1 1 1 148 104 2 140 24;
+#X connect 12 0 3 0;
+#X connect 13 0 3 1;
+#X coords 0 -1 1 1 154 87 1 5 5;
