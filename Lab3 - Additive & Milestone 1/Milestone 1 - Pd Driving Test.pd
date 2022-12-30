@@ -1,0 +1,10 @@
+#N canvas 181 26 1134 719 12;
+#X obj 2 2 cnv 15 550 40 empty empty MILESTONE\ 1:\ Pd\ Driving\ Test 20 12 0 20 #dfdfdf #404040 0;
+#X text 17 51 To complete your first milestone test \, carry out the instructions below:;
+#X text 17 101 1 - create a basic sinewave oscillator ([osc~]);
+#X text 17 201 3 - add an hslider object. This will control the pitch of the [osc~] object. Use the put menu to help you if needed.;
+#X text 17 241 4 - connect the hslider to an [mtof] object.;
+#X text 17 271 5 - connect the output of [mtof] to the first inlet of [osc~];
+#X text 17 131 2 - create AR envelope using the [arUI~] abstraction and connect the [osc~] object to it. You may want to open the AR abstraction to check which of the inlets accepts the audio signal.;
+#X text 17 311 6 - create an [output~] abstraction \, connect the output of [arUI~] so that audio is sent to the left and right channels;
+#X text 17 360 7 - make a sound!;

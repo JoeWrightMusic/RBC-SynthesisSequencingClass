@@ -1,31 +1,22 @@
 #N canvas 103 128 782 304 12;
-#X obj 5 4 cnv 15 767 40 empty empty Lab\ 7\ -\ Step\ Sequencer\ &\ Presets
-20 12 0 20 #e0e0e0 #404040 0;
-#X obj 5 51 cnv 15 376 25 empty empty 7.1:\ Simple\ Step\ Sequencer
-20 12 0 14 #dcdcdc #404040 0;
+#X obj 5 4 cnv 15 767 40 empty empty Lab\ 7\ -\ Step\ Sequencer\ &\ Presets 20 12 0 20 #e0e0e0 #404040 0;
+#X obj 5 51 cnv 15 376 25 empty empty 7.1:\ Simple\ Step\ Sequencer 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 68 25 1303 715 counter 0;
-#X obj 6 6 cnv 15 348 25 empty empty Simple\ Step\ Sequencer 20 12
-0 14 #dcdcdc #404040 0;
-#X obj 6 57 tgl 44 0 7.1stepperTog empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#X obj 6 6 cnv 15 348 25 empty empty Simple\ Step\ Sequencer 20 12 0 14 #dcdcdc #404040 0;
+#X obj 6 57 tgl 44 0 7.1stepperTog empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 328 282 metro 250;
 #X obj 328 246 r 7.1stepperTog;
 #X obj 328 344 f 0;
 #X text 419 343 <- start at 0;
 #X obj 327 493 + 1;
-#X text 413 389 <- after every addition \, get the whole-number remainder
-when dividing by 8, f 19;
+#X text 413 389 <- after every addition \, get the whole-number remainder when dividing by 8, f 19;
 #X text 414 495 <- add 1 to the count;
 #X obj 327 522 s 7.1count;
 #X obj 384 389 % 4;
-#X obj 52 57 bng 44 250 50 0 empty 7.1count1 empty 17 7 0 10 #fcfcfc
-#000000 #000000;
-#X obj 98 57 bng 44 250 50 0 empty 7.1count2 empty 17 7 0 10 #fcfcfc
-#000000 #000000;
-#X obj 144 57 bng 44 250 50 0 empty 7.1count3 empty 17 7 0 10 #fcfcfc
-#000000 #000000;
-#X obj 190 57 bng 44 250 50 0 empty 7.1count4 empty 17 7 0 10 #fcfcfc
-#000000 #000000;
+#X obj 52 57 bng 44 250 50 0 empty 7.1count1 empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 98 57 bng 44 250 50 0 empty 7.1count2 empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 144 57 bng 44 250 50 0 empty 7.1count3 empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 190 57 bng 44 250 50 0 empty 7.1count4 empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X text 69 69 1;
 #X text 115 69 2;
 #X text 161 69 3;
@@ -34,31 +25,24 @@ when dividing by 8, f 19;
 #X obj 620 245 r 7.1count;
 #X obj 400 282 sel 0;
 #X msg 400 311 0;
-#X floatatom 620 274 5 0 0 0 - - -, f 5;
+#X floatatom 620 274 5 0 0 0 - - - 0;
 #X obj 620 302 sel 1 2 3 4, f 76;
-#X obj 620 336 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
-#X obj 752 336 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
-#X obj 884 336 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
-#X obj 1016 336 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
+#X obj 620 336 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 752 336 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 884 336 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 1016 336 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 8 312 /;
-#X text 55 359 Then multiply by 1000 to get the pulse in ms, f 33
-;
+#X text 55 359 Then multiply by 1000 to get the pulse in ms, f 33;
 #X obj 8 514 s tempoInMs;
 #X obj 440 246 r tempoInMs;
 #X obj 8 359 * 1000;
 #X msg 8 283 60 \$1;
-#X text 55 273 divide 60 (seconds) by BPM to get the duration of the
-beat in seconds.In this case the message is: "divide 60 by the current
-value in \$1", f 33;
+#X text 55 273 divide 60 (seconds) by BPM to get the duration of the beat in seconds.In this case the message is: "divide 60 by the current value in \$1", f 33;
 #X text 9 220 SET TEMPO: CONVERT BPM -> MS;
 #X text 272 57 BPM:;
 #X text 238 81 Division:;
-#X floatatom 308 57 10 0 0 0 - - 7.1StepperBPM, f 10;
-#X floatatom 308 81 10 0 0 0 - - 7.1StepperDivision, f 10;
+#X floatatom 308 57 10 0 0 0 - - 7.1StepperBPM 0;
+#X floatatom 308 81 10 0 0 0 - - 7.1StepperDivision 0;
 #X obj 8 248 r 7.1StepperBPM;
 #X msg 493 36 120;
 #X msg 493 60 1;
@@ -66,37 +50,26 @@ value in \$1", f 33;
 #X obj 8 467 /;
 #X obj 26 427 r 7.1StepperDivision;
 #X text 620 202 BREAK OUT THE COUNT;
-#X obj 52 103 tgl 44 0 7.1beat1 empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
-#X obj 98 103 tgl 44 0 7.1beat2 empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
-#X obj 144 103 tgl 44 0 7.1beat3 empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
-#X obj 190 103 tgl 44 0 7.1beat4 empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
-#X text 551 59 <- The UI objects in the top left here all have 'hidden'
-sends that transmit data to the rest of the patch, f 35;
+#X obj 52 103 tgl 44 0 7.1beat1 empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 98 103 tgl 44 0 7.1beat2 empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 144 103 tgl 44 0 7.1beat3 empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 190 103 tgl 44 0 7.1beat4 empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X text 551 59 <- The UI objects in the top left here all have 'hidden' sends that transmit data to the rest of the patch, f 35;
 #X obj 638 362 r 7.1beat1;
 #X obj 620 386 f;
 #X obj 620 447 sel 1;
-#X obj 620 478 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
-#X text 1128 361 <- get the state of the toggles for each beat \, and
-send it on from [f] during that part of the count, f 20;
-#X text 1124 452 <- sel will bang if the toggle for the current beat
-is 1 \, and do nothing otherwise, f 21;
+#X obj 620 478 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X text 1128 361 <- get the state of the toggles for each beat \, and send it on from [f] during that part of the count, f 20;
+#X text 1124 452 <- sel will bang if the toggle for the current beat is 1 \, and do nothing otherwise, f 21;
 #X obj 752 386 f;
 #X obj 752 447 sel 1;
-#X obj 752 478 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
+#X obj 752 478 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 884 386 f;
 #X obj 884 447 sel 1;
-#X obj 884 478 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
+#X obj 884 478 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 1016 386 f;
 #X obj 1016 447 sel 1;
-#X obj 1016 478 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
+#X obj 1016 478 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 770 362 r 7.1beat2;
 #X obj 902 362 r 7.1beat3;
 #X obj 1034 362 r 7.1beat4;
@@ -159,115 +132,76 @@ is 1 \, and do nothing otherwise, f 21;
 #X connect 75 0 76 0;
 #X connect 75 0 76 1;
 #X restore 5 84 pd counter;
-#X text 82 84 <- open this up and have a play \, can we figure it out?
-, f 38;
-#X obj 5 142 cnv 15 374 24 empty empty 7.2:\ Make\ Stepper\ &\ Sequencer\ Abstraction
-20 12 0 14 #dcdcdc #404040 0;
-#N canvas 420 38 426 125 Make 0;
+#X text 82 84 <- open this up and have a play \, can we figure it out?, f 38;
+#X obj 5 142 cnv 15 374 24 empty empty 7.2:\ Make\ Stepper\ &\ Sequencer\ Abstraction 20 12 0 14 #dcdcdc #404040 0;
+#N canvas 420 38 473 270 Make 0;
 #X obj 6 74 stepper;
-#X obj 2 2 cnv 15 420 24 empty empty 7.2:\ Make\ Stepper\ &\ Sequencer\ Abstraction
-20 12 0 14 #dcdcdc #404040 0;
-#X text 6 34 Open this up to take a look \, it's a reusable version
-of the previous examples stepper \, lets copy it!;
+#X obj 2 2 cnv 15 420 24 empty empty 7.2:\ Make\ Stepper\ &\ Sequencer\ Abstraction 20 12 0 14 #dcdcdc #404040 0;
+#X text 6 34 Open this up to take a look \, it's a reusable version of the previous examples stepper \, lets copy it!;
 #X restore 5 171 pd Make a Stepper Abstraction;
-#N canvas 270 53 385 252 Make 0;
-#X obj 7 76 stepper;
-#X text 130 126 start point;
-#X floatatom 7 128 5 0 0 0 - - -, f 5;
-#X text 46 128 count;
-#X obj 7 154 seqWBangs;
-#X floatatom 90 127 5 0 0 0 - - -, f 5;
-#X obj 5 2 cnv 15 374 24 empty empty 7.2:\ Make\ Stepper\ &\ Sequencer\ Abstraction
-20 12 0 14 #dcdcdc #404040 0;
-#X text 5 33 Now we have the stepper done \, lets do the same for a
-sequencer;
+#N canvas 270 53 385 252 Make 1;
+#X obj 7 66 stepper;
+#X text 130 146 start point;
+#X floatatom 7 148 5 0 0 0 - - - 0;
+#X text 46 148 count;
+#X floatatom 90 147 5 0 0 0 - - - 0;
+#X obj 5 2 cnv 15 374 24 empty empty 7.2:\ Make\ Stepper\ &\ Sequencer\ Abstraction 20 12 0 14 #dcdcdc #404040 0;
+#X text 5 33 Now we have the stepper done \, lets do the same for a sequencer;
 #X connect 0 0 2 0;
-#X connect 2 0 4 0;
-#X connect 5 0 4 1;
 #X restore 5 196 pd Make a Sequencer Abstraction;
-#X obj 5 236 cnv 15 374 24 empty empty 7.3:\ Add\ Some\ Sounds 20 12
-0 14 #dcdcdc #404040 0;
+#X obj 5 236 cnv 15 374 24 empty empty 7.3:\ Add\ Some\ Sounds 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 223 83 644 446 Putting 0;
-#X obj 2 2 cnv 15 637 24 empty empty 7.3:\ Add\ Some\ Sounds 20 12
-0 14 #dcdcdc #404040 0;
-#X text 6 80 2 - connect the stepper to the three sequencer objects
-, f 27;
-#X text 6 125 3 - create some precussion sounds: [simpleHat~] \, [simpleSnare~]
-and [simpleKick~], f 27;
+#X obj 2 2 cnv 15 637 24 empty empty 7.3:\ Add\ Some\ Sounds 20 12 0 14 #dcdcdc #404040 0;
+#X text 6 80 2 - connect the stepper to the three sequencer objects, f 27;
+#X text 6 125 3 - create some precussion sounds: [simpleHat~] \, [simpleSnare~] and [simpleKick~], f 27;
 #X text 6 35 1 - create a stepper and 3 sequencers, f 27;
-#X text 6 202 4 - connect these to make a simple drum sequencer, f
-27;
-#X text 6 247 5 - extra: add a volume control for each sound, f 27
-;
+#X text 6 202 4 - connect these to make a simple drum sequencer, f 27;
+#X text 6 247 5 - extra: add a volume control for each sound, f 27;
 #X restore 5 268 pd Putting these abstractions to use!;
-#X obj 396 141 cnv 15 376 25 empty empty 7.5:\ Create\ a\ synth 20
-12 0 14 #dcdcdc #404040 0;
-#X obj 396 51 cnv 15 376 25 empty empty 7.4:\ Presets 20 12 0 14 #dcdcdc
-#404040 0;
+#X obj 396 141 cnv 15 376 25 empty empty 7.5:\ Create\ a\ synth 20 12 0 14 #dcdcdc #404040 0;
+#X obj 396 51 cnv 15 376 25 empty empty 7.4:\ Presets 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 179 30 800 728 add 0;
-#X obj 4 179 hsl 128 15 0 127 0 0 7.4sliderSend1 7.4slider1 empty -2
--8 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 275 179 hsl 128 15 0 127 0 0 7.4sliderSend3 7.4slider3 empty
--2 -8 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 411 179 hsl 128 15 0 127 0 0 7.4sliderSend4 7.4slider4 empty
--2 -8 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 139 179 hsl 128 15 0 127 0 0 7.4sliderSend2 7.4slider2 empty
--2 -8 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 2 3 cnv 15 795 24 empty empty 7.4:\ Creating\ a\ Preset\ System
-20 12 0 14 #dcdcdc #404040 0;
-#X msg 6 60 \; 7.4slider1 64 \; 7.4slider2 12 \; 7.4slider3 127 \;
-7.4slider4 88 \;;
-#X floatatom 4 203 5 0 0 0 - - -, f 5;
-#X floatatom 139 203 5 0 0 0 - - -, f 5;
-#X floatatom 275 203 5 0 0 0 - - -, f 5;
-#X floatatom 411 203 5 0 0 0 - - -, f 5;
-#X text 134 53 We can use special messages in pure data beginning with
-a semicolon to send messages to any receives in (or hidden within)
-the patch., f 67;
-#X obj 6 35 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X text 5 239 Here are some more \, controlled with a radio control
-object and [sel];
-#X obj 5 283 vradio 30 0 0 3 empty empty empty 0 -8 0 10 #fcfcfc #000000
-#000000 0;
+#X obj 4 179 hsl 128 15 0 127 0 0 7.4sliderSend1 7.4slider1 empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 275 179 hsl 128 15 0 127 0 0 7.4sliderSend3 7.4slider3 empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 411 179 hsl 128 15 0 127 0 0 7.4sliderSend4 7.4slider4 empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 139 179 hsl 128 15 0 127 0 0 7.4sliderSend2 7.4slider2 empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 2 3 cnv 15 795 24 empty empty 7.4:\ Creating\ a\ Preset\ System 20 12 0 14 #dcdcdc #404040 0;
+#X msg 6 60 \; 7.4slider1 64 \; 7.4slider2 12 \; 7.4slider3 127 \; 7.4slider4 88 \;;
+#X floatatom 4 203 5 0 0 0 - - - 0;
+#X floatatom 139 203 5 0 0 0 - - - 0;
+#X floatatom 275 203 5 0 0 0 - - - 0;
+#X floatatom 411 203 5 0 0 0 - - - 0;
+#X text 134 53 We can use special messages in pure data beginning with a semicolon to send messages to any receives in (or hidden within) the patch., f 67;
+#X obj 6 35 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X text 5 239 Here are some more \, controlled with a radio control object and [sel];
+#X obj 5 283 vradio 30 0 0 3 empty empty empty 0 -8 0 10 #fcfcfc #000000 #000000 0;
 #X text 39 286 All Maxed Out;
 #X text 39 317 All Zero;
-#X msg 5 427 \; 7.4slider1 127 \; 7.4slider2 127 \; 7.4slider3 127
-\; 7.4slider4 127 \;;
-#X msg 129 427 \; 7.4slider1 0 \; 7.4slider2 0 \; 7.4slider3 0 \; 7.4slider4
-0 \;;
+#X msg 5 427 \; 7.4slider1 127 \; 7.4slider2 127 \; 7.4slider3 127 \; 7.4slider4 127 \;;
+#X msg 129 427 \; 7.4slider1 0 \; 7.4slider2 0 \; 7.4slider3 0 \; 7.4slider4 0 \;;
 #X text 39 349 User;
 #X obj 5 388 sel 0 1 2;
-#X text 135 95 In this case \, the message here sends a value to each
-slider by stating the send name and then a value on each line. Right
-click > properties on a slider to see the send/receive names assigned
-to it., f 67;
+#X text 135 95 In this case \, the message here sends a value to each slider by stating the send name and then a value on each line. Right click > properties on a slider to see the send/receive names assigned to it., f 67;
 #X obj 119 554 r 7.4sliderSend1;
 #X obj 240 554 r 7.4sliderSend2;
 #X obj 360 554 r 7.4sliderSend3;
 #X obj 481 554 r 7.4sliderSend4;
 #X obj 101 648 pack 0 0 0 0, f 13;
 #X msg 240 404 127 75 34 93;
-#X msg 240 427 \; 7.4slider1 \$1 \; 7.4slider2 \$2 \; 7.4slider3 \$3
-\; 7.4slider4 \$4 \;;
+#X msg 240 427 \; 7.4slider1 \$1 \; 7.4slider2 \$2 \; 7.4slider3 \$3 \; 7.4slider4 \$4 \;;
 #X obj 101 616 f;
 #X obj 130 616 f;
 #X obj 159 616 f;
 #X obj 188 616 f;
-#X obj 6 589 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 6 589 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 6 554 r 7.4savePreset;
-#X obj 164 288 bng 54 250 50 0 7.4savePreset empty empty 17 7 0 10
-#fcfcfc #000000 #000000;
+#X obj 164 288 bng 54 250 50 0 7.4savePreset empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X text 230 300 <- SAVE USER PRESET WITH CURRENT SLIDER VALUES;
 #X msg 101 675 set \$1 \$2 \$3 \$4;
 #X obj 240 379 r 7.4setUsrPreset;
 #X obj 101 702 s 7.4setUsrPreset;
 #X text 387 379 <- We also have a user-saveable preset!;
-#X text 254 615 Here \, the slider values are stored in [f] objects
-\, and when we want to save a custom preset \, they are packed into
-a list and sent on in a 'set' message. This hard codes the message
-above with our new preset values.;
+#X text 254 615 Here \, the slider values are stored in [f] objects \, and when we want to save a custom preset \, they are packed into a list and sent on in a 'set' message. This hard codes the message above with our new preset values.;
 #X connect 0 0 6 0;
 #X connect 1 0 8 0;
 #X connect 2 0 9 0;
@@ -296,23 +230,12 @@ above with our new preset values.;
 #X connect 37 0 26 0;
 #X restore 397 81 pd add presets and UI to a patch;
 #N canvas 40 25 1331 743 Create 0;
-#X obj 2 2 cnv 15 1323 25 empty empty 7.5:\ Create\ a\ synth 20 12
-0 14 #dcdcdc #404040 0;
-#X text 4 32 With the time left \, lets try to implement some or all
-of the following..., f 74;
-#X text 5 235 3 - Add a preset system for the top-level controls with
-fixed presets;
+#X obj 2 2 cnv 15 1323 25 empty empty 7.5:\ Create\ a\ synth 20 12 0 14 #dcdcdc #404040 0;
+#X text 4 32 With the time left \, lets try to implement some or all of the following..., f 74;
+#X text 5 235 3 - Add a preset system for the top-level controls with fixed presets;
 #X text 5 280 4 - Add a user-customisable preset to the patch.;
-#X text 5 64 1 - Go in and edit the FMvoiceADSR~ (or equivalent) synth
-so that we can choose the carrier and modulator waveforms. We'll need
-to add/change things on multiple layers of abstractions to do this.
-;
-#X text 5 141 2 - Start by creating a version of the FMvoiceADSR synth
-from last week \, with poly \, clone \, and sliders set with appropriate
-values. This time \, though \, we'll use either the more complex FM
-synth from step 1 \, or the [FMcomplexVoice~] abstraction.;
-#X text 5 309 5 - Turn this and the 3-drum sequencer into abstractions.
-;
-#X text 6 338 6 - Add these into a new patch that features just the
-UI of these two abstractions.;
+#X text 5 64 1 - Go in and edit the FMvoiceADSR~ (or equivalent) synth so that we can choose the carrier and modulator waveforms. We'll need to add/change things on multiple layers of abstractions to do this.;
+#X text 5 141 2 - Start by creating a version of the FMvoiceADSR synth from last week \, with poly \, clone \, and sliders set with appropriate values. This time \, though \, we'll use either the more complex FM synth from step 1 \, or the [FMcomplexVoice~] abstraction.;
+#X text 5 309 5 - Turn this and the 3-drum sequencer into abstractions.;
+#X text 6 338 6 - Add these into a new patch that features just the UI of these two abstractions.;
 #X restore 397 171 pd Create a synth;

@@ -1,0 +1,16 @@
+#N canvas 401 126 961 618 12;
+#X obj 5 4 cnv 15 291 25 empty empty 3.3:\ Make\ a\ Partial\ Abstraction 20 12 0 14 #dcdcdc #404040 0;
+#X text 5 36 To make it easer to make additive synths \, and explore how we can construct sounds from pure tones \, we'll make a partial abstraction here:;
+#X floatatom 67 147 5 0 0 0 - - - 0;
+#X text 179 125 freq multiplier;
+#X floatatom 179 147 5 0 0 0 - - - 0;
+#X text 327 125 phase;
+#X floatatom 327 147 5 0 0 0 - - - 0;
+#X text 179 93 INPUTS;
+#X text 189 523 OUTPUTS;
+#X floatatom 417 147 5 0 0 0 - - - 0;
+#X text 417 125 amplitude;
+#X obj 67 171 sig~;
+#X text 67 125 frequency~;
+#X text 183 500 Sound Out~;
+#X connect 2 0 11 0;

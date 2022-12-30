@@ -1,0 +1,8 @@
+#N canvas 130 68 1074 707 12;
+#X obj 3 4 cnv 15 380 25 empty empty 3.5:\ Reproduce\ Waveform\ Examples\ With\ par~ 20 12 0 14 #dcdcdc #404040 0;
+#X obj 5 87 par~ 1 0 1;
+#X text 4 36 Here's the library version of the partial abstraction we made earlier. We can use it to recreate the Sq/Triangle examples.;
+#X obj 4 129 cnv 15 102 25 empty empty Square 20 12 0 14 #dcdcdc #404040 0;
+#X obj 521 129 cnv 15 102 25 empty empty Triangle 20 12 0 14 #dcdcdc #404040 0;
+#X text 5 160 Odd harmonics \, phase 0.75 \, amp 1/n;
+#X text 521 160 Odd harmonics \, phase 0.75 \, amp 1/n^2;

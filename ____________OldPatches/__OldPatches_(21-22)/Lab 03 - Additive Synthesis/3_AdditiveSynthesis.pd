@@ -1,26 +1,21 @@
-#N canvas 50 34 919 331 10;
+#N canvas 53 -760 919 331 10;
 #N canvas 0 22 1313 577 simple_sqaure 0;
-#X obj 10 11 cnv 15 200 25 empty empty Simple_Square_Wave 20 12 0 14
-#e0e0e0 #404040 0;
+#X obj 10 11 cnv 15 200 25 empty empty Simple_Square_Wave 20 12 0 14 #e0e0e0 #404040 0;
 #X obj 469 95 mtof;
 #X obj 469 117 s sqFreq;
 #X obj 543 118 s reset;
 #X obj 469 73 t f b;
 #X obj 469 14 loadbang;
-#X text 525 14 <--- loadbang sends out a bang as soon as the patch
-opens.;
-#X text 555 26 This is useful for setting initial values for objects
-;
+#X text 525 14 <--- loadbang sends out a bang as soon as the patch opens.;
+#X text 555 26 This is useful for setting initial values for objects;
 #X text 601 117 <--- the [s ] objects send data 'wirelessly';
 #X text 631 132 to [r ] objects with the same name;
-#X obj 11 188 cnv 15 250 220 empty empty Fundamental_(1st_Partial)
-20 12 0 12 #dcdcdc #404040 0;
+#X obj 11 188 cnv 15 250 220 empty empty Fundamental_(1st_Partial) 20 12 0 12 #dcdcdc #404040 0;
 #X obj 27 229 r sqFreq;
 #X obj 83 229 r reset;
 #X obj 27 350 osc~;
 #X msg 48 293 0.75;
-#X obj 271 188 cnv 15 250 220 empty empty 2nd_Partial 20 12 0 12 #dcdcdc
-#404040 0;
+#X obj 271 188 cnv 15 250 220 empty empty 2nd_Partial 20 12 0 12 #dcdcdc #404040 0;
 #X obj 287 229 r sqFreq;
 #X obj 343 229 r reset;
 #X obj 287 350 osc~;
@@ -41,35 +36,26 @@ opens.;
 #X text 81 351 <---;
 #X text 81 292 <---;
 #X text 111 383 to see more about this;
-#X obj 531 188 cnv 15 250 220 empty empty 3rd_Partial 20 12 0 12 #dcdcdc
-#404040 0;
-#X obj 791 188 cnv 15 250 220 empty empty 4th_Partial 20 12 0 12 #dcdcdc
-#404040 0;
-#X obj 1051 188 cnv 15 250 220 empty empty 5th_Partial 20 12 0 12 #dcdcdc
-#404040 0;
-#X text 269 144 From here \, each partial has a successive odd-numbered
-multiple of the fundamental frequency \, and an amplitude of 1/"odd
-number" ---------->>;
+#X obj 531 188 cnv 15 250 220 empty empty 3rd_Partial 20 12 0 12 #dcdcdc #404040 0;
+#X obj 791 188 cnv 15 250 220 empty empty 4th_Partial 20 12 0 12 #dcdcdc #404040 0;
+#X obj 1051 188 cnv 15 250 220 empty empty 5th_Partial 20 12 0 12 #dcdcdc #404040 0;
+#X text 269 144 From here \, each partial has a successive odd-numbered multiple of the fundamental frequency \, and an amplitude of 1/"odd number" ---------->>;
 #X obj 27 447 clip~ -1 1;
-#X text 634 144 If you prefer a formula \, each partial has frequency:
-f=fundamental*n \, and amplitude: a=1/n;
+#X text 634 144 If you prefer a formula \, each partial has frequency: f=fundamental*n \, and amplitude: a=1/n;
 #N canvas 0 22 450 300 (subpatch) 0;
-#X array sqWave 512 float 4 black black;
+#X array sqWave 512 float 4;
 #X coords 0 1 511 -1 200 100 1;
 #X restore 440 463 graph;
-#X obj 292 457 tgl 15 1 empty empty SEE_WAVEFORM 0 -6 0 10 #fcfcfc
-#000000 #000000 1 1;
+#X obj 292 457 tgl 15 1 empty empty SEE_WAVEFORM 0 -6 0 10 #fcfcfc #000000 #000000 1 1;
 #X text 422 553 -1;
 #X text 428 507 0;
 #X text 428 457 1;
 #X obj 292 503 tabwrite~ sqWave;
-#X obj 469 33 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 469 33 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X msg 469 51 60;
 #X obj 27 329 * 1;
 #X obj 27 428 *~ 0.5;
-#X obj 408 293 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number
-0 -8 0 10 #fcfcfc #000000 #000000 3 256 0;
+#X obj 408 293 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number 0 -8 0 10 #fcfcfc #000000 #000000 3 256;
 #X obj 547 229 r sqFreq;
 #X obj 603 229 r reset;
 #X obj 547 350 osc~;
@@ -79,8 +65,7 @@ f=fundamental*n \, and amplitude: a=1/n;
 #X msg 623 293 1;
 #X msg 568 293 0.75;
 #X obj 604 251 t b b b;
-#X obj 668 293 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number
-0 -8 0 10 #fcfcfc #000000 #000000 5 256 0;
+#X obj 668 293 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number 0 -8 0 10 #fcfcfc #000000 #000000 5 256;
 #X obj 807 229 r sqFreq;
 #X obj 863 229 r reset;
 #X obj 807 350 osc~;
@@ -90,8 +75,7 @@ f=fundamental*n \, and amplitude: a=1/n;
 #X msg 883 293 1;
 #X msg 828 293 0.75;
 #X obj 864 251 t b b b;
-#X obj 938 293 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number
-0 -8 0 10 #fcfcfc #000000 #000000 7 256 0;
+#X obj 938 293 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number 0 -8 0 10 #fcfcfc #000000 #000000 7 256;
 #X obj 1067 229 r sqFreq;
 #X obj 1123 229 r reset;
 #X obj 1067 350 osc~;
@@ -101,21 +85,13 @@ f=fundamental*n \, and amplitude: a=1/n;
 #X msg 1143 293 1;
 #X msg 1088 293 0.75;
 #X obj 1124 251 t b b b;
-#X obj 1188 293 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number
-0 -8 0 10 #fcfcfc #000000 #000000 9 256 0;
-#X text 12 43 By adding pure sine tones together \, we can make other
-\, more complex waveforms. In this example we use seven sinewave oscilators
-to synthesise a square wave. Each sinewave component \, or partial
-is also scaled according to its partial number \, the multiple of the
-original frequency. In this case \, we add odd numbered harmonics together
-to get an approximate square wave.;
+#X obj 1188 293 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number 0 -8 0 10 #fcfcfc #000000 #000000 9 256;
+#X text 12 43 By adding pure sine tones together \, we can make other \, more complex waveforms. In this example we use seven sinewave oscilators to synthesise a square wave. Each sinewave component \, or partial is also scaled according to its partial number \, the multiple of the original frequency. In this case \, we add odd numbered harmonics together to get an approximate square wave.;
 #X obj 292 480 metro 250;
 #X text 112 307 to ensure they;
 #X text 111 358 not something else.;
 #X text 111 370 Open [pd moreOnPhase];
-#X text 652 500 <--- you can see this isn't a perfect square wave \,
-but its close. Adding in more odd-numbered harmonics would improve
-this further.;
+#X text 652 500 <--- you can see this isn't a perfect square wave \, but its close. Adding in more odd-numbered harmonics would improve this further.;
 #X obj 27 497 output~;
 #X connect 1 0 2 0;
 #X connect 4 0 1 0;
@@ -188,21 +164,17 @@ this further.;
 #X connect 84 0 47 0;
 #X restore 512 96 pd simple_sqaure;
 #N canvas 54 22 1145 596 simple-triangle 0;
-#X obj 10 11 cnv 15 200 25 empty empty Simple_Triangle_Wave 20 12 0
-14 #e0e0e0 #404040 0;
+#X obj 10 11 cnv 15 200 25 empty empty Simple_Triangle_Wave 20 12 0 14 #e0e0e0 #404040 0;
 #X obj 409 86 mtof;
 #X obj 483 89 s reset;
 #X obj 409 64 t f b;
 #X obj 409 5 loadbang;
-#X obj 409 24 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 409 24 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X msg 409 42 60;
-#X obj 11 187 cnv 15 200 220 empty empty Fundamental_(1st_Partial)
-20 12 0 12 #dcdcdc #404040 0;
+#X obj 11 187 cnv 15 200 220 empty empty Fundamental_(1st_Partial) 20 12 0 12 #dcdcdc #404040 0;
 #X obj 83 228 r reset;
 #X obj 27 349 osc~;
-#X obj 221 187 cnv 15 220 220 empty empty 2nd_Partial 20 12 0 12 #dcdcdc
-#404040 0;
+#X obj 221 187 cnv 15 220 220 empty empty 2nd_Partial 20 12 0 12 #dcdcdc #404040 0;
 #X obj 293 218 r reset;
 #X obj 237 349 osc~;
 #X obj 293 358 /;
@@ -213,18 +185,16 @@ this further.;
 #X obj 27 381 *~ 1;
 #X obj 27 466 clip~ -1 1;
 #N canvas 0 22 450 300 (subpatch) 0;
-#X array triWave 512 float 4 black black;
+#X array triWave 512 float 4;
 #X coords 0 1 511 -1 200 100 1;
 #X restore 440 462 graph;
-#X obj 292 476 tgl 15 1 empty empty SEE_WAVEFORM 0 -6 0 10 #fcfcfc
-#000000 #000000 1 1;
+#X obj 292 476 tgl 15 1 empty empty SEE_WAVEFORM 0 -6 0 10 #fcfcfc #000000 #000000 1 1;
 #X text 422 552 -1;
 #X text 428 506 0;
 #X text 428 456 1;
 #X obj 27 328 * 1;
 #X obj 27 447 *~ 0.5;
-#X obj 348 292 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number
-0 -8 0 10 #fcfcfc #000000 #000000 3 256 0;
+#X obj 348 292 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number 0 -8 0 10 #fcfcfc #000000 #000000 3 256;
 #X obj 292 499 metro 250;
 #X obj 409 108 s triFreq;
 #X obj 27 228 r triFreq;
@@ -232,8 +202,7 @@ this further.;
 #X obj 292 522 tabwrite~ triWave;
 #X obj 328 311 t f f;
 #X obj 328 330 *;
-#X obj 451 187 cnv 15 220 220 empty empty 3rd_Partial 20 12 0 12 #dcdcdc
-#404040 0;
+#X obj 451 187 cnv 15 220 220 empty empty 3rd_Partial 20 12 0 12 #dcdcdc #404040 0;
 #X obj 523 218 r reset;
 #X obj 467 349 osc~;
 #X obj 523 358 /;
@@ -241,13 +210,11 @@ this further.;
 #X obj 467 328 *;
 #X msg 523 292 1;
 #X obj 523 240 t b b b;
-#X obj 578 292 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number
-0 -8 0 10 #fcfcfc #000000 #000000 5 256 0;
+#X obj 578 292 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number 0 -8 0 10 #fcfcfc #000000 #000000 5 256;
 #X obj 467 218 r triFreq;
 #X obj 558 311 t f f;
 #X obj 558 330 *;
-#X obj 681 187 cnv 15 220 220 empty empty 4th_Partial 20 12 0 12 #dcdcdc
-#404040 0;
+#X obj 681 187 cnv 15 220 220 empty empty 4th_Partial 20 12 0 12 #dcdcdc #404040 0;
 #X obj 753 218 r reset;
 #X obj 697 349 osc~;
 #X obj 753 358 /;
@@ -255,13 +222,11 @@ this further.;
 #X obj 697 328 *;
 #X msg 753 292 1;
 #X obj 753 240 t b b b;
-#X obj 808 292 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number
-0 -8 0 10 #fcfcfc #000000 #000000 7 256 0;
+#X obj 808 292 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number 0 -8 0 10 #fcfcfc #000000 #000000 7 256;
 #X obj 697 218 r triFreq;
 #X obj 788 311 t f f;
 #X obj 788 330 *;
-#X obj 911 187 cnv 15 220 220 empty empty 5th_Partial 20 12 0 12 #dcdcdc
-#404040 0;
+#X obj 911 187 cnv 15 220 220 empty empty 5th_Partial 20 12 0 12 #dcdcdc #404040 0;
 #X obj 983 218 r reset;
 #X obj 927 349 osc~;
 #X obj 983 358 /;
@@ -269,30 +234,20 @@ this further.;
 #X obj 927 328 *;
 #X msg 983 292 1;
 #X obj 983 240 t b b b;
-#X obj 1038 292 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number
-0 -8 0 10 #fcfcfc #000000 #000000 9 256 0;
+#X obj 1038 292 nbx 5 14 -1e+37 1e+37 0 1 empty empty harmonic_number 0 -8 0 10 #fcfcfc #000000 #000000 9 256;
 #X obj 927 218 r triFreq;
 #X obj 1018 311 t f f;
 #X obj 1018 330 *;
 #X msg 48 292 0;
 #X msg 258 292 0;
-#X text 12 43 This example works in a very similar way to the previous
-square wave example. The formula for each partial's amplitude is slightly
-different \, and the phase of each oscilator is set to 0 \, resulting
-in a triangular \, rather than square waveform.;
+#X text 12 43 This example works in a very similar way to the previous square wave example. The formula for each partial's amplitude is slightly different \, and the phase of each oscilator is set to 0 \, resulting in a triangular \, rather than square waveform.;
 #X msg 488 292 0;
 #X msg 718 292 0;
 #X msg 948 292 0;
 #X text 681 27 N.B.;
-#X text 229 144 From here \, each partial has a successive odd-numbered
-multiple of the fundamental frequency \, and an amplitude of 1/"odd
-number squared" ---------->>;
-#X text 594 144 If you prefer a formula \, each partial has frequency:
-f=fundamental*n \, and amplitude: a=1/(n^2);
-#X text 716 26 if you checked out the [moreOnPhase] subpatch in the
-previous example \, you may have noticed this example uses the [osc~]
-objects with phase 0 \, meaning we are summing cosine waves and not
-sine waves.;
+#X text 229 144 From here \, each partial has a successive odd-numbered multiple of the fundamental frequency \, and an amplitude of 1/"odd number squared" ---------->>;
+#X text 594 144 If you prefer a formula \, each partial has frequency: f=fundamental*n \, and amplitude: a=1/(n^2);
+#X text 716 26 if you checked out the [moreOnPhase] subpatch in the previous example \, you may have noticed this example uses the [osc~] objects with phase 0 \, meaning we are summing cosine waves and not sine waves.;
 #X obj 27 521 output~;
 #X connect 1 0 29 0;
 #X connect 3 0 1 0;
@@ -379,75 +334,39 @@ sine waves.;
 #N canvas 37 25 1150 733 send_receive_throw_catch 0;
 #X obj 814 643 *~ 0.5;
 #X obj 814 696 dac~;
-#X obj 10 11 cnv 15 246 25 empty empty "Wireless"\ Patching\ in\ Pd
-20 12 0 14 #e0e0e0 #404040 0;
-#X text 12 42 Soon after some introductory patching \, a Pd user will
-soon discover the slight inconvenience of connection lines running
-over objects to reach other objects. Most likely you will end up with
-a mess of Pd spaghetti at some point.;
-#X text 12 99 Luckily \, there's a solution. Using the send and receive
-objects ( [s] & [r] ) data can be sent from one part of the patch to
-another without connecting lines. These objects can also send data
-to other windows. The send and receive objects need an argument to
-identify each other. This argument is usually in the form of a word.
-;
-#X obj 14 182 cnv 15 200 25 empty empty Sending\ Control\ Data: 20
-12 0 12 #dcdcdc #404040 0;
-#X obj 264 182 cnv 15 200 25 empty empty Sending\ Audio\ Signals 20
-12 0 12 #dcdcdc #404040 0;
+#X obj 10 11 cnv 15 246 25 empty empty "Wireless"\ Patching\ in\ Pd 20 12 0 14 #e0e0e0 #404040 0;
+#X text 12 42 Soon after some introductory patching \, a Pd user will soon discover the slight inconvenience of connection lines running over objects to reach other objects. Most likely you will end up with a mess of Pd spaghetti at some point.;
+#X text 12 99 Luckily \, there's a solution. Using the send and receive objects ( [s] & [r] ) data can be sent from one part of the patch to another without connecting lines. These objects can also send data to other windows. The send and receive objects need an argument to identify each other. This argument is usually in the form of a word.;
+#X obj 14 182 cnv 15 200 25 empty empty Sending\ Control\ Data: 20 12 0 12 #dcdcdc #404040 0;
+#X obj 264 182 cnv 15 200 25 empty empty Sending\ Audio\ Signals 20 12 0 12 #dcdcdc #404040 0;
 #N canvas 0 22 450 278 (subpatch) 0;
-#X array one2many 128 float 3 black black;
-#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X array one2many 128 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 #X coords 0 1 128 -1 200 140 1;
 #X restore 456 302 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
-#X array many2master 512 float 3 black black;
-#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0;
+#X array many2master 512 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 #X coords 0 1 512 -1 200 140 1;
 #X restore 889 574 graph;
 #X obj 677 552 catch~ many-to-master;
-#X text 391 219 To send audio signals wirelessly \, we can use [s~]
-and [r~] \, but there are some slight complications with this method.
-The audio version of [s]&[r] can only have one send - [s~] - going
-to multiple receives - [r~].;
+#X text 391 219 To send audio signals wirelessly \, we can use [s~] and [r~] \, but there are some slight complications with this method. The audio version of [s]&[r] can only have one send - [s~] - going to multiple receives - [r~].;
 #X obj 677 694 tabwrite~ many2master;
 #X obj 814 618 *~;
-#X obj 8 281 cnv 15 50 80 empty empty empty 20 12 0 14 #ececec #404040
-0;
-#X floatatom 14 371 5 0 0 0 - - -, f 5;
+#X obj 8 281 cnv 15 50 80 empty empty empty 20 12 0 14 #ececec #404040 0;
+#X floatatom 14 371 5 0 0 0 - - - 0;
 #X obj 15 253 mtof;
 #X text 86 299 object with the argument \,;
 #X text 86 312 osc;
 #X text 56 339 <--- as you can see here!;
-#X obj 15 222 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
-#fcfcfc #000000 #000000 45 256 0;
+#X obj 15 222 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10 #fcfcfc #000000 #000000 45 256;
 #X text 56 286 <--- send frequency to an [r];
-#X obj 259 347 cnv 15 100 55 empty empty empty 20 12 0 14 #ececec #404040
-0;
+#X obj 259 347 cnv 15 100 55 empty empty empty 20 12 0 14 #ececec #404040 0;
 #X obj 264 353 s~ one-to-many;
 #X obj 264 379 r~ one-to-many;
 #X obj 264 247 t b b;
 #X msg 264 288 0 1000;
-#X obj 264 224 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
+#X obj 264 224 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 264 314 line~;
 #X obj 264 423 tabwrite~ one2many;
 #X msg 393 384 1;
@@ -455,25 +374,19 @@ to multiple receives - [r~].;
 #X obj 264 267 del 50;
 #X msg 331 288 0.5 50;
 #X obj 393 402 metro 25;
-#X obj 890 267 cnv 15 125 55 empty empty empty 20 12 0 14 #ececec #404040
-0;
+#X obj 890 267 cnv 15 125 55 empty empty empty 20 12 0 14 #ececec #404040 0;
 #X obj 897 273 throw~ many-to-one;
 #X obj 896 299 catch~ many-to-one;
-#X text 783 218 In cases where we need to do the opposite - send many
-sources to one receive - we can use [throw~] and [catch~];
-#X text 783 339 To see these in action \, have a look at the example
-below...;
-#X obj 14 482 cnv 15 300 25 empty empty Example\ using\ s/r\ s~/r~\ throw~/catch~
-20 12 0 12 #dcdcdc #404040 0;
-#X obj 829 517 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#X text 783 218 In cases where we need to do the opposite - send many sources to one receive - we can use [throw~] and [catch~];
+#X text 783 339 To see these in action \, have a look at the example below...;
+#X obj 14 482 cnv 15 300 25 empty empty Example\ using\ s/r\ s~/r~\ throw~/catch~ 20 12 0 12 #dcdcdc #404040 0;
+#X obj 829 517 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 814 664 clip~ -1 1;
 #X msg 758 643 1;
 #X obj 758 619 loadbang;
 #X obj 758 664 metro 25;
 #X msg 14 580 0 1000;
-#X obj 14 516 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 14 516 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 14 606 line~;
 #X obj 14 559 del 50;
 #X msg 81 580 0.5 50;
@@ -484,8 +397,7 @@ below...;
 #X obj 238 612 * 1;
 #X obj 238 654 *~ 1;
 #X obj 144 581 mtof;
-#X obj 144 560 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
-#fcfcfc #000000 #000000 60 256 0;
+#X obj 144 560 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10 #fcfcfc #000000 #000000 60 256;
 #X obj 14 539 t b b b;
 #X obj 144 604 s oscFreq;
 #X obj 15 286 s freq;
@@ -571,13 +483,10 @@ below...;
 #X connect 82 0 79 0;
 #X connect 83 0 82 0;
 #X restore 9 100 pd send_receive_throw_catch;
-#X obj 9 9 cnv 15 901 42 empty empty Lab3\ Additive\ Synthesis 20 12
-0 20 #e0e0e0 #404040 0;
-#X obj 8 63 cnv 15 270 25 empty empty 3.1:\ Sends\ &\ Receives 20 12
-0 14 #dcdcdc #404040 0;
+#X obj 9 9 cnv 15 901 42 empty empty Lab3\ Additive\ Synthesis 20 12 0 20 #e0e0e0 #404040 0;
+#X obj 8 63 cnv 15 270 25 empty empty 3.1:\ Sends\ &\ Receives 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 262 34 991 762 moreOnPhase 0;
-#X obj 10 11 cnv 15 200 25 empty empty More_on_phase 20 12 0 14 #e0e0e0
-#404040 0;
+#X obj 10 11 cnv 15 200 25 empty empty More_on_phase 20 12 0 14 #e0e0e0 #404040 0;
 #N canvas 32 25 352 90 init 0;
 #X obj 10 11 loadbang;
 #X msg 200 34 \; sineWave sinesum 128 1;
@@ -586,86 +495,36 @@ below...;
 #X connect 0 0 1 0;
 #X restore 770 2 pd init;
 #N canvas 0 22 450 278 (subpatch) 0;
-#X array cosineWave 131 float 1 black black;
-#A 0 0.998795 1 0.998795 0.995185 0.989177 0.980785 0.970031 0.95694
-0.941544 0.92388 0.903989 0.881921 0.857729 0.83147 0.803208 0.773011
-0.740952 0.707107 0.671559 0.634394 0.5957 0.555571 0.514103 0.471398
-0.427556 0.382684 0.336891 0.290286 0.242981 0.195091 0.146732 0.0980184
-0.049069 1.32679e-06 -0.0490663 -0.0980157 -0.146729 -0.195089 -0.242979
--0.290283 -0.336888 -0.382682 -0.427554 -0.471395 -0.514101 -0.555569
--0.595698 -0.634392 -0.671557 -0.707105 -0.74095 -0.773009 -0.803206
--0.831468 -0.857727 -0.88192 -0.903988 -0.923879 -0.941543 -0.95694
--0.970031 -0.980785 -0.989176 -0.995184 -0.998795 -1 -0.998796 -0.995185
--0.989177 -0.980786 -0.970032 -0.956941 -0.941545 -0.923881 -0.903991
--0.881923 -0.85773 -0.831471 -0.803209 -0.773013 -0.740953 -0.707109
--0.671561 -0.634396 -0.595702 -0.555573 -0.514106 -0.4714 -0.427558
--0.382687 -0.336893 -0.290288 -0.242984 -0.195094 -0.146734 -0.098021
--0.0490716 -3.98038e-06 0.0490637 0.0980131 0.146726 0.195086 0.242976
-0.290281 0.336886 0.382679 0.427551 0.471393 0.514099 0.555566 0.595696
-0.63439 0.671556 0.707103 0.740948 0.773007 0.803205 0.831467 0.857726
-0.881919 0.903987 0.923878 0.941542 0.956939 0.97003 0.980784 0.989176
-0.995184 0.998795 1 0.998796;
+#X array cosineWave 131 float 1;
+#A 0 0.998795 1 0.998795 0.995185 0.989177 0.980785 0.970031 0.95694 0.941544 0.92388 0.903989 0.881921 0.857729 0.83147 0.803208 0.773011 0.740952 0.707107 0.671559 0.634394 0.5957 0.555571 0.514103 0.471398 0.427556 0.382684 0.336891 0.290286 0.242981 0.195091 0.146732 0.0980184 0.049069 1.32679e-06 -0.0490663 -0.0980157 -0.146729 -0.195089 -0.242979 -0.290283 -0.336888 -0.382682 -0.427554 -0.471395 -0.514101 -0.555569 -0.595698 -0.634392 -0.671557 -0.707105 -0.74095 -0.773009 -0.803206 -0.831468 -0.857727 -0.88192 -0.903988 -0.923879 -0.941543 -0.95694 -0.970031 -0.980785 -0.989176 -0.995184 -0.998795 -1 -0.998796 -0.995185 -0.989177 -0.980786 -0.970032 -0.956941 -0.941545 -0.923881 -0.903991 -0.881923 -0.85773 -0.831471 -0.803209 -0.773013 -0.740953 -0.707109 -0.671561 -0.634396 -0.595702 -0.555573 -0.514106 -0.4714 -0.427558 -0.382687 -0.336893 -0.290288 -0.242984 -0.195094 -0.146734 -0.098021 -0.0490716 -3.98038e-06 0.0490637 0.0980131 0.146726 0.195086 0.242976 0.290281 0.336886 0.382679 0.427551 0.471393 0.514099 0.555566 0.595696 0.63439 0.671556 0.707103 0.740948 0.773007 0.803205 0.831467 0.857726 0.881919 0.903987 0.923878 0.941542 0.956939 0.97003 0.980784 0.989176 0.995184 0.998795 1 0.998796;
 #X coords 0 1 130 -1 200 140 1;
 #X restore 397 39 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
-#X array sineWave 131 float 1 black black;
-#A 0 -0.0490676 0 0.0490676 0.0980171 0.14673 0.19509 0.24298 0.290284
-0.33689 0.382683 0.427555 0.471396 0.514102 0.55557 0.595699 0.634393
-0.671558 0.707106 0.740951 0.77301 0.803207 0.831469 0.857728 0.881921
-0.903989 0.923879 0.941544 0.95694 0.970031 0.980785 0.989176 0.995185
-0.998795 1 0.998796 0.995185 0.989177 0.980786 0.970032 0.956941 0.941545
-0.92388 0.90399 0.881922 0.85773 0.831471 0.803209 0.773012 0.740952
-0.707108 0.67156 0.634395 0.595701 0.555572 0.514105 0.471399 0.427557
-0.382686 0.336892 0.290287 0.242983 0.195093 0.146733 0.0980197 0.0490703
-2.65359e-06 -0.049065 -0.0980144 -0.146728 -0.195088 -0.242977 -0.290282
--0.336887 -0.382681 -0.427552 -0.471394 -0.5141 -0.555568 -0.595697
--0.634391 -0.671557 -0.707104 -0.740949 -0.773008 -0.803205 -0.831468
--0.857727 -0.88192 -0.903988 -0.923878 -0.941543 -0.956939 -0.97003
--0.980785 -0.989176 -0.995184 -0.998795 -1 -0.998796 -0.995185 -0.989177
--0.980786 -0.970032 -0.956942 -0.941545 -0.923881 -0.903991 -0.881923
--0.857731 -0.831472 -0.80321 -0.773013 -0.740954 -0.70711 -0.671562
--0.634397 -0.595703 -0.555574 -0.514107 -0.471401 -0.42756 -0.382688
--0.336895 -0.29029 -0.242985 -0.195095 -0.146736 -0.0980223 -0.0490729
--5.30718e-06 0.0490623;
+#X array sineWave 131 float 1;
+#A 0 -0.0490676 0 0.0490676 0.0980171 0.14673 0.19509 0.24298 0.290284 0.33689 0.382683 0.427555 0.471396 0.514102 0.55557 0.595699 0.634393 0.671558 0.707106 0.740951 0.77301 0.803207 0.831469 0.857728 0.881921 0.903989 0.923879 0.941544 0.95694 0.970031 0.980785 0.989176 0.995185 0.998795 1 0.998796 0.995185 0.989177 0.980786 0.970032 0.956941 0.941545 0.92388 0.90399 0.881922 0.85773 0.831471 0.803209 0.773012 0.740952 0.707108 0.67156 0.634395 0.595701 0.555572 0.514105 0.471399 0.427557 0.382686 0.336892 0.290287 0.242983 0.195093 0.146733 0.0980197 0.0490703 2.65359e-06 -0.049065 -0.0980144 -0.146728 -0.195088 -0.242977 -0.290282 -0.336887 -0.382681 -0.427552 -0.471394 -0.5141 -0.555568 -0.595697 -0.634391 -0.671557 -0.707104 -0.740949 -0.773008 -0.803205 -0.831468 -0.857727 -0.88192 -0.903988 -0.923878 -0.941543 -0.956939 -0.97003 -0.980785 -0.989176 -0.995184 -0.998795 -1 -0.998796 -0.995185 -0.989177 -0.980786 -0.970032 -0.956942 -0.941545 -0.923881 -0.903991 -0.881923 -0.857731 -0.831472 -0.80321 -0.773013 -0.740954 -0.70711 -0.671562 -0.634397 -0.595703 -0.555574 -0.514107 -0.471401 -0.42756 -0.382688 -0.336895 -0.29029 -0.242985 -0.195095 -0.146736 -0.0980223 -0.0490729 -5.30718e-06 0.0490623;
 #X coords 0 1 130 -1 200 140 1;
 #X restore 616 39 graph;
-#X text 9 76 In this square wave example \, we set the phase of all
-[osc~] objects to 0.75 \, that's three quarters of the way through
-one cycle (3/4 = 0.75).;
-#X text 9 38 By default \, the [osc~] object loops round a cosine wave:
-a wave that starts at 1 \, and oscilates back and forth between 1/-1.
-;
+#X text 9 76 In this square wave example \, we set the phase of all [osc~] objects to 0.75 \, that's three quarters of the way through one cycle (3/4 = 0.75).;
+#X text 9 38 By default \, the [osc~] object loops round a cosine wave: a wave that starts at 1 \, and oscilates back and forth between 1/-1.;
 #X text 387 39 1;
 #X text 387 105 0;
 #X text 381 165 -1;
 #X text 606 39 1;
 #X text 606 105 0;
 #X text 600 165 -1;
-#X text 9 115 So when we set the phase of [osc~] to 0.75 \, the waveform
-starts from 0 \, then ramps up to 1 \, continuing in the same way as
-the cosine waveform. This is a sinewave.;
+#X text 9 115 So when we set the phase of [osc~] to 0.75 \, the waveform starts from 0 \, then ramps up to 1 \, continuing in the same way as the cosine waveform. This is a sinewave.;
 #X text 509 24 [osc~] phase=0;
 #X text 710 24 [osc~] phase=0.75;
-#X text 9 156 We took the trouble to sum sinewaves (not cosines) in
-the previous example so that the resulting waveform looks sqare. in
-practice \, summing cosines in the same way sounds pretty much the
-same \, but isn't as clear visually when graphed. In practice \, it's
-not essential to be specific with sines/cosines \, just make sure you
-sync the [osc~] objects are reset so that they start together.;
+#X text 9 156 We took the trouble to sum sinewaves (not cosines) in the previous example so that the resulting waveform looks sqare. in practice \, summing cosines in the same way sounds pretty much the same \, but isn't as clear visually when graphed. In practice \, it's not essential to be specific with sines/cosines \, just make sure you sync the [osc~] objects are reset so that they start together.;
 #X obj 864 392 s phExAudio;
-#X obj 864 374 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#X obj 864 374 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X text 882 373 <--- HEAR AUDIO;
-#X obj 390 320 bng 30 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
+#X obj 390 320 bng 30 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X msg 390 360 0;
-#X obj 510 320 bng 30 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
+#X obj 510 320 bng 30 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 390 388 s oscPhase;
-#X obj 8 435 cnv 15 970 315 empty empty empty 20 12 0 14 #e0e0e0 #404040
-0;
-#X obj 11 509 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 8 435 cnv 15 970 315 empty empty empty 20 12 0 14 #e0e0e0 #404040 0;
+#X obj 11 509 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X msg 11 528 60;
 #X obj 11 548 t f b;
 #X obj 141 556 osc~;
@@ -724,30 +583,20 @@ sync the [osc~] objects are reset so that they start together.;
 #X msg 888 508 9;
 #X text 10 470 Initialise;
 #X text 137 470 Generate Square Wave;
-#X obj 349 679 tgl 15 1 empty empty SEE_WAVEFORM 0 -6 0 10 #fcfcfc
-#000000 #000000 1 1;
+#X obj 349 679 tgl 15 1 empty empty SEE_WAVEFORM 0 -6 0 10 #fcfcfc #000000 #000000 1 1;
 #X obj 349 702 metro 250;
-#X text 10 439 This looks a bit different \, but is functionally the
-same as the previous squarewave example;
-#X obj 625 263 cnv 15 80 25 empty empty RESULT 20 12 0 12 #e0e0e0 #404040
-0;
+#X text 10 439 This looks a bit different \, but is functionally the same as the previous squarewave example;
+#X obj 625 263 cnv 15 80 25 empty empty RESULT 20 12 0 12 #e0e0e0 #404040 0;
 #X text 508 299 PHASE 0.75 SINE;
 #X text 388 299 PHASE 0: COSINE;
-#X obj 389 263 cnv 15 160 25 empty empty SWITCH_SINE/COSINE 20 12 0
-12 #e0e0e0 #404040 0;
+#X obj 389 263 cnv 15 160 25 empty empty SWITCH_SINE/COSINE 20 12 0 12 #e0e0e0 #404040 0;
 #X msg 510 360 0.75;
-#X obj 9 263 cnv 15 160 25 empty empty SHOULD_I_CARE? 20 12 0 12 #e0e0e0
-#404040 0;
-#X text 9 333 Click on the two bang objects to switch the phases between
-0 and 0.75. The sound shouldn't be significantly different \, but the
-plotted waveform will be.;
-#X text 9 299 It depends \, let's see this at work using the same squarewave
-example:;
-#X text 9 380 One difference that may affect a mix is that the cosine
-version of this patch has higher peaks \, and may give you less headroom
-to work with for the same overall volume.;
+#X obj 9 263 cnv 15 160 25 empty empty SHOULD_I_CARE? 20 12 0 12 #e0e0e0 #404040 0;
+#X text 9 333 Click on the two bang objects to switch the phases between 0 and 0.75. The sound shouldn't be significantly different \, but the plotted waveform will be.;
+#X text 9 299 It depends \, let's see this at work using the same squarewave example:;
+#X text 9 380 One difference that may affect a mix is that the cosine version of this patch has higher peaks \, and may give you less headroom to work with for the same overall volume.;
 #N canvas 0 22 450 300 (subpatch) 0;
-#X array phExSqWave 512 float 4 black black;
+#X array phExSqWave 512 float 4;
 #X coords 0 1 511 -1 200 100 1;
 #X restore 625 308 graph;
 #X text 607 398 -1;
@@ -830,68 +679,50 @@ to work with for the same overall volume.;
 #X text 642 122 Make a triangle wave using additive synthesis;
 #X text 642 96 Make a square wave using additive synthesis;
 #X text 642 148 Some extra detail on phase and [osc~];
-#N canvas 123 54 1172 692 Example1-SoundExplorer 1;
-#X obj 13 87 hsl 120 30 0 128 0 1 empty empty NOTE-SLIDER 5 15 0 16
-#ffffff #000000 #000000 4800 1;
+#N canvas 123 54 1172 692 Example1-SoundExplorer 0;
+#X obj 13 87 hsl 120 30 0 128 0 1 empty empty NOTE-SLIDER 5 15 0 16 #ffffff #000000 #000000 2500 1;
 #X obj 10 121 s ex1NoteSlider;
-#X obj 10 10 cnv 15 320 25 empty empty Example_1:_Additive_Sound_Explorer
-20 12 0 14 #dcdcdc #404040 0;
-#X obj 153 87 hsl 120 30 0 1 0 1 empty empty AMPLITUDE 5 15 0 16 #ffffff
-#000000 #000000 7400 1;
-#X obj 10 204 cnv 15 230 200 empty empty FREQUENCY_MULTIPLIERS 20 12
-0 15 #dcdcdc #404040 0;
-#X obj 25 240 vsl 30 140 1 10 0 1 empty empty PAR-1 0 -9 0 9 #ffffff
-#000000 #000000 0 1;
-#X obj 59 240 vsl 30 140 1 10 0 1 empty empty PAR-2 0 -9 0 9 #ffffff
-#000000 #000000 3100 1;
-#X obj 93 240 vsl 30 140 1 10 0 1 empty empty PAR-3 0 -9 0 9 #ffffff
-#000000 #000000 4700 1;
-#X obj 127 240 vsl 30 140 1 10 0 1 empty empty PAR-4 0 -9 0 9 #ffffff
-#000000 #000000 0 1;
-#X obj 161 240 vsl 30 140 1 10 0 1 empty empty PAR-5 0 -9 0 9 #ffffff
-#000000 #000000 0 1;
-#X obj 195 240 vsl 30 140 1 10 0 1 empty empty PAR-6 0 -9 0 9 #ffffff
-#000000 #000000 0 1;
-#X obj 10 446 cnv 15 230 200 empty empty PARTIAL_AMPLITUDES 20 12 0
-15 #dcdcdc #404040 0;
+#X obj 10 10 cnv 15 320 25 empty empty Example_1:_Additive_Sound_Explorer 20 12 0 14 #dcdcdc #404040 0;
+#X obj 153 87 hsl 120 30 0 1 0 1 empty empty AMPLITUDE 5 15 0 16 #ffffff #000000 #000000 11900 1;
+#X obj 10 204 cnv 15 230 200 empty empty FREQUENCY_MULTIPLIERS 20 12 0 15 #dcdcdc #404040 0;
+#X obj 25 240 vsl 30 140 1 10 0 1 empty empty PAR-1 0 -9 0 9 #ffffff #000000 #000000 0 1;
+#X obj 59 240 vsl 30 140 1 10 0 1 empty empty PAR-2 0 -9 0 9 #ffffff #000000 #000000 1544 1;
+#X obj 93 240 vsl 30 140 1 10 0 1 empty empty PAR-3 0 -9 0 9 #ffffff #000000 #000000 3089 1;
+#X obj 127 240 vsl 30 140 1 10 0 1 empty empty PAR-4 0 -9 0 9 #ffffff #000000 #000000 4633 1;
+#X obj 161 240 vsl 30 140 1 10 0 1 empty empty PAR-5 0 -9 0 9 #ffffff #000000 #000000 6178 1;
+#X obj 195 240 vsl 30 140 1 10 0 1 empty empty PAR-6 0 -9 0 9 #ffffff #000000 #000000 7722 1;
+#X obj 10 446 cnv 15 230 200 empty empty PARTIAL_AMPLITUDES 20 12 0 15 #dcdcdc #404040 0;
 #X obj 25 407 s e1fm1;
 #X obj 72 407 s e1fm2;
 #X obj 118 407 s e1fm3;
 #X obj 102 425 s e1fm4;
 #X obj 149 425 s e1fm5;
 #X obj 195 425 s e1fm6;
-#X obj 25 483 vsl 30 140 0 1 0 1 empty empty PAR-1 0 -9 0 9 #ffffff
-#000000 #000000 11750 1;
-#X obj 59 483 vsl 30 140 0 1 0 1 empty empty PAR-6 0 -9 0 9 #ffffff
-#000000 #000000 11500 1;
-#X obj 93 483 vsl 30 140 0 1 0 1 empty empty PAR-3 0 -9 0 9 #ffffff
-#000000 #000000 8300 1;
-#X obj 127 483 vsl 30 140 0 1 0 0 empty empty PAR-4 0 -9 0 9 #ffffff
-#000000 #000000 0 1;
-#X obj 161 483 vsl 30 140 0 1 0 1 empty empty PAR-5 0 -9 0 9 #ffffff
-#000000 #000000 0 1;
-#X obj 195 483 vsl 30 140 0 1 0 1 empty empty PAR-6 0 -9 0 9 #ffffff
-#000000 #000000 0 1;
+#X obj 25 483 vsl 30 140 0 1 0 1 empty empty PAR-1 0 -9 0 9 #ffffff #000000 #000000 0 1;
+#X obj 59 483 vsl 30 140 0 1 0 1 empty empty PAR-2 0 -9 0 9 #ffffff #000000 #000000 0 1;
+#X obj 93 483 vsl 30 140 0 1 0 1 empty empty PAR-3 0 -9 0 9 #ffffff #000000 #000000 0 1;
+#X obj 127 483 vsl 30 140 0 1 0 0 empty empty PAR-4 0 -9 0 9 #ffffff #000000 #000000 0 1;
+#X obj 161 483 vsl 30 140 0 1 0 1 empty empty PAR-5 0 -9 0 9 #ffffff #000000 #000000 2400 1;
+#X obj 195 483 vsl 30 140 0 1 0 1 empty empty PAR-6 0 -9 0 9 #ffffff #000000 #000000 6900 1;
 #X obj 25 649 s e1pa1;
 #X obj 72 649 s e1pa2;
 #X obj 118 649 s e1pa3;
 #X obj 102 667 s e1pa4;
 #X obj 149 667 s e1pa5;
 #X obj 195 667 s e1pa6;
-#X floatatom 25 385 4 0 0 0 - - -, f 4;
-#X floatatom 59 385 4 0 0 0 - - -, f 4;
-#X floatatom 93 385 4 0 0 0 - - -, f 4;
-#X floatatom 127 385 4 0 0 0 - - -, f 4;
-#X floatatom 160 385 4 0 0 0 - - -, f 4;
-#X floatatom 195 385 4 0 0 0 - - -, f 4;
-#X floatatom 25 628 4 0 0 0 - - -, f 4;
-#X floatatom 59 628 4 0 0 0 - - -, f 4;
-#X floatatom 93 628 4 0 0 0 - - -, f 4;
-#X floatatom 127 628 4 0 0 0 - - -, f 4;
-#X floatatom 160 628 4 0 0 0 - - -, f 4;
-#X floatatom 195 628 4 0 0 0 - - -, f 4;
-#X obj 257 407 cnv 10 300 25 empty empty ADDITIVE_SYNTH_PARTIALS 20
-12 0 15 #dcdcdc #404040 0;
+#X floatatom 25 385 4 0 0 0 - - - 0;
+#X floatatom 59 385 4 0 0 0 - - - 0;
+#X floatatom 93 385 4 0 0 0 - - - 0;
+#X floatatom 127 385 4 0 0 0 - - - 0;
+#X floatatom 160 385 4 0 0 0 - - - 0;
+#X floatatom 195 385 4 0 0 0 - - - 0;
+#X floatatom 25 628 4 0 0 0 - - - 0;
+#X floatatom 59 628 4 0 0 0 - - - 0;
+#X floatatom 93 628 4 0 0 0 - - - 0;
+#X floatatom 127 628 4 0 0 0 - - - 0;
+#X floatatom 160 628 4 0 0 0 - - - 0;
+#X floatatom 195 628 4 0 0 0 - - - 0;
+#X obj 257 407 cnv 10 300 25 empty empty ADDITIVE_SYNTH_PARTIALS 20 12 0 15 #dcdcdc #404040 0;
 #X obj 258 465 * 1;
 #X obj 258 483 osc~;
 #X obj 258 436 r freq;
@@ -934,13 +765,10 @@ to work with for the same overall volume.;
 #X obj 400 627 r e1pa5;
 #X obj 500 566 r e1fm6;
 #X obj 500 627 r e1pa6;
-#X obj 257 204 cnv 10 120 25 empty empty ENVELOPE 20 12 0 15 #dcdcdc
-#404040 0;
+#X obj 257 204 cnv 10 120 25 empty empty ENVELOPE 20 12 0 15 #dcdcdc #404040 0;
 #X obj 257 237 r ex1NoteSlider;
-#X obj 13 147 hsl 120 30 0 1000 0 0 empty empty ATTACK 5 15 0 16 #ffffff
-#000000 #000000 0 1;
-#X obj 153 147 hsl 120 30 0 1000 0 1 empty empty RELEASE 5 15 0 16
-#ffffff #000000 #000000 11900 1;
+#X obj 13 147 hsl 120 30 0 1000 0 0 empty empty ATTACK 5 15 0 16 #ffffff #000000 #000000 0 1;
+#X obj 153 147 hsl 120 30 0 1000 0 1 empty empty RELEASE 5 15 0 16 #ffffff #000000 #000000 9000 1;
 #X obj 10 181 s ex1Attack;
 #X obj 150 181 s ex1Release;
 #X obj 320 300 r ex1Attack;
@@ -949,9 +777,7 @@ to work with for the same overall volume.;
 #X obj 305 321 f;
 #X obj 257 365 line~;
 #X obj 257 390 s~ ex1Env;
-#X text 8 35 This additive synthesiser has 6 partials. Experiment with
-different frequency/amplitude multipliers and see the effect this has
-on the timbre. Can you figure out how everything works?;
+#X text 8 35 This additive synthesiser has 6 partials. Experiment with different frequency/amplitude multipliers and see the effect this has on the timbre. Can you figure out how everything works?;
 #X obj 150 121 s ex1Amp;
 #X obj 258 537 throw~ lab3ex1;
 #X obj 358 537 throw~ lab3ex1;
@@ -961,84 +787,11 @@ on the timbre. Can you figure out how everything works?;
 #X obj 458 667 throw~ lab3ex1;
 #X obj 711 247 catch~ lab3ex1;
 #X obj 290 121 s ex1Graph;
-#X obj 290 87 tgl 30 0 empty empty GRAPH_OUTPUT 32 16 0 15 #fcfcfc
-#000000 #000000 0 1;
+#X obj 290 87 tgl 30 0 empty empty GRAPH_OUTPUT 32 16 0 15 #fcfcfc #000000 #000000 0 1;
 #X obj 800 274 r ex1Graph;
 #N canvas 32 25 450 278 (subpatch) 0;
-#X array ex1-Waveform 512 float 1 black black;
-#A 0 0.00691966 0.0147031 0.0222214 0.029429 0.0362799 0.0427311 0.0487437
-0.0542778 0.0592976 0.0637731 0.0676736 0.0709708 0.073646 0.0756788
-0.077051 0.0777549 0.0777813 0.0771245 0.0757866 0.0737705 0.0710833
-0.0677372 0.0637463 0.0591292 0.0539105 0.0481121 0.041764 0.0349008
-0.0275523 0.0197577 0.0115593 0.00299481 -0.00589097 -0.01505 -0.024439
--0.0340091 -0.0437093 -0.0534936 -0.0633108 -0.0731099 -0.0828448 -0.0924649
--0.101921 -0.111169 -0.120163 -0.128856 -0.137211 -0.145185 -0.15274
--0.159843 -0.166461 -0.172564 -0.178125 -0.183121 -0.187533 -0.191343
--0.194536 -0.197104 -0.199041 -0.200339 -0.201002 -0.201035 -0.20044
--0.19923 -0.19742 -0.195022 -0.192057 -0.188548 -0.184517 -0.179992
--0.175005 -0.16958 -0.163757 -0.157567 -0.151045 -0.14423 -0.137159
--0.129869 -0.1224 -0.114792 -0.107081 -0.0993075 -0.091509 -0.0837226
--0.0759852 -0.0683304 -0.0607922 -0.0534044 -0.0461949 -0.0391921 -0.0324258
--0.0259167 -0.0196866 -0.0137588 -0.00814728 -0.00286664 0.00206883
-0.00665049 0.0108721 0.0147282 0.0182164 0.0213381 0.0240953 0.0264941
-0.0285407 0.0302449 0.0316196 0.032676 0.03343 0.0338994 0.0341008
-0.0340535 0.0337793 0.033298 0.0326319 0.0318045 0.030837 0.0297533
-0.028577 0.0273291 0.0260328 0.0247113 0.0233835 0.0220698 0.0207917
-0.0195652 0.018407 0.0173335 0.016359 0.0154947 0.0147512 0.0141402
-0.0136667 0.0133362 0.0131542 0.0131225 0.0132403 0.013507 0.0139211
-0.0144761 0.0151665 0.0159856 0.0169239 0.0179716 0.0191171 0.0203491
-0.0216544 0.0230183 0.0244277 0.025868 0.027323 0.0287786 0.03022 0.0316311
-0.032999 0.0343091 0.0355469 0.0367018 0.0377618 0.0387138 0.0395515
-0.040267 0.0408488 0.0412961 0.041605 0.0417694 0.0417916 0.041673
-0.041414 0.0410193 0.0404965 0.0398513 0.0390934 0.0382336 0.0372833
-0.0362575 0.0351689 0.0340339 0.0328717 0.0316969 0.0305292 0.0293899
-0.0282964 0.0272688 0.0263297 0.0254972 0.0247912 0.0242338 0.0238414
-0.0236336 0.0236295 0.0238427 0.0242899 0.0249873 0.0259434 0.0271708
-0.0286806 0.0304762 0.0325647 0.0349502 0.0376313 0.0406079 0.043877
-0.0474304 0.0512623 0.0553617 0.0597124 0.0643039 0.0691171 0.0741284
-0.0793227 0.0846733 0.0901514 0.0957347 0.101393 0.107093 0.112806
-0.118501 0.124139 0.12969 0.135118 0.140387 0.145463 0.150312 0.154897
-0.159187 0.163146 0.166744 0.169951 0.172737 0.175073 0.176937 0.178303
-0.179151 0.179462 0.179221 0.178414 0.177033 0.175066 0.172513 0.169375
-0.165647 0.16134 0.156463 0.151024 0.145041 0.138535 0.131522 0.124029
-0.116086 0.107719 0.0989634 0.0898547 0.080429 0.070728 0.0607924 0.0506649
-0.0403924 0.0300194 0.0195923 0.0091608 -0.00122811 -0.0115271 -0.0216865
--0.0316593 -0.0413991 -0.0508587 -0.0599943 -0.0687626 -0.077121 -0.0850312
--0.0924561 -0.099359 -0.10571 -0.111479 -0.116639 -0.121168 -0.125047
--0.12826 -0.130792 -0.132637 -0.13379 -0.134248 -0.134014 -0.133096
--0.131504 -0.129249 -0.126353 -0.122835 -0.118719 -0.114034 -0.108812
--0.103086 -0.0968927 -0.090273 -0.083269 -0.0759238 -0.0682836 -0.0603972
--0.052313 -0.0440802 -0.0357513 -0.0273772 -0.0190085 -0.0106982 -0.00249673
-0.005546 0.0133792 0.0209557 0.0282294 0.0351531 0.041686 0.0477883
-0.0534189 0.0585448 0.0631346 0.0671567 0.0705859 0.0734014 0.0755828
-0.0771138 0.0779851 0.0781876 0.0777178 0.076575 0.0747629 0.0722906
-0.0691665 0.0654062 0.0610305 0.0560583 0.0505143 0.04443 0.037834
-0.0307586 0.0232444 0.0153275 0.00704734 -0.00154941 -0.0104216 -0.0195244
--0.0288071 -0.0382262 -0.0477339 -0.0572778 -0.0668142 -0.0762954 -0.0856703
--0.0948962 -0.103928 -0.11272 -0.12123 -0.129421 -0.137251 -0.144686
--0.151692 -0.158238 -0.164297 -0.169842 -0.17485 -0.179307 -0.183192
--0.186492 -0.189203 -0.191314 -0.192823 -0.193732 -0.194044 -0.193764
--0.192905 -0.191478 -0.189498 -0.186986 -0.183959 -0.180444 -0.176465
--0.172049 -0.167226 -0.162028 -0.156484 -0.150632 -0.144504 -0.138135
--0.131562 -0.124822 -0.117947 -0.110977 -0.103946 -0.0968872 -0.089838
--0.08283 -0.0758918 -0.0690591 -0.0623587 -0.0558148 -0.0494564 -0.0433072
--0.0373845 -0.0317102 -0.0263025 -0.0211725 -0.0163344 -0.0117983 -0.00757065
--0.00365741 -6.03378e-05 0.00321873 0.00618189 0.00883419 0.0111807
-0.0132286 0.0149893 0.016474 0.0176944 0.0186669 0.019407 0.0199308
-0.0202576 0.0204058 0.0203941 0.0202441 0.0199747 0.019606 0.0191601
-0.0186556 0.0181116 0.0175488 0.0169851 0.0164368 0.0159213 0.0154554
-0.0150512 0.014722 0.0144801 0.0143353 0.0142952 0.0143664 0.0145565
-0.0148664 0.0152982 0.0158538 0.0165306 0.017325 0.0182332 0.0192498
-0.0203661 0.0215735 0.022863 0.024223 0.025641 0.0271043 0.0286001
-0.0301132 0.0316289 0.0331334 0.0346108 0.036046 0.037425 0.0387322
-0.0399543 0.0410787 0.0420906 0.0429799 0.043737 0.0443499 0.0448116
-0.0451167 0.045258 0.0452313 0.0450369 0.0446724 0.0441388 0.0434408
-0.0425813 0.041568 0.0404087 0.039112 0.0376922 0.0361603 0.0345298
-0.0328199 0.0310469 0.0292262 0.0273817 0.0255333 0.0236981 0.0219028
-0.0201691 0.0185168 0.0169718 0.0155563 0.0142909 0.0132004 0.0123052
-0.0116246 0.0111812 0.010992 0.0110733 0.0114434 0.0121154 0.0131003
-0.0144109 0.016055 0.0180378 0.0203651 0.023037 0.0260541 0.0294136
-0.0331072 0.0371303 0.0414717 0.0461149;
+#X array ex1-Waveform 512 float 1;
+#A 0 0.0555573 0.0547498 0.0538953 0.0529955 0.0520513 0.0510616 0.0500284 0.0489524 0.0478327 0.0466715 0.0454695 0.0442259 0.042943 0.0416215 0.0402609 0.0388634 0.0374298 0.0359598 0.0344557 0.0329183 0.0313474 0.0297458 0.0281134 0.026451 0.0247609 0.0230432 0.0212992 0.0195306 0.0177378 0.0159225 0.0140859 0.0122289 0.0103528 0.00845895 0.00654893 0.00462343 0.00268418 0.000732402 -0.00123106 -0.00320389 -0.00518577 -0.00717499 -0.00916993 -0.0111699 -0.0131728 -0.015178 -0.0171838 -0.0191886 -0.021192 -0.0231915 -0.0251865 -0.0271759 -0.0291571 -0.0311303 -0.0330934 -0.0350448 -0.0369846 -0.0389096 -0.0408198 -0.042714 -0.0445902 -0.046448 -0.0482854 -0.0501018 -0.0518957 -0.0536664 -0.0554124 -0.0571321 -0.0588258 -0.060491 -0.0621269 -0.063734 -0.0653087 -0.0668519 -0.0683633 -0.0698388 -0.0712809 -0.0726877 -0.0740567 -0.0753899 -0.0766844 -0.0779397 -0.0791562 -0.0803325 -0.0814677 -0.0825613 -0.0836135 -0.0846224 -0.0855886 -0.0865118 -0.0873895 -0.0882241 -0.0890137 -0.0897571 -0.0904567 -0.0911092 -0.0917158 -0.0922776 -0.0927912 -0.0932593 -0.0936812 -0.0940554 -0.094384 -0.0946658 -0.0949004 -0.095089 -0.0952318 -0.0953278 -0.0953774 -0.0953827 -0.0953412 -0.0952548 -0.0951249 -0.0949484 -0.0947291 -0.0944667 -0.0941596 -0.0938116 -0.0934208 -0.0929881 -0.0925158 -0.092002 -0.0914492 -0.0908577 -0.0902277 -0.089561 -0.0888569 -0.0881175 -0.0873428 -0.0865342 -0.0856929 -0.0848179 -0.083913 -0.0829771 -0.0820114 -0.0810187 -0.0799969 -0.0789496 -0.0778776 -0.07678 -0.0756607 -0.0745186 -0.0733557 -0.0721738 -0.0709722 -0.0697539 -0.068519 -0.067269 -0.066006 -0.0647289 -0.0634415 -0.0621436 -0.0608363 -0.0595225 -0.0582005 -0.0568742 -0.0555437 -0.05421 -0.0528756 -0.0515397 -0.0502054 -0.048873 -0.0475434 -0.0462194 -0.0448997 -0.0435878 -0.0422846 -0.040989 -0.0397057 -0.038433 -0.0371727 -0.0359281 -0.0346966 -0.033482 -0.032285 -0.0311057 -0.0299465 -0.0288067 -0.0276889 -0.0265931 -0.025521 -0.0244738 -0.0234502 -0.0224544 -0.0214852 -0.020543 -0.0196315 -0.0187475 -0.0178948 -0.017074 -0.016283 -0.0155264 -0.0148022 -0.0141113 -0.0134564 -0.0128349 -0.0122494 -0.0117005 -0.0111878 -0.0107125 -0.0102739 -0.00987403 -0.00951133 -0.00918809 -0.00890433 -0.00865712 -0.00845178 -0.00828528 -0.00815689 -0.00807108 -0.00802286 -0.00801492 -0.0080486 -0.00812006 -0.00823271 -0.00838508 -0.00857657 -0.0088087 -0.00907919 -0.00938939 -0.00973833 -0.0101261 -0.0105529 -0.0110161 -0.0115185 -0.0120572 -0.0126329 -0.0132464 -0.0138932 -0.0145773 -0.0152961 -0.0160475 -0.016835 -0.0176535 -0.0185045 -0.0193886 -0.0203018 -0.0212462 -0.0222198 -0.0232218 -0.0242523 -0.0253087 -0.0263923 -0.0275004 -0.0286331 -0.0297903 -0.0309678 -0.0321687 -0.0333895 -0.0346295 -0.0358897 -0.0371653 -0.0384587 -0.0397678 -0.0410903 -0.0424278 -0.0437761 -0.0451363 -0.0465074 -0.0478862 -0.0492745 -0.0506684 -0.0520685 -0.0534742 -0.0548815 -0.0562928 -0.0577047 -0.0591164 -0.0605287 -0.0619369 -0.063343 -0.0647447 -0.0661407 -0.0675312 -0.0689125 -0.0702866 -0.0716504 -0.073003 -0.0743452 -0.0756723 -0.0769869 -0.0782868 -0.079569 -0.0808364 -0.0820843 -0.0833134 -0.0845241 -0.085712 -0.0868795 -0.0880242 -0.0891451 -0.0902429 -0.0913142 -0.0923603 -0.0933794 -0.0943714 -0.0953356 -0.0962691 -0.0971752 -0.0980496 -0.098893 -0.0997071 -0.100486 -0.101234 -0.101949 -0.102629 -0.103277 -0.103889 -0.104465 -0.105008 -0.105514 -0.105984 -0.106418 -0.106815 -0.107176 -0.107499 -0.107785 -0.108033 -0.108245 -0.10842 -0.108554 -0.108654 -0.108715 -0.108737 -0.108725 -0.108672 -0.108583 -0.108459 -0.108295 -0.108097 -0.107861 -0.107589 -0.107282 -0.106939 -0.106561 -0.106148 -0.105702 -0.105221 -0.104706 -0.104161 -0.103581 -0.10297 -0.10233 -0.101656 -0.100954 -0.100223 -0.0994624 -0.0986758 -0.09786 -0.0970186 -0.0961524 -0.0952598 -0.0943447 -0.0934052 -0.0924436 -0.0914612 -0.0904568 -0.0894339 -0.088391 -0.0873306 -0.0862539 -0.0851592 -0.0840509 -0.0829276 -0.0817908 -0.0806433 -0.079482 -0.0783119 -0.0771322 -0.0759435 -0.0747489 -0.0735459 -0.0723386 -0.0711271 -0.0699112 -0.0686945 -0.0674748 -0.0662554 -0.0650375 -0.0638194 -0.0626056 -0.0613944 -0.0601878 -0.0589879 -0.0577928 -0.0566062 -0.0554277 -0.0542582 -0.0531 -0.0519512 -0.0508157 -0.0496926 -0.0485832 -0.0474898 -0.0464094 -0.0453473 -0.0443021 -0.0432731 -0.0422655 -0.0412751 -0.040305 -0.0393574 -0.0384293 -0.0375243 -0.036642 -0.0357827 -0.0349482 -0.0341375 -0.0333524 -0.0325925 -0.0318592 -0.0311531 -0.0304722 -0.0298207 -0.029196 -0.0285995 -0.0280333 -0.0274932 -0.0269841 -0.0265045 -0.0260528 -0.0256333 -0.0252422 -0.024881 -0.0245518 -0.0242514 -0.0239818 -0.0237431 -0.0235345 -0.0233562 -0.0232084 -0.0230914 -0.0230031 -0.0229463 -0.0229196 -0.0229201 -0.0229525 -0.0230129 -0.0231016 -0.023221 -0.0233662 -0.0235402 -0.0237425 -0.0239703 -0.0242262 -0.0245074 -0.0248142 -0.0251469 -0.0255035 -0.0258846 -0.0262888 -0.0267162 -0.0271659 -0.0276365 -0.0281291 -0.0286409 -0.0291728 -0.0297245 -0.0302921 -0.030879 -0.0314818 -0.0320997 -0.0327345 -0.0333814 -0.0340425 -0.0347166 -0.0354014 -0.0360979 -0.0368035 -0.0375185 -0.0382419 -0.0389719 -0.0397091 -0.0404509 -0.0411975 -0.0419483 -0.0427005 -0.0434556 -0.0442108 -0.0449659 -0.0457208 -0.0464723 -0.0472219 -0.0479672 -0.0487077 -0.0494433 -0.0501709 -0.050892 -0.0516044 -0.052307 -0.0530007 -0.0536816 -0.0543514 -0.0550089 -0.0556513 -0.0562804 -0.0568937 -0.0574904 -0.0580711 -0.0586332 -0.0591772 -0.0597019 -0.0602067 -0.060691 -0.0611531 -0.0615941 -0.0620114 -0.0624058 -0.062777 -0.0631217 -0.0634428 -0.0637378;
 #X coords 0 1 511 -1 200 140 1;
 #X restore 444 52 graph;
 #X obj 711 391 *~;
@@ -1052,29 +805,12 @@ on the timbre. Can you figure out how everything works?;
 #X obj 257 301 del;
 #X obj 412 346 loadbang;
 #X obj 412 249 r ex1NoteSlider;
-#X obj 411 204 cnv 10 180 25 empty empty FREQUENCY/PHASE 20 12 0 15
-#dcdcdc #404040 0;
-#X obj 611 204 cnv 10 180 25 empty empty GRAPH/OUTPUT 20 12 0 15 #dcdcdc
-#404040 0;
+#X obj 411 204 cnv 10 180 25 empty empty FREQUENCY/PHASE 20 12 0 15 #dcdcdc #404040 0;
+#X obj 611 204 cnv 10 180 25 empty empty GRAPH/OUTPUT 20 12 0 15 #dcdcdc #404040 0;
 #X msg 257 340 0 \$1;
 #N canvas 32 25 450 278 (subpatch) 0;
-#X array ex1-SoundOut 512 float 1 black black;
-#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0;
+#X array ex1-SoundOut 512 float 1;
+#A 0 0.0213229 0.021013 0.020685 0.0203397 0.0199773 0.0195974 0.0192009 0.018788 0.0183582 0.0179125 0.0174512 0.0169739 0.0164815 0.0159744 0.0154522 0.0149158 0.0143656 0.0138014 0.0132241 0.0126341 0.0120312 0.0114164 0.0107899 0.0101519 0.00950325 0.00884397 0.00817466 0.00749584 0.00680776 0.00611107 0.00540617 0.00469345 0.00397343 0.00324655 0.00251348 0.00177448 0.00103019 0.000281096 -0.000472482 -0.00122966 -0.0019903 -0.00275376 -0.00351942 -0.00428703 -0.00505573 -0.00582533 -0.00659515 -0.0073646 -0.00813352 -0.00890091 -0.0096666 -0.0104301 -0.0111905 -0.0119478 -0.0127013 -0.0134502 -0.0141947 -0.0149335 -0.0156667 -0.0163937 -0.0171137 -0.0178267 -0.018532 -0.0192291 -0.0199176 -0.0205972 -0.0212673 -0.0219273 -0.0225774 -0.0232165 -0.0238443 -0.0244611 -0.0250655 -0.0256578 -0.0262379 -0.0268042 -0.0273576 -0.0278976 -0.028423 -0.0289347 -0.0294315 -0.0299133 -0.0303802 -0.0308316 -0.0312673 -0.0316871 -0.0320909 -0.0324781 -0.032849 -0.0332033 -0.0335401 -0.0338605 -0.0341635 -0.0344488 -0.0347173 -0.0349678 -0.0352006 -0.0354162 -0.0356133 -0.0357929 -0.0359549 -0.0360985 -0.0362246 -0.0363328 -0.0364228 -0.0364952 -0.03655 -0.0365869 -0.0366059 -0.0366079 -0.036592 -0.0365588 -0.036509 -0.0364412 -0.0363571 -0.0362564 -0.0361385 -0.0360049 -0.0358549 -0.0356889 -0.0355076 -0.0353104 -0.0350983 -0.0348712 -0.0346294 -0.0343735 -0.0341033 -0.0338195 -0.0335222 -0.0332119 -0.032889 -0.0325532 -0.0322058 -0.0318466 -0.031476 -0.031095 -0.0307028 -0.0303009 -0.0298895 -0.0294682 -0.0290386 -0.0286003 -0.0281539 -0.0277003 -0.0272392 -0.0267716 -0.0262976 -0.0258179 -0.0253331 -0.024843 -0.0243489 -0.0238507 -0.023349 -0.0228448 -0.0223374 -0.0218283 -0.0213177 -0.0208058 -0.0202937 -0.019781 -0.0192689 -0.0187575 -0.0182472 -0.017739 -0.0172325 -0.016729 -0.0162288 -0.0157316 -0.0152391 -0.0147506 -0.0142669 -0.0137892 -0.0133166 -0.0128504 -0.012391 -0.0119384 -0.0114935 -0.011056 -0.010627 -0.0102064 -0.00979497 -0.00939304 -0.00900021 -0.008618 -0.00824603 -0.00788443 -0.00753458 -0.00719531 -0.00686801 -0.00655302 -0.00624943 -0.00595904 -0.00568111 -0.00541591 -0.00516457 -0.00492604 -0.00470132 -0.00449066 -0.00429387 -0.00411145 -0.00394315 -0.00378966 -0.00365045 -0.00352639 -0.00341748 -0.00332261 -0.0032438 -0.00317989 -0.00313062 -0.00309768 -0.00307918 -0.00307613 -0.00308905 -0.00311648 -0.00315972 -0.0032182 -0.00329169 -0.00338078 -0.0034846 -0.00360365 -0.00373757 -0.00388641 -0.00405021 -0.00422798 -0.0044208 -0.00462757 -0.00484852 -0.00508399 -0.00533223 -0.00559477 -0.00587065 -0.00615905 -0.00646126 -0.00677542 -0.00710202 -0.00744134 -0.00779185 -0.00815428 -0.00852796 -0.00891253 -0.00930803 -0.00971349 -0.0101294 -0.0105546 -0.0109894 -0.0114335 -0.0118855 -0.0123464 -0.0128149 -0.0132908 -0.0137745 -0.014264 -0.0147605 -0.0152629 -0.0157705 -0.0162838 -0.0168013 -0.0173233 -0.0178496 -0.0183788 -0.0189116 -0.0194466 -0.0199839 -0.0205234 -0.0210635 -0.0216052 -0.0221471 -0.0226889 -0.0232309 -0.0237714 -0.0243111 -0.024849 -0.0253848 -0.0259185 -0.0264487 -0.026976 -0.0274995 -0.0280186 -0.0285337 -0.0290431 -0.0295476 -0.0300465 -0.0305386 -0.031025 -0.031504 -0.0319757 -0.0324404 -0.0328963 -0.0333444 -0.0337837 -0.0342139 -0.0346353 -0.0350464 -0.0354479 -0.0358391 -0.0362198 -0.0365899 -0.0369481 -0.0372959 -0.0376315 -0.0379552 -0.0382676 -0.0385665 -0.0388536 -0.0391283 -0.039389 -0.0396376 -0.0398726 -0.0400939 -0.0403023 -0.0404963 -0.0406768 -0.0408433 -0.0409957 -0.0411342 -0.041258 -0.041368 -0.0414633 -0.0415444 -0.0416115 -0.0416632 -0.0417013 -0.0417247 -0.0417334 -0.0417286 -0.0417084 -0.0416744 -0.0416266 -0.0415637 -0.0414875 -0.0413972 -0.0412926 -0.0411749 -0.0410432 -0.0408982 -0.0407397 -0.0405683 -0.040384 -0.0401864 -0.0399769 -0.0397545 -0.03952 -0.0392742 -0.0390156 -0.0387463 -0.0384657 -0.0381737 -0.0378718 -0.0375587 -0.0372358 -0.0369033 -0.0365608 -0.0362095 -0.035849 -0.0354799 -0.0351029 -0.0347174 -0.0343248 -0.0339245 -0.0335175 -0.0331043 -0.0326841 -0.0322588 -0.0318276 -0.0313914 -0.0309509 -0.0305052 -0.0300561 -0.0296034 -0.0291471 -0.0286886 -0.0282269 -0.0277636 -0.0272986 -0.0268319 -0.026365 -0.0258969 -0.0254289 -0.0249614 -0.0244939 -0.024028 -0.0235632 -0.0231001 -0.0226396 -0.0221809 -0.0217255 -0.0212732 -0.0208243 -0.0203798 -0.0199389 -0.0195031 -0.019072 -0.0186463 -0.0182266 -0.0178119 -0.0174043 -0.0170032 -0.0166082 -0.0162215 -0.0158414 -0.0154691 -0.0151054 -0.0147492 -0.0144018 -0.0140632 -0.0137334 -0.0134131 -0.013102 -0.0128007 -0.012509 -0.0122276 -0.0119566 -0.0116953 -0.0114452 -0.0112054 -0.0109765 -0.0107592 -0.0105519 -0.0103565 -0.0101724 -0.00999909 -0.00983806 -0.00968796 -0.00954935 -0.00942301 -0.0093077 -0.00920423 -0.00911261 -0.00903254 -0.00896413 -0.00890741 -0.00886247 -0.00882861 -0.00880679 -0.00879655 -0.00879676 -0.00880918 -0.00883237 -0.00886641 -0.00891224 -0.00896795 -0.00903475 -0.00911239 -0.00919983 -0.00929804 -0.00940596 -0.0095237 -0.00965141 -0.00978824 -0.00993453 -0.0100896 -0.0102537 -0.0104263 -0.0106069 -0.010796 -0.0109924 -0.0111966 -0.0114083 -0.0116261 -0.0118514 -0.0120827 -0.0123199 -0.0125635 -0.0128118 -0.0130655 -0.0133242 -0.0135871 -0.0138544 -0.0141252 -0.0143996 -0.0146773 -0.0149574 -0.0152404 -0.0155251 -0.0158116 -0.0160998 -0.0163885 -0.0166783 -0.0169681 -0.0172579 -0.0175477 -0.0178361 -0.0181238 -0.0184098 -0.018694 -0.0189764 -0.0192556 -0.0195324 -0.0198058 -0.0200755 -0.0203417 -0.020603 -0.0208601 -0.0211124 -0.021359 -0.0216004 -0.0218358 -0.0220648 -0.0222877 -0.0225035 -0.0227122 -0.0229136 -0.0231074 -0.0232932 -0.0234706 -0.0236398 -0.0238 -0.0239514 -0.0240938 -0.0242262 -0.0243494 -0.0244626;
 #X coords 0 1 511 -1 200 140 1;
 #X restore 645 52 graph;
 #X obj 726 322 r~ ex1Env;
@@ -1086,8 +822,7 @@ on the timbre. Can you figure out how everything works?;
 #X obj 800 296 metro 250;
 #X obj 711 476 output~;
 #X obj 678 343 *~;
-#X obj 678 314 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#X obj 678 314 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X text 598 313 Bypass Env >;
 #X connect 0 0 1 0;
 #X connect 3 0 98 0;
@@ -1193,17 +928,14 @@ on the timbre. Can you figure out how everything works?;
 #X connect 133 0 110 0;
 #X connect 134 0 133 0;
 #X restore 9 172 pd Example1-SoundExplorer;
-#N canvas 82 69 783 569 Example2-BasicStepSequencer 1;
-#X obj 10 10 cnv 15 320 25 empty empty Example\ 2:\ Basic\ Step\ Sequencer
-20 12 0 14 #dcdcdc #404040 0;
-#X obj 10 48 cnv 15 120 25 empty empty Create\ Pulse 20 12 0 12 #e0e0e0
-#404040 0;
-#X obj 12 85 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000
-0 1;
+#N canvas 82 69 783 569 Example2-BasicStepSequencer 0;
+#X obj 10 10 cnv 15 320 25 empty empty Example\ 2:\ Basic\ Step\ Sequencer 20 12 0 14 #dcdcdc #404040 0;
+#X obj 10 48 cnv 15 120 25 empty empty Create\ Pulse 20 12 0 12 #e0e0e0 #404040 0;
+#X obj 12 85 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 12 145 metro 150;
 #X obj 12 166 f;
 #X obj 12 200 mod 8;
-#X floatatom 12 227 5 0 0 0 - - -, f 5;
+#X floatatom 12 227 5 0 0 0 - - - 0;
 #X obj 54 166 + 1;
 #X msg 27 125 0;
 #X text 30 84 <--- START/STOP BEAT;
@@ -1213,88 +945,62 @@ on the timbre. Can you figure out how everything works?;
 #X text 76 213 of n/8 \, meaning we;
 #X text 75 227 can loop from 0-7;
 #X text 51 125 <--- always start from 0;
-#X obj 230 48 cnv 15 120 25 empty empty Create\ Loop 20 12 0 12 #e0e0e0
-#404040 0;
+#X obj 230 48 cnv 15 120 25 empty empty Create\ Loop 20 12 0 12 #e0e0e0 #404040 0;
 #X obj 231 123 sel 0 1 2 3 4 5 6 7;
-#X floatatom 231 103 5 0 0 0 - - -, f 5;
-#X obj 231 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
-#X obj 231 163 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 #ffffff
-#000000 #000000 41 256 0;
+#X floatatom 231 103 5 0 0 0 - - - 0;
+#X obj 231 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
+#X obj 231 163 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 #ffffff #000000 #000000 41 256;
 #X obj 231 228 t b f;
 #X obj 231 210 mtof;
 #X obj 231 304 s ex2trigger;
 #X obj 12 250 s ex2pulse;
 #X obj 231 82 r ex2pulse;
-#X obj 231 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
+#X obj 231 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
 #X obj 309 304 s ex2freq;
 #X obj 231 179 route 0;
-#X obj 281 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
-#X obj 281 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 #ffffff
-#000000 #000000 0 256 0;
+#X obj 281 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
+#X obj 281 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 #ffffff #000000 #000000 0 256;
 #X obj 281 228 t b f;
 #X obj 281 210 mtof;
-#X obj 281 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
+#X obj 281 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
 #X obj 281 179 route 0;
-#X obj 331 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
-#X obj 331 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 #ffffff
-#000000 #000000 0 256 0;
+#X obj 331 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
+#X obj 331 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 #ffffff #000000 #000000 0 256;
 #X obj 331 228 t b f;
 #X obj 331 210 mtof;
-#X obj 331 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
+#X obj 331 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
 #X obj 331 179 route 0;
-#X obj 381 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
-#X obj 381 163 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 #ffffff
-#000000 #000000 43 256 0;
+#X obj 381 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
+#X obj 381 163 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 #ffffff #000000 #000000 43 256;
 #X obj 381 228 t b f;
 #X obj 381 210 mtof;
-#X obj 381 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
+#X obj 381 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
 #X obj 381 179 route 0;
-#X obj 431 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
-#X obj 431 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 #ffffff
-#000000 #000000 0 256 0;
+#X obj 431 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
+#X obj 431 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 #ffffff #000000 #000000 0 256;
 #X obj 431 228 t b f;
 #X obj 431 210 mtof;
-#X obj 431 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
+#X obj 431 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
 #X obj 431 179 route 0;
-#X obj 481 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
-#X obj 481 163 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 #ffffff
-#000000 #000000 50 256 0;
+#X obj 481 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
+#X obj 481 163 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 #ffffff #000000 #000000 50 256;
 #X obj 481 228 t b f;
 #X obj 481 210 mtof;
-#X obj 481 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
+#X obj 481 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
 #X obj 481 179 route 0;
-#X obj 531 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
-#X obj 531 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 #ffffff
-#000000 #000000 0 256 0;
+#X obj 531 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
+#X obj 531 163 nbx 3 14 0 127 0 0 empty empty empty 0 -8 0 10 #ffffff #000000 #000000 0 256;
 #X obj 531 228 t b f;
 #X obj 531 210 mtof;
-#X obj 531 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
+#X obj 531 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
 #X obj 531 179 route 0;
-#X obj 581 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
-#X obj 581 163 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 #ffffff
-#000000 #000000 46 256 0;
+#X obj 581 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
+#X obj 581 163 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 #ffffff #000000 #000000 46 256;
 #X obj 581 228 t b f;
 #X obj 581 210 mtof;
-#X obj 581 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
-#000000 #000000;
+#X obj 581 246 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff #000000 #000000;
 #X obj 581 179 route 0;
-#X obj 10 338 cnv 15 120 25 empty empty Envelope 20 12 0 12 #e0e0e0
-#404040 0;
+#X obj 10 338 cnv 15 120 25 empty empty Envelope 20 12 0 12 #e0e0e0 #404040 0;
 #X obj 10 375 r ex2trigger;
 #X text 353 122 <--- bang when a number matches the input;
 #X text 621 162 <--- set midi note;
@@ -1303,14 +1009,12 @@ on the timbre. Can you figure out how everything works?;
 #X text 658 206 all 0's;
 #X obj 10 484 line~;
 #X obj 10 443 del 10;
-#X obj 10 404 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcc4c4 #000000
-#000000;
+#X obj 10 404 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcc4c4 #000000 #000000;
 #X obj 10 423 t b b;
 #X msg 10 463 0 500;
 #X obj 10 507 s~ ex2Env;
-#X obj 139 338 cnv 15 200 25 empty empty Square\ Wave\ Synth 20 12
-0 12 #e0e0e0 #404040 0;
-#X floatatom 139 435 5 0 0 0 - - -, f 5;
+#X obj 139 338 cnv 15 200 25 empty empty Square\ Wave\ Synth 20 12 0 12 #e0e0e0 #404040 0;
+#X floatatom 139 435 5 0 0 0 - - - 0;
 #X obj 139 415 line;
 #X obj 139 375 r ex2freq;
 #X msg 139 395 \$1 50;
@@ -1328,8 +1032,7 @@ on the timbre. Can you figure out how everything works?;
 #X obj 300 501 *~ 0.143;
 #X obj 139 524 *~ 0.1;
 #X obj 139 543 s~ ex2Tri;
-#X obj 514 338 cnv 15 200 25 empty empty Sound\ Output 20 12 0 12 #e0e0e0
-#404040 0;
+#X obj 514 338 cnv 15 200 25 empty empty Sound\ Output 20 12 0 12 #e0e0e0 #404040 0;
 #X obj 514 377 r~ ex2Tri;
 #X obj 514 421 *~;
 #X obj 529 401 r~ ex2Env;
@@ -1453,22 +1156,16 @@ on the timbre. Can you figure out how everything works?;
 #X connect 111 1 8 0;
 #X restore 9 194 pd Example2-BasicStepSequencer;
 #N canvas 32 25 1183 419 Example3-WaveformSwitch 0;
-#X obj 11 11 cnv 15 270 25 empty empty Example_3:_Waveform_Switch 20
-12 0 14 #dcdcdc #404040 0;
-#X obj 9 111 cnv 15 130 25 empty empty Choose_Waveform 20 12 0 12 #e0e0e0
-#404040 0;
-#X floatatom 12 212 5 0 0 0 - - -, f 5;
+#X obj 11 11 cnv 15 270 25 empty empty Example_3:_Waveform_Switch 20 12 0 14 #dcdcdc #404040 0;
+#X obj 9 111 cnv 15 130 25 empty empty Choose_Waveform 20 12 0 12 #e0e0e0 #404040 0;
+#X floatatom 12 212 5 0 0 0 - - - 0;
 #X obj 12 232 s source-sel;
-#X obj 12 155 vradio 15 1 0 3 empty empty Choose_Source 0 -8 0 10 #fcfcfc
-#000000 #000000 0;
+#X obj 12 155 vradio 15 1 0 3 empty empty Choose_Source 0 -8 0 10 #fcfcfc #000000 #000000 0;
 #X text 32 154 sine;
 #X text 32 169 saw;
-#X obj 156 112 cnv 15 70 25 empty empty Sine 20 12 0 12 #e0e0e0 #404040
-0;
-#X obj 277 112 cnv 15 70 25 empty empty Saw 20 12 0 12 #e0e0e0 #404040
-0;
-#X obj 386 112 cnv 15 70 25 empty empty Square 20 12 0 12 #e0e0e0 #404040
-0;
+#X obj 156 112 cnv 15 70 25 empty empty Sine 20 12 0 12 #e0e0e0 #404040 0;
+#X obj 277 112 cnv 15 70 25 empty empty Saw 20 12 0 12 #e0e0e0 #404040 0;
+#X obj 386 112 cnv 15 70 25 empty empty Square 20 12 0 12 #e0e0e0 #404040 0;
 #X obj 171 177 r source-sel;
 #X obj 171 197 == 0;
 #X msg 171 218 \$1 10;
@@ -1498,11 +1195,8 @@ on the timbre. Can you figure out how everything works?;
 #X obj 647 237 == 2;
 #X obj 427 319 *~;
 #X obj 427 361 throw~ ex3Master;
-#X text 11 39 A little patch that lets you choose from three different
-source sounds. This can be a useful device when making more complex/configurable
-synths.;
-#X obj 935 112 cnv 15 130 25 empty empty Graph_Output 20 12 0 12 #e0e0e0
-#404040 0;
+#X text 11 39 A little patch that lets you choose from three different source sounds. This can be a useful device when making more complex/configurable synths.;
+#X obj 935 112 cnv 15 130 25 empty empty Graph_Output 20 12 0 12 #e0e0e0 #404040 0;
 #X obj 935 142 catch~ ex3Master;
 #X obj 935 225 tabwrite~ waveSwitch;
 #X obj 981 165 loadbang;
@@ -1510,77 +1204,8 @@ synths.;
 #X obj 579 177 loadbang;
 #X msg 579 218 0.75;
 #N canvas 0 22 450 278 (subpatch) 0;
-#X array waveSwitch 512 float 1 black black;
-#A 0 0.423726 0.434143 0.44456 0.454976 0.465393 0.47581 0.486226 0.496643
-0.50706 0.517476 0.527893 0.53831 0.548726 0.559143 0.56956 0.579976
-0.590393 0.60081 0.611226 0.621643 0.63206 0.642476 0.652893 0.66331
-0.673726 0.684143 0.69456 0.704976 0.715393 0.72581 0.736226 0.746643
-0.75706 0.767476 0.777893 0.78831 0.798726 0.809143 0.81956 0.829976
-0.840393 0.85081 0.861226 0.871643 0.88206 0.892476 0.902893 0.91331
-0.923726 0.934143 0.94456 0.954976 0.965393 0.97581 0.986226 0.996643
--0.99294 -0.982524 -0.972107 -0.96169 -0.951274 -0.940857 -0.93044
--0.920024 -0.909607 -0.89919 -0.888774 -0.878357 -0.86794 -0.857524
--0.847107 -0.83669 -0.826274 -0.815857 -0.80544 -0.795024 -0.784607
--0.77419 -0.763774 -0.753357 -0.74294 -0.732524 -0.722107 -0.71169
--0.701274 -0.690857 -0.68044 -0.670024 -0.659607 -0.64919 -0.638774
--0.628357 -0.61794 -0.607524 -0.597107 -0.58669 -0.576274 -0.565857
--0.55544 -0.545024 -0.534607 -0.52419 -0.513774 -0.503357 -0.49294
--0.482524 -0.472107 -0.46169 -0.451274 -0.440857 -0.43044 -0.420024
--0.409607 -0.39919 -0.388774 -0.378357 -0.36794 -0.357524 -0.347107
--0.33669 -0.326274 -0.315857 -0.30544 -0.295024 -0.284607 -0.27419
--0.263774 -0.253357 -0.24294 -0.232524 -0.222107 -0.21169 -0.201274
--0.190857 -0.18044 -0.170024 -0.159607 -0.14919 -0.138774 -0.128357
--0.11794 -0.107524 -0.097107 -0.0866903 -0.0762736 -0.065857 -0.0554403
--0.0450236 -0.034607 -0.0241903 -0.0137736 -0.00335699 0.00705969 0.0174763
-0.0278931 0.0383097 0.0487263 0.0591431 0.0695597 0.0799763 0.0903931
-0.10081 0.111226 0.121643 0.13206 0.142476 0.152893 0.16331 0.173726
-0.184143 0.19456 0.204976 0.215393 0.22581 0.236226 0.246643 0.25706
-0.267476 0.277893 0.28831 0.298726 0.309143 0.31956 0.329976 0.340393
-0.35081 0.361226 0.371643 0.38206 0.392476 0.402893 0.41331 0.423726
-0.434143 0.44456 0.454976 0.465393 0.47581 0.486226 0.496643 0.50706
-0.517476 0.527893 0.53831 0.548726 0.559143 0.56956 0.579976 0.590393
-0.60081 0.611226 0.621643 0.63206 0.642476 0.652893 0.66331 0.673726
-0.684143 0.69456 0.704976 0.715393 0.72581 0.736226 0.746643 0.75706
-0.767476 0.777893 0.78831 0.798726 0.809143 0.81956 0.829976 0.840393
-0.85081 0.861226 0.871643 0.88206 0.892476 0.902893 0.91331 0.923726
-0.934143 0.94456 0.954976 0.965393 0.97581 0.986226 0.996643 -0.99294
--0.982524 -0.972107 -0.96169 -0.951274 -0.940857 -0.93044 -0.920024
--0.909607 -0.89919 -0.888774 -0.878357 -0.86794 -0.857524 -0.847107
--0.83669 -0.826274 -0.815857 -0.80544 -0.795024 -0.784607 -0.77419
--0.763774 -0.753357 -0.74294 -0.732524 -0.722107 -0.71169 -0.701274
--0.690857 -0.68044 -0.670024 -0.659607 -0.64919 -0.638774 -0.628357
--0.61794 -0.607524 -0.597107 -0.58669 -0.576274 -0.565857 -0.55544
--0.545024 -0.534607 -0.52419 -0.513774 -0.503357 -0.49294 -0.482524
--0.472107 -0.46169 -0.451274 -0.440857 -0.43044 -0.420024 -0.409607
--0.39919 -0.388774 -0.378357 -0.36794 -0.357524 -0.347107 -0.33669
--0.326274 -0.315857 -0.30544 -0.295024 -0.284607 -0.27419 -0.263774
--0.253357 -0.24294 -0.232524 -0.222107 -0.21169 -0.201274 -0.190857
--0.18044 -0.170024 -0.159607 -0.14919 -0.138774 -0.128357 -0.11794
--0.107524 -0.0971069 -0.0866902 -0.0762736 -0.0658569 -0.0554402 -0.0450236
--0.0346069 -0.0241902 -0.0137736 -0.00335693 0.00705981 0.0174764 0.0278931
-0.0383098 0.0487264 0.0591431 0.0695598 0.0799764 0.0903931 0.10081
-0.111226 0.121643 0.13206 0.142476 0.152893 0.16331 0.173726 0.184143
-0.19456 0.204976 0.215393 0.22581 0.236226 0.246643 0.25706 0.267476
-0.277893 0.28831 0.298726 0.309143 0.31956 0.329976 0.340393 0.35081
-0.361226 0.371643 0.38206 0.392476 0.402893 0.41331 0.423726 0.434143
-0.44456 0.454976 0.465393 0.47581 0.486226 0.496643 0.50706 0.517476
-0.527893 0.53831 0.548726 0.559143 0.56956 0.579976 0.590393 0.60081
-0.611226 0.621643 0.63206 0.642476 0.652893 0.66331 0.673726 0.684143
-0.69456 0.704976 0.715393 0.72581 0.736226 0.746643 0.75706 0.767476
-0.777893 0.78831 0.798726 0.809143 0.81956 0.829976 0.840393 0.85081
-0.861226 0.871643 0.88206 0.892476 0.902893 0.91331 0.923726 0.934143
-0.94456 0.954976 0.965393 0.97581 0.986226 0.996643 -0.99294 -0.982524
--0.972107 -0.96169 -0.951274 -0.940857 -0.93044 -0.920024 -0.909607
--0.89919 -0.888774 -0.878357 -0.86794 -0.857524 -0.847107 -0.83669
--0.826274 -0.815857 -0.80544 -0.795024 -0.784607 -0.77419 -0.763774
--0.753357 -0.74294 -0.732524 -0.722107 -0.71169 -0.701274 -0.690857
--0.68044 -0.670024 -0.659607 -0.64919 -0.638774 -0.628357 -0.61794
--0.607524 -0.597107 -0.58669 -0.576274 -0.565857 -0.55544 -0.545024
--0.534607 -0.52419 -0.513774 -0.503357 -0.49294 -0.482524 -0.472107
--0.46169 -0.451274 -0.440857 -0.43044 -0.420024 -0.409607 -0.39919
--0.388774 -0.378357 -0.36794 -0.357524 -0.347107 -0.33669 -0.326274
--0.315857 -0.30544 -0.295024 -0.284607 -0.27419 -0.263774 -0.253357
-;
+#X array waveSwitch 512 float 1;
+#A 0 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2;
 #X coords 0 1 511 -1 200 140 1;
 #X restore 935 264 graph;
 #X obj 156 283 *~ 1;
@@ -1598,8 +1223,7 @@ synths.;
 #X text 707 318 (condition is false) \, depending;
 #X text 707 331 on the incoming value.;
 #X text 677 236 <---;
-#X obj 709 230 cnv 15 150 25 empty empty Conditional_Logic 20 12 0
-12 #e0e0e0 #404040 0;
+#X obj 709 230 cnv 15 150 25 empty empty Conditional_Logic 20 12 0 12 #e0e0e0 #404040 0;
 #X text 32 184 square;
 #X obj 276 283 *~ 2;
 #X obj 276 308 -~ 1;
@@ -1656,47 +1280,34 @@ synths.;
 #X text 205 100 How to connect objects in PD 'wirelessly';
 #X text 205 172 Create sounds by adding pure tones together;
 #X text 205 194 Additive Synthesis in a Bass Sequencer;
-#X obj 8 136 cnv 15 270 25 empty empty 3.2:\ Explore\ Some\ Examples
-20 12 0 14 #dcdcdc #404040 0;
-#X obj 8 223 cnv 15 291 25 empty empty 3.3:\ Make\ a\ Partial\ Abstraction
-20 12 0 14 #dcdcdc #404040 0;
+#X obj 8 136 cnv 15 270 25 empty empty 3.2:\ Explore\ Some\ Examples 20 12 0 14 #dcdcdc #404040 0;
+#X obj 8 223 cnv 15 291 25 empty empty 3.3:\ Make\ a\ Partial\ Abstraction 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 214 125 839 607 PartialAbstraction 0;
-#X obj 5 4 cnv 15 291 25 empty empty 3.3:\ Make\ a\ Partial\ Abstraction
-20 12 0 14 #dcdcdc #404040 0;
-#X text 5 36 To make it easer to make additive synths \, and explore
-how we can construct sounds from pure tones \, we'll make a partial
-abstraction here:;
-#X floatatom 67 147 5 0 0 0 - - -, f 5;
+#X obj 5 4 cnv 15 291 25 empty empty 3.3:\ Make\ a\ Partial\ Abstraction 20 12 0 14 #dcdcdc #404040 0;
+#X text 5 36 To make it easer to make additive synths \, and explore how we can construct sounds from pure tones \, we'll make a partial abstraction here:;
+#X floatatom 67 147 5 0 0 0 - - - 0;
 #X text 179 125 freq multiplier;
-#X floatatom 179 147 5 0 0 0 - - -, f 5;
+#X floatatom 179 147 5 0 0 0 - - - 0;
 #X text 327 125 phase;
-#X floatatom 327 147 5 0 0 0 - - -, f 5;
+#X floatatom 327 147 5 0 0 0 - - - 0;
 #X text 179 93 INPUTS;
 #X text 189 523 OUTPUTS;
-#X floatatom 417 147 5 0 0 0 - - -, f 5;
+#X floatatom 417 147 5 0 0 0 - - - 0;
 #X text 417 125 amplitude;
 #X obj 67 171 sig~;
 #X text 67 125 frequency~;
 #X text 183 500 Sound Out~;
 #X connect 2 0 11 0;
 #X restore 8 257 pd PartialAbstraction;
-#X obj 511 63 cnv 15 270 25 empty empty 3.4:\ Waveform\ Recipies 20
-12 0 14 #dcdcdc #404040 0;
-#X obj 511 193 cnv 15 380 25 empty empty 3.5:\ Reproduce\ Waveform\ Examples\ With\ par~
-20 12 0 14 #dcdcdc #404040 0;
+#X obj 511 63 cnv 15 270 25 empty empty 3.4:\ Waveform\ Recipies 20 12 0 14 #dcdcdc #404040 0;
+#X obj 511 193 cnv 15 380 25 empty empty 3.5:\ Reproduce\ Waveform\ Examples\ With\ par~ 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 180 100 873 626 Waveform 0;
-#X obj 3 4 cnv 15 380 25 empty empty 3.5:\ Reproduce\ Waveform\ Examples\ With\ par~
-20 12 0 14 #dcdcdc #404040 0;
+#X obj 3 4 cnv 15 380 25 empty empty 3.5:\ Reproduce\ Waveform\ Examples\ With\ par~ 20 12 0 14 #dcdcdc #404040 0;
 #X obj 5 87 par~ 1 0 1;
-#X text 4 36 Here's the library version of the partial abstraction
-we made earlier. We can use it to recreate the Sq/Triangle examples.
-;
-#X obj 4 129 cnv 15 102 25 empty empty Square 20 12 0 14 #dcdcdc #404040
-0;
-#X obj 521 129 cnv 15 102 25 empty empty Triangle 20 12 0 14 #dcdcdc
-#404040 0;
+#X text 4 36 Here's the library version of the partial abstraction we made earlier. We can use it to recreate the Sq/Triangle examples.;
+#X obj 4 129 cnv 15 102 25 empty empty Square 20 12 0 14 #dcdcdc #404040 0;
+#X obj 521 129 cnv 15 102 25 empty empty Triangle 20 12 0 14 #dcdcdc #404040 0;
 #X text 5 160 Odd harmonics \, phase 0.75 \, amp 1/n;
 #X text 521 160 Odd harmonics \, phase 0.75 \, amp 1/n^2;
 #X restore 511 226 pd Waveform Exercises;
-#X obj 511 256 cnv 15 380 25 empty empty 3.6:\ Making\ a\ Wave\ Select\ Abstraction
-20 12 0 14 #dcdcdc #404040 0;
+#X obj 511 256 cnv 15 380 25 empty empty 3.6:\ Making\ a\ Wave\ Select\ Abstraction 20 12 0 14 #dcdcdc #404040 0;
