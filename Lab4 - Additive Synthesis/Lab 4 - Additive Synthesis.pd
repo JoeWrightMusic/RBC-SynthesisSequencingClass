@@ -1,0 +1,8 @@
+#N canvas 130 111 591 110 12;
+#X declare -path ./Dependencies;
+#X obj 4 2 cnv 15 580 40 empty empty Lab\ 4\ -Amplitude\ Modulation 20 12 0 20 #e0e0e0 #404040 0;
+#X obj 22 54 4.1_BasicAM;
+#X obj 22 79 4.2_RingModAbstraction;
+#X obj 205 53 4.3_FancyAM;
+#X obj 205 77 4.4_AMAbstraction;
+#X obj 379 4 declare -path ./Dependencies;
