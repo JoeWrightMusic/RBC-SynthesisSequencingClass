@@ -1,0 +1,17 @@
+#N canvas 192 52 788 566 12;
+#X declare -path ./Dependencies/;
+#X obj 2 2 cnv 15 550 40 empty empty LAB\ 1\ -\ Intro\ to\ Pure\ Data 20 12 0 20 #dfdfdf #404040 0;
+#X obj 566 7 declare -path ./Dependencies/;
+#X obj 21 357 1.1_Orientation;
+#X text 19 47 Welcome to our Pure Data lab sessions! Each week we'll work from a master file like this. Usually we'll work through different sections which you'll find by opening the 'boxes' below...;
+#X text 145 351 You can open this by holding Command (mac) / Control (win) and then clicking on the box.;
+#X obj 21 391 1.2_FinishAPremadePatch;
+#X obj 20 114 cnv 19 430 220 empty empty empty 20 12 0 12 #ffc7c6 #404040 0;
+#X text 29 127 IMPORTANT!! - If for whatever reason \, it's easier to work wiht a different coloured background \, look at the 'READ ME FIRST.pd' file in the 'ChangeBackgroundColour' file.;
+#X obj 21 425 1.3_Beep;
+#X obj 21 459 1.4_MoreInterestingBeep;
+#X obj 21 493 1.5_TimingAndMessageOrder;
+#X obj 21 527 1.6_Challenge;
+#X text 29 197 ALSO IMPORTANT - For these lab patches to work \, we need to set up a filepath to the 'Abstractions' folder that came with these files. In the top menu \, go to:;
+#X text 29 257 Pd > Preferences > Path;
+#X text 29 287 Then click 'New..." \, and navigate to the Abstractions folder. Then Click choose to confirm. You're all set!;

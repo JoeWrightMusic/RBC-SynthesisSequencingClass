@@ -18,7 +18,7 @@
 #X text 164 47 mod ratio;
 #X text 261 47 mod depth;
 #X obj 20 100 unpack 0 0;
-#X obj 140 430 adsr~;
+#X obj 83 430 adsr~, f 32;
 #X obj 358 68 inlet;
 #X text 357 48 A;
 #X obj 443 68 inlet;

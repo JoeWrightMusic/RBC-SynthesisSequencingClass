@@ -1,4 +1,4 @@
-#N canvas 495 25 734 650 12;
+#N canvas 495 25 730 815 12;
 #X obj 278 34 tgl 41 0 \$0-t1 empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 321 34 tgl 41 0 \$0-t2 empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 364 34 tgl 41 0 \$0-t3 empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;

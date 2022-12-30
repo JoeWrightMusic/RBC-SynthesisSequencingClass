@@ -1,0 +1,12 @@
+#N canvas 225 -780 906 143 10;
+#X declare -path ./Dependencies/;
+#X obj 9 9 cnv 15 888 40 empty empty Lab\ 2\ -\ Envelopes\ &\ Subtractive\ Synthesis 20 12 0 20 #e0e0e0 #404040 0;
+#X obj 718 10 declare -path ./Dependencies/;
+#X obj 150 65 2.3_MakingEnvelopes;
+#X obj 10 99 2.2_KeyIngredients;
+#X obj 10 65 2.1_MessageOrder;
+#X obj 150 99 2.4_FilterExamples;
+#X obj 297 65 2.5_PuttingThingsTogether;
+#X obj 297 99 2.6_MakeFirstAbstraction;
+#X obj 477 65 2.7_MakeASubtractiveSynth;
+#X obj 477 99 2.8_Explore;

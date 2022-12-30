@@ -1,0 +1,9 @@
+#N canvas 378 95 610 412 12;
+#X obj 7 6 cnv 25 596 35 empty empty Change\ Pure\ Data's\ Background\ Colour 20 12 0 25 #dfdfdf #404040 0;
+#X text 28 54 Pd's interface options are quite limited. If you need to change the background colour \, follow these steps:;
+#X text 29 118 1 - Add the 'ChangeBackgroundColour' folder to Pd's filepath list:, f 79;
+#X text 55 137 - In the top menu \, go to: Pd > Preferences > Path - Then click the 'New...' button and choose the 'ChangeBackgroundColour' folder., f 49;
+#X text 30 208 2 - Choose your background colour;
+#X text 57 225 To choose and set a background colour \, find the text file with the background colour you want \, and change its extension from .txt to .tcl;
+#X text 29 297 3 - Quit & Restart Pd;
+#X text 28 340 *** ASK FOR HELP IN LABS OR ON TEAMS IF YOU NEED IT*** *** CUSTOM COLOURS ARE ALSO POSSIBLE ***;

@@ -1,0 +1,15 @@
+#N canvas 269 341 493 262 12;
+#X obj 9 68 line~;
+#X obj 9 94 del;
+#X obj 9 148 hip~;
+#X obj 9 200 bp~;
+#X obj 9 174 lop~;
+#X text 56 67 generate audio ramps;
+#X text 56 146 High Pass Filter;
+#X text 55 173 Low Pass Filter;
+#X text 55 200 Band Pass Filter;
+#X obj 9 41 noise~;
+#X obj 9 6 cnv 15 200 25 empty empty 2.2:\ Key\ Ingredients 20 12 0 14 #dcdcdc #404040 0;
+#X text 56 41 uniformly distributed white noise;
+#X text 56 91 The delay object sends a bang to its outlet after a delay in milliseconds specified by its right inlet or its creation argument. Right click and choose 'help' to see more details and examples;
+#X text 8 221 Find out more by right clicking on an object \, and looking at the 'help' file;

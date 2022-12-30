@@ -1,0 +1,15 @@
+#N canvas 187 107 913 587 12;
+#X obj 5 5 cnv 15 899 40 empty empty Lab\ 2.6\ -\ Create\ AR\ abstraction 20 12 0 20 #e0e0e0 #404040 0;
+#X text 5 133 start with line object & basic messages;
+#X text 5 158 make messages variable;
+#X text 5 183 use [t] to trigger messages from one bang;
+#X text 388 142 bang (trigger);
+#X text 561 144 attack (ms);
+#X text 681 143 release (ms);
+#X text 388 123 INPUTS;
+#X text 388 467 OUTPUT;
+#X text 388 445 envelope signal;
+#X text 5 51 Here we'll create some reusable code - an abstracton - for an AR envelope \, and we can refer to the ready made one in the abstractions folder for help. The advantage of abstractions is we can write generalised functions to use in lots of situations \, and where we encounter an error \, we only have to change the source file for the abstraction. If we copy and paste such functions \, we'd have to manually fix every instance in all our code!, f 116;
+#X text 5 209 test the output with [scope~];
+#X text 6 236 copy the AR envelope to a new patch and save.;
+#X text 8 266 NOTE: to avoid clashes with other similar abstractions \, it's good practice to name YOUR abstraction with your initials first. i.e. John Smith's AR abstraction might be named: "js.AR~.pd", f 46;

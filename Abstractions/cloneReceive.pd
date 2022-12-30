@@ -1,0 +1,8 @@
+#N canvas 759 126 450 130 12;
+#X obj 9 35 r \$1;
+#X msg 9 59 all \$1;
+#X obj 9 83 outlet;
+#X text 9 13 ARGUMENTS: 1 - the receive name to send on to [clone];
+#X text 9 106 OUTLETS: 1 - recive data with 'all' prepended;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;

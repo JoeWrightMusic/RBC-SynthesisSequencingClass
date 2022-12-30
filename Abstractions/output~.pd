@@ -1,4 +1,4 @@
-#N canvas 194 94 815 583 12;
+#N canvas 189 102 815 583 12;
 #X obj 176 233 inlet~;
 #X obj 197 373 *~;
 #X obj 197 414 *~;
@@ -20,8 +20,8 @@
 #X text 174 210 signal in;
 #X obj 337 41 inlet;
 #X obj 471 43 inlet;
-#X text 336 12 volume 0-1;
-#X text 465 12 mute 0/1 mute==1;
+#X text 336 22 volume 0-1;
+#X text 470 23 mute 0/1 mute==1;
 #X obj 337 64 s \$0-setVolume;
 #X obj 471 145 s \$0-setMute;
 #X obj 471 65 sel 0;
@@ -47,9 +47,9 @@
 #X obj 201 517 dac~;
 #X obj 105 291 bng 19 250 50 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000;
 #X obj 228 143 tgl 19 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
-#X text 277 12 INLETS:;
 #X text 104 517 Audio Out -->;
 #X text 261 547 OUTLETS: Audio (L) \, Audio (R);
+#X text 32 4 INLETS: 1 - Audio (L) \, 2 - Audio (R) \, Volume \, Mute;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;

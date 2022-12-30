@@ -1,0 +1,17 @@
+#N canvas 46 69 1214 754 12;
+#X obj 473 87 premadePatch;
+#X obj 7 6 cnv 25 596 35 empty empty LAB\ 1.2\ -\ Finish\ A\ Premade\ Patch 20 12 0 25 #e0e0e0 #404040 0;
+#X obj 474 528 output~;
+#X obj 8 369 cnv 15 346 34 empty empty Finish\ the\ Patch 20 12 0 14 #e0e0e0 #404040 0;
+#X text 10 45 You've already opened two 'boxes' from the top-level of the Lab 1 patch: each of the 'boxes' you've opened is actually another .pd file that we can bring up by name. We call these 'boxes' abstractions. We'll come back to this concept later \, just know that we can use abstractions to put patches within patches in Pd.;
+#X text 10 143 Here we have two more abstractions \, but this time they load with a 'window' that lets us see some of what's inside. This is the basis of how we can put usable patches together.;
+#X text 13 410 1 - Open the smaller 'output~' patch to see what each of the inlets does.;
+#X text 12 204 First \, we need to finish this sequencer. At the bottom left of the larger abstraction you'll see a black tab - representing an output (outlet). Similarly \, on the smaller 'output~' abstraction \, you'll see 4 input (inlet) tabs. We need to connect these up.;
+#X text 13 290 To see inside one of these abstractions (which can be useful if we want to check what the inlets/outlets of an abstraction do \, we can right-click on them \, and click 'open'.;
+#X obj 8 559 cnv 15 346 34 empty empty Play!\  20 12 0 14 #e0e0e0 #404040 0;
+#X text 13 451 2 - Unlock the patch (Cmd/Ctl - E);
+#X text 13 480 3 - Connect the outlet of the larger abstraction to the left and right audio inputs of our 'output' abstraction. You can do this by clicking and dragging.;
+#X text 13 600 1 - Set up Pd's audio inputs and outputs. In the top menu \, go to: Pd > Preferences > Audio...;
+#X text 473 594 3 - To interact with Controls in the patch you can either lock the patch (Cmd/Ctl - E) \, or you can just hold Cmd/Ctl and click and drag on the control you want to manipulate;
+#X text 13 650 2 - Turn on DSP (Digital Signal Processing). Without this \, Pd's sound-engine is turned off \, and no sound or audio-rate data will flow through the patch. The conventional way to do this is via the 'Pd window' \, which you can access by hitting Cmd/Ctl - R. There is a small checkbox for DSP in the top right of that window.;
+#X text 473 654 4 - The patch has two step sequencers that send out midi/velocity values. There is no help file or documentation. Manipulate the controls and see if you can get it working.;
