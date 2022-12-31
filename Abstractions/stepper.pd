@@ -34,7 +34,6 @@
 #X text 266 315 <- Our resulting count starts from 0!;
 #X msg 297 64 8;
 #X obj 68 202 t b f;
-#X floatatom 231 280 5 0 0 0 - - - 0;
 #X connect 7 0 9 0;
 #X connect 8 0 11 0;
 #X connect 9 0 8 0;
@@ -47,7 +46,6 @@
 #X connect 20 0 21 1;
 #X connect 21 0 22 0;
 #X connect 21 0 6 0;
-#X connect 21 0 35 0;
 #X connect 22 0 23 0;
 #X connect 23 0 21 1;
 #X connect 24 0 23 1;

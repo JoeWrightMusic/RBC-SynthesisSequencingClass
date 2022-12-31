@@ -1,0 +1,7 @@
+#N canvas 333 314 450 300 12;
+#X obj 2 2 cnv 15 637 24 empty empty 5.4:\ Putting\ it\ Together 20 12 0 14 #dcdcdc #404040 0;
+#X text 6 150 2 - connect the stepper to the three sequencer objects, f 27;
+#X text 6 195 3 - create some precussion sounds: [simpleHat~] \, [simpleSnare~] and [simpleKick~], f 27;
+#X text 6 272 4 - connect these to make a simple drum sequencer, f 27;
+#X text 6 317 5 - extra: add a volume control for each sound, f 27;
+#X text 6 35 1 - create a stepper and 3 sequencers. Abstractions from the prebuilt library are [stepper] and [seq] \, you may also want to look at [seqTicker], f 27;

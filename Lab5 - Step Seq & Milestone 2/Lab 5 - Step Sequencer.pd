@@ -1,0 +1,8 @@
+#N canvas 130 111 591 110 12;
+#X declare -path ./Dependencies;
+#X obj 4 2 cnv 15 580 40 empty empty Lab\ 5\ -\ Step\ Sequencer 20 12 0 20 #e0e0e0 #404040 0;
+#X obj 379 4 declare -path ./Dependencies;
+#X obj 22 54 5.1_StepSeqExample;
+#X obj 22 79 5.2_StepperAbstraction;
+#X obj 205 53 5.3_SequencerAbstraction;
+#X obj 205 77 5.4_PuttingItTogether;
