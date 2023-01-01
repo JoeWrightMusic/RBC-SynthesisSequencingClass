@@ -1,11 +1,10 @@
-#N canvas -53 -857 776 229 12;
-#X obj 4 3 cnv 15 767 40 empty empty Lab\ 6\ -\ ADSR\ and\ Poly 20
-12 0 20 #e0e0e0 #404040 0;
+#N canvas 0 -857 776 229 12;
+#X obj 4 3 cnv 15 767 40 empty empty Lab\ 6\ -\ ADSR\ and\ Poly 20 12 0 20 #e0e0e0 #404040 0;
 #N canvas 114 110 865 487 MIDI 0;
 #X obj 17 154 notein;
-#X floatatom 17 219 5 0 0 0 - - -, f 5;
-#X floatatom 36 198 5 0 0 0 - - -, f 5;
-#X floatatom 56 177 5 0 0 0 - - -, f 5;
+#X floatatom 17 219 5 0 0 0 - - - 0;
+#X floatatom 36 198 5 0 0 0 - - - 0;
+#X floatatom 56 177 5 0 0 0 - - - 0;
 #X text 58 218 <- MIDI note number;
 #X text 71 197 <- Note velocity;
 #X text 97 175 <- MIDI channel;
@@ -13,8 +12,8 @@
 #X text 313 215 <- CC value;
 #X text 349 175 <- MIDI Channel;
 #X obj 510 154 pgmin;
-#X floatatom 510 197 5 0 0 0 - - -, f 5;
-#X floatatom 542 176 5 0 0 0 - - -, f 5;
+#X floatatom 510 197 5 0 0 0 - - - 0;
+#X floatatom 542 176 5 0 0 0 - - - 0;
 #X text 579 176 <- MIDI channel;
 #X text 545 197 <- program number;
 #X text 508 133 Program message;
@@ -22,8 +21,8 @@
 #X obj 74 284 polytouchin;
 #X text 14 264 After touch;
 #X obj 266 284 bendin;
-#X floatatom 266 328 5 0 0 0 - - -, f 5;
-#X floatatom 305 308 5 0 0 0 - - -, f 5;
+#X floatatom 266 328 5 0 0 0 - - - 0;
+#X floatatom 305 308 5 0 0 0 - - - 0;
 #X text 266 263 Pitch bend;
 #X obj 511 284 sysexin;
 #X text 511 262 system exclusive;
@@ -33,18 +32,15 @@
 #X obj 189 413 touchout;
 #X obj 259 413 bendout;
 #X text 16 133 MIDI notes;
-#X floatatom 267 219 5 0 0 0 - - -, f 5;
-#X floatatom 286 198 5 0 0 0 - - -, f 5;
-#X floatatom 306 177 5 0 0 0 - - -, f 5;
+#X floatatom 267 219 5 0 0 0 - - - 0;
+#X floatatom 286 198 5 0 0 0 - - - 0;
+#X floatatom 306 177 5 0 0 0 - - - 0;
 #X obj 267 154 ctlin, f 6;
 #X text 265 133 MIDI CC message;
 #X text 15 108 Getting information into Pd;
-#X text 12 374 These all have counterparts that send data out to another
-midi device....;
-#X obj 9 6 cnv 15 800 40 empty empty MIDI\ objects\ in\ Pd 20 12 0
-20 #e0e0e0 #404040 0;
-#X text 15 50 So far we have only made use of [notein] but there are
-many options for getting data in and out of Pd...;
+#X text 12 374 These all have counterparts that send data out to another midi device....;
+#X obj 9 6 cnv 15 800 40 empty empty MIDI\ objects\ in\ Pd 20 12 0 20 #e0e0e0 #404040 0;
+#X text 15 50 So far we have only made use of [notein] but there are many options for getting data in and out of Pd...;
 #X connect 0 0 1 0;
 #X connect 0 1 2 0;
 #X connect 0 2 3 0;
@@ -56,74 +52,51 @@ many options for getting data in and out of Pd...;
 #X connect 34 1 32 0;
 #X connect 34 2 33 0;
 #X restore 24 144 pd MIDI objects;
-#X obj 4 50 cnv 15 348 25 empty empty 6.1:\ Polyphony\ with\ [poly]\ and\ [clone]
-20 12 0 14 #dcdcdc #404040 0;
+#X obj 4 50 cnv 15 348 25 empty empty 6.1:\ Polyphony\ with\ [poly]\ and\ [clone] 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 307 -929 1186 773 Polyphonic 0;
-#X obj 2 7 cnv 15 1113 25 empty empty Polyphonic\ FM\ Synth 20 12 0
-14 #dcdcdc #404040 0;
-#X obj 542 77 hsl 107 37 0.01 100 1 1 empty empty Modulator\ Ratio
--2 -8 0 10 #fcfcfc #000000 #000000 3650 1;
-#X obj 674 77 hsl 107 37 0.001 10000 1 1 empty empty Modulator\ Depth
--2 -8 0 10 #fcfcfc #000000 #000000 4900 1;
+#X obj 2 7 cnv 15 1113 25 empty empty Polyphonic\ FM\ Synth 20 12 0 14 #dcdcdc #404040 0;
+#X obj 542 77 hsl 107 37 0.01 100 1 1 empty empty Modulator\ Ratio -2 -8 0 10 #fcfcfc #000000 #000000 3650 1;
+#X obj 674 77 hsl 107 37 0.001 10000 1 1 empty empty Modulator\ Depth -2 -8 0 10 #fcfcfc #000000 #000000 4900 1;
 #X obj 449 662 output~;
-#X obj 809 77 hsl 107 37 10 1000 1 1 empty empty Attack -2 -8 0 10
-#fcfcfc #000000 #000000 4200 1;
-#X obj 946 77 hsl 103 37 0.001 10000 1 1 empty empty Release -2 -8
-0 10 #fcfcfc #000000 #000000 9800 1;
+#X obj 809 77 hsl 107 37 10 1000 1 1 empty empty Attack -2 -8 0 10 #fcfcfc #000000 #000000 4200 1;
+#X obj 946 77 hsl 103 37 0.001 10000 1 1 empty empty Release -2 -8 0 10 #fcfcfc #000000 #000000 9800 1;
 #X obj 447 65 notein;
-#X text 21 36 Let's take the last example from Lab 5 and convert it
-to a polyphonic synth..., f 112;
+#X text 21 36 Let's take the last example from Lab 5 and convert it to a polyphonic synth..., f 112;
 #X obj 73 125 poly 16 1;
 #X text 21 125 >>>>;
 #X text 22 216 i.e. [clone FMvoiceAR~ 16];
 #X obj 447 94 stripnote;
-#X text 21 64 1 - connect the poly object below this comment \, it
-has 16 voices with voice-stealing enabled, f 52;
-#X text 22 155 2 - lets create a [clone] object which will get the
-name of our FMvoiceAR~ object as it's argument \, and then tne number
-of voices we need, f 52;
-#X text 22 244 3 - For whatever reason \, the Pd gods decided poly
-and clone would count differently. We need to take 1 away from the
-first output of poly \, and then pack the three values together with
-[pack 0 0 0], f 52;
-#X text 22 321 4 - we can send messages to all members of a [clone]
-by using an [all \$1( message. Lets use it to connect our sliders,
-f 52;
+#X text 21 64 1 - connect the poly object below this comment \, it has 16 voices with voice-stealing enabled, f 52;
+#X text 22 155 2 - lets create a [clone] object which will get the name of our FMvoiceAR~ object as it's argument \, and then tne number of voices we need, f 52;
+#X text 22 244 3 - For whatever reason \, the Pd gods decided poly and clone would count differently. We need to take 1 away from the first output of poly \, and then pack the three values together with [pack 0 0 0], f 52;
+#X text 22 321 4 - we can send messages to all members of a [clone] by using an [all \$1( message. Lets use it to connect our sliders, f 52;
 #X text 22 382 5 - test!;
 #X connect 6 0 11 0;
 #X connect 6 1 11 1;
 #X restore 24 80 pd Polyphonic FM Synth;
-#X obj 4 114 cnv 15 348 25 empty empty 6.2:\ MIDI\ objects\ in\ Pd
-20 12 0 14 #dcdcdc #404040 0;
-#X obj 4 177 cnv 15 348 25 empty empty 6.3:\ Remake\ [adsr~] 20 12
-0 14 #dcdcdc #404040 0;
+#X obj 4 114 cnv 15 348 25 empty empty 6.2:\ MIDI\ objects\ in\ Pd 20 12 0 14 #dcdcdc #404040 0;
+#X obj 4 177 cnv 15 348 25 empty empty 6.3:\ Remake\ [adsr~] 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 92 59 1255 754 remake 1;
-#X obj 11 6 cnv 15 1100 40 empty empty ADSR_ABSTRACTION 20 12 0 20
-#e0e0e0 #404040 0;
-#X text 30 54 We'll talk through the abstraction in the Lab \, but
-you can also alt-click to open it here:;
-#X obj 30 99 adsr~;
+#X obj 11 6 cnv 15 1100 40 empty empty 7.3:\ Remake\ the\ ADSR\ Abstraction 20 12 0 20 #e0e0e0 #404040 0;
+#X text 30 54 We'll talk through the abstraction in the Lab \, but you can also alt-click to open it here:;
+#X obj 30 99 adsr~, f 15;
 #X text 30 128 Now for practice \, lets recreate it;
-#X obj 43 181 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X text 31 155 trigger;
-#X text 473 155 A;
-#X text 558 155 D;
-#X text 643 155 S;
-#X text 728 155 R;
-#X floatatom 466 181 5 0 0 0 - - -, f 5;
-#X floatatom 551 181 5 0 0 0 - - -, f 5;
-#X floatatom 640 181 5 0 0 0 - - -, f 5;
-#X floatatom 729 181 5 0 0 0 - - -, f 5;
-#X obj 1018 565 waveScope~;
+#X obj 576 92 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X text 564 66 trigger;
+#X text 833 65 A;
+#X text 918 65 D;
+#X text 1003 65 S;
+#X text 1088 65 R;
+#X floatatom 826 91 5 0 0 0 - - - 0;
+#X floatatom 911 91 5 0 0 0 - - - 0;
+#X floatatom 1000 91 5 0 0 0 - - - 0;
+#X floatatom 1089 91 5 0 0 0 - - - 0;
+#X obj 569 591 scope~;
 #X restore 22 207 pd remake the [adsr~] abstraction;
-#X obj 419 50 cnv 15 348 25 empty empty 6.4:\ Change\ FMvoiceAR~\ to\ FMvoiceADSR~
-20 12 0 14 #dcdcdc #404040 0;
+#X obj 419 50 cnv 15 348 25 empty empty 6.4:\ Change\ FMvoiceAR~\ to\ FMvoiceADSR~ 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 647 -951 452 129 new 0;
-#X obj 11 6 cnv 15 430 40 empty empty ADSR_ABSTRACTION 20 12 0 20 #e0e0e0
-#404040 0;
-#X text 30 54 Here's an encapsulated version of FMvoiceAR~. Lets convert
-it to take [adsr~] as its envelope instead;
+#X obj 11 6 cnv 15 430 40 empty empty ADSR_ABSTRACTION 20 12 0 20 #e0e0e0 #404040 0;
+#X text 30 54 Here's an encapsulated version of FMvoiceAR~. Lets convert it to take [adsr~] as its envelope instead;
 #N canvas 636 -761 731 500 FMvoiceAR~ 0;
 #X obj 26 94 mtof;
 #X obj 155 125 / 127;
@@ -198,28 +171,18 @@ it to take [adsr~] as its envelope instead;
 #X connect 40 0 28 0;
 #X restore 30 99 pd FMvoiceAR~;
 #X restore 437 80 pd new FMvoice;
-#X obj 419 113 cnv 15 348 25 empty empty 6.1:\ Polyphony\ with\ ADSR
-20 12 0 14 #dcdcdc #404040 0;
+#X obj 419 113 cnv 15 348 25 empty empty 6.1:\ Polyphony\ with\ ADSR 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 335 -964 1186 773 Polyphonic 0;
-#X obj 2 7 cnv 15 1113 25 empty empty Polyphonic\ FM\ Synth 20 12 0
-14 #dcdcdc #404040 0;
-#X obj 542 77 hsl 107 37 0.01 100 1 1 empty empty Modulator\ Ratio
--2 -8 0 10 #fcfcfc #000000 #000000 1250 1;
-#X obj 674 77 hsl 107 37 0.001 10000 1 1 empty empty Modulator\ Depth
--2 -8 0 10 #fcfcfc #000000 #000000 6300 1;
+#X obj 2 7 cnv 15 1113 25 empty empty Polyphonic\ FM\ Synth 20 12 0 14 #dcdcdc #404040 0;
+#X obj 542 77 hsl 107 37 0.01 100 1 1 empty empty Modulator\ Ratio -2 -8 0 10 #fcfcfc #000000 #000000 1250 1;
+#X obj 674 77 hsl 107 37 0.001 10000 1 1 empty empty Modulator\ Depth -2 -8 0 10 #fcfcfc #000000 #000000 6300 1;
 #X obj 449 662 output~;
-#X obj 809 77 hsl 107 37 10 1000 1 1 empty empty Attack -2 -8 0 10
-#fcfcfc #000000 #000000 3600 1;
-#X obj 946 77 hsl 103 37 0.001 10000 1 1 empty empty Release -2 -8
-0 10 #fcfcfc #000000 #000000 5600 1;
+#X obj 809 77 hsl 107 37 10 1000 1 1 empty empty Attack -2 -8 0 10 #fcfcfc #000000 #000000 3600 1;
+#X obj 946 77 hsl 103 37 0.001 10000 1 1 empty empty Release -2 -8 0 10 #fcfcfc #000000 #000000 5600 1;
 #X obj 447 65 notein;
-#X text 21 36 Let's work from the same starting point as the beginning
-of the Lab \, and this time use the ADSR version of our synth, f 123
-;
-#X text 21 65 1 - create more sliders for decay and sustain. Change
-the range of sustain to the range 0-1, f 53;
+#X text 21 36 Let's work from the same starting point as the beginning of the Lab \, and this time use the ADSR version of our synth, f 123;
+#X text 21 65 1 - create more sliders for decay and sustain. Change the range of sustain to the range 0-1, f 53;
 #X text 21 139 3 - add in a clone with the new FM synth;
 #X text 21 168 4 - test;
-#X text 21 110 2 - remove stripnote and add in a MIDIpoly abstraction
-;
+#X text 21 110 2 - remove stripnote and add in a MIDIpoly abstraction;
 #X restore 439 143 pd Polyphonic FM Synth;

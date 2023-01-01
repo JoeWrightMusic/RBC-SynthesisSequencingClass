@@ -1,0 +1,15 @@
+#N canvas 272 -755 1122 640 12;
+#X obj 2 7 cnv 15 1113 25 empty empty 8.3:\ Patch\ Improvement\ Challenge 20 12 0 14 #dcdcdc #404040 0;
+#X text 20 80 As a group \, let's work out how we can further improve our synth by adding the option of selecting a waveform for the carrier and modulator waves.;
+#X text 20 40 Once we've finished our work for 8.2 \, we should end up with something like this patch.;
+#X obj 494 47 8.2_FM-Patch;
+#X text 20 140 As a starting hint \, we'll need to mine down into two abstractions \, [voice-FMADSR~] and the [simpleFM~] abstraction at the heart of it.;
+#X text 20 200 Once we've modded the synth \, we'll also need to edit the main patch and change the UI to include extra controls.;
+#X text 20 251 If there's time \, we could also add effects like reverb and delay using [simpleVerb~] and [simpleDelay~];
+#X text 20 301 With your assignments in mind \, how could you extend what we've done in labs to include more or all of the techniques we've covered \, i.e.;
+#X text 40 351 - Additive Synthesis;
+#X text 40 371 - Subtractive Synthesis;
+#X text 40 391 - Step Sequencer;
+#X text 40 411 - Percussive Sounds;
+#X text 40 431 - Amplitude Modulation;
+#X text 20 461 Can you create a patch from the examples done in labs \, and/or the abstractions in the abstractions folder? This is basically what your assignment is \, experiment and have fun!;
