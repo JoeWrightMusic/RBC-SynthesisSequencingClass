@@ -1,73 +1,52 @@
-#N canvas 62 68 699 253 12;
-#X obj 4 4 cnv 15 689 40 empty empty Lab\ 5\ -FM\ &\ MIDI 20 12 0 20
-#e0e0e0 #404040 0;
-#X obj 4 50 cnv 15 308 25 empty empty 5.1:\ MIDI\ input 20 12 0 14
-#dcdcdc #404040 0;
+#N canvas 37 -932 699 253 12;
+#X obj 4 4 cnv 15 689 40 empty empty Lab\ 5\ -FM\ &\ MIDI 20 12 0 20 #e0e0e0 #404040 0;
+#X obj 4 50 cnv 15 308 25 empty empty 5.1:\ MIDI\ input 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 202 105 892 598 MIDI-in 0;
-#X obj 2 3 cnv 15 886 25 empty empty 5.1:\ MIDI\ input 20 12 0 14 #dcdcdc
-#404040 0;
-#X text 22 36 We can use notein to grab the data from any midi instrument
-listed in Edit>Preferences>MIDI>Input Devices;
+#X obj 2 3 cnv 15 886 25 empty empty 5.1:\ MIDI\ input 20 12 0 14 #dcdcdc #404040 0;
+#X text 22 36 We can use notein to grab the data from any midi instrument listed in Edit>Preferences>MIDI>Input Devices;
 #X text 22 83 The data we get is split into;
 #X obj 574 99 notein;
-#X floatatom 593 157 0 0 0 0 - - -;
-#X floatatom 574 180 0 0 0 0 - - -;
-#X floatatom 613 132 0 0 0 0 - - -;
+#X floatatom 593 157 0 0 0 0 - - - 0;
+#X floatatom 574 180 0 0 0 0 - - - 0;
+#X floatatom 613 132 0 0 0 0 - - - 0;
 #X text 633 158 velocity;
 #X text 642 134 channel;
 #X text 624 180 note;
-#X text 22 112 For now \, we can use [stripnote] to remove note-off
-messages \, letting us focus on the note-ons only.;
 #X text 22 157 1 - create and connect a [stripnote] object;
-#X text 22 186 2 - scale the velocity (0-127) down to a volume level
-signal (0-1) by dividing by 127;
-#X text 22 231 3 - convert note numbers to frequency. Which object
-did we use for this in previous labs?;
-#X text 22 276 4 - use [waveSelect~] \, [arUI~] and [output~] to create
-a basic MIDI synth. We need to use the velocity value to trigger a
-volume level for scaling and a bang for the AR abstraction;
+#X text 22 186 2 - scale the velocity (0-127) down to a volume level signal (0-1) by dividing by 127;
+#X text 22 231 3 - convert note numbers to frequency. Which object did we use for this in previous labs?;
+#X text 22 276 4 - use [waveSelect~] \, [arUI~] and [output~] to create a basic MIDI synth. We need to use the velocity value to trigger a volume level for scaling and a bang for the AR abstraction;
+#X text 22 112 For now \, we can use [stripnote] to remove note-off messages from [notein] \, letting us focus on the note-ons only.;
 #X connect 3 0 5 0;
 #X connect 3 1 4 0;
 #X connect 3 2 6 0;
 #X restore 24 80 pd MIDI-in;
-#X obj 4 122 cnv 15 308 25 empty empty 5.2:\ FM\ Synthesis 20 12 0
-14 #dcdcdc #404040 0;
-#N canvas 104 47 892 730 FM 0;
-#X obj 2 7 cnv 15 886 25 empty empty FM\ Synthesis 20 12 0 14 #dcdcdc
-#404040 0;
-#X obj 3 77 cnv 15 206 25 empty empty Carrier\ Wave 20 12 0 14 #dcdcdc
-#404040 0;
-#X obj 221 77 cnv 15 184 25 empty empty Modulator\ Wave 20 12 0 14
-#dcdcdc #404040 0;
-#X obj 25 118 hsl 177 37 0 127 0 1 empty empty Carrier\ Freq -2 -8
-0 10 #fcfcfc #000000 #000000 2850 1;
+#X obj 4 122 cnv 15 308 25 empty empty 5.2:\ FM\ Synthesis 20 12 0 14 #dcdcdc #404040 0;
+#N canvas 183 -843 892 730 FM 0;
+#X obj 2 7 cnv 15 886 25 empty empty FM\ Synthesis 20 12 0 14 #dcdcdc #404040 0;
+#X obj 3 77 cnv 15 206 25 empty empty Carrier\ Wave 20 12 0 14 #dcdcdc #404040 0;
+#X obj 221 77 cnv 15 184 25 empty empty Modulator\ Wave 20 12 0 14 #dcdcdc #404040 0;
+#X obj 25 118 hsl 177 37 0 127 0 1 empty empty Carrier\ Freq -2 -8 0 10 #fcfcfc #000000 #000000 3450 1;
 #X obj 25 159 mtof;
 #X msg 25 183 \$1 10;
 #X obj 25 208 line~;
-#X obj 222 118 hsl 177 37 10 1000 1 1 empty empty Modulator\ Freq -2
--8 0 10 #fcfcfc #000000 #000000 8400 1;
+#X obj 222 118 hsl 177 37 10 1000 1 1 empty empty Modulator\ Freq -2 -8 0 10 #fcfcfc #000000 #000000 7300 1;
 #X msg 222 160 \$1 10;
 #X obj 222 184 line~;
 #X obj 222 209 osc~;
-#X text 21 36 In the previous lab \, we used one wave to control the
-amplitude of the other. This time \, we'll drive the frequency of one
-wave with another, f 112;
-#X obj 417 77 cnv 15 184 25 empty empty Modulation\ Depth 20 12 0 14
-#dcdcdc #404040 0;
-#X obj 417 118 hsl 177 37 0.001 10000 1 1 empty empty Modulator\ Depth
--2 -8 0 10 #fcfcfc #000000 #000000 13800 1;
+#X text 21 36 In the previous lab \, we used one wave to control the amplitude of the other. This time \, we'll drive the frequency of one wave with another, f 112;
+#X obj 417 77 cnv 15 184 25 empty empty Modulation\ Depth 20 12 0 14 #dcdcdc #404040 0;
+#X obj 417 118 hsl 177 37 0.001 10000 1 1 empty empty Modulator\ Depth -2 -8 0 10 #fcfcfc #000000 #000000 12200 1;
 #X msg 417 160 \$1 10;
 #X obj 417 184 line~;
 #X obj 399 259 s~ bFM-modSignal;
 #X obj 222 259 s~ bFM-modWave;
 #X obj 399 237 *~;
 #X text 429 236 scale modulating signal to be +/- frequency depth;
-#X obj 3 291 cnv 15 262 26 empty empty Frequency\ Modulation 20 12
-0 14 #dcdcdc #404040 0;
+#X obj 3 291 cnv 15 262 26 empty empty Frequency\ Modulation 20 12 0 14 #dcdcdc #404040 0;
 #X obj 132 324 r~ bFM-modSignal;
 #X obj 25 363 +~;
-#X text 65 363 Adding signals gives +/- depth in Hz around the carrier
-frequency \, like a vibrato, f 28;
+#X text 65 363 Adding signals gives +/- depth in Hz around the carrier frequency \, like a vibrato, f 28;
 #X obj 25 412 osc~;
 #X obj 25 471 output~;
 #X obj 551 324 r~ bFM-modWave;
@@ -103,34 +82,27 @@ frequency \, like a vibrato, f 28;
 #X connect 34 0 22 0;
 #X connect 35 0 33 0;
 #X restore 24 152 pd FM Synthesis;
-#X obj 4 190 cnv 15 308 25 empty empty 5.3:\ Simple\ FM\ abstraction
-20 12 0 14 #dcdcdc #404040 0;
-#N canvas 104 47 892 544 FM 0;
-#X obj 2 7 cnv 15 886 25 empty empty Make\ a\ basic\ FM\ synth\ Abstraction
-20 12 0 14 #dcdcdc #404040 0;
-#X obj 25 98 hsl 177 37 0 127 0 1 empty empty Carrier\ Freq -2 -8 0
-10 #fcfcfc #000000 #000000 3950 1;
+#X obj 4 190 cnv 15 308 25 empty empty 5.3:\ Simple\ FM\ abstraction 20 12 0 14 #dcdcdc #404040 0;
+#N canvas 210 -722 892 544 FM 1;
+#X obj 2 7 cnv 15 886 25 empty empty Make\ a\ basic\ FM\ synth\ Abstraction 20 12 0 14 #dcdcdc #404040 0;
+#X obj 25 98 hsl 177 37 0 127 0 1 empty empty Carrier\ Freq -2 -8 0 10 #fcfcfc #000000 #000000 3950 1;
 #X obj 25 159 mtof;
 #X msg 25 183 \$1 10;
 #X obj 25 208 line~;
-#X obj 222 98 hsl 177 37 10 1000 1 1 empty empty Modulator\ Freq -2
--8 0 10 #fcfcfc #000000 #000000 4350 1;
+#X obj 222 98 hsl 177 37 10 1000 1 1 empty empty Modulator\ Freq -2 -8 0 10 #fcfcfc #000000 #000000 4350 1;
 #X msg 222 160 \$1 10;
 #X obj 222 184 line~;
 #X obj 222 209 osc~;
-#X obj 417 98 hsl 177 37 0.001 10000 1 1 empty empty Modulator\ Depth
--2 -8 0 10 #fcfcfc #000000 #000000 13050 1;
+#X obj 417 98 hsl 177 37 0.001 10000 1 1 empty empty Modulator\ Depth -2 -8 0 10 #fcfcfc #000000 #000000 13050 1;
 #X msg 417 160 \$1 10;
 #X obj 417 184 line~;
 #X obj 222 271 *~;
 #X text 252 270 scale modulating signal to be +/- frequency depth;
 #X obj 25 343 +~;
-#X text 65 343 Adding signals gives +/- depth in Hz around the carrier
-frequency \, like a vibrato, f 28;
+#X text 65 343 Adding signals gives +/- depth in Hz around the carrier frequency \, like a vibrato, f 28;
 #X obj 25 442 osc~;
 #X obj 25 471 output~;
-#X text 21 36 Make a simple FM abstraction from the code in the previous
-example, f 112;
+#X text 21 36 Make a simple FM abstraction from the code in the previous example, f 112;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
@@ -146,35 +118,23 @@ example, f 112;
 #X connect 14 0 16 0;
 #X connect 16 0 17 0;
 #X restore 24 220 pd FM Synthesis;
-#X obj 383 50 cnv 15 308 25 empty empty 5.4:\ A\ MIDI\ FM\ Synth 20
-12 0 14 #dcdcdc #404040 0;
-#N canvas -164 25 1186 773.062 Monophonic 1;
-#X obj 2 7 cnv 15 1113 25 empty empty Monophonic\ FM\ Synth 20 12 0
-14 #dcdcdc #404040 0;
-#X obj 542 127 hsl 107 37 0.01 100 1 1 empty empty Modulator\ Ratio
--2 -8 0 10 #fcfcfc #000000 #000000 4450 1;
-#X obj 674 127 hsl 107 37 0.001 10000 1 1 empty empty Modulator\ Depth
--2 -8 0 10 #fcfcfc #000000 #000000 7400 1;
+#X obj 383 50 cnv 15 308 25 empty empty 5.4:\ A\ MIDI\ FM\ Synth 20 12 0 14 #dcdcdc #404040 0;
+#N canvas 357 -911 1186 773 Monophonic 0;
+#X obj 2 7 cnv 15 1113 25 empty empty Monophonic\ FM\ Synth 20 12 0 14 #dcdcdc #404040 0;
+#X obj 542 127 hsl 107 37 0.01 100 1 1 empty empty Modulator\ Ratio -2 -8 0 10 #fcfcfc #000000 #000000 4450 1;
+#X obj 674 127 hsl 107 37 0.001 10000 1 1 empty empty Modulator\ Depth -2 -8 0 10 #fcfcfc #000000 #000000 7400 1;
 #X obj 649 709 output~;
-#X obj 809 127 hsl 107 37 10 1000 1 1 empty empty Attack -2 -8 0 10
-#fcfcfc #000000 #000000 1200 1;
-#X obj 946 127 hsl 103 37 0.001 10000 1 1 empty empty Release -2 -8
-0 10 #fcfcfc #000000 #000000 8900 1;
+#X obj 809 127 hsl 107 37 10 1000 1 1 empty empty Attack -2 -8 0 10 #fcfcfc #000000 #000000 1200 1;
+#X obj 946 127 hsl 103 37 0.001 10000 1 1 empty empty Release -2 -8 0 10 #fcfcfc #000000 #000000 8900 1;
 #X obj 447 115 notein;
 #X obj 447 144 stripnote;
-#X text 21 36 Make a playable monophonic synth using the library version
-of our new abstraction. This time we get our carrier frequency from
-[notein] and to keep the tone consistent for any note \, the modulator
-will be a multiple of the carrier., f 112;
+#X text 21 36 Make a playable monophonic synth using the library version of our new abstraction. This time we get our carrier frequency from [notein] and to keep the tone consistent for any note \, the modulator will be a multiple of the carrier., f 112;
 #X text 21 124 2 - create [simpleFM~] and [ar~] abstractions;
-#X text 21 153 3 - multiply frequency by modulator ratio (we need a
-value if either note changes), f 45;
+#X text 21 153 3 - multiply frequency by modulator ratio (we need a value if either note changes), f 45;
 #X text 21 198 4- connect [simpleFM~] with relevant values;
-#X text 21 227 5 - split the volume value into a triggered bang and
-float, f 45;
+#X text 21 227 5 - split the volume value into a triggered bang and float, f 45;
 #X text 21 272 6 - connect [ar~];
-#X text 21 301 7 - use signal rate multiply objects to scale the FM
-signal by the volume and envelope, f 46;
+#X text 21 301 7 - use signal rate multiply objects to scale the FM signal by the volume and envelope, f 46;
 #X text 21 346 8 - test!;
 #X text 21 96 1 - convert MIDI to freq / vol;
 #X obj 448 466 output~;
@@ -191,13 +151,9 @@ signal by the volume and envelope, f 46;
 #X connect 18 0 19 0;
 #X connect 19 0 17 0;
 #X restore 403 80 pd Monophonic FM Synth;
-#X obj 383 121 cnv 15 308 25 empty empty 5.5:\ FMvoiceAR~ 20 12 0 14
-#dcdcdc #404040 0;
+#X obj 383 121 cnv 15 308 25 empty empty 5.5:\ FMvoiceAR~ 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 495 25 317 137 Another 0;
 #X obj 5 112 FMvoiceAR~;
-#X obj 4 5 cnv 15 308 25 empty empty Another\ Abstraction! 20 12 0
-14 #dcdcdc #404040 0;
-#X text 5 39 Let's talk through how what we just did becomes the abstraction
-below. In the next lab \, we'll use this to get beyond single-voice
-synths., f 43;
+#X obj 4 5 cnv 15 308 25 empty empty Another\ Abstraction! 20 12 0 14 #dcdcdc #404040 0;
+#X text 5 39 Let's talk through how what we just did becomes the abstraction below. In the next lab \, we'll use this to get beyond single-voice synths., f 43;
 #X restore 403 152 pd Another Abstraction!;

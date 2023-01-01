@@ -1,0 +1,8 @@
+#N canvas 133 57 514 399 12;
+#X obj 2 7 cnv 15 500 25 empty empty 6.6:\ For\ Next\ Week... 20 12 0 14 #dcdcdc #404040 0;
+#X text 48 85 What techniques do you like the sound of \, what would you like to explore?;
+#X text 48 135 What patches have you made in the labs that you can build upon?;
+#X text 48 185 How will you create a range of sounds for your patch?;
+#X text 18 45 Have a think about what your own patches will look like:;
+#X text 18 265 For next week's milestone test \, see if you can sketch out something that illustrates what your patch might look like. This could be the user interface \, or a block diagram of components or modules.;
+#X text 18 335 Next week \, you'll have to present an idea for your patch \, along with any sketches or other materials you've come up with so far.;
