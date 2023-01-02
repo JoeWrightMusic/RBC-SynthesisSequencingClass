@@ -1,6 +1,7 @@
 #N canvas 49 25 777 218 12;
-#X obj 5 4 cnv 15 767 40 empty empty Lab\ 10\ -\ Recording\ -\ Randomness\ -\ MIDI\ out 20 12 0 20 #e0e0e0 #404040 0;
-#X obj 5 51 cnv 15 253 29 empty empty 10.1\ -\ Record 20 12 0 14 #dcdcdc #404040 0;
+#X declare -path ./Dependencies;
+#X obj 5 4 cnv 15 767 40 empty empty Recording\ -\ Randomness\ -\ MIDI\ out 20 12 0 20 #e0e0e0 #404040 0;
+#X obj 5 51 cnv 15 253 29 empty empty Record 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 51 25 545 375 record 0;
 #X obj 2 3 cnv 15 539 41 empty empty 10.1\ -\ Record 20 12 0 14 #dcdcdc #404040 0;
 #X obj 9 316 output~;
@@ -51,7 +52,7 @@
 #X connect 10 0 3 0;
 #X connect 10 1 4 0;
 #X restore 5 86 pd record sounds in Pd;
-#X obj 5 123 cnv 15 313 28 empty empty 10.2\ -\ Random\ notes\ within\ a\ scale 20 12 0 14 #dcdcdc #404040 0;
+#X obj 5 123 cnv 15 313 28 empty empty Random\ notes\ within\ a\ scale 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 143 75 936 587 random 0;
 #X obj 132 75 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 132 159 random 7;
@@ -946,7 +947,7 @@
 #X restore 507 89 pd HumaniseHiHat;
 #X text 8 41 This is a (far from complete) selection of ways that you can apply randomness to synthesis/sequencing in Pd...;
 #X restore 358 161 pd more randomness examples;
-#X obj 359 51 cnv 15 313 28 empty empty 10.3\ -\ Output\ Random\ MIDI\ notes 20 12 0 14 #dcdcdc #404040 0;
+#X obj 359 51 cnv 15 313 28 empty empty Output\ Random\ MIDI\ notes 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 612 25 769 296 output 1;
 #X obj 2 3 cnv 15 313 28 empty empty 10.3\ -\ Output\ Random\ MIDI\ notes 20 12 0 14 #dcdcdc #404040 0;
 #N canvas 164 25 945 692 playRandomNotes 0;
@@ -1040,4 +1041,5 @@
 #X connect 14 0 2 1;
 #X connect 15 0 2 2;
 #X restore 359 85 pd output random MIDI;
-#X obj 358 121 cnv 15 313 28 empty empty 10.4\ -\ More\ Random\ Examples 20 12 0 14 #dcdcdc #404040 0;
+#X obj 358 121 cnv 15 313 28 empty empty More\ Random\ Examples 20 12 0 14 #dcdcdc #404040 0;
+#X obj 558 7 declare -path ./Dependencies;

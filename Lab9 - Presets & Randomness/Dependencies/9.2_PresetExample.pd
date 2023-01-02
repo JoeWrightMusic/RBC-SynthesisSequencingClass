@@ -1,0 +1,5 @@
+#N canvas 662 -950 802 681 12;
+#X obj 2 3 cnv 15 795 24 empty empty 9.2:\ Preset\ Example 20 12 0 14 #dcdcdc #404040 0;
+#X obj 329 39 8.3PatchWithPresets;
+#X text 22 39 Here's something like the finishing point from last week. Presets have been added in the same way as the 9.1 example worked., f 42;
+#X text 22 109 Can you open up the patch and see how the pattern transfers over to an actual patch?, f 42;
