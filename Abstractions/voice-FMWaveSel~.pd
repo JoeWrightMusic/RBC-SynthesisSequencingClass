@@ -13,7 +13,7 @@
 #X obj 320 109 s \$0-depth;
 #X obj 212 316 r \$0-depth;
 #X obj 15 110 unpack 0 0;
-#X obj 190 460 adsr~;
+#X obj 190 460 adsr~, f 10;
 #X obj 408 78 inlet;
 #X text 407 58 A;
 #X obj 493 78 inlet;

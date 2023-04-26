@@ -1,4 +1,11 @@
-#N canvas 252 94 800 478 12;
+#N canvas 12 25 797 847 12;
 #X obj 6 74 stepper;
 #X obj 2 2 cnv 15 420 24 empty empty 5.2:\ Make\ Stepper\ &\ Sequencer\ Abstraction 20 12 0 14 #dcdcdc #404040 0;
 #X text 6 34 Open this up to take a look \, it's a reusable version of the previous examples stepper \, lets copy it!;
+#X obj 53 169 9amFri.stepper;
+#X obj 53 293 seq;
+#X obj 53 365 simpleHat~;
+#X obj 53 389 output~;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;

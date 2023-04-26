@@ -1,4 +1,4 @@
-#N canvas 469 159 772 579 12;
+#N canvas 219 51 772 579 12;
 #X obj 166 278 osc~;
 #X obj 9 29 vradio 25 0 0 4 \$0-waveSel \$0-setWave empty 0 -8 0 10 #ffffff #000000 #000000 0;
 #X text 35 31 SINE;

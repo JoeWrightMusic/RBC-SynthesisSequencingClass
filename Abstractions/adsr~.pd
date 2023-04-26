@@ -1,4 +1,4 @@
-#N canvas 275 25 1108 741 12;
+#N canvas 476 -1055 1108 741 12;
 #X obj 82 31 inlet;
 #X obj 521 37 inlet;
 #X obj 606 37 inlet;
@@ -63,6 +63,7 @@
 #X text 785 9 5 -R;
 #X text 634 661 OUTPUT: ADSR signal;
 #X text 10 715 OUTLETS: 1 - adsr signal;
+#X obj 454 36 loadbang;
 #X connect 0 0 52 0;
 #X connect 1 0 45 0;
 #X connect 2 0 46 0;
@@ -96,3 +97,7 @@
 #X connect 53 0 22 0;
 #X connect 53 1 24 0;
 #X connect 55 0 15 0;
+#X connect 64 0 45 0;
+#X connect 64 0 46 0;
+#X connect 64 0 47 0;
+#X connect 64 0 48 0;

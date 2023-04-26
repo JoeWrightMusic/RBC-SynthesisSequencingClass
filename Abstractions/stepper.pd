@@ -1,4 +1,4 @@
-#N canvas 521 125 538 369 12;
+#N canvas 0 76 538 369 12;
 #X obj 16 34 tgl 41 0 \$0-start empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X text 62 34 BPM;
 #X floatatom 87 34 5 0 0 0 - - \$0-bpm 0;
