@@ -25,7 +25,7 @@
 #X array lop 1000 float 0;
 #X coords 0 1 999 -1 200 100 1;
 #X restore 318 439 graph;
-#X obj 180 433 tgl 15 1 empty empty empty 0 -6 0 10 #fcfcfc #000000 #000000 1 1;
+#X obj 180 433 tgl 15 1 empty empty empty 0 -6 0 10 #fcfcfc #000000 #000000 0 1;
 #X text 296 526 -1;
 #X text 302 481 0;
 #X text 302 435 1;
@@ -35,7 +35,7 @@
 #X obj 22 243 noise~;
 #X obj 22 371 lop~;
 #X obj 43 321 mtof;
-#X obj 46 270 hsl 128 15 0 127 0 1 empty empty empty -2 -6 0 8 #fcfcfc #000000 #000000 5950 1;
+#X obj 46 270 hsl 128 15 0 127 0 1 empty empty empty -2 -6 0 8 #fcfcfc #000000 #000000 5286 1;
 #X text 180 270 Slider sends MIDI note values (0-127).;
 #X text 180 241 Generate white noise.;
 #X text 179 369 [lop~] allows frequencies below the cutoff frequency to pass and reduces or eliminates frequencies above it.;
@@ -86,7 +86,7 @@
 #X array hip 1000 float 0;
 #X coords 0 1 999 -1 200 100 1;
 #X restore 307 431 graph;
-#X obj 187 418 tgl 15 1 empty empty empty 0 -6 0 10 #fcfcfc #000000 #000000 1 1;
+#X obj 187 418 tgl 15 1 empty empty empty 0 -6 0 10 #fcfcfc #000000 #000000 0 1;
 #X text 285 518 -1;
 #X text 291 473 0;
 #X text 291 427 1;
@@ -136,7 +136,7 @@
 #X connect 34 0 26 0;
 #X restore 11 93 pd filt 2;
 #X text 83 93 High Pass;
-#N canvas 391 124 558 718 filt 0;
+#N canvas 391 124 558 718 filt 1;
 #X obj 10 43 cnv 15 380 180 empty empty Graphical\ Depiction\ of\ a\ Band\ Pass\ Filter 20 12 0 14 #c8d4bc #404040 0;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array bp 1000 float 0;
@@ -160,7 +160,7 @@
 #X obj 10 7 cnv 15 170 25 empty empty Band\ Pass\ Filter 20 12 0 14 #e0e0e0 #404040 0;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array bp_display 7 float 5;
-#A 0 -0.9857 -0.9857 -0.9857 1.61426 -0.985712 -0.985712 -0.985704;
+#A 0 -0.9857 -0.73 0.0500001 2 0.2 -0.985712 -0.985704;
 #X coords 0 2 6 -1 200 100 1;
 #X restore 30 86 graph;
 #X text 75 188 Frequency in Hz;
