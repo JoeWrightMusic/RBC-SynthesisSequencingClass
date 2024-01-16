@@ -8,7 +8,7 @@
 #X obj 335 274 - 0.01;
 #X msg 335 296 \$1 10;
 #X obj 335 317 line~;
-#X obj 69 51 tgl 31 0 \$0-mute \$0-setMute MUTE 3 15 0 10 #ffffff #000000 #000000 0 1;
+#X obj 67 51 tgl 31 0 \$0-mute \$0-setMute MUTE 3 15 0 10 #ffffff #000000 #000000 0 1;
 #X msg 454 350 \$1 10;
 #X obj 454 371 line~;
 #X obj 447 252 r \$0-mute;
@@ -30,7 +30,7 @@
 #X msg 503 109 1;
 #X obj 38 127 r pd;
 #X obj 38 151 route dsp;
-#X obj 36 51 tgl 31 0 \$0-fromDspTog \$0-toDspTog DSP 7 15 0 10 #000000 #ffffff #ffffff 0 1;
+#X obj 35 51 tgl 31 0 \$0-fromDspTog \$0-toDspTog DSP 7 15 0 10 #000000 #ffffff #ffffff 0 1;
 #X obj 38 252 change;
 #X obj 38 297 s pd;
 #X msg 38 275 dsp \$1;
