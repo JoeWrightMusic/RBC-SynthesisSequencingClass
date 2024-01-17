@@ -1,7 +1,6 @@
 #N canvas 199 56 1073 736 12;
 #X obj 11 11 cnv 15 350 25 empty empty 3.7:\ Make\ a\ Waveselect\ Abstraction 20 12 0 14 #dcdcdc #404040 0;
 #X obj 659 323 osc~;
-#X obj 659 470 output~;
 #X obj 482 276 vradio 25 1 0 4 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0;
 #X text 510 280 sine;
 #X text 510 305 triangle;
@@ -24,4 +23,5 @@
 #X text 16 293 4 - Create the on/off logic that takes the radio control's output and 'selects' the corresponding wave.;
 #X text 17 335 5 - Change [output~] to [outlet~] \, copy to a new file and save.;
 #X msg 813 204 0;
-#X connect 13 0 24 0;
+#X obj 654 474 stereoOut~;
+#X connect 12 0 23 0;

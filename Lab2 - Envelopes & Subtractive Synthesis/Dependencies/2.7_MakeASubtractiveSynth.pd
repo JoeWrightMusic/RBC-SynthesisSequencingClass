@@ -11,4 +11,4 @@
 #X text 5 51 Have a play around with what we've covered in this Lab \, and see what percussive sounds you can create from white noise ([noise~]). Use the 2.4 subpatch example to help you if you need a template for putting things together., f 116;
 #X text 277 160 [ar~] <- this is in the abstraction library, f 26;
 #X text 277 198 [arUI~] <- visual version of ar~ from the library, f 26;
-#X text 460 135 [output~];
+#X text 460 135 [stereoOut~];
