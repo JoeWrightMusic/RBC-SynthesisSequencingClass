@@ -13,8 +13,8 @@
 #X text 22 296 3 - convert note numbers to frequency. Which object did we use for this in previous labs?;
 #X text 22 341 4 - use [waveSelect~] \, [arUI~] and [output~] to create a basic MIDI synth. We need to use the velocity value to trigger a volume level for scaling and a bang for the AR abstraction;
 #X text 22 76 Before we get patching \, let's have a quick look at the [notein] helpfile. You'll see that there are lot's of objects for different types of MIDI input/output. We'll mostly use [notein] in the labs \, but you may want to explore [bendin] and [ctlin] for your own patches.;
-#X text 22 411;
+#X text 22 411 comment;
 #X text 22 167 For now \, we can use [stripnote] to remove note-off messages from [notein] \, letting us focus on the note-ons only. Do the following:;
-#X connect 2 0 4 0;
-#X connect 2 1 3 0;
-#X connect 2 2 5 0;
+#X connect 2 0 4 0 empty;
+#X connect 2 1 3 0 empty;
+#X connect 2 2 5 0 empty;

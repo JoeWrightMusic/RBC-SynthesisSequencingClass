@@ -1,10 +1,10 @@
 #N canvas -1080 -650 1080 825 12;
 #X obj 2 7 cnv 15 1113 25 empty empty 6.4:\ Monophonic\ FM\ Synth 20 12 0 14 #dcdcdc #404040 0;
-#X obj 542 127 hsl 107 37 0.1 1000 1 1 empty empty Modulator\ Ratio -2 -8 0 10 #fcfcfc #000000 #000000 1750 1;
-#X obj 674 127 hsl 107 37 0.1 10000 1 1 empty empty Modulator\ Depth -2 -8 0 10 #fcfcfc #000000 #000000 6120 1;
+#X obj 542 127 hsl 107 37 0.1 1000 1 1 empty empty Modulator\ Ratio -2 -8 0 10 #fcfcfc #000000 #000000 8926 1;
+#X obj 674 127 hsl 107 37 0.1 10000 1 1 empty empty Modulator\ Depth -2 -8 0 10 #fcfcfc #000000 #000000 10600 1;
 #X obj 484 667 output~;
-#X obj 809 127 hsl 107 37 10 1000 1 1 empty empty Attack -2 -8 0 10 #fcfcfc #000000 #000000 1200 1;
-#X obj 946 127 hsl 103 37 0.001 10000 1 1 empty empty Release -2 -8 0 10 #fcfcfc #000000 #000000 8900 1;
+#X obj 809 127 hsl 107 37 10 1000 1 1 empty empty Attack -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 946 127 hsl 103 37 0.001 10000 1 1 empty empty Release -2 -8 0 10 #fcfcfc #000000 #000000 8731 1;
 #X obj 447 115 notein;
 #X obj 447 144 stripnote;
 #X text 21 36 Make a playable monophonic synth using the library version of our new abstraction. This time we get our carrier frequency from [notein] and to keep the tone consistent for any note \, the modulator will be a multiple of the carrier., f 112;
@@ -13,9 +13,8 @@
 #X text 21 248 4- connect [simpleFM~] with relevant values;
 #X text 21 277 5 - split the velocity value into a triggered bang and float., f 45;
 #X text 21 322 6 - connect the bang to [ar~];
-#X text 21 352 comment, f 46;
 #X text 21 106 1 - convert MIDI to freq / vol. We've used [mtof] for frequency before. We cam create a volume value from velocity. Divide by 127 to get a 0-1 range \, then square it for a more natural volume curve.;
-#X text 21 351 7 - use signal rate multiply objects to scale the FM signal by the volume and envelope, f 46;
+#X text 21 352 7 - use signal rate multiply objects to scale the FM signal by the volume and envelope, f 46;
 #X text 21 396 8 - test!;
-#X connect 6 0 7 0;
-#X connect 6 1 7 1;
+#X connect 6 0 7 0 empty;
+#X connect 6 1 7 1 empty;
