@@ -2,7 +2,6 @@
 #X obj 2 7 cnv 15 1113 25 empty empty 7.2:\ Polyphonic\ FM\ Synth 20 12 0 14 #dcdcdc #404040 0;
 #X obj 542 77 hsl 107 37 0.1 1000 1 1 empty empty Modulator\ Ratio -2 -8 0 10 #fcfcfc #000000 #000000 950 1;
 #X obj 674 77 hsl 107 37 0.1 10000 1 1 empty empty Modulator\ Depth -2 -8 0 10 #fcfcfc #000000 #000000 2620 1;
-#X obj 465 635 output~;
 #X obj 809 77 hsl 107 37 10 1000 1 1 empty empty Attack -2 -8 0 10 #fcfcfc #000000 #000000 4200 1;
 #X obj 946 77 hsl 103 37 0.001 10000 1 1 empty empty Release -2 -8 0 10 #fcfcfc #000000 #000000 9800 1;
 #X obj 447 65 notein;
@@ -17,5 +16,6 @@
 #X text 22 216 i.e.;
 #X obj 65 215 clone voice-FMAR~ 16;
 #X text 21 36 Let's take the abstraction from last week and use it in a polyphonic synth..., f 112;
-#X connect 6 0 9 0;
-#X connect 6 1 9 1;
+#X obj 448 559 stereoOut~;
+#X connect 5 0 8 0 empty;
+#X connect 5 1 8 1 empty;

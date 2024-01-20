@@ -24,6 +24,7 @@
 #X text 379 36 RELEASE;
 #X text 4 5 INLETS: 1 - trigger \, 2 - attack \, 3 - release;
 #X text 4 390 OUTLETS: 1 - envelope~ \, 2 - envelope (control rate);
+#X obj 149 458;
 #X connect 0 0 4 0 empty;
 #X connect 0 0 18 0 empty;
 #X connect 1 0 4 0 empty;

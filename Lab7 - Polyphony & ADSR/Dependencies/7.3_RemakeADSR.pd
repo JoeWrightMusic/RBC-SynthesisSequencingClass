@@ -1,7 +1,6 @@
 #N canvas 81 25 1152 847 12;
 #X obj 11 6 cnv 15 1100 40 empty empty 7.3:\ Remake\ the\ ADSR\ Abstraction 20 12 0 20 #e0e0e0 #404040 0;
 #X text 30 54 We'll talk through the abstraction in the Lab \, but you can also alt-click to open it here:;
-#X obj 30 99 adsr~, f 15;
 #X text 30 128 Now for practice \, lets recreate it;
 #X obj 576 92 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X text 564 66 trigger;
@@ -13,4 +12,5 @@
 #X floatatom 911 91 5 0 0 0 - - - 0;
 #X floatatom 1000 91 5 0 0 0 - - - 0;
 #X floatatom 1089 91 5 0 0 0 - - - 0;
-#X obj 921 679 scope~;
+#X obj 921 679 scope~ 130 130 256 3 128 -1 1 0 0 0 0 205 229 232 74 79 77 96 98 102 0 empty;
+#X obj 30 99 adsrEnv~, f 15;
