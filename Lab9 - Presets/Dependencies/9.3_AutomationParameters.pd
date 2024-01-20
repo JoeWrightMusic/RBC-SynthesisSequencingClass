@@ -1,0 +1,5 @@
+#N canvas 827 239 527 327 12;
+#X obj 19 19 cnv 15 795 24 empty empty 9.3:\ Automation\ Parameters 20 12 0 14 #dcdcdc #404040 0;
+#X text 39 55 We can hook into the automation capabilities of a host DAW in plug data \, unlocking a tonne of creative possibilities!, f 42;
+#X obj 339 59 PatchWithAutomation;
+#X text 39 118 We can do this by opening the 'automation panel' on the right hand side and creating new parameters. See how it works iin this final version of our FM patch..., f 31;
