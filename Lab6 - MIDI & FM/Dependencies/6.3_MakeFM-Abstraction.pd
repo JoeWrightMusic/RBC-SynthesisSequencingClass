@@ -1,14 +1,14 @@
 #N canvas 21 25 1385 786 12;
 #X obj 2 7 cnv 15 886 25 empty empty 6.3:\ Make\ a\ basic\ FM\ synth\ Abstraction 20 12 0 14 #dcdcdc #404040 0;
-#X obj 25 98 hsl 177 37 0 127 0 1 empty empty Carrier\ Freq -2 -8 0 10 #fcfcfc #000000 #000000 6034 1;
+#X obj 25 98 hsl 177 37 0 127 0 1 empty empty Carrier\ Freq -2 -8 0 10 #fcfcfc #000000 #000000 8609 1;
 #X obj 25 159 mtof;
 #X msg 25 183 \$1 10;
 #X obj 25 208 line~;
-#X obj 222 98 hsl 177 37 10 1000 1 1 empty empty Modulator\ Freq -2 -8 0 10 #fcfcfc #000000 #000000 7952 1;
+#X obj 222 98 hsl 177 37 10 1000 1 1 empty empty Modulator\ Freq -2 -8 0 10 #fcfcfc #000000 #000000 10719 1;
 #X msg 222 160 \$1 10;
 #X obj 222 184 line~;
 #X obj 222 209 osc~;
-#X obj 417 98 hsl 177 37 0.001 10000 1 1 empty empty Modulator\ Depth -2 -8 0 10 #fcfcfc #000000 #000000 14592 1;
+#X obj 417 98 hsl 177 37 0.001 10000 1 1 empty empty Modulator\ Depth -2 -8 0 10 #fcfcfc #000000 #000000 15116 1;
 #X msg 417 160 \$1 10;
 #X obj 417 184 line~;
 #X obj 222 271 *~;
