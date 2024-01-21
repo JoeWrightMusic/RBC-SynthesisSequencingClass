@@ -15,5 +15,3 @@
 #X text 13 720 1 - If you're using Plug Data outside of the DAW \, you might want to set up Pd's audio inputs and outputs. In the top menu \, find the menu icon and go to settings.;
 #X text 13 770 2 - Turn on DSP (Digital Signal Processing). Without this \, Pd's sound-engine is turned off \, and no sound or audio-rate data will flow through the patch. You can do this by clicking the 'power button' icon in the bottom right, f 58;
 #X obj 457 46 premadePatch;
-#X connect 15 0 11 0;
-#X connect 15 0 11 1;

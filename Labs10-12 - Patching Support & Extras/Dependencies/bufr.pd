@@ -1,12 +1,10 @@
 #N canvas 32 25 1084 296 12;
-#X obj 161 116 cnv 10 167 12 empty empty sample\ ID 117 4 0 8 #e0e0e0
-#404040 0;
-#X obj 8 6 cnv 15 321 19 empty empty Sample 3 5 0 14 #e0e0e0 #404040
-0;
 #N canvas 32 25 450 278 (subpatch) 0;
-#X array \$0-array 264600 float 2 black black;
+#X array \$0-array 264600 float 2;
 #X coords 0 1 264600 -1 319 89 1;
 #X restore 9 26 graph;
+#X obj 161 116 cnv 10 167 12 empty empty sample\ ID 117 4 0 8 #e0e0e0 #404040 0;
+#X obj 8 6 cnv 15 321 19 empty empty Bufr 3 5 0 14 #e0e0e0 #404040 0;
 #X obj 537 117 openpanel;
 #X obj 537 198 soundfiler;
 #X obj 667 68 loadbang;
@@ -15,14 +13,11 @@
 #X obj 537 86 t b b;
 #X obj 537 220 outlet;
 #X obj 787 163 outlet;
-#X obj 311 9 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 310 7 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 667 130 symbol \$0-array;
 #X obj 787 130 f \$0;
-#X obj 9 116 cnv 10 200 12 empty empty size\ in\ samps 0 4 0 8 #e0e0e0
-#404040 0;
-#X obj 234 11 cnv 10 75 13 empty empty open\ sound\ file\ >> -15 4
-0 8 #e0e0e0 #404040 0;
+#X obj 9 116 cnv 10 200 12 empty empty size\ in\ samps 0 4 0 8 #e0e0e0 #404040 0;
+#X obj 210 11 cnv 10 58 11 empty empty click\ to\ open\ a\ sound\ file\ >>> 0 4 0 8 #e0e0e0 #404040 0;
 #X connect 3 0 7 0;
 #X connect 4 0 9 0;
 #X connect 5 0 12 0;
@@ -35,4 +30,4 @@
 #X connect 11 0 8 0;
 #X connect 12 0 7 1;
 #X connect 13 0 10 0;
-#X coords 0 -1 1 1 323 127 1 7 3;
+#X coords 0 -1 1 1 323 127 1 6 3;
