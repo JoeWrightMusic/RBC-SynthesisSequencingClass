@@ -6,5 +6,5 @@
 #X text 17 241 4 - connect the hslider to an [mtof] object.;
 #X text 17 271 5 - connect the output of [mtof] to the first inlet of [osc~];
 #X text 17 131 2 - create AR envelope using the [arUI~] abstraction and connect the [osc~] object to it. You may want to open the AR abstraction to check which of the inlets accepts the audio signal.;
-#X text 17 311 6 - create an [output~] abstraction \, connect the output of [arUI~] so that audio is sent to the left and right channels;
 #X text 17 360 7 - make a sound!;
+#X text 17 311 6 - create an [stereoOut~] abstraction \, connect the output of [arUI~] so that audio is sent to the left and right channels;
