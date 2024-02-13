@@ -1,0 +1,7 @@
+#N canvas 827 239 527 327 12;
+#X obj 19 19 noise~;
+#X obj 99 19 scope~ 461 401 256 3 128 -1 1 0 0 0 0 90 90 90 227 223 217 150 142 130 0 empty;
+#X obj 19 479 stereoOut~;
+#X connect 0 0 1 0 empty;
+#X connect 0 0 2 0 32.................bC.........2.........fa....;
+#X connect 0 0 2 1 32.................zF...DD....sA...AA...fa....;
