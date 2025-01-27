@@ -16,3 +16,5 @@
 #X text 29 127 IMPORTANT!! - If for whatever reason \, it's easier to work wiht a different coloured background \, find the settings menu in the top bar or by pressing Cmd + \, (mac) or Ctl + \, (windows) and look at the different themes you can choose. Ask for help if you need to!;
 #X text 31 249 Settings > Paths \, then click on "+ Add search path";
 #X text 29 276 Then click 'New..." \, and navigate to the Abstractions folder. Then Click choose to confirm. You're all set! Again \, ask for help if you need to!;
+#X obj 281 379 cnv 19 359 64 empty empty YOUTUBE\ PLAYLIST\ LINK 50 12 0 24 #c5ffd1 #404040 0;
+#X text 311 404 https://www.youtube.com/playlist?list=PL9FQpEqFKEDuhvl_7oaQTZSmI9y3YvGS5, f 43;

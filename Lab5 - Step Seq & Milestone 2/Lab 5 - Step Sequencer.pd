@@ -6,3 +6,5 @@
 #X obj 22 79 5.2_StepperAbstraction;
 #X obj 205 53 5.3_SequencerAbstraction;
 #X obj 205 77 5.4_PuttingItTogether;
+#X obj 22 134 cnv 19 359 85 empty empty YOUTUBE\ PLAYLIST\ LINK 50 12 0 24 #c5ffd1 #404040 0;
+#X text 75 161 https://www.youtube.com/playlist?list=PL9FQpEqFKEDuhvl_7oaQTZSmI9y3YvGS5, f 43;

@@ -5,3 +5,5 @@
 #X obj 52 54 8.1_GUIs;
 #X obj 282 53 8.2_MakingUIs;
 #X obj 525 53 8.3_PatchModChallenge;
+#X obj 52 112 cnv 19 359 85 empty empty YOUTUBE\ PLAYLIST\ LINK 50 12 0 24 #c5ffd1 #404040 0;
+#X text 105 139 https://www.youtube.com/playlist?list=PL9FQpEqFKEDuhvl_7oaQTZSmI9y3YvGS5, f 43;

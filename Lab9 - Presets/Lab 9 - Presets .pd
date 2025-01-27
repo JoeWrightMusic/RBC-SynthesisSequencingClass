@@ -5,3 +5,5 @@
 #X obj 52 54 9.1_CreatingPresets;
 #X obj 282 53 9.2_PresetExample;
 #X obj 519 54 9.3_AutomationParameters;
+#X obj 52 99 cnv 19 359 85 empty empty YOUTUBE\ PLAYLIST\ LINK 50 12 0 24 #c5ffd1 #404040 0;
+#X text 105 126 https://www.youtube.com/playlist?list=PL9FQpEqFKEDuhvl_7oaQTZSmI9y3YvGS5, f 43;

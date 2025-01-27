@@ -6,3 +6,5 @@
 #X obj 205 53 4.3_FancyAM;
 #X obj 205 77 4.4_AMAbstraction;
 #X obj 379 4 declare -path ./Dependencies;
+#X obj 22 120 cnv 19 359 85 empty empty YOUTUBE\ PLAYLIST\ LINK 50 12 0 24 #c5ffd1 #404040 0;
+#X text 75 147 https://www.youtube.com/playlist?list=PL9FQpEqFKEDuhvl_7oaQTZSmI9y3YvGS5, f 43;

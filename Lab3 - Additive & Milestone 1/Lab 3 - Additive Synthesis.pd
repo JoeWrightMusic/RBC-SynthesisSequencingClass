@@ -9,3 +9,5 @@
 #X obj 414 69 3.5_WaveformExercises;
 #X obj 414 95 3.6_WaveformSwitchExample;
 #X obj 604 69 3.7_MakeWaveSelect;
+#X obj 24 149 cnv 19 359 85 empty empty YOUTUBE\ PLAYLIST\ LINK 50 12 0 24 #c5ffd1 #404040 0;
+#X text 77 176 https://www.youtube.com/playlist?list=PL9FQpEqFKEDuhvl_7oaQTZSmI9y3YvGS5, f 43;

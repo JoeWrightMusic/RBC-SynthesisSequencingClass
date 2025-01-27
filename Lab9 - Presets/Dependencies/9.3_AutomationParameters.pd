@@ -3,3 +3,4 @@
 #X text 39 55 We can hook into the automation capabilities of a host DAW in plug data \, unlocking a tonne of creative possibilities!, f 42;
 #X obj 339 59 PatchWithAutomation;
 #X text 39 118 We can do this by opening the 'automation panel' on the right hand side and creating new parameters. See how it works iin this final version of our FM patch..., f 31;
+#X obj 560 63;
