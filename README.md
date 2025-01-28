@@ -11,3 +11,6 @@ The course content almost exclusively uses Pd Vanilla objects, and should work o
 To get started, simply download the repository and make sure that the 'Abstractions' folder is in Pd's filepath.
 
 These patches are free to use with modification, but if you find yourself using them (especially for teaching), i'd love it if you'd let me know what you manage to get out of them!
+
+2025 Lab content can also be found on YouTube here: 
+[PD25 Playlist](https://www.youtube.com/playlist?list=PL9FQpEqFKEDuhvl_7oaQTZSmI9y3YvGS5)
