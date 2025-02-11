@@ -2,7 +2,7 @@
 #X msg 11 265 0 \$1;
 #X msg 93 264 1 \$1;
 #X obj 11 168 del;
-#X obj 11 115 t b b, f 12;
+#X obj 11 119 t b b, f 12;
 #X obj 11 307 line~;
 #X obj 11 61 inlet;
 #X obj 259 60 inlet;
@@ -10,7 +10,7 @@
 #X obj 11 350 outlet~;
 #X obj 259 118 s \$0-att;
 #X obj 380 118 s \$0-rel;
-#X obj 111 133 r \$0-att;
+#X obj 123 119 r \$0-att;
 #X obj 29 205 r \$0-rel;
 #X obj 93 231 f;
 #X obj 11 229 f;
@@ -24,7 +24,6 @@
 #X text 379 36 RELEASE;
 #X text 4 5 INLETS: 1 - trigger \, 2 - attack \, 3 - release;
 #X text 4 390 OUTLETS: 1 - envelope~ \, 2 - envelope (control rate);
-#X obj 149 458;
 #X connect 0 0 4 0 empty;
 #X connect 0 0 18 0 empty;
 #X connect 1 0 4 0 empty;
